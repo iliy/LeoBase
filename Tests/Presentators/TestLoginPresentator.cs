@@ -6,7 +6,7 @@ using AppPresentators.Views;
 using AppPresentators.Presentators;
 using AppPresentators.VModels;
 
-namespace Tests
+namespace Tests.Presentators
 {
     [TestClass]
     public class TestLoginPresentator
