@@ -1,14 +1,14 @@
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\TestConsoleApp.exe.config
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\TestConsoleApp.exe
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\TestConsoleApp.pdb
-D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\AppCore.dll
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\Ninject.dll
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\Moq.dll
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\Castle.Core.dll
-D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\AppCore.pdb
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\Ninject.xml
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\Moq.xml
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\Castle.Core.xml
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\obj\Debug\TestConsoleApp.csprojResolveAssemblyReference.cache
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\obj\Debug\TestConsoleApp.exe
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\obj\Debug\TestConsoleApp.pdb
+D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\AppData.dll
+D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\AppData.pdb

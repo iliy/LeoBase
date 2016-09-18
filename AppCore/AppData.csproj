@@ -65,7 +65,6 @@
     <Compile Include="Abstract\IViolationRepository.cs" />
     <Compile Include="Abstract\IViolationTypeRepository.cs" />
     <Compile Include="Abstract\IViolatorRepository.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Entities\AddressType.cs" />
     <Compile Include="Entities\Document.cs" />
     <Compile Include="Entities\DocumentType.cs" />

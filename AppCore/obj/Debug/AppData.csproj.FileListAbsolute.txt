@@ -1,0 +1,11 @@
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.csprojResolveAssemblyReference.cache
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\AppData.dll
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\AppData.pdb
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\Castle.Core.dll
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\Moq.dll
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\Ninject.dll
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\Castle.Core.xml
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\Moq.xml
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\Ninject.xml
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.dll
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.pdb

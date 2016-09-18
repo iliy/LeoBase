@@ -1,5 +1,5 @@
-﻿using AppCore.Abstract;
-using AppCore.Infrastructure;
+﻿using AppData.Abstract;
+using AppData.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppCore
+namespace AppPresentators.Presentators.Interfaces
 {
-    public class Class1
+    public interface IPresentator
     {
+        void Run();
     }
 }

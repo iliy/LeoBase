@@ -77,9 +77,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppCore\AppCore.csproj">
-      <Project>{9e9dcf79-8b63-431b-941b-b9e68d2eaa4e}</Project>
-      <Name>AppCore</Name>
+    <ProjectReference Include="..\AppPresentators\AppPresentators.csproj">
+      <Project>{70d186e8-a3f2-411d-9329-efa43a35205c}</Project>
+      <Name>AppPresentators</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

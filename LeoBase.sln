@@ -5,11 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoBase", "LeoBase\LeoBase.csproj", "{E90ACAA6-4456-40D9-A473-038F0BBBA8A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCore", "AppCore\AppCore.csproj", "{9E9DCF79-8B63-431B-941B-B9E68D2EAA4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppData", "AppCore\AppData.csproj", "{9E9DCF79-8B63-431B-941B-B9E68D2EAA4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{EEBE8C8A-4D78-4368-98D8-D60E6BF9A429}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{9B0DD62D-5A9E-435D-91D3-6A55484B4977}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppPresentators", "AppPresentators\AppPresentators.csproj", "{70D186E8-A3F2-411D-9329-EFA43A35205C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9B0DD62D-5A9E-435D-91D3-6A55484B4977}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B0DD62D-5A9E-435D-91D3-6A55484B4977}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B0DD62D-5A9E-435D-91D3-6A55484B4977}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D186E8-A3F2-411D-9329-EFA43A35205C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D186E8-A3F2-411D-9329-EFA43A35205C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D186E8-A3F2-411D-9329-EFA43A35205C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D186E8-A3F2-411D-9329-EFA43A35205C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

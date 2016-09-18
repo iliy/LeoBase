@@ -1,5 +1,4 @@
-﻿using AppCore.Entities;
-using AppData.Entities;
+﻿using AppData.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

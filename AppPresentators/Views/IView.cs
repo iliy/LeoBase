@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppPresentators
+namespace AppPresentators.Views
 {
-    public class Class1
+    public interface IView
     {
+        void Show();
+        void Close();
     }
 }
