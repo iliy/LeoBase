@@ -1,11 +1,11 @@
-﻿using AppCore.Entities;
+﻿using AppData.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppCore.Abstract
+namespace AppData.Abstract
 {
     public interface IViolationRepository
     {

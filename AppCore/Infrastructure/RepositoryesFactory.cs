@@ -1,5 +1,5 @@
-﻿using AppCore.Abstract;
-using AppCore.Entities;
+﻿using AppData.Abstract;
+using AppData.Entities;
 using Moq;
 using Ninject;
 using System;
@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppCore.Infrastructure
+namespace AppData.Infrastructure
 {
-    public static class ComponentsFactory
+    public static class RepositoryesFactory
     {
         private static IKernel ninjectKernel = null; 
         public static void Init()
@@ -21,6 +21,9 @@ namespace AppCore.Infrastructure
 
         public static T Get<T>()
         {
+            if (!ninjectKernel.CanResolve<T>())
+                throw new ArgumentException("Has`t type!");
+
             return (T)ninjectKernel.Get<T>();
         }
 
@@ -39,9 +42,35 @@ namespace AppCore.Infrastructure
             Mock<IViolationTypeRepository> mockViolationTypeRepository = new Mock<IViolationTypeRepository>();
             Mock<IViolatorRepository> mockViolatorsRepository = new Mock<IViolatorRepository>();
             Mock<IEmployerRepository> mockEmploerRepository = new Mock<IEmployerRepository>();
+            Mock<IManagersRepository> mockManagersRepository = new Mock<IManagersRepository>();
             #endregion
 
             #region Установка Mock объектов
+            mockManagersRepository.Setup(m => m.Managers).Returns(new List<Manager>
+            {
+                new Manager
+                {
+                    Login = "admin",
+                    Password = "45166",
+                    ManagerID = 1,
+                    Role = "admin"
+                },
+                new Manager
+                {
+                    Login = "manager",
+                    Password = "45166",
+                    ManagerID = 2,
+                    Role = "manager"
+                },
+                new Manager
+                {
+                    Login = "user",
+                    Password = "45166",
+                    ManagerID = 3,
+                    Role = "user"
+                }
+            }.AsQueryable());
+
             mockEmploerRepository.Setup(e => e.Employers).Returns(new List<Employer>
             {
                 new Employer
@@ -479,6 +508,8 @@ namespace AppCore.Infrastructure
             ninjectKernel.Bind<IViolationTypeRepository>().ToConstant(mockViolationTypeRepository.Object);
             ninjectKernel.Bind<IViolatorRepository>().ToConstant(mockViolatorsRepository.Object);
             ninjectKernel.Bind<IEmployerRepository>().ToConstant(mockEmploerRepository.Object);
+            ninjectKernel.Bind<IManagersRepository>().ToConstant(mockManagersRepository.Object);
+
             ninjectKernel.Bind<string>().ToConstant("Test message");
             #endregion
         }

@@ -1,4 +1,5 @@
-﻿using AppCore.Infrastructure;
+﻿using AppCore.Abstract;
+using AppCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,20 @@ namespace TestConsoleApp
 
         Program()
         {
-            ComponentsFactory.Init();
-            string test = ComponentsFactory.Get<string>();
-            Console.WriteLine(test);
+            RepositoryesFactory.Init();
+            IUserRepository test = RepositoryesFactory.Get<IUserRepository>();
+            foreach(var user in test.Users.Where(u => u.UserTypeID == 2))
+            {
+                Console.WriteLine(string.Format("{0} {1} {2}", user.FirstName, user.SecondName, user.MiddleName));
+                var violationsRepo = RepositoryesFactory.Get<IViolationRepository>();
+                var employersRepo = RepositoryesFactory.Get<IEmployerRepository>();
+                var a = employersRepo.Employers.Where(u => u.UserID == user.UserID).Select(u => u.ViolationID);
+                var r = violationsRepo.Violations.Where(v => a.Contains(v.ViolationID));
+                foreach(var aa in r)
+                {
+                    Console.WriteLine(aa.Description);
+                }
+            }
             Console.ReadKey();
         }
     }

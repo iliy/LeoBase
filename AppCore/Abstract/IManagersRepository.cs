@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace AppData.Abstract
 {
-    public interface IPhonesRepository
+    public interface IManagersRepository
     {
-        IQueryable<Phone> Phones { get; }
+        IQueryable<Manager> Managers { get; }
     }
 }

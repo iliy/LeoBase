@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppCore.Entities
+namespace AppData.Entities
 {
     public class Violator
     {
