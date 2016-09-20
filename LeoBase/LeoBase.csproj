@@ -50,6 +50,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\MainMenu\MainMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\MainMenu\MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\MainMenu\MainMenuItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\MainMenu\MainMenuItem.Designer.cs">
+      <DependentUpon>MainMenuItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\TestComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\TestComponent.Designer.cs">
+      <DependentUpon>TestComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +83,12 @@
     <Compile Include="Infrastructure\ApplicationFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Components\MainMenu\MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\MainMenu\MainMenuItem.resx">
+      <DependentUpon>MainMenuItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
@@ -79,6 +103,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -99,6 +124,12 @@
       <Project>{70d186e8-a3f2-411d-9329-efa43a35205c}</Project>
       <Name>AppPresentators</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\No_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no_image_small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

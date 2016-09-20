@@ -8,6 +8,7 @@ using AppPresentators.Views;
 using AppPresentators.VModels;
 using AppPresentators.Infrastructure;
 using AppPresentators.Services;
+using AppPresentators.Components.MainMenu;
 
 namespace AppPresentators.Presentators
 {
@@ -34,17 +35,50 @@ namespace AppPresentators.Presentators
             }
         }
 
+        public void AddMenu()
+        {
+            var user = _mainView.Manager;
+
+            if (user == null)
+            {
+                Login();
+                return;
+            }
+
+            var perService = new PermissonsService();
+
+            var menuItems = perService.GetMenuItems(user.Role);
+
+            var mainMenu = _appFactory.GetComponent<IMainMenu>();
+
+            mainMenu.MenuItemSelected += MainMenu_MenuItemSelected;
+
+            mainMenu.AddMenuItems(menuItems);
+
+            _mainView.SetMenu(mainMenu);
+        }
+
+        private void MainMenu_MenuItemSelected(VModels.MainMenu.MenuItemModel item)
+        {
+            // Add to center, clear old center and stack
+        }
+
         public void Login()
         {
             _mainView.Manager = null;
             var loginPresentator = _appFactory.GetPresentator<ILoginPresentator, ILoginView, ILoginService>(_mainView);
+            loginPresentator.LoginComplete += (m) => LoginComplete(m);
             loginPresentator.Run();
+        }
+
+        public void LoginComplete(VManager manager)
+        {
+            _mainView.Manager = manager;
+            AddMenu();
         }
 
         public void Run()
         {
-            Login();
-
             _mainView.Show();
         }
     }

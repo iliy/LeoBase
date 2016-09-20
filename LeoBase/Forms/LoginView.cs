@@ -1,4 +1,5 @@
-﻿using AppPresentators.Views;
+﻿using AppPresentators.Components;
+using AppPresentators.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,6 +57,7 @@ namespace LeoBase.Forms
         {
             btnLogin.Click += (object s, EventArgs e) => Login();
             btnCancel.Click += (object s, EventArgs e) => Cancel();
+            
         }
 
         public void Show()

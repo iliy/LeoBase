@@ -13,5 +13,6 @@ namespace AppPresentators.Presentators.Interfaces
         IMainView MainView { get;}
         IVManager CurrentManager { get; set; }
         void Login();
+        void AddMenu();
     }
 }

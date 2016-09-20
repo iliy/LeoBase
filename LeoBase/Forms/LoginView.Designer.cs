@@ -97,7 +97,9 @@
             this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Autorizate";
             this.Load += new System.EventHandler(this.LoginView_Load);
             this.ResumeLayout(false);

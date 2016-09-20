@@ -18,7 +18,7 @@ namespace Tests.Presentators
             Mock<IMainView> mainView = new Mock<IMainView>();
             Mock<ILoginView> loginView = new Mock<ILoginView>();
             LoginPresentator target = null;
-            IVManager manager = new VManager
+            VManager manager = new VManager
             {
                 Login = "login",
                 Password = "password",
@@ -52,7 +52,7 @@ namespace Tests.Presentators
             Mock<IMainView> mainView = new Mock<IMainView>();
             Mock<ILoginView> loginView = new Mock<ILoginView>();
             LoginPresentator target = null;
-            IVManager manager = new VManager
+            VManager manager = new VManager
             {
                 Login = "login",
                 Password = "password",
@@ -86,7 +86,7 @@ namespace Tests.Presentators
             Mock<IMainView> mainView = new Mock<IMainView>();
             Mock<ILoginView> loginView = new Mock<ILoginView>();
             LoginPresentator target = null;
-            IVManager manager = new VManager
+            VManager manager = new VManager
             {
                 Login = "login",
                 Password = "password",
@@ -94,7 +94,7 @@ namespace Tests.Presentators
                 Role = "admin"
             };
 
-            mainView.SetupSet(mV => mV.Manager = It.Is<IVManager>(m => m.Equals(manager))).Verifiable();
+            mainView.SetupSet(mV => mV.Manager = It.Is<VManager>(m => m.Equals(manager))).Verifiable();
 
             service.Setup(s => s.Login(It.IsAny<string>(), It.IsAny<string>())).Returns(manager);
 
@@ -104,7 +104,8 @@ namespace Tests.Presentators
 
             target.Login("login", "password");
 
-            mainView.VerifySet(mv => mv.Manager = manager);
+            Assert.AreEqual(mainView.Object.Manager.Login, "login");
+            //mainView.VerifySet(mv => mv.Manager.Login = manager.Login);
         }
     }
 }

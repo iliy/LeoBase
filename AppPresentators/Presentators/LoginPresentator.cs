@@ -15,6 +15,8 @@ namespace AppPresentators.Presentators
         private IMainView _mainView;
         private ILoginService _service;
         private ILoginView _view;
+        
+        public event LoginComplete LoginComplete;
 
         public LoginPresentator(IMainView main, ILoginService service, ILoginView view)
         {
@@ -47,7 +49,9 @@ namespace AppPresentators.Presentators
                 _view.ShowError("Неверные имя пользователя или пароль");
             }else
             {
-                _mainView.Manager = manager;
+                //_mainView.Manager = manager;
+                //_view.Close();
+                if (LoginComplete != null) LoginComplete(manager);
                 _view.Close();
             }
         }

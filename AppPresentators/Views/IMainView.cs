@@ -1,21 +1,26 @@
-﻿using AppPresentators.VModels;
+﻿using AppPresentators.Components;
+using AppPresentators.Components.MainMenu;
+using AppPresentators.VModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AppPresentators.Views
 {
     public interface IMainView:IView
     {
         #region Models
-        IVManager Manager { get; set; }
+        VManager Manager { get; set; }
         #endregion
 
         #region Methods
         void ShowError(string errorMessage);
-
+        bool RemoveComponent(Control control);
+        void SetComponent(Control control);
+        void SetMenu(IMainMenu control);
         #endregion
 
         #region Actions

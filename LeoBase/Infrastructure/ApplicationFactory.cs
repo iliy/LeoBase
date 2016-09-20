@@ -11,6 +11,8 @@ using AppPresentators.Presentators;
 using AppPresentators.Services;
 using Ninject.Parameters;
 using LeoBase.Forms;
+using LeoBase.Components.MainMenu;
+using AppPresentators.Components.MainMenu;
 
 namespace LeoBase.Infrastructure
 {
@@ -82,8 +84,13 @@ namespace LeoBase.Infrastructure
             #endregion
 
             #region Components
-
+            _ninjectKernel.Bind<IMainMenu>().To<MainMenu>();
             #endregion
+        }
+
+        public T GetComponent<T>()
+        {
+            return _ninjectKernel.Get<T>();
         }
     }
 }

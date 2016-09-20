@@ -12,7 +12,7 @@ namespace AppPresentators.Services
 {
     public interface ILoginService
     {
-        IVManager Login(string login, string password);
+        VManager Login(string login, string password);
     }
 
     public class TestLoginService : ILoginService
@@ -28,7 +28,7 @@ namespace AppPresentators.Services
             _managersRepository = managerRepository;
         }
 
-        public IVManager Login(string login, string password)
+        public VManager Login(string login, string password)
         {
             var manager = _managersRepository.Managers.FirstOrDefault(u => u.Login.Equals(login) && u.Password.Equals(password));
             if (manager == null)

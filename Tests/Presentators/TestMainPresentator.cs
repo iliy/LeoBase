@@ -91,6 +91,10 @@ namespace Tests.Presentators
         {
             _mainPresentator.Run();
 
+            _mainPresentator.Login();
+
+            _mockMainView.Verify(m => m.Show());
+
             _mockLoginPresentator.Verify(m => m.Run());
         }
     }

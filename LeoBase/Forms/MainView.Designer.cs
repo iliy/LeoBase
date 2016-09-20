@@ -38,7 +38,15 @@
             this.lbUserID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.mainFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.topFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.menuFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.centerFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pUserINfo.SuspendLayout();
+            this.mainFlowLayoutPanel.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.centerFlowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // pUserINfo
@@ -52,7 +60,7 @@
             this.pUserINfo.Controls.Add(this.lbUserID);
             this.pUserINfo.Controls.Add(this.label2);
             this.pUserINfo.Controls.Add(this.label1);
-            this.pUserINfo.Location = new System.Drawing.Point(12, 12);
+            this.pUserINfo.Location = new System.Drawing.Point(3, 3);
             this.pUserINfo.Name = "pUserINfo";
             this.pUserINfo.Size = new System.Drawing.Size(200, 100);
             this.pUserINfo.TabIndex = 0;
@@ -134,17 +142,72 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             // 
+            // mainFlowLayoutPanel
+            // 
+            this.mainFlowLayoutPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.mainFlowLayoutPanel.Controls.Add(this.topFlowLayoutPanel);
+            this.mainFlowLayoutPanel.Controls.Add(this.flowLayoutPanel1);
+            this.mainFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.mainFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.mainFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.mainFlowLayoutPanel.Name = "mainFlowLayoutPanel";
+            this.mainFlowLayoutPanel.Size = new System.Drawing.Size(822, 441);
+            this.mainFlowLayoutPanel.TabIndex = 1;
+            // 
+            // topFlowLayoutPanel
+            // 
+            this.topFlowLayoutPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.topFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.topFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.topFlowLayoutPanel.Name = "topFlowLayoutPanel";
+            this.topFlowLayoutPanel.Size = new System.Drawing.Size(810, 58);
+            this.topFlowLayoutPanel.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.menuFlowLayoutPanel);
+            this.flowLayoutPanel1.Controls.Add(this.centerFlowLayoutPanel);
+            this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 58);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(810, 364);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // menuFlowLayoutPanel
+            // 
+            this.menuFlowLayoutPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
+            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(120, 351);
+            this.menuFlowLayoutPanel.TabIndex = 0;
+            // 
+            // centerFlowLayoutPanel
+            // 
+            this.centerFlowLayoutPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.centerFlowLayoutPanel.Controls.Add(this.pUserINfo);
+            this.centerFlowLayoutPanel.Location = new System.Drawing.Point(120, 0);
+            this.centerFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.centerFlowLayoutPanel.Name = "centerFlowLayoutPanel";
+            this.centerFlowLayoutPanel.Size = new System.Drawing.Size(672, 351);
+            this.centerFlowLayoutPanel.TabIndex = 1;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(654, 212);
-            this.Controls.Add(this.pUserINfo);
+            this.ClientSize = new System.Drawing.Size(825, 453);
+            this.Controls.Add(this.mainFlowLayoutPanel);
             this.Name = "MainView";
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainView_Load);
             this.pUserINfo.ResumeLayout(false);
             this.pUserINfo.PerformLayout();
+            this.mainFlowLayoutPanel.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.centerFlowLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -161,5 +224,10 @@
         private System.Windows.Forms.Label lbUserID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel mainFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel topFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel menuFlowLayoutPanel;
+        private System.Windows.Forms.FlowLayoutPanel centerFlowLayoutPanel;
     }
 }

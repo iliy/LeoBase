@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\MainMenu\IMainMenu.cs" />
+    <Compile Include="Components\MainMenu\IMainMenuItem.cs" />
+    <Compile Include="Components\TestComponent.cs" />
+    <Compile Include="Components\UIComponent.cs" />
     <Compile Include="Infrastructure\IApplicationFactory.cs" />
+    <Compile Include="Services\PermissonsService.cs" />
     <Compile Include="Presentators\Interfaces\ILoginPresentator.cs" />
     <Compile Include="Presentators\Interfaces\IMainPresentator.cs" />
     <Compile Include="Presentators\Interfaces\IPresentator.cs" />
@@ -51,6 +57,8 @@
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IView.cs" />
+    <Compile Include="VModels\MainMenu\MenuCommand.cs" />
+    <Compile Include="VModels\MainMenu\MenuItemModel.cs" />
     <Compile Include="VModels\VManager.cs" />
   </ItemGroup>
   <ItemGroup>
