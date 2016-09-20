@@ -1,4 +1,5 @@
 ﻿using AppData.Abstract;
+using AppData.Entities;
 using AppData.Infrastructure;
 using AppPresentators.VModels;
 using System;
@@ -16,10 +17,20 @@ namespace AppPresentators.Services
 
     public class TestLoginService : ILoginService
     {
+        private IManagersRepository _managersRepository;
+        public TestLoginService()
+        {
+            _managersRepository = RepositoryesFactory.GetInstance().Get<IManagersRepository>();
+        }
+
+        public TestLoginService(IManagersRepository managerRepository)
+        {
+            _managersRepository = managerRepository;
+        }
+
         public IVManager Login(string login, string password)
         {
-            var managers = RepositoryesFactory.Get<IManagersRepository>().Managers;
-            var manager = managers.FirstOrDefault(u => u.Login.Equals(login) && u.Password.Equals(password));
+            var manager = _managersRepository.Managers.FirstOrDefault(u => u.Login.Equals(login) && u.Password.Equals(password));
             if (manager == null)
                 return null;
             return new VManager

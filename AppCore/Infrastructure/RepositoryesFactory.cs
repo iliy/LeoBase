@@ -10,16 +10,29 @@ using System.Threading.Tasks;
 
 namespace AppData.Infrastructure
 {
-    public static class RepositoryesFactory
+    public class RepositoryesFactory
     {
-        private static IKernel ninjectKernel = null; 
-        public static void Init()
+        private static IKernel ninjectKernel = null;
+        private static RepositoryesFactory _instance;
+
+        public static RepositoryesFactory GetInstance()
+        {
+            if(_instance == null)
+            {
+                _instance = new RepositoryesFactory();
+                _instance.Init();
+            }
+
+            return _instance;
+        }
+
+        private void Init()
         {
             ninjectKernel = new StandardKernel();
             AddBinds();
         }
 
-        public static T Get<T>()
+        public T Get<T>()
         {
             if (!ninjectKernel.CanResolve<T>())
                 throw new ArgumentException("Has`t type!");
@@ -27,7 +40,7 @@ namespace AppData.Infrastructure
             return (T)ninjectKernel.Get<T>();
         }
 
-        private static void AddBinds()
+        private void AddBinds()
         {
             #region Создание Mock объектов
             Mock<IUserRepository> mockUserRepository = new Mock<IUserRepository>();

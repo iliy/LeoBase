@@ -12,6 +12,8 @@ namespace AppPresentators.Views
         string UserName { get; set; }
         string Password { get; set; }
         event Action Login;
+        event Action Cancel;
         void ShowError(string errorMessage);
+
     }
 }

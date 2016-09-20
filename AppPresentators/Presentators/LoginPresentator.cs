@@ -16,13 +16,20 @@ namespace AppPresentators.Presentators
         private ILoginService _service;
         private ILoginView _view;
 
-        public LoginPresentator(IMainView mainView, ILoginService service, ILoginView view)
+        public LoginPresentator(IMainView main, ILoginService service, ILoginView view)
         {
-            _mainView = mainView;
+            _mainView = main;
             _service = service;
             _view = view;
 
             _view.Login += () => Login(_view.UserName, _view.Password);
+            _view.Cancel += () => Cancel();
+        }
+
+        public void Cancel()
+        {
+            _view.Close();
+            _mainView.Close();
         }
 
         public void Login(string userName, string password)

@@ -10,6 +10,10 @@ namespace AppPresentators.Infrastructure
 {
     public interface IApplicationFactory
     {
-        ILoginPresentator GetLoginView(IMainView mainView);
+
+        T GetPresentator<T, V, S>(IMainView main);
+        IMainPresentator GetMainPresentator(IMainView main, IApplicationFactory appFactory);
+        T GetView<T>();
+        T GetService<T>();
     }
 }

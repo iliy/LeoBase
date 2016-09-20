@@ -1,4 +1,6 @@
-﻿using LeoBase.Forms;
+﻿using AppPresentators.Presentators.Interfaces;
+using LeoBase.Forms;
+using LeoBase.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +20,9 @@ namespace LeoBase
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Настройка ninject для создания абстрактных репозиториев
-
-            Application.Run(new MainForm());
+            ApplicationFactory appFactory = new ApplicationFactory();
+            IMainPresentator mainPresentator = appFactory.GetMainPresentator(new MainView(), appFactory);
+            mainPresentator.Run();
         }
     }
 }

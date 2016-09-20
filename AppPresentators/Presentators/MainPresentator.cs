@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AppPresentators.Views;
 using AppPresentators.VModels;
 using AppPresentators.Infrastructure;
+using AppPresentators.Services;
 
 namespace AppPresentators.Presentators
 {
@@ -36,13 +37,15 @@ namespace AppPresentators.Presentators
         public void Login()
         {
             _mainView.Manager = null;
-            var loginPresentator = _appFactory.GetLoginView(_mainView);
+            var loginPresentator = _appFactory.GetPresentator<ILoginPresentator, ILoginView, ILoginService>(_mainView);
             loginPresentator.Run();
         }
 
         public void Run()
         {
-            throw new NotImplementedException();
+            Login();
+
+            _mainView.Show();
         }
     }
 }

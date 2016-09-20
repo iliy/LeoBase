@@ -16,3 +16,5 @@ D:\Work\Dev\LeopardLand\LeoBase\LeoBase\bin\Debug\Moq.xml
 D:\Work\Dev\LeopardLand\LeoBase\LeoBase\bin\Debug\Castle.Core.xml
 D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.exe
 D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.pdb
+D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Forms.LoginView.resources
+D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Forms.MainView.resources
