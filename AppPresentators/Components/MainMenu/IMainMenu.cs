@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppPresentators.Components.MainMenu
 {
-    public delegate void MenuItemSelected(MenuItemModel item);
+    public delegate void MenuItemSelected(MenuCommand command);
     public interface IMainMenu:UIComponent
     {
         void AddMenuItem(IMainMenuItem item);

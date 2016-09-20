@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Components\MainMenu\IMainMenu.cs" />
     <Compile Include="Components\MainMenu\IMainMenuItem.cs" />
-    <Compile Include="Components\TestComponent.cs" />
+    <Compile Include="Components\ITestComponent.cs" />
     <Compile Include="Components\UIComponent.cs" />
     <Compile Include="Infrastructure\IApplicationFactory.cs" />
     <Compile Include="Services\PermissonsService.cs" />

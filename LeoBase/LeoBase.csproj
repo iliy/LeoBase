@@ -89,6 +89,9 @@
     <EmbeddedResource Include="Components\MainMenu\MainMenuItem.resx">
       <DependentUpon>MainMenuItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\TestComponent.resx">
+      <DependentUpon>TestComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>

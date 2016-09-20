@@ -13,6 +13,9 @@ using Ninject.Parameters;
 using LeoBase.Forms;
 using LeoBase.Components.MainMenu;
 using AppPresentators.Components.MainMenu;
+using AppPresentators.Components;
+using AppPresentators.VModels.MainMenu;
+using LeoBase.Components;
 
 namespace LeoBase.Infrastructure
 {
@@ -75,7 +78,7 @@ namespace LeoBase.Infrastructure
 
             #region Services
             _ninjectKernel.Bind<ILoginService>().To<TestLoginService>();
-
+            _ninjectKernel.Bind<IPermissonsService>().To<PermissonsService>();
             #endregion
 
             #region Views
@@ -91,6 +94,14 @@ namespace LeoBase.Infrastructure
         public T GetComponent<T>()
         {
             return _ninjectKernel.Get<T>();
+        }
+
+        public UIComponent GetComponent(MenuCommand command)
+        {
+            return new TestComponent
+            {
+                Title = command.ToString()
+            };
         }
     }
 }

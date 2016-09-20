@@ -49,8 +49,7 @@ namespace AppPresentators.Presentators
                 _view.ShowError("Неверные имя пользователя или пароль");
             }else
             {
-                //_mainView.Manager = manager;
-                //_view.Close();
+                _mainView.Manager = manager;
                 if (LoginComplete != null) LoginComplete(manager);
                 _view.Close();
             }

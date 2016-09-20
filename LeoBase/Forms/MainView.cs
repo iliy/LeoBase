@@ -121,5 +121,11 @@ namespace LeoBase.Forms
             menuFlowLayoutPanel.Controls.Add(_mainMenu.GetControl());
             _mainMenu.Resize(200, menuFlowLayoutPanel.Height);
         }
+
+        public void ClearCenter()
+        {
+            centerFlowLayoutPanel.Controls.Clear();
+            centerFlowLayoutPanel.Refresh();
+        }
     }
 }

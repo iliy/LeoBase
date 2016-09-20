@@ -9,6 +9,7 @@ using AppPresentators.VModels;
 using AppPresentators.Infrastructure;
 using AppPresentators.Services;
 using AppPresentators.Components.MainMenu;
+using AppPresentators.VModels.MainMenu;
 
 namespace AppPresentators.Presentators
 {
@@ -45,7 +46,7 @@ namespace AppPresentators.Presentators
                 return;
             }
 
-            var perService = new PermissonsService();
+            var perService = _appFactory.GetService<IPermissonsService>();
 
             var menuItems = perService.GetMenuItems(user.Role);
 
@@ -58,9 +59,11 @@ namespace AppPresentators.Presentators
             _mainView.SetMenu(mainMenu);
         }
 
-        private void MainMenu_MenuItemSelected(VModels.MainMenu.MenuItemModel item)
+        private void MainMenu_MenuItemSelected(MenuCommand command)
         {
             // Add to center, clear old center and stack
+            _mainView.ClearCenter();
+            _mainView.SetComponent(_appFactory.GetComponent(command).GetControl());
         }
 
         public void Login()

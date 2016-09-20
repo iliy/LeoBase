@@ -20,3 +20,4 @@ D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Forms.LoginView.resour
 D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Forms.MainView.resources
 D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Components.MainMenu.MainMenu.resources
 D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Components.MainMenu.MainMenuItem.resources
+D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Components.TestComponent.resources

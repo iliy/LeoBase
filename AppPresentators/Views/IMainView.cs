@@ -21,6 +21,7 @@ namespace AppPresentators.Views
         bool RemoveComponent(Control control);
         void SetComponent(Control control);
         void SetMenu(IMainMenu control);
+        void ClearCenter();
         #endregion
 
         #region Actions

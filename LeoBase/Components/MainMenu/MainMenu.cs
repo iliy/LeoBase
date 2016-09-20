@@ -23,12 +23,7 @@ namespace LeoBase.Components.MainMenu
 
         public void AddMenuItem(IMainMenuItem item)
         {
-            menuList.Controls.Add(new MainMenuItem
-            {
-                Icon = item.Icon,
-                Title = item.Title,
-                MenuCommand = item.MenuCommand
-            });
+            menuList.Controls.Add(new MainMenuItem(item.Title, item.MenuCommand, item.Icon));
         }
 
         public void AddMenuItems(List<MenuItemModel> items)
@@ -36,15 +31,25 @@ namespace LeoBase.Components.MainMenu
             if (items == null) items = new List<MenuItemModel>();
             foreach(var item in items)
             {
-                var mainMenuItem = new MainMenuItem
+                var mainMenuItem = new MainMenuItem(
+                    item.Title,
+                    item.MenuCommand,
+                    item.Icon
+                );
+
+                mainMenuItem.ItemClicked += (command) =>
                 {
-                    Icon = item.Icon,
-                    MenuCommand = item.MenuCommand,
-                    Title = item.Title
+                    SelectItem(mainMenuItem);
+                    MenuItemSelected(command);
                 };
-                mainMenuItem.Click += (s, e) => MenuItemSelected(item);
+
                 menuList.Controls.Add(mainMenuItem);
             }
+        }
+        
+        private void SelectItem(MainMenuItem item)
+        {
+
         }
 
         public void RemoveMenuItem(int index)

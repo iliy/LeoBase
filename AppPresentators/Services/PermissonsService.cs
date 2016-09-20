@@ -17,6 +17,10 @@ namespace AppPresentators.Services
     public class PermissonsService: IPermissonsService
     {
         private Dictionary<string, List<MenuItemModel>> _menuPermissions;
+        public PermissonsService(Dictionary<string, List<MenuItemModel>> menuPermissions)
+        {
+            _menuPermissions = menuPermissions;
+        }
         public PermissonsService()
         {
             _menuPermissions = new Dictionary<string, List<MenuItemModel>>();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppPresentators.Components
 {
-    public interface TestComponent:UIComponent
+    public interface ITestComponent:UIComponent
     {
         string Title { get; set; }
     }

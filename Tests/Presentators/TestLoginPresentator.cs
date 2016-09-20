@@ -94,18 +94,27 @@ namespace Tests.Presentators
                 Role = "admin"
             };
 
-            mainView.SetupSet(mV => mV.Manager = It.Is<VManager>(m => m.Equals(manager))).Verifiable();
-
-            service.Setup(s => s.Login(It.IsAny<string>(), It.IsAny<string>())).Returns(manager);
+            mainView.SetupAllProperties();
+            
+            service.Setup(s => s.Login(It.Is<string>(l => l.Equals(manager.Login)), It.Is<string>(p => p.Equals(manager.Password)))).Returns(manager);
 
             loginView.Setup(s => s.Close());
 
             target = new LoginPresentator(mainView.Object, service.Object, loginView.Object);
 
+            target.LoginComplete += (m) => mainView.Object.Manager = m;
+
             target.Login("login", "password");
 
-            Assert.AreEqual(mainView.Object.Manager.Login, "login");
-            //mainView.VerifySet(mv => mv.Manager.Login = manager.Login);
+            Assert.AreEqual(mainView.Object.Manager.Login, manager.Login);
+
+            Assert.AreEqual(mainView.Object.Manager.Password, manager.Password);
+
+            Assert.AreEqual(mainView.Object.Manager.Role, manager.Role);
+
+            Assert.AreEqual(mainView.Object.Manager.ManagerID, manager.ManagerID);
+
+            loginView.Verify(s => s.Close());
         }
     }
 }

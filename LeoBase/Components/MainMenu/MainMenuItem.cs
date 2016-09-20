@@ -14,11 +14,30 @@ namespace LeoBase.Components.MainMenu
 {
     public partial class MainMenuItem : UserControl, IMainMenuItem
     {
-        public MainMenuItem()
+        public event ItemClicked ItemClicked;
+        public MainMenuItem(string title, MenuCommand command):this(title, command, new byte[0])
+        {
+        }
+
+        public MainMenuItem(string title, MenuCommand command, byte[] icon)
         {
             InitializeComponent();
+
             MouseMove += MainMenuItem_MouseMove;
             MouseDown += MainMenuItem_MouseDown;
+
+            lbTitle.Click += (s, e) => _ItemClicked(command);
+            pictureBox1.Click += (s, e) => _ItemClicked(command);
+            this.Click += (s, e) => _ItemClicked(command);
+
+            Title = title;
+            MenuCommand = command;
+            Icon = icon;
+        }
+
+        private void _ItemClicked(MenuCommand command)
+        {
+            ItemClicked(command);
         }
 
         private void MainMenuItem_MouseDown(object sender, MouseEventArgs e)
