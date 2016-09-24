@@ -68,6 +68,7 @@
     <Compile Include="VModels\MainMenu\MenuItemModel.cs" />
     <Compile Include="VModels\OrderType.cs" />
     <Compile Include="VModels\PageModel.cs" />
+    <Compile Include="VModels\Persons\DocumentSearchModel.cs" />
     <Compile Include="VModels\Persons\PersoneViewModel.cs" />
     <Compile Include="VModels\Persons\PersonsOrderModel.cs" />
     <Compile Include="VModels\Persons\PersonsOrderProperties.cs" />

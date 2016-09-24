@@ -19,6 +19,8 @@ namespace Tests.Services
         private IPersonePositionRepository _positionRepository;
         private IPersoneAddressRepository _userAdddresRepository;
         private IPhonesRepository _phoneRepository;
+        private IDocumentRepository _documentsRepository;
+        private IDocumentTypeRepository _documentsTypeRepository;
 
         private PersonesService _target;
         
@@ -29,8 +31,10 @@ namespace Tests.Services
             _positionRepository = new FakePersonsPositionRepository();
             _userAdddresRepository = new FakePersonesAddressRepository();
             _phoneRepository = new FakePhonesRepository();
+            _documentsRepository = new FakeDocumentRespository();
+            _documentsTypeRepository = new FakeDocumentTypeRepository();
             
-            _target = new PersonesService(_userRepository, _positionRepository, _userAdddresRepository, _phoneRepository);
+            _target = new PersonesService(_userRepository, _positionRepository, _userAdddresRepository, _phoneRepository, _documentsRepository, _documentsTypeRepository);
         }
 
         [TestMethod]
@@ -514,6 +518,169 @@ namespace Tests.Services
             Assert.AreEqual(_target.PageModel.TotalItems, 5);
 
             Assert.AreEqual(_target.PageModel.TotalPages, 3);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentType()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                DocumentTypeName = "Водительские права"
+            };
+
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 2);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentSerial()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                Serial = "524"
+            };
+
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 2);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentNumber()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                Number = "223"
+            };
+
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 1);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentIssuedBy()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                IssuedBy = "Выдан 3",
+                CompareIssuedBy = AppPresentators.VModels.CompareString.EQUAL
+            };
+
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 2);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentWhenIssuedEquals()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                WhenIssued = new DateTime(2011, 7, 9, 0, 0, 0),
+                CompareWhenIssued = AppPresentators.VModels.CompareValue.EQUAL
+            };
+
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 1);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentWhenIssuedMore()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                WhenIssued = new DateTime(2011, 7, 10, 0, 0, 0),
+                CompareWhenIssued = AppPresentators.VModels.CompareValue.MORE
+            };
+
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 4);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentWhenIssuedLess()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                WhenIssued = new DateTime(2011, 7, 10, 0, 0, 0),
+                CompareWhenIssued = AppPresentators.VModels.CompareValue.LESS
+            };
+
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 1);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentCodeDevissionEquals()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                CodeDevision = "234",
+                CompareCodeDevision = AppPresentators.VModels.CompareString.EQUAL
+            };
+
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 1);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentCodeDevissionCotains()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                CodeDevision = "234",
+                CompareCodeDevision = AppPresentators.VModels.CompareString.CONTAINS
+            };
+
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 2);
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentAndFirstName()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                CodeDevision = "234",
+                CompareCodeDevision = AppPresentators.VModels.CompareString.CONTAINS
+            };
+            _target.SearchModel = new PersonsSearchModel
+            {
+                FirstName = "Кирилов",
+                CompareFirstName = AppPresentators.VModels.CompareString.EQUAL
+            };
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 1);
+
+        }
+
+        [TestMethod]
+        public void TestSearchByDocumentSerialAndPersonAge()
+        {
+            _target.DocumentSearchModel = new DocumentSearchModel
+            {
+                Serial = "524"
+            };
+
+            _target.SearchModel = new PersonsSearchModel
+            {
+                Age = 23,
+                CompareAge = AppPresentators.VModels.CompareValue.LESS
+            };
+            
+            var result = _target.GetPersons();
+
+            Assert.AreEqual(result.Count, 1);
+
+            Assert.IsTrue(result.FirstOrDefault(p => p.UserID == 5) != null);
         }
         #endregion
 

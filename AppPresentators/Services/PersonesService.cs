@@ -15,6 +15,7 @@ namespace AppPresentators.Services
     {
         PageModel PageModel { get; set; }
         PersonsSearchModel SearchModel { get; set; }
+        DocumentSearchModel DocumentSearchModel { get; set; }
         PersonsOrderModel OrderModel { get; set; }
         List<PersoneViewModel> GetPersons();
         int AddNewPersone(PersoneViewModel personeModel);
@@ -28,9 +29,13 @@ namespace AppPresentators.Services
         private IPersonePositionRepository _personPositionRepository;
         private IPersoneAddressRepository _personAddressRepository;
         private IPhonesRepository _phonesRepository;
+        private IDocumentRepository _documentsRepository;
+        private IDocumentTypeRepository _documentsTypeRepository;
+
+        private Dictionary<int, string> _documentTypes;
 
         public PersonsSearchModel SearchModel { get; set; }
-
+        public DocumentSearchModel DocumentSearchModel { get; set; }
         public PersonsOrderModel OrderModel { get; set; } = new PersonsOrderModel
         {
             OrderType = OrderType.NONE
@@ -47,14 +52,30 @@ namespace AppPresentators.Services
         public PersonesService() : this(RepositoryesFactory.GetInstance().Get<IPersoneRepository>(),
                                         RepositoryesFactory.GetInstance().Get<IPersonePositionRepository>(),
                                         RepositoryesFactory.GetInstance().Get<IPersoneAddressRepository>(),
-                                        RepositoryesFactory.GetInstance().Get<IPhonesRepository>()) { }
+                                        RepositoryesFactory.GetInstance().Get<IPhonesRepository>(),
+                                        RepositoryesFactory.GetInstance().Get<IDocumentRepository>(),
+                                        RepositoryesFactory.GetInstance().Get<IDocumentTypeRepository>()) { }
 
-        public PersonesService(IPersoneRepository personRepository, IPersonePositionRepository personPositionRepository, IPersoneAddressRepository personAddressRepository, IPhonesRepository phoneRepository)
+        public PersonesService(IPersoneRepository personRepository, 
+                               IPersonePositionRepository personPositionRepository, 
+                               IPersoneAddressRepository personAddressRepository, 
+                               IPhonesRepository phoneRepository,
+                               IDocumentRepository documentRepository,
+                               IDocumentTypeRepository documentTypeRepository)
         {
             _personRepository = personRepository;
             _personPositionRepository = personPositionRepository;
             _personAddressRepository = personAddressRepository;
             _phonesRepository = phoneRepository;
+            _documentsRepository = documentRepository;
+            _documentsTypeRepository = documentTypeRepository;
+
+            _documentTypes = new Dictionary<int, string>();
+
+            foreach(var dT in _documentsTypeRepository.DocumentTypes)
+            {
+                _documentTypes.Add(dT.DocumentTypeID, dT.Name);
+            }
         }
 
         private bool AddressFilter(PersoneAddress address)
@@ -195,27 +216,101 @@ namespace AppPresentators.Services
             return result;
         }
 
+        private bool FilterDocument(Document doc)
+        {
+            if (DocumentSearchModel == null || DocumentSearchModel.IsEmptySearchModel) return true;
+
+            bool result = true;
+
+            DocumentSearchModel dsm = DocumentSearchModel;
+
+            if (dsm.DocumentTypeID != 0)
+                result &= doc.DocumentTypeID == dsm.DocumentTypeID;
+
+            if (!result) return false;
+
+            if(!string.IsNullOrEmpty(dsm.DocumentTypeName))
+            {
+                int docTypeId = _documentTypes.FirstOrDefault(d => d.Value.Equals(dsm.DocumentTypeName)).Key;
+
+                result &= docTypeId == doc.DocumentTypeID;
+            }
+
+            if (!result) return false;
+
+            if (!string.IsNullOrEmpty(dsm.Number))
+                result &= dsm.Number.Equals(doc.Number);
+
+            if (!result) return false;
+
+            if (!string.IsNullOrEmpty(dsm.Serial))
+                result &= dsm.Serial.Equals(doc.Serial);
+
+            if (!result) return false;
+
+            if (!string.IsNullOrEmpty(dsm.IssuedBy))
+                if (dsm.CompareIssuedBy == CompareString.EQUAL)
+                    result &= dsm.IssuedBy.Equals(doc.IssuedBy);
+                else
+                    result &= !string.IsNullOrEmpty(doc.IssuedBy) && doc.IssuedBy.Contains(dsm.IssuedBy);
+
+            if (!result) return false;
+
+            if(dsm.WhenIssued.Year != 1)
+            {
+                switch (dsm.CompareWhenIssued)
+                {
+                    case CompareValue.EQUAL:
+                        result &= dsm.WhenIssued == doc.WhenIssued;
+                        break;
+                    case CompareValue.LESS:
+                        result &= doc.WhenIssued <= dsm.WhenIssued;
+                        break;
+                    case CompareValue.MORE:
+                        result &= doc.WhenIssued >= dsm.WhenIssued;
+                        break;
+                }
+            }
+
+            if (!result) return false;
+
+            if (!string.IsNullOrEmpty(dsm.CodeDevision))
+                if (dsm.CompareCodeDevision == CompareString.EQUAL)
+                    result &= dsm.CodeDevision.Equals(doc.CodeDevision);
+                else
+                    result &= !string.IsNullOrEmpty(doc.CodeDevision) && doc.CodeDevision.Contains(doc.CodeDevision);
+
+            return result;
+        }
+
         public List<PersoneViewModel> GetPersons()
         {
             List<PersoneViewModel> result;
 
             IQueryable<Persone> persones = null;
 
+            if(DocumentSearchModel != null && !DocumentSearchModel.IsEmptySearchModel)
+            {   // Выборка с фильтрацией по документам
+                var userIds = _documentsRepository.Documents.Where(d => FilterDocument(d)).Select(d => d.UserID);
+
+                persones = _personRepository.Persons.Where(p => userIds.Contains(p.UserID));
+            }
+
             if (SearchModel != null && !SearchModel.IsEmptySearch) // Выборка с фильтрацией
             {
+                if (persones == null) persones = _personRepository.Persons;
+
                 if(SearchModel.Address != null && !SearchModel.Address.IsEmptyAddress) // Имеется фильрация по адресу
                 {
                     var userIds = _personAddressRepository.Addresses.Where(a => AddressFilter(a)).Select(a => a.UserID);
 
-                    persones = _personRepository.Persons.Where(p => userIds.Contains(p.UserID));
+                    persones = persones.Where(p => userIds.Contains(p.UserID));
                 }
 
                 if(SearchModel.IsEmployer != null) 
                 {
                     if ((bool)SearchModel.IsEmployer) // Если поиск по сотрудникам
                     {
-                        if (persones == null) persones = _personRepository.Persons;
-
                         persones = persones.Where(p => p.IsEmploeyr == true); // Выбираем только сотрудников
 
                         if (!string.IsNullOrEmpty(SearchModel.Position)) // Если указана должность то фильтруем и по ней
@@ -282,8 +377,12 @@ namespace AppPresentators.Services
             }
             if (PageModel.ItemsOnPage == -1) { 
                 result = persones.Select(p =>
-                            new PersoneViewModel(_personAddressRepository, _phonesRepository, _personPositionRepository)
-                            {
+                            new PersoneViewModel(_personAddressRepository,
+                                             _phonesRepository,
+                                             _personPositionRepository,
+                                             _documentsRepository,
+                                             _documentsTypeRepository)
+                            { 
                                 UserID = p.UserID,
                                 FirstName = p.FirstName,
                                 SecondName = p.SecondName,
@@ -295,7 +394,11 @@ namespace AppPresentators.Services
                         ).ToList();
             }else { 
                 result = persones.Skip(PageModel.CurentPage - 1).Take(PageModel.ItemsOnPage).Select(p =>
-                        new PersoneViewModel(_personAddressRepository, _phonesRepository, _personPositionRepository)
+                        new PersoneViewModel(_personAddressRepository, 
+                                             _phonesRepository, 
+                                             _personPositionRepository,
+                                             _documentsRepository,
+                                             _documentsTypeRepository)
                         {
                             UserID = p.UserID,
                             FirstName = p.FirstName,
@@ -382,7 +485,11 @@ namespace AppPresentators.Services
         {
             var person = _personRepository.Persons.FirstOrDefault(p => p.UserID == id);
             if (person == null) return null;
-            return new PersoneViewModel(_personAddressRepository, _phonesRepository, _personPositionRepository)
+            return new PersoneViewModel(_personAddressRepository, 
+                                        _phonesRepository, 
+                                        _personPositionRepository,
+                                        _documentsRepository,
+                                        _documentsTypeRepository)
             {
                 UserID = person.UserID,
                 FirstName = person.FirstName,

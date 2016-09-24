@@ -14,7 +14,7 @@ namespace AppData.Entities
         public string Serial { get; set; }
         public string Number { get; set; }
         public string IssuedBy { get; set; }
-        public string WhenIssued { get; set; }
+        public DateTime WhenIssued { get; set; }
         public string CodeDevision { get; set; }
     }
 }

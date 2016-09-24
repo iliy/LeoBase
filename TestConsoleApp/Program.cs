@@ -21,10 +21,9 @@ namespace TestConsoleApp
         {
             PersonesService service = new PersonesService();
             //var a = service.GetPersons();
-            service.SearchModel = new PersonsSearchModel
+            service.DocumentSearchModel = new DocumentSearchModel
             {
-                IsEmployer = true,
-                Position = "Госинспектор"
+                DocumentTypeName = "Водительские права"
             };
 
             var result = service.GetPersons();

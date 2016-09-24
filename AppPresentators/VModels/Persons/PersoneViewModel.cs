@@ -21,6 +21,19 @@ namespace AppPresentators.VModels.Persons
         public string Flat { get; set; }
         public string Note { get; set; }
     }
+
+    public class PersoneDocumentModelView
+    {
+        public int DocumentID { get; set; }
+        public int DocumentTypeID { get; set; }
+        public string DocumentTypeName { get; set; }
+        public string Serial { get; set; }
+        public string Number { get; set; }
+        public string IssuedBy { get; set; }
+        public DateTime WhenIssued { get; set; }
+        public string CodeDevision { get; set; }
+    }
+
     public class PersoneViewModel
     {
         [ReadOnly(true)]
@@ -36,8 +49,39 @@ namespace AppPresentators.VModels.Persons
         [DisplayName("Дата рождения")]
         public DateTime DateBirthday { get; set; }
 
-        public List<string> _phones;
+        private List<PersoneDocumentModelView> _documents;
 
+        private Dictionary<int, string> _documentTypes = null;
+
+        public List<PersoneDocumentModelView> Documents {
+            get
+            {
+                if (_documentsRepository == null) return null;
+
+                var search = _documentsRepository.Documents.Where(d => d.UserID == UserID);
+
+                if (search == null) return new List<PersoneDocumentModelView>();
+
+                return search.Select(d => new PersoneDocumentModelView
+                {
+                    Serial = d.Serial,
+                    Number = d.Number,
+                    DocumentTypeID = d.DocumentTypeID,
+                    DocumentTypeName = (_documentTypes!= null && _documentTypes.ContainsKey(d.DocumentTypeID)) ? 
+                                        _documentTypes[d.DocumentTypeID]:"",
+                    IssuedBy = d.IssuedBy,
+                    WhenIssued = d.WhenIssued,
+                    CodeDevision = d.CodeDevision,
+                    DocumentID = d.DocumentID
+                }).ToList();
+            }
+            set
+            {
+                _documents = value;
+            }
+        }
+
+        private List<string> _phones;
         public List<string> Phones
         {
             get
@@ -118,18 +162,36 @@ namespace AppPresentators.VModels.Persons
         private IPersonePositionRepository _personPositionRepository;
         private IPersoneAddressRepository _personAddressRepository;
         private IPhonesRepository _phonesRepository;
+        private IDocumentRepository _documentsRepository;
+        private IDocumentTypeRepository _documentsTypeRepository;
 
         public PersoneViewModel():this(RepositoryesFactory.GetInstance().Get<IPersoneAddressRepository>(),
                                        RepositoryesFactory.GetInstance().Get<IPhonesRepository>(),
-                                       RepositoryesFactory.GetInstance().Get<IPersonePositionRepository>()
-                                       )
-        {}
+                                       RepositoryesFactory.GetInstance().Get<IPersonePositionRepository>(),
+                                       RepositoryesFactory.GetInstance().Get<IDocumentRepository>(),
+                                       RepositoryesFactory.GetInstance().Get<IDocumentTypeRepository>()
+                                      )
+        { }
         
-        public PersoneViewModel(IPersoneAddressRepository addressRepository, IPhonesRepository phoneRepository, IPersonePositionRepository positionRepository)
+        public PersoneViewModel(IPersoneAddressRepository addressRepository, 
+                                IPhonesRepository phoneRepository, 
+                                IPersonePositionRepository positionRepository,
+                                IDocumentRepository documentRepository,
+                                IDocumentTypeRepository documentTypeRepository)
         {
             _personAddressRepository = addressRepository;
             _phonesRepository = phoneRepository;
             _personPositionRepository = positionRepository;
+
+            _documentsRepository = documentRepository;
+            _documentsTypeRepository = documentTypeRepository;
+
+            _documentTypes = new Dictionary<int, string>();
+
+            foreach (var dt in _documentsTypeRepository.DocumentTypes)
+            {
+                _documentTypes.Add(dt.DocumentTypeID, dt.Name);
+            }
         }
 
         public void Refresh()

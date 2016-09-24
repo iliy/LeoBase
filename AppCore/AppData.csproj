@@ -76,6 +76,8 @@
     <Compile Include="Entities\Violation.cs" />
     <Compile Include="Entities\ViolationType.cs" />
     <Compile Include="Entities\Violator.cs" />
+    <Compile Include="FakesRepositoryes\FakeDocumentRespository.cs" />
+    <Compile Include="FakesRepositoryes\FakeDocumentTypeRepository.cs" />
     <Compile Include="FakesRepositoryes\FakePersonesAddressRepository.cs" />
     <Compile Include="FakesRepositoryes\FakePersonesRepository.cs" />
     <Compile Include="FakesRepositoryes\FakePersonsPositionRepository.cs" />

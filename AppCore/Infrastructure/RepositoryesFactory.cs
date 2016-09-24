@@ -44,8 +44,6 @@ namespace AppData.Infrastructure
         private void AddBinds()
         {
             #region Создание Mock объектов
-            Mock<IDocumentRepository> mockDocumentRepository = new Mock<IDocumentRepository>();
-            Mock<IDocumentTypeRepository> mockDocumentTypeRepository = new Mock<IDocumentTypeRepository>();
             Mock<IViolationRepository> mockViolationRepository = new Mock<IViolationRepository>();
             Mock<IViolationTypeRepository> mockViolationTypeRepository = new Mock<IViolationTypeRepository>();
             Mock<IViolatorRepository> mockViolatorsRepository = new Mock<IViolatorRepository>();
@@ -222,238 +220,18 @@ namespace AppData.Infrastructure
                 }
             }.AsQueryable()); 
 
-            mockDocumentTypeRepository.Setup(dt => dt.DocumentTypes).Returns(new List<DocumentType>
-            {
-                new DocumentType
-                {
-                    DocumentTypeID = 1,
-                    Name = "Паспорт"
-                },
-                new DocumentType
-                {
-                    DocumentTypeID = 2,
-                    Name = "Водительские права"
-                }
-            }.AsQueryable());
-
-            mockDocumentRepository.Setup(d => d.Documents).Returns(new List<Document>
-            {
-                new Document
-                {
-                    DocumentID = 1,
-                    DocumentTypeID = 1,
-                    UserID = 1,
-                    Serial = "111",
-                    Number = "123",
-                    IssuedBy = "Выдан 1",
-                    WhenIssued = "11.11.2016",
-                    CodeDevision = "234"
-                },
-                new Document
-                {
-                    DocumentID = 2,
-                    DocumentTypeID = 1,
-                    UserID = 2,
-                    Serial = "212",
-                    Number = "126",
-                    IssuedBy = "Выдан 2",
-                    WhenIssued = "11.11.2015"
-                },
-                new Document
-                {
-                    DocumentID = 3,
-                    DocumentTypeID = 2,
-                    UserID = 2,
-                    Serial = "322",
-                    Number = "125",
-                    IssuedBy = "Выдан 3",
-                    WhenIssued = "11.12.2015"
-                },
-                new Document
-                {
-                    DocumentID = 4,
-                    DocumentTypeID = 1,
-                    UserID = 3,
-                    Serial = "413",
-                    Number = "127",
-                    IssuedBy = "Выдан 2",
-                    WhenIssued = "5.11.2016",
-                    CodeDevision = "2341"
-                },
-                new Document
-                {
-                    DocumentID = 5,
-                    DocumentTypeID = 2,
-                    UserID = 4,
-                    Serial = "524",
-                    Number = "223",
-                    IssuedBy = "Выдан 3",
-                    WhenIssued = "11.11.2012"
-                },
-                new Document
-                {
-                    DocumentID = 6,
-                    DocumentTypeID = 1,
-                    UserID = 5,
-                    Serial = "615",
-                    Number = "12312",
-                    IssuedBy = "Выдан 8",
-                    WhenIssued = "09.7.2011"
-                }
-            }.AsQueryable());
-
-            //mockPhonesRepository.Setup(p => p.Phones).Returns(new List<Phone>
-            //{
-            //    new Phone
-            //    {
-            //        PhoneID = 1,
-            //        UserID = 1,
-            //        PhoneNumber = "1100000"
-            //    },
-            //    new Phone
-            //    {
-            //        PhoneID = 2,
-            //        UserID = 2,
-            //        PhoneNumber = "2200000"
-            //    },
-            //    new Phone
-            //    {
-            //        PhoneID = 3,
-            //        UserID = 2,
-            //        PhoneNumber = "3200000"
-            //    },
-            //    new Phone
-            //    {
-            //        PhoneID = 4,
-            //        UserID = 3,
-            //        PhoneNumber = "4300000"
-            //    },
-            //    new Phone
-            //    {
-            //        PhoneID = 5,
-            //        UserID = 4,
-            //        PhoneNumber = "5400000"
-            //    },
-            //    new Phone
-            //    {
-            //        PhoneID = 6,
-            //        UserID = 5,
-            //        PhoneNumber = "6500000"
-            //    },
-            //    new Phone
-            //    {
-            //        PhoneID = 7,
-            //        UserID = 5,
-            //        PhoneNumber = "7500000"
-            //    }
-            //}.AsQueryable());
-
-            //mockAddressTypeRepository.Setup(at => at.AddressTypes).Returns(new List<AddressType>
-            //{
-            //    new AddressType
-            //    {
-            //        AddressTypeID = 1,
-            //        Name = "Прописка"
-            //    },
-            //    new AddressType
-            //    {
-            //        AddressTypeID = 2,
-            //        Name = "Проживает"
-            //    },
-            //    new AddressType
-            //    {
-            //        AddressTypeID = 3,
-            //        Name = "Проживает и прописка"
-            //    }
-            //}.AsQueryable());
-
-           
-
-            //mockPositionRepository.Setup(p => p.Positions).Returns(new List<EmploeyrPosition>
-            //{
-            //    new EmploeyrPosition
-            //    {
-            //        PositionID = 1,
-            //        Name = "Госинспектор"
-            //    },
-            //    new EmploeyrPosition
-            //    {
-            //        PositionID = 2,
-            //        Name = "Участковый госинспектор"
-            //    },
-            //    new EmploeyrPosition
-            //    {
-            //        PositionID = 3,
-            //        Name = "Старший госинпектор"
-            //    }
-            //}.AsQueryable());
-
-            //mockUserTypeRepository.Setup(ut => ut.UserTypes).Returns(new List<UserType>
-            //{
-            //    new UserType
-            //    {
-            //        UserTypeID = 1,
-            //        TypeName = "Нарушитель"
-            //    },
-            //    new UserType
-            //    {
-            //        UserTypeID = 2,
-            //        TypeName = "Сотрудник"
-            //    }
-            //}.AsQueryable());
-
-            //mockUserRepository.Setup(u => u.Persons).Returns(new List<Persone>{
-            //        new Persone
-            //        {
-            //            UserID = 1,
-            //            FirstName = "Иванов",
-            //            SecondName = "Иван",
-            //            MiddleName = "Васильевич"
-            //        },
-            //        new Persone
-            //        {
-            //            UserID = 2,
-            //            FirstName = "Сидоров",
-            //            SecondName = "Евгений",
-            //            MiddleName = "Эдуардович"
-            //        },
-            //        new Persone
-            //        {
-            //            UserID = 3,
-            //            FirstName = "Кирилов",
-            //            SecondName = "Дмитрий",
-            //            MiddleName = "Петрововия"
-            //        },
-            //        new Persone
-            //        {
-            //            UserID = 4,
-            //            IsEmploeyr = true,
-            //            FirstName = "Сидоренко",
-            //            SecondName = "Илья",
-            //            MiddleName = "Игоревич",
-            //            PositionID = 1
-            //        },
-            //        new Persone
-            //        {
-            //            UserID = 5,
-            //            IsEmploeyr = true,
-            //            FirstName = "Гагарин",
-            //            SecondName = "Юрий",
-            //            MiddleName = "Семенович",
-            //            PositionID = 2
-            //        },
-            //}.AsQueryable());
-
             #endregion
 
             #region Добавление зависимостей в Ninject
             ninjectKernel.Bind<IPersoneRepository>().To< FakePersonesRepository>();
             ninjectKernel.Bind<IPersonePositionRepository>().To<FakePersonsPositionRepository>();
             ninjectKernel.Bind<IPersoneAddressRepository>().To<FakePersonesAddressRepository>();
+
             ninjectKernel.Bind<IPhonesRepository>().To<FakePhonesRepository>();
-            
-            ninjectKernel.Bind<IDocumentRepository>().ToConstant(mockDocumentRepository.Object);
-            ninjectKernel.Bind<IDocumentTypeRepository>().ToConstant(mockDocumentTypeRepository.Object);
+
+            ninjectKernel.Bind<IDocumentRepository>().To<FakeDocumentRespository>();
+            ninjectKernel.Bind<IDocumentTypeRepository>().To<FakeDocumentTypeRepository>();
+
             ninjectKernel.Bind<IViolationRepository>().ToConstant(mockViolationRepository.Object);
             ninjectKernel.Bind<IViolationTypeRepository>().ToConstant(mockViolationTypeRepository.Object);
             ninjectKernel.Bind<IViolatorRepository>().ToConstant(mockViolatorsRepository.Object);
