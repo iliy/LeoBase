@@ -14,6 +14,7 @@ namespace AppPresentators.Infrastructure
     {
 
         T GetPresentator<T, V, S>(IMainView main);
+        T GetPresentator<T>();
         IMainPresentator GetMainPresentator(IMainView main, IApplicationFactory appFactory);
         T GetView<T>();
         T GetService<T>();

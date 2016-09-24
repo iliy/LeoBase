@@ -17,6 +17,7 @@ namespace AppPresentators.Components
         PersonsSearchModel SearchModel { get; set; }
 
         PersonsOrderModel OrderModel { get; set; }
+        DocumentSearchModel DocumentSearchModel { get; set; }
 
         List<PersoneViewModel> Data { get; set; }
 

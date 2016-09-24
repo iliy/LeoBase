@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.topPanel = new MetroFramework.Controls.MetroPanel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.menuPanel = new MetroFramework.Controls.MetroPanel();
-            this.centerPanel = new MetroFramework.Controls.MetroPanel();
             this.accauntInfoPanel = new MetroFramework.Controls.MetroPanel();
             this.btnLogout = new MetroFramework.Controls.MetroButton();
             this.lbAccauntInfo = new MetroFramework.Controls.MetroLabel();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.menuPanel = new MetroFramework.Controls.MetroPanel();
+            this.centerPanel = new System.Windows.Forms.Panel();
             this.topPanel.SuspendLayout();
             this.accauntInfoPanel.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +45,6 @@
             this.topPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.topPanel.BackColor = System.Drawing.Color.White;
-            this.topPanel.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
             this.topPanel.Controls.Add(this.accauntInfoPanel);
             this.topPanel.Controls.Add(this.metroButton2);
             this.topPanel.Controls.Add(this.metroButton1);
@@ -60,61 +59,6 @@
             this.topPanel.VerticalScrollbarBarColor = true;
             this.topPanel.VerticalScrollbarHighlightOnWheel = false;
             this.topPanel.VerticalScrollbarSize = 10;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(6, 6);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(37, 23);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroButton1.TabIndex = 2;
-            this.metroButton1.Text = "Back";
-            // 
-            // metroButton2
-            // 
-            this.metroButton2.Location = new System.Drawing.Point(45, 6);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(41, 23);
-            this.metroButton2.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroButton2.TabIndex = 3;
-            this.metroButton2.Text = "Next";
-            // 
-            // menuPanel
-            // 
-            this.menuPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.menuPanel.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
-            this.menuPanel.HorizontalScrollbarBarColor = true;
-            this.menuPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.menuPanel.HorizontalScrollbarSize = 10;
-            this.menuPanel.Location = new System.Drawing.Point(9, 98);
-            this.menuPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.menuPanel.Name = "menuPanel";
-            this.menuPanel.Size = new System.Drawing.Size(135, 519);
-            this.menuPanel.TabIndex = 1;
-            this.menuPanel.VerticalScrollbarBarColor = true;
-            this.menuPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.menuPanel.VerticalScrollbarSize = 10;
-            // 
-            // centerPanel
-            // 
-            this.centerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.centerPanel.AutoScroll = true;
-            this.centerPanel.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle;
-            this.centerPanel.HorizontalScrollbar = true;
-            this.centerPanel.HorizontalScrollbarBarColor = true;
-            this.centerPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.centerPanel.HorizontalScrollbarSize = 10;
-            this.centerPanel.Location = new System.Drawing.Point(150, 98);
-            this.centerPanel.Name = "centerPanel";
-            this.centerPanel.Size = new System.Drawing.Size(686, 519);
-            this.centerPanel.TabIndex = 2;
-            this.centerPanel.VerticalScrollbar = true;
-            this.centerPanel.VerticalScrollbarBarColor = true;
-            this.centerPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.centerPanel.VerticalScrollbarSize = 10;
             // 
             // accauntInfoPanel
             // 
@@ -152,6 +96,52 @@
             this.lbAccauntInfo.Text = "metroLabel1";
             this.lbAccauntInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(45, 6);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(41, 23);
+            this.metroButton2.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroButton2.TabIndex = 3;
+            this.metroButton2.Text = "Next";
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(6, 6);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(37, 23);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroButton1.TabIndex = 2;
+            this.metroButton1.Text = "Back";
+            // 
+            // menuPanel
+            // 
+            this.menuPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.menuPanel.HorizontalScrollbarBarColor = true;
+            this.menuPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.menuPanel.HorizontalScrollbarSize = 10;
+            this.menuPanel.Location = new System.Drawing.Point(9, 98);
+            this.menuPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.menuPanel.Name = "menuPanel";
+            this.menuPanel.Size = new System.Drawing.Size(135, 519);
+            this.menuPanel.TabIndex = 1;
+            this.menuPanel.VerticalScrollbarBarColor = true;
+            this.menuPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.menuPanel.VerticalScrollbarSize = 10;
+            // 
+            // centerPanel
+            // 
+            this.centerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.centerPanel.AutoScroll = true;
+            this.centerPanel.Location = new System.Drawing.Point(147, 98);
+            this.centerPanel.Name = "centerPanel";
+            this.centerPanel.Size = new System.Drawing.Size(689, 519);
+            this.centerPanel.TabIndex = 2;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,10 +151,11 @@
             this.Controls.Add(this.centerPanel);
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.topPanel);
+            this.DoubleBuffered = false;
             this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.MinimumSize = new System.Drawing.Size(720, 520);
             this.Name = "MainView";
-            this.Style = MetroFramework.MetroColorStyle.Orange;
+            this.Style = MetroFramework.MetroColorStyle.Brown;
             this.Text = "MainForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainView_Load);
@@ -181,9 +172,9 @@
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroPanel menuPanel;
-        private MetroFramework.Controls.MetroPanel centerPanel;
         private MetroFramework.Controls.MetroPanel accauntInfoPanel;
         private MetroFramework.Controls.MetroButton btnLogout;
         private MetroFramework.Controls.MetroLabel lbAccauntInfo;
+        private System.Windows.Forms.Panel centerPanel;
     }
 }

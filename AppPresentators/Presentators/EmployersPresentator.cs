@@ -28,10 +28,12 @@ namespace AppPresentators.Presentators
 
             _control = _appFactory.GetComponent<IEmployersTableControl>();
 
-            _control.UpdateTable += () => GetPersones(_control.PageModel, _control.SearchModel, _control.OrderModel);
+            _control.UpdateTable += () => GetPersones(_control.PageModel, _control.SearchModel, _control.OrderModel, _control.DocumentSearchModel);
+
+            GetPersones(_control.PageModel, _control.SearchModel, _control.OrderModel, _control.DocumentSearchModel);
         }
 
-        public void GetPersones(PageModel pageModel, PersonsSearchModel searchModel, PersonsOrderModel orderModel)
+        public void GetPersones(PageModel pageModel, PersonsSearchModel searchModel, PersonsOrderModel orderModel, DocumentSearchModel documentSearchModel)
         {
             if (pageModel == null)
                 pageModel = new PageModel
@@ -43,11 +45,24 @@ namespace AppPresentators.Presentators
             if (searchModel == null)
                 searchModel = new PersonsSearchModel();
 
+            if (documentSearchModel == null)
+                documentSearchModel = new DocumentSearchModel();
+
+            if (orderModel == null)
+                orderModel = new PersonsOrderModel();
+
             searchModel.IsEmployer = true;
             
             _service.PageModel = pageModel;
+            _service.DocumentSearchModel = documentSearchModel;
+            _service.SearchModel = searchModel;
+            _service.OrderModel = orderModel;
 
+            _control.Data = _service.GetPersons();
 
+            _control.PageModel = _service.PageModel;
+
+            _control.Update();
         }
 
         public Control RenderControl()

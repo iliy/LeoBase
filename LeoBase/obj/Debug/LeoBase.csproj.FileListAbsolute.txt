@@ -25,3 +25,5 @@ D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Components.CustomContr
 D:\Work\Dev\LeopardLand\LeoBase\LeoBase\bin\Debug\MetroFramework.dll
 D:\Work\Dev\LeopardLand\LeoBase\LeoBase\bin\Debug\MetroFramework.Fonts.dll
 D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Forms.Person.resources
+D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Components.CustomControls.EmployerTableControl.resources
+D:\Work\Dev\LeopardLand\LeoBase\LeoBase\obj\Debug\LeoBase.Components.CustomControls.PaginationControl.resources

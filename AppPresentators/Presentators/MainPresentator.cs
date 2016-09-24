@@ -10,6 +10,8 @@ using AppPresentators.Infrastructure;
 using AppPresentators.Services;
 using AppPresentators.Components.MainMenu;
 using AppPresentators.VModels.MainMenu;
+using AppPresentators.Components;
+using AppPresentators.Presentators.Interfaces.ComponentPresentators;
 
 namespace AppPresentators.Presentators
 {
@@ -63,7 +65,14 @@ namespace AppPresentators.Presentators
         {
             // Add to center, clear old center and stack
             _mainView.ClearCenter();
-            _mainView.SetComponent(_appFactory.GetComponent(command).GetControl());
+            if(command == MenuCommand.Employees)
+            {
+                var presentator = _appFactory.GetPresentator<IEmployersPresentator>();
+                _mainView.SetComponent(presentator.RenderControl());
+            }
+            else { 
+                _mainView.SetComponent(_appFactory.GetComponent(command).GetControl());
+            }
         }
 
         public void Login()

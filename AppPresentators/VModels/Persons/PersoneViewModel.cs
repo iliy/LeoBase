@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AppPresentators.VModels.Persons
 {
@@ -36,16 +37,22 @@ namespace AppPresentators.VModels.Persons
 
     public class PersoneViewModel
     {
-        [ReadOnly(true)]
+        [Browsable(false)]
         public int UserID { get; set; }
+        [Browsable(false)]
         public int PositionID { get; set; }
+        [Browsable(false)]
         public bool IsEmploeyr { get; set; }
+        [ReadOnly(true)]
         [DisplayName("Фамилия")]
         public string FirstName { get; set; }
+        [ReadOnly(true)]
         [DisplayName("Имя")]
         public string SecondName { get; set; }
+        [ReadOnly(true)]
         [DisplayName("Отчество")]
         public string MiddleName { get; set; }
+        [ReadOnly(true)]
         [DisplayName("Дата рождения")]
         public DateTime DateBirthday { get; set; }
 
@@ -137,7 +144,9 @@ namespace AppPresentators.VModels.Persons
         }
 
         private string _position;
-
+        
+        [ReadOnly(true)]
+        [DisplayName("Должность")]
         public string Position
         {
             get
@@ -158,7 +167,7 @@ namespace AppPresentators.VModels.Persons
                 _position = value;
             }
         }
-
+        
         private IPersonePositionRepository _personPositionRepository;
         private IPersoneAddressRepository _personAddressRepository;
         private IPhonesRepository _phonesRepository;

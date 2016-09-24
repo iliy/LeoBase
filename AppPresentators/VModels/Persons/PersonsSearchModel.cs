@@ -35,10 +35,10 @@ namespace AppPresentators.VModels.Persons
                     string.IsNullOrEmpty(FirstName) 
                     && string.IsNullOrEmpty(SecondName) 
                     && string.IsNullOrEmpty(MiddleName)
-                    && DateBirthday.Year == 1 
+                    && (DateBirthday.Year == 1)
+                    && string.IsNullOrEmpty(Position)
                     && Age == 0 
-                    && (Address == null || Address.IsEmptyAddress)
-                    && string.IsNullOrEmpty(Position) 
+                    && (Address == null || Address.IsEmptyAddress) 
                     && (IsEmployer == null);
             }
         }

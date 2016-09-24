@@ -68,6 +68,18 @@
     <Compile Include="Components\CustomControls\CustomGridView.Designer.cs">
       <DependentUpon>CustomGridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\CustomControls\EmployerTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\EmployerTableControl.Designer.cs">
+      <DependentUpon>EmployerTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\PaginationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\PaginationControl.Designer.cs">
+      <DependentUpon>PaginationControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\MainMenu\MainMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,6 +119,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Components\CustomControls\CustomGridView.resx">
       <DependentUpon>CustomGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\EmployerTableControl.resx">
+      <DependentUpon>EmployerTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\PaginationControl.resx">
+      <DependentUpon>PaginationControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\MainMenu\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

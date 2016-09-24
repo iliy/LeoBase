@@ -38,8 +38,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTitle.Location = new System.Drawing.Point(0, 0);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(137, 43);
-            this.lbTitle.Style = MetroFramework.MetroColorStyle.Orange;
+            this.lbTitle.Size = new System.Drawing.Size(149, 38);
+            this.lbTitle.Style = MetroFramework.MetroColorStyle.Brown;
             this.lbTitle.TabIndex = 0;
             this.lbTitle.Text = "metroTile1";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -52,7 +52,7 @@
             this.Controls.Add(this.lbTitle);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "MainMenuItem";
-            this.Size = new System.Drawing.Size(138, 43);
+            this.Size = new System.Drawing.Size(151, 38);
             this.ResumeLayout(false);
 
         }

@@ -10,7 +10,7 @@ namespace AppPresentators.Presentators.Interfaces.ComponentPresentators
 {
     public interface IEmployersPresentator:IComponentPresentator
     {
-        void GetPersones(PageModel pageModel, PersonsSearchModel SearchModel, PersonsOrderModel OrderModel);
+        void GetPersones(PageModel pageModel, PersonsSearchModel searchModel, PersonsOrderModel orderModel, DocumentSearchModel documentSearchModel);
 
     }
 }

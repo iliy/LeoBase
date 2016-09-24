@@ -77,9 +77,14 @@ namespace LeoBase.Forms
             return false;
         }
 
+        private Control childrenControl;
         public void SetComponent(Control component)
         {
+            component.Width = centerPanel.Width;
+            component.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             centerPanel.Controls.Add(component);
+
+            childrenControl = component;
         }
 
         public void MainView_Load(object sender, EventArgs ev)
@@ -104,6 +109,15 @@ namespace LeoBase.Forms
         {
             centerPanel.Controls.Clear();
             centerPanel.Refresh();
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            string values = string.Format("children.Height:{0}; children.Width:{1}\r\n center.Height:{2};center.Width: {3}",
+                                            childrenControl.Height, childrenControl.Width,
+                                            centerPanel.Height, centerPanel.Width);
+
+            MessageBox.Show(values);
         }
     }
 }

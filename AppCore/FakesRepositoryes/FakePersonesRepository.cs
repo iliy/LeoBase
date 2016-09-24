@@ -53,6 +53,36 @@ namespace AppData.FakesRepositoryes
                         MiddleName = "Петрововия",
                         PositionID = 2,
                         DateBirthday = new DateTime(1995, 3, 15, 0, 0, 0)
+                    },
+                    new Persone
+                    {
+                        UserID = 6,
+                        IsEmploeyr = true,
+                        FirstName = "Иванов",
+                        SecondName = "Юрий",
+                        MiddleName = "Петрововия",
+                        PositionID = 2,
+                        DateBirthday = new DateTime(1995, 3, 15, 0, 0, 0)
+                    },
+                    new Persone
+                    {
+                        UserID = 7,
+                        IsEmploeyr = true,
+                        FirstName = "Иванов",
+                        SecondName = "Юрий",
+                        MiddleName = "Петрововия",
+                        PositionID = 2,
+                        DateBirthday = new DateTime(1995, 3, 15, 0, 0, 0)
+                    },
+                    new Persone
+                    {
+                        UserID = 8,
+                        IsEmploeyr = true,
+                        FirstName = "Иванов",
+                        SecondName = "Юрий",
+                        MiddleName = "Петрововия",
+                        PositionID = 2,
+                        DateBirthday = new DateTime(1995, 3, 15, 0, 0, 0)
                     }
         };
         public IQueryable<Persone> Persons

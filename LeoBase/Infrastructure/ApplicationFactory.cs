@@ -16,6 +16,8 @@ using AppPresentators.Components.MainMenu;
 using AppPresentators.Components;
 using AppPresentators.VModels.MainMenu;
 using LeoBase.Components;
+using LeoBase.Components.CustomControls;
+using AppPresentators.Presentators.Interfaces.ComponentPresentators;
 
 namespace LeoBase.Infrastructure
 {
@@ -43,6 +45,15 @@ namespace LeoBase.Infrastructure
             return _ninjectKernel.Get<T>();
         }
 
+        public T GetPresentator<T>()
+        {
+            ConstructorArgument[] args = new ConstructorArgument[]
+            {
+                  new ConstructorArgument("appFactory", this)
+            };
+
+            return _ninjectKernel.Get<T>(args);
+        }
         public T GetPresentator<T, V, S>(IMainView main)
         {
             V view = GetView<V>();
@@ -74,11 +85,13 @@ namespace LeoBase.Infrastructure
             #region Presentators
             _ninjectKernel.Bind<IMainPresentator>().To<MainPresentator>();
             _ninjectKernel.Bind<ILoginPresentator>().To<LoginPresentator>();
+            _ninjectKernel.Bind<IEmployersPresentator>().To<EmployersPresentator>();
             #endregion
 
             #region Services
             _ninjectKernel.Bind<ILoginService>().To<TestLoginService>();
             _ninjectKernel.Bind<IPermissonsService>().To<PermissonsService>();
+            _ninjectKernel.Bind<IPersonesService>().To<PersonesService>();
             #endregion
 
             #region Views
@@ -88,6 +101,7 @@ namespace LeoBase.Infrastructure
 
             #region Components
             _ninjectKernel.Bind<IMainMenu>().To<MainMenu>();
+            _ninjectKernel.Bind<IEmployersTableControl>().To<EmployerTableControl>();
             #endregion
         }
 
