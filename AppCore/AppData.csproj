@@ -58,10 +58,9 @@
     <Compile Include="Abstract\IEmployerRepository.cs" />
     <Compile Include="Abstract\IManagersRepository.cs" />
     <Compile Include="Abstract\IPhonesRepository.cs" />
-    <Compile Include="Abstract\IPositionRepository.cs" />
-    <Compile Include="Abstract\IUserAddressRepository.cs" />
-    <Compile Include="Abstract\IUserRepository.cs" />
-    <Compile Include="Abstract\IUserTypeRepository.cs" />
+    <Compile Include="Abstract\IPersonePositionRepository.cs" />
+    <Compile Include="Abstract\IPersoneAddressRepository.cs" />
+    <Compile Include="Abstract\IPersoneRepository.cs" />
     <Compile Include="Abstract\IViolationRepository.cs" />
     <Compile Include="Abstract\IViolationTypeRepository.cs" />
     <Compile Include="Abstract\IViolatorRepository.cs" />
@@ -71,13 +70,16 @@
     <Compile Include="Entities\Employer.cs" />
     <Compile Include="Entities\Manager.cs" />
     <Compile Include="Entities\Phone.cs" />
-    <Compile Include="Entities\Position.cs" />
-    <Compile Include="Entities\UserAddress.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\UserType.cs" />
+    <Compile Include="Entities\EmploeyrPosition.cs" />
+    <Compile Include="Entities\PersoneAddress.cs" />
+    <Compile Include="Entities\Persone.cs" />
     <Compile Include="Entities\Violation.cs" />
     <Compile Include="Entities\ViolationType.cs" />
     <Compile Include="Entities\Violator.cs" />
+    <Compile Include="FakesRepositoryes\FakePersonesAddressRepository.cs" />
+    <Compile Include="FakesRepositoryes\FakePersonesRepository.cs" />
+    <Compile Include="FakesRepositoryes\FakePersonsPositionRepository.cs" />
+    <Compile Include="FakesRepositoryes\FakePhonesRepository.cs" />
     <Compile Include="Infrastructure\RepositoryesFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

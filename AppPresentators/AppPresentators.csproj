@@ -41,11 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\IEmployersTableControl.cs" />
     <Compile Include="Components\MainMenu\IMainMenu.cs" />
     <Compile Include="Components\MainMenu\IMainMenuItem.cs" />
     <Compile Include="Components\ITestComponent.cs" />
     <Compile Include="Components\UIComponent.cs" />
     <Compile Include="Infrastructure\IApplicationFactory.cs" />
+    <Compile Include="Presentators\EmployersPresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ComponentPresentators\IComponentPresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ComponentPresentators\IEmployersPresentator.cs" />
+    <Compile Include="Services\PersonesService.cs" />
     <Compile Include="Services\PermissonsService.cs" />
     <Compile Include="Presentators\Interfaces\ILoginPresentator.cs" />
     <Compile Include="Presentators\Interfaces\IMainPresentator.cs" />
@@ -57,8 +62,17 @@
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IView.cs" />
+    <Compile Include="VModels\CompareString.cs" />
+    <Compile Include="VModels\CompareValue.cs" />
     <Compile Include="VModels\MainMenu\MenuCommand.cs" />
     <Compile Include="VModels\MainMenu\MenuItemModel.cs" />
+    <Compile Include="VModels\OrderType.cs" />
+    <Compile Include="VModels\PageModel.cs" />
+    <Compile Include="VModels\Persons\PersoneViewModel.cs" />
+    <Compile Include="VModels\Persons\PersonsOrderModel.cs" />
+    <Compile Include="VModels\Persons\PersonsOrderProperties.cs" />
+    <Compile Include="VModels\Persons\PersonsSearchModel.cs" />
+    <Compile Include="VModels\Persons\SearchAddressModel.cs" />
     <Compile Include="VModels\VManager.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +81,7 @@
       <Name>AppData</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

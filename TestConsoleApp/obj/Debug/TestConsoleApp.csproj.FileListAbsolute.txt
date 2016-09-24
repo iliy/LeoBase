@@ -12,3 +12,5 @@ D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\obj\Debug\TestConsoleApp.exe
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\obj\Debug\TestConsoleApp.pdb
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\AppData.dll
 D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\AppData.pdb
+D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\AppPresentators.dll
+D:\Work\Dev\LeopardLand\LeoBase\TestConsoleApp\bin\Debug\AppPresentators.pdb

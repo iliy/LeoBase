@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppPresentators.Components;
+using LeoBase.Components.CustomControls;
 
 namespace LeoBase.Components
 {
@@ -16,6 +17,7 @@ namespace LeoBase.Components
         public TestComponent()
         {
             InitializeComponent();
+            this.Controls.Add(new CustomGridView());
         }
 
         public string Title

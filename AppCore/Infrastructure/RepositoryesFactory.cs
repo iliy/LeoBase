@@ -1,5 +1,6 @@
 ﻿using AppData.Abstract;
 using AppData.Entities;
+using AppData.FakesRepositoryes;
 using Moq;
 using Ninject;
 using System;
@@ -43,12 +44,6 @@ namespace AppData.Infrastructure
         private void AddBinds()
         {
             #region Создание Mock объектов
-            Mock<IUserRepository> mockUserRepository = new Mock<IUserRepository>();
-            Mock<IUserTypeRepository> mockUserTypeRepository = new Mock<IUserTypeRepository>();
-            Mock<IPositionRepository> mockPositionRepository = new Mock<IPositionRepository>();
-            Mock<IUserAddressRepository> mockAddressRepository = new Mock<IUserAddressRepository>();
-            Mock<IAddressTypeRepository> mockAddressTypeRepository = new Mock<IAddressTypeRepository>();
-            Mock<IPhonesRepository> mockPhonesRepository = new Mock<IPhonesRepository>();
             Mock<IDocumentRepository> mockDocumentRepository = new Mock<IDocumentRepository>();
             Mock<IDocumentTypeRepository> mockDocumentTypeRepository = new Mock<IDocumentTypeRepository>();
             Mock<IViolationRepository> mockViolationRepository = new Mock<IViolationRepository>();
@@ -307,214 +302,156 @@ namespace AppData.Infrastructure
                 }
             }.AsQueryable());
 
-            mockPhonesRepository.Setup(p => p.Phones).Returns(new List<Phone>
-            {
-                new Phone
-                {
-                    PhoneID = 1,
-                    UserID = 1,
-                    PhoneNumber = "1100000"
-                },
-                new Phone
-                {
-                    PhoneID = 2,
-                    UserID = 2,
-                    PhoneNumber = "2200000"
-                },
-                new Phone
-                {
-                    PhoneID = 3,
-                    UserID = 2,
-                    PhoneNumber = "3200000"
-                },
-                new Phone
-                {
-                    PhoneID = 4,
-                    UserID = 3,
-                    PhoneNumber = "4300000"
-                },
-                new Phone
-                {
-                    PhoneID = 5,
-                    UserID = 4,
-                    PhoneNumber = "5400000"
-                },
-                new Phone
-                {
-                    PhoneID = 6,
-                    UserID = 5,
-                    PhoneNumber = "6500000"
-                },
-                new Phone
-                {
-                    PhoneID = 7,
-                    UserID = 5,
-                    PhoneNumber = "7500000"
-                }
-            }.AsQueryable());
+            //mockPhonesRepository.Setup(p => p.Phones).Returns(new List<Phone>
+            //{
+            //    new Phone
+            //    {
+            //        PhoneID = 1,
+            //        UserID = 1,
+            //        PhoneNumber = "1100000"
+            //    },
+            //    new Phone
+            //    {
+            //        PhoneID = 2,
+            //        UserID = 2,
+            //        PhoneNumber = "2200000"
+            //    },
+            //    new Phone
+            //    {
+            //        PhoneID = 3,
+            //        UserID = 2,
+            //        PhoneNumber = "3200000"
+            //    },
+            //    new Phone
+            //    {
+            //        PhoneID = 4,
+            //        UserID = 3,
+            //        PhoneNumber = "4300000"
+            //    },
+            //    new Phone
+            //    {
+            //        PhoneID = 5,
+            //        UserID = 4,
+            //        PhoneNumber = "5400000"
+            //    },
+            //    new Phone
+            //    {
+            //        PhoneID = 6,
+            //        UserID = 5,
+            //        PhoneNumber = "6500000"
+            //    },
+            //    new Phone
+            //    {
+            //        PhoneID = 7,
+            //        UserID = 5,
+            //        PhoneNumber = "7500000"
+            //    }
+            //}.AsQueryable());
 
-            mockAddressTypeRepository.Setup(at => at.AddressTypes).Returns(new List<AddressType>
-            {
-                new AddressType
-                {
-                    AddressTypeID = 1,
-                    Name = "Прописка"
-                },
-                new AddressType
-                {
-                    AddressTypeID = 2,
-                    Name = "Проживает"
-                },
-                new AddressType
-                {
-                    AddressTypeID = 3,
-                    Name = "Проживает и прописка"
-                }
-            }.AsQueryable());
+            //mockAddressTypeRepository.Setup(at => at.AddressTypes).Returns(new List<AddressType>
+            //{
+            //    new AddressType
+            //    {
+            //        AddressTypeID = 1,
+            //        Name = "Прописка"
+            //    },
+            //    new AddressType
+            //    {
+            //        AddressTypeID = 2,
+            //        Name = "Проживает"
+            //    },
+            //    new AddressType
+            //    {
+            //        AddressTypeID = 3,
+            //        Name = "Проживает и прописка"
+            //    }
+            //}.AsQueryable());
 
-            mockAddressRepository.Setup(a => a.UserAddresses).Returns(new List<UserAddress>
-            {
-                new UserAddress
-                {
-                    AddressID = 1,
-                    UserID = 1,
-                    Address = "Приморский край, Хасанский район, пгт.Славянка, ул.Героев-Хасана 25, кв 27",
-                    AddressTypeID = 1
-                },
-                new UserAddress
-                {
-                    AddressID = 2,
-                    UserID = 1,
-                    Address = "Приморский край, Хасанский район, пгт.Славянка, ул.Лазо 26, кв 53",
-                    AddressTypeID = 2
-                },
+           
 
+            //mockPositionRepository.Setup(p => p.Positions).Returns(new List<EmploeyrPosition>
+            //{
+            //    new EmploeyrPosition
+            //    {
+            //        PositionID = 1,
+            //        Name = "Госинспектор"
+            //    },
+            //    new EmploeyrPosition
+            //    {
+            //        PositionID = 2,
+            //        Name = "Участковый госинспектор"
+            //    },
+            //    new EmploeyrPosition
+            //    {
+            //        PositionID = 3,
+            //        Name = "Старший госинпектор"
+            //    }
+            //}.AsQueryable());
 
-                new UserAddress
-                {
-                    AddressID = 3,
-                    UserID = 2,
-                    Address = "Приморский край, Хасанский район, с.Барабаш, ул.Хасанская 2",
-                    AddressTypeID = 1
-                },
-                new UserAddress
-                {
-                    AddressID = 4,
-                    UserID = 2,
-                    Address = "Приморский край, Хасанский район, с.Барабаш, ул.Космонавтов 3",
-                    AddressTypeID = 2
-                },
-                new UserAddress
-                {
-                    AddressID = 5,
-                    UserID = 3,
-                    Address = "Приморский край, Хасанский район, с.Филиповка, ул.Гагарина 7, кв 15",
-                    AddressTypeID = 3
-                },
-                new UserAddress
-                {
-                    AddressID = 6,
-                    UserID = 4,
-                    Address = "Приморский край, Хасанский район, д.Овчиновка, ул.Кирова, д.7",
-                    AddressTypeID = 3
-                },
-                new UserAddress
-                {
-                    AddressID = 7,
-                    UserID = 5,
-                    Address = "Приморский край, Хасанский район, с.Безверхово, ул.Моложежная 7, д. 6",
-                    AddressTypeID = 3
-                }
+            //mockUserTypeRepository.Setup(ut => ut.UserTypes).Returns(new List<UserType>
+            //{
+            //    new UserType
+            //    {
+            //        UserTypeID = 1,
+            //        TypeName = "Нарушитель"
+            //    },
+            //    new UserType
+            //    {
+            //        UserTypeID = 2,
+            //        TypeName = "Сотрудник"
+            //    }
+            //}.AsQueryable());
 
-            }.AsQueryable());
-
-            mockPositionRepository.Setup(p => p.Positions).Returns(new List<Position>
-            {
-                new Position
-                {
-                    PositionID = 1,
-                    Name = "Госинспектор"
-                },
-                new Position
-                {
-                    PositionID = 2,
-                    Name = "Участковый госинспектор"
-                },
-                new Position
-                {
-                    PositionID = 3,
-                    Name = "Старший госинпектор"
-                }
-            }.AsQueryable());
-
-            mockUserTypeRepository.Setup(ut => ut.UserTypes).Returns(new List<UserType>
-            {
-                new UserType
-                {
-                    UserTypeID = 1,
-                    TypeName = "Нарушитель"
-                },
-                new UserType
-                {
-                    UserTypeID = 2,
-                    TypeName = "Сотрудник"
-                }
-            }.AsQueryable());
-
-            mockUserRepository.Setup(u => u.Users).Returns(new List<User>{
-                    new User
-                    {
-                        UserID = 1,
-                        UserTypeID = 1,
-                        FirstName = "Иванов",
-                        SecondName = "Иван",
-                        MiddleName = "Васильевич"
-                    },
-                    new User
-                    {
-                        UserID = 2,
-                        UserTypeID = 1,
-                        FirstName = "Сидоров",
-                        SecondName = "Евгений",
-                        MiddleName = "Эдуардович"
-                    },
-                    new User
-                    {
-                        UserID = 3,
-                        UserTypeID = 1,
-                        FirstName = "Кирилов",
-                        SecondName = "Дмитрий",
-                        MiddleName = "Петрововия"
-                    },
-                    new User
-                    {
-                        UserID = 4,
-                        UserTypeID = 2,
-                        FirstName = "Сидоренко",
-                        SecondName = "Илья",
-                        MiddleName = "Игоревич",
-                        PositionID = 1
-                    },
-                    new User
-                    {
-                        UserID = 5,
-                        UserTypeID = 2,
-                        FirstName = "Гагарин",
-                        SecondName = "Юрий",
-                        MiddleName = "Семенович",
-                        PositionID = 2
-                    },
-            }.AsQueryable());
+            //mockUserRepository.Setup(u => u.Persons).Returns(new List<Persone>{
+            //        new Persone
+            //        {
+            //            UserID = 1,
+            //            FirstName = "Иванов",
+            //            SecondName = "Иван",
+            //            MiddleName = "Васильевич"
+            //        },
+            //        new Persone
+            //        {
+            //            UserID = 2,
+            //            FirstName = "Сидоров",
+            //            SecondName = "Евгений",
+            //            MiddleName = "Эдуардович"
+            //        },
+            //        new Persone
+            //        {
+            //            UserID = 3,
+            //            FirstName = "Кирилов",
+            //            SecondName = "Дмитрий",
+            //            MiddleName = "Петрововия"
+            //        },
+            //        new Persone
+            //        {
+            //            UserID = 4,
+            //            IsEmploeyr = true,
+            //            FirstName = "Сидоренко",
+            //            SecondName = "Илья",
+            //            MiddleName = "Игоревич",
+            //            PositionID = 1
+            //        },
+            //        new Persone
+            //        {
+            //            UserID = 5,
+            //            IsEmploeyr = true,
+            //            FirstName = "Гагарин",
+            //            SecondName = "Юрий",
+            //            MiddleName = "Семенович",
+            //            PositionID = 2
+            //        },
+            //}.AsQueryable());
 
             #endregion
 
             #region Добавление зависимостей в Ninject
-            ninjectKernel.Bind<IUserRepository>().ToConstant(mockUserRepository.Object);
-            ninjectKernel.Bind<IUserTypeRepository>().ToConstant(mockUserTypeRepository.Object);
-            ninjectKernel.Bind<IPositionRepository>().ToConstant(mockPositionRepository.Object);
-            ninjectKernel.Bind<IUserAddressRepository>().ToConstant(mockAddressRepository.Object);
-            ninjectKernel.Bind<IAddressTypeRepository>().ToConstant(mockAddressTypeRepository.Object);
-            ninjectKernel.Bind<IPhonesRepository>().ToConstant(mockPhonesRepository.Object);
+            ninjectKernel.Bind<IPersoneRepository>().To< FakePersonesRepository>();
+            ninjectKernel.Bind<IPersonePositionRepository>().To<FakePersonsPositionRepository>();
+            ninjectKernel.Bind<IPersoneAddressRepository>().To<FakePersonesAddressRepository>();
+            ninjectKernel.Bind<IPhonesRepository>().To<FakePhonesRepository>();
+            
             ninjectKernel.Bind<IDocumentRepository>().ToConstant(mockDocumentRepository.Object);
             ninjectKernel.Bind<IDocumentTypeRepository>().ToConstant(mockDocumentTypeRepository.Object);
             ninjectKernel.Bind<IViolationRepository>().ToConstant(mockViolationRepository.Object);

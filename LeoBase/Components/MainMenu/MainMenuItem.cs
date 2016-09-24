@@ -27,9 +27,7 @@ namespace LeoBase.Components.MainMenu
             MouseDown += MainMenuItem_MouseDown;
 
             lbTitle.Click += (s, e) => _ItemClicked(command);
-            pictureBox1.Click += (s, e) => _ItemClicked(command);
-            this.Click += (s, e) => _ItemClicked(command);
-
+            
             Title = title;
             MenuCommand = command;
             Icon = icon;

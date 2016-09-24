@@ -10,5 +10,8 @@ namespace AppData.Abstract
     public interface IPhonesRepository
     {
         IQueryable<Phone> Phones { get; }
+        int AddPhone(Phone phone);
+        bool Remove(int id);
+        int RemoveAllUserPhones(int userid);
     }
 }

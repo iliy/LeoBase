@@ -1,5 +1,7 @@
 ﻿using AppData.Abstract;
 using AppData.Infrastructure;
+using AppPresentators.Services;
+using AppPresentators.VModels.Persons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,16 @@ namespace TestConsoleApp
 
         Program()
         {
+            PersonesService service = new PersonesService();
+            //var a = service.GetPersons();
+            service.SearchModel = new PersonsSearchModel
+            {
+                IsEmployer = true,
+                Position = "Госинспектор"
+            };
+
+            var result = service.GetPersons();
+
             //RepositoryesFactory.Init();
             //IUserRepository test = RepositoryesFactory.Get<IUserRepository>();
             //foreach(var user in test.Users.Where(u => u.UserTypeID == 2))

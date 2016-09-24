@@ -23,6 +23,7 @@ namespace LeoBase
             ApplicationFactory appFactory = new ApplicationFactory();
             IMainPresentator mainPresentator = appFactory.GetMainPresentator(new MainView(), appFactory);
             mainPresentator.Run();
+            //Application.Run(new TestMetroForm());
         }
     }
 }

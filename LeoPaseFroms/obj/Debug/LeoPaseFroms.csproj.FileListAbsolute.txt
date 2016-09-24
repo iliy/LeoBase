@@ -1,0 +1,14 @@
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\bin\Debug\LeoPaseFroms.exe.config
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\bin\Debug\LeoPaseFroms.exe
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\bin\Debug\LeoPaseFroms.pdb
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\LeoPaseFroms.csprojResolveAssemblyReference.cache
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\MainWindow.g.cs
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\App.g.cs
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\LeoPaseFroms_MarkupCompile.cache
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\LeoPaseFroms_MarkupCompile.lref
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\MainWindow.baml
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\LeoPaseFroms.g.resources
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\LeoPaseFroms.Properties.Resources.resources
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\LeoPaseFroms.csproj.GenerateResource.Cache
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\LeoPaseFroms.exe
+D:\Work\Dev\LeopardLand\LeoBase\LeoPaseFroms\obj\Debug\LeoPaseFroms.pdb

@@ -11,10 +11,11 @@ using System.Windows.Forms;
 using AppPresentators.VModels;
 using AppPresentators.Components;
 using AppPresentators.Components.MainMenu;
+using MetroFramework.Forms;
 
 namespace LeoBase.Forms
 {
-    public partial class MainView : Form, IMainView
+    public partial class MainView : MetroForm, IMainView
     {
         public event Action Login;
 
@@ -29,23 +30,6 @@ namespace LeoBase.Forms
         
         private void MainResize()
         {
-            mainFlowLayoutPanel.Width = this.Width;
-            mainFlowLayoutPanel.Height = this.Height;
-
-            topFlowLayoutPanel.Width = this.Width;
-            topFlowLayoutPanel.Height = 40;
-
-            flowLayoutPanel1.Width = this.Width;
-            flowLayoutPanel1.Height = mainFlowLayoutPanel.Height - 40;
-
-            menuFlowLayoutPanel.Width = 200;
-            menuFlowLayoutPanel.Height = flowLayoutPanel1.Height;
-
-            centerFlowLayoutPanel.Width = flowLayoutPanel1.Width - menuFlowLayoutPanel.Width;
-            centerFlowLayoutPanel.Height = flowLayoutPanel1.Height;
-
-            if (_mainMenu != null)
-                _mainMenu.Resize(200, menuFlowLayoutPanel.Height);
         }
 
         public VManager Manager
@@ -58,21 +42,15 @@ namespace LeoBase.Forms
             set
             {
                 _currentManager = value;
-                if(_currentManager != null)
+                if (_currentManager != null)
                 {
-                    btnLogOut.Enabled = true;
-                    lbLogin.Text = value.Login;
-                    lbPassword.Text = value.Password;
-                    lbRole.Text = value.Role;
-                    lbUserID.Text = value.ManagerID.ToString();
+                    lbAccauntInfo.Text = string.Format("Логин: {0}", _currentManager.Login);
+                    btnLogout.Enabled = true;
+                    accauntInfoPanel.Visible = true;
                 }
                 else
                 {
-                    btnLogOut.Enabled = false;
-                    lbLogin.Text = "";
-                    lbPassword.Text = "";
-                    lbRole.Text = "";
-                    lbUserID.Text = "";
+                    accauntInfoPanel.Visible = false;
                 }
             }
         }
@@ -90,9 +68,9 @@ namespace LeoBase.Forms
 
         public bool RemoveComponent(Control component)
         {
-            if(centerFlowLayoutPanel.Controls.IndexOf(component) != -1)
+            if (centerPanel.Controls.IndexOf(component) != -1)
             {
-                centerFlowLayoutPanel.Controls.Remove(component);
+                centerPanel.Controls.Remove(component);
                 return true;
             }
 
@@ -101,7 +79,7 @@ namespace LeoBase.Forms
 
         public void SetComponent(Control component)
         {
-            centerFlowLayoutPanel.Controls.Add(component);
+            centerPanel.Controls.Add(component);
         }
 
         public void MainView_Load(object sender, EventArgs ev)
@@ -110,22 +88,22 @@ namespace LeoBase.Forms
 
             if (_currentManager == null) Login();
 
-            btnLogOut.Click += (s, e) => Login();
+            //btnLogOut.Click += (s, e) => Login();
         }
 
         public void SetMenu(IMainMenu control)
         {
             _mainMenu = control;
-            menuFlowLayoutPanel.Controls.Clear();
-            menuFlowLayoutPanel.Refresh();
-            menuFlowLayoutPanel.Controls.Add(_mainMenu.GetControl());
-            _mainMenu.Resize(200, menuFlowLayoutPanel.Height);
+            _mainMenu.Resize(menuPanel.Width, menuPanel.Height);
+            
+            menuPanel.Controls.Clear();
+            menuPanel.Controls.Add(_mainMenu.GetControl());
         }
 
         public void ClearCenter()
         {
-            centerFlowLayoutPanel.Controls.Clear();
-            centerFlowLayoutPanel.Refresh();
+            centerPanel.Controls.Clear();
+            centerPanel.Refresh();
         }
     }
 }

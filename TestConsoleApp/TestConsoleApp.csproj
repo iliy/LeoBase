@@ -54,6 +54,10 @@
       <Project>{9e9dcf79-8b63-431b-941b-b9e68d2eaa4e}</Project>
       <Name>AppData</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AppPresentators\AppPresentators.csproj">
+      <Project>{70D186E8-A3F2-411D-9329-EFA43A35205C}</Project>
+      <Name>AppPresentators</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

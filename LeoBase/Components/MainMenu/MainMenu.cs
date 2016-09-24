@@ -75,6 +75,10 @@ namespace LeoBase.Components.MainMenu
             this.Height = height;
             menuList.Width = width;
             menuList.Height = height;
+            foreach(var item in menuList.Controls)
+            {
+                ((Control)item).Width = menuList.Width;
+            }
         }
     }
 }
