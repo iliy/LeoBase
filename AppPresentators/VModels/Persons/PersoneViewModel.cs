@@ -1,4 +1,5 @@
 ﻿using AppData.Abstract;
+using AppData.Entities;
 using AppData.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -33,146 +34,142 @@ namespace AppPresentators.VModels.Persons
         public string IssuedBy { get; set; }
         public DateTime WhenIssued { get; set; }
         public string CodeDevision { get; set; }
+        public PersoneViewModel Persone { get; set; }
+        public PersoneDocumentModelView() { }
+        public PersoneDocumentModelView(Document document, string documentType, Persone persone)
+        {
+            DocumentTypeName = documentType;
+
+            Persone = new PersoneViewModel(persone);
+
+            DocumentID = document.DocumentID;
+
+            DocumentTypeID = document.Document_DocumentTypeID;
+
+            Serial = document.Serial;
+
+            Number = document.Number;
+
+            IssuedBy = document.IssuedBy;
+
+            WhenIssued = document.WhenIssued;
+
+            CodeDevision = document.CodeDevision;
+        }
     }
 
     public class PersoneViewModel
     {
         [Browsable(false)]
         public int UserID { get; set; }
+
         [Browsable(false)]
         public int PositionID { get; set; }
-        [Browsable(false)]
-        public bool IsEmploeyr { get; set; }
+
         [ReadOnly(true)]
+        [DisplayName("Должность")]
+        public string Position { get; set; }
+
+        public bool IsEmploeyr { get; set; }
+
         [DisplayName("Фамилия")]
         public string FirstName { get; set; }
-        [ReadOnly(true)]
+
         [DisplayName("Имя")]
         public string SecondName { get; set; }
-        [ReadOnly(true)]
+
         [DisplayName("Отчество")]
         public string MiddleName { get; set; }
-        [ReadOnly(true)]
+
         [DisplayName("Дата рождения")]
         public DateTime DateBirthday { get; set; }
 
-        private List<PersoneDocumentModelView> _documents;
+        [DisplayName("Дата создания")]
+        public DateTime WasBeCreated { get; set; }
 
-        private Dictionary<int, string> _documentTypes = null;
+        [DisplayName("Дата обновления")]
+        public DateTime WasBeUpdated { get; set; }
 
-        public List<PersoneDocumentModelView> Documents {
-            get
-            {
-                if (_documentsRepository == null) return null;
+        [DisplayName("Место рождения")]
+        public string PlaceOfBirth { get; set; }
 
-                var search = _documentsRepository.Documents.Where(d => d.UserID == UserID);
+        [DisplayName("Место работы")]
+        public string PlaceOfWork { get; set; }
 
-                if (search == null) return new List<PersoneDocumentModelView>();
+        public List<PersoneDocumentModelView> Documents { get; set; }
 
-                return search.Select(d => new PersoneDocumentModelView
-                {
-                    Serial = d.Serial,
-                    Number = d.Number,
-                    DocumentTypeID = d.DocumentTypeID,
-                    DocumentTypeName = (_documentTypes!= null && _documentTypes.ContainsKey(d.DocumentTypeID)) ? 
-                                        _documentTypes[d.DocumentTypeID]:"",
-                    IssuedBy = d.IssuedBy,
-                    WhenIssued = d.WhenIssued,
-                    CodeDevision = d.CodeDevision,
-                    DocumentID = d.DocumentID
-                }).ToList();
-            }
-            set
-            {
-                _documents = value;
-            }
-        }
+        public List<PhoneViewModel> Phones { get; set; }
 
-        private List<string> _phones;
-        public List<string> Phones
-        {
-            get
-            {
-                if (_phones != null) return _phones;
+        public List<PersonAddressModelView> Addresses { get; set; }
 
-                if (_phonesRepository == null) return null;
+        public byte[] Image { get; set; } = new byte[0];
 
-                var phones = _phonesRepository.Phones
-                                              .Where(p => p.UserID == UserID);
-
-                if (phones == null) return new List<string>();
-
-                return phones.Select(p => p.PhoneNumber).ToList();
-            }
-            set
-            {
-                _phones = value;
-            }
-        }
-
-        private List<PersonAddressModelView> _addresses;
-
-        public List<PersonAddressModelView> Addresses
-        {
-            get
-            {
-                if (_addresses != null) return _addresses;
-
-                if (_personAddressRepository == null) return null;
-
-                var adresses = _personAddressRepository.Addresses
-                                                       .Where(a => a.UserID == UserID);
-
-                if (adresses == null) return new List<PersonAddressModelView>();
-
-                return adresses.Select(a => new PersonAddressModelView
-                {
-                    AddressID = a.AddressID,
-                    Country = a.Country,
-                    Subject = a.Subject,
-                    Area = a.Area,
-                    City = a.City,
-                    HomeNumber = a.HomeNumber,
-                    Flat = a.Flat,
-                    Note = a.Note
-                }).ToList();
-            }
-            set
-            {
-                _addresses = value;
-            }
-        }
-
-        private string _position;
-        
-        [ReadOnly(true)]
-        [DisplayName("Должность")]
-        public string Position
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(_position)) return _position;
-
-                if (_personPositionRepository == null) return null;
-
-                var position = _personPositionRepository.Positions
-                                                        .FirstOrDefault(p => p.PositionID == PositionID);
-
-                if (position == null) return "";
-
-                return position.Name;
-            }
-            set
-            {
-                _position = value;
-            }
-        }
-        
         private IPersonePositionRepository _personPositionRepository;
         private IPersoneAddressRepository _personAddressRepository;
         private IPhonesRepository _phonesRepository;
         private IDocumentRepository _documentsRepository;
         private IDocumentTypeRepository _documentsTypeRepository;
+
+        public PersoneViewModel(Persone persone) : this(RepositoryesFactory.GetInstance().Get<IPersoneAddressRepository>(),
+                                       RepositoryesFactory.GetInstance().Get<IPhonesRepository>(),
+                                       RepositoryesFactory.GetInstance().Get<IPersonePositionRepository>(),
+                                       RepositoryesFactory.GetInstance().Get<IDocumentRepository>(),
+                                       RepositoryesFactory.GetInstance().Get<IDocumentTypeRepository>()
+                                      )
+        {
+            FirstName = persone.FirstName;
+            SecondName = persone.SecondName;
+            MiddleName = persone.MiddleName;
+            DateBirthday = persone.DateBirthday;
+            PlaceOfBirth = persone.PlaceOfBirth;
+            WasBeCreated = persone.WasBeCreated;
+            WasBeUpdated = persone.WasBeUpdated;
+            PlaceOfWork = persone.PlaceWork;
+            Image = persone.Image;
+
+            Phones = new List<PhoneViewModel>();
+            Documents = new List<PersoneDocumentModelView>();
+            Addresses = new List<PersonAddressModelView>();
+
+            if(persone.Phones != null)
+                foreach(var phone in persone.Phones)
+                {
+                    Phones.Add(new PhoneViewModel
+                    {
+                        PhoneID = phone.PhoneID,
+                        PhoneNumber = phone.PhoneNumber
+                    });
+                }
+
+            if(persone.Documents != null)
+            {
+                foreach(var document in persone.Documents)
+                {
+                    Documents.Add(new PersoneDocumentModelView
+                    {
+
+                    });
+                }
+            }
+
+            if(persone.Address != null)
+            {
+                foreach(var address in persone.Address)
+                {
+                    Addresses.Add(new PersonAddressModelView
+                    {
+                        Country = address.Country,
+                        Subject = address.Subject,
+                        Area = address.Area,
+                        City = address.City,
+                        HomeNumber = address.HomeNumber,
+                        Flat = address.Flat,
+                        Street = address.Street,
+                        Note = address.Note
+                    });
+                }
+            }
+        }
 
         public PersoneViewModel():this(RepositoryesFactory.GetInstance().Get<IPersoneAddressRepository>(),
                                        RepositoryesFactory.GetInstance().Get<IPhonesRepository>(),
@@ -194,18 +191,7 @@ namespace AppPresentators.VModels.Persons
 
             _documentsRepository = documentRepository;
             _documentsTypeRepository = documentTypeRepository;
-
-            _documentTypes = new Dictionary<int, string>();
-
-            foreach (var dt in _documentsTypeRepository.DocumentTypes)
-            {
-                _documentTypes.Add(dt.DocumentTypeID, dt.Name);
-            }
         }
 
-        public void Refresh()
-        {
-            _position = null;
-        }
     }
 }

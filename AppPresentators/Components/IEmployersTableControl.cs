@@ -11,7 +11,9 @@ namespace AppPresentators.Components
     public interface IEmployersTableControl:UIComponent
     {
         event Action UpdateTable;
-        
+        event Action StartTask;
+        event Action EndTask;
+
         PageModel PageModel { get; set; }
 
         PersonsSearchModel SearchModel { get; set; }

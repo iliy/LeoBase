@@ -19,6 +19,7 @@ namespace AppPresentators.VModels.Persons
         public string Street { get; set; }
         public CompareString CompareStreet { get; set; } = CompareString.EQUAL;
         public string Note { get; set; }
+        public CompareString CompareNote { get; set; } = CompareString.EQUAL;
         public string HomeNumber { get; set; }
         public string Flat { get; set; }
         public bool IsEmptyAddress { get

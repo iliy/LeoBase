@@ -9,6 +9,6 @@ namespace AppData.Abstract
 {
     public interface IAddressTypeRepository
     {
-        IQueryable<AddressType> AddressTypes { get; }
+        //IQueryable<AddressType> AddressTypes { get; }
     }
 }

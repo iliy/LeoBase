@@ -13,6 +13,10 @@ namespace AppPresentators.VModels
         public int TotalItems { get; set; }
         public int TotalPages { get
             {
+                int ost = TotalItems % ItemsOnPage;
+
+                if (ost == 0) return TotalItems / ItemsOnPage;
+
                 return 1 + (TotalItems - TotalItems % ItemsOnPage) / ItemsOnPage;
             }}
     }

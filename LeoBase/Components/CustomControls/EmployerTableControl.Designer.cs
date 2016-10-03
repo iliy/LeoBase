@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tblPersones = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnClearAll = new MetroFramework.Controls.MetroTile();
             this.btnSearch = new MetroFramework.Controls.MetroTile();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmbWhenIssuedBy = new System.Windows.Forms.ComboBox();
+            this.cmbDocumentType = new System.Windows.Forms.ComboBox();
             this.btnClearDocument = new MetroFramework.Controls.MetroTile();
             this.tbCodeDevision = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
@@ -72,6 +73,9 @@
             this.tbCountry = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbPosition = new System.Windows.Forms.ComboBox();
+            this.chbDateBerthday = new System.Windows.Forms.ComboBox();
+            this.cmbAge = new System.Windows.Forms.ComboBox();
             this.btnClearSearchModel = new MetroFramework.Controls.MetroTile();
             this.dtpDateBerthday = new System.Windows.Forms.DateTimePicker();
             this.tbAge = new MetroFramework.Controls.MetroTextBox();
@@ -87,60 +91,39 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.cmbAge = new System.Windows.Forms.ComboBox();
-            this.chbDateBerthday = new System.Windows.Forms.ComboBox();
-            this.cmbPosition = new System.Windows.Forms.ComboBox();
-            this.cmbDocumentType = new System.Windows.Forms.ComboBox();
-            this.cmbWhenIssuedBy = new System.Windows.Forms.ComboBox();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.cmbOrderType = new System.Windows.Forms.ComboBox();
-            this.cmbOrderBy = new System.Windows.Forms.ComboBox();
-            this.btnOrder = new MetroFramework.Controls.MetroTile();
-            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
-            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
-            this.cmbItemsOnPage = new System.Windows.Forms.ComboBox();
-            this.cmbCurrentPage = new System.Windows.Forms.ComboBox();
-            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.tblPersones)).BeginInit();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
-            this.metroPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tblPersones
+            // panel1
             // 
-            this.tblPersones.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Khaki;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Olive;
-            this.tblPersones.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.tblPersones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tblPersones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tblPersones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            this.tblPersones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.tblPersones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblPersones.Location = new System.Drawing.Point(3, 346);
-            this.tblPersones.Name = "tblPersones";
-            this.tblPersones.Size = new System.Drawing.Size(1154, 242);
-            this.tblPersones.TabIndex = 4;
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1160, 309);
+            this.panel1.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Controls.Add(this.btnClearAll);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1177, 298);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.Size = new System.Drawing.Size(1160, 302);
+            this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Поиск";
             // 
@@ -163,7 +146,7 @@
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Поиск";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
             // tableLayoutPanel1
             // 
@@ -210,6 +193,32 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Документ";
             // 
+            // cmbWhenIssuedBy
+            // 
+            this.cmbWhenIssuedBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWhenIssuedBy.FormattingEnabled = true;
+            this.cmbWhenIssuedBy.Items.AddRange(new object[] {
+            "Равно",
+            "Больше",
+            "Меньше"});
+            this.cmbWhenIssuedBy.Location = new System.Drawing.Point(239, 138);
+            this.cmbWhenIssuedBy.Name = "cmbWhenIssuedBy";
+            this.cmbWhenIssuedBy.Size = new System.Drawing.Size(133, 21);
+            this.cmbWhenIssuedBy.TabIndex = 43;
+            // 
+            // cmbDocumentType
+            // 
+            this.cmbDocumentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDocumentType.FormattingEnabled = true;
+            this.cmbDocumentType.Items.AddRange(new object[] {
+            "",
+            "Паспорт",
+            "Водителькие права"});
+            this.cmbDocumentType.Location = new System.Drawing.Point(112, 19);
+            this.cmbDocumentType.Name = "cmbDocumentType";
+            this.cmbDocumentType.Size = new System.Drawing.Size(121, 21);
+            this.cmbDocumentType.TabIndex = 42;
+            // 
             // btnClearDocument
             // 
             this.btnClearDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -220,7 +229,6 @@
             this.btnClearDocument.TabIndex = 41;
             this.btnClearDocument.Text = "Очистить";
             this.btnClearDocument.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClearDocument.Click += new System.EventHandler(this.btnClearDocument_Click);
             // 
             // tbCodeDevision
             // 
@@ -369,7 +377,6 @@
             this.btnClearAddressSearchModel.TabIndex = 29;
             this.btnClearAddressSearchModel.Text = "Очистить";
             this.btnClearAddressSearchModel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClearAddressSearchModel.Click += new System.EventHandler(this.btnClearAddressSearchModel_Click);
             // 
             // chbFlat
             // 
@@ -604,6 +611,46 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Общая информация";
             // 
+            // cmbPosition
+            // 
+            this.cmbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPosition.FormattingEnabled = true;
+            this.cmbPosition.Items.AddRange(new object[] {
+            "",
+            "Госинспектор",
+            "Участковый госинспектор",
+            "Старший госинспектор"});
+            this.cmbPosition.Location = new System.Drawing.Point(112, 175);
+            this.cmbPosition.Name = "cmbPosition";
+            this.cmbPosition.Size = new System.Drawing.Size(118, 21);
+            this.cmbPosition.TabIndex = 20;
+            // 
+            // chbDateBerthday
+            // 
+            this.chbDateBerthday.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.chbDateBerthday.FormattingEnabled = true;
+            this.chbDateBerthday.Items.AddRange(new object[] {
+            "Равно",
+            "Больше",
+            "Меньше"});
+            this.chbDateBerthday.Location = new System.Drawing.Point(237, 149);
+            this.chbDateBerthday.Name = "chbDateBerthday";
+            this.chbDateBerthday.Size = new System.Drawing.Size(133, 21);
+            this.chbDateBerthday.TabIndex = 19;
+            // 
+            // cmbAge
+            // 
+            this.cmbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAge.FormattingEnabled = true;
+            this.cmbAge.Items.AddRange(new object[] {
+            "Равно",
+            "Больше",
+            "Меньше"});
+            this.cmbAge.Location = new System.Drawing.Point(237, 117);
+            this.cmbAge.Name = "cmbAge";
+            this.cmbAge.Size = new System.Drawing.Size(133, 21);
+            this.cmbAge.TabIndex = 18;
+            // 
             // btnClearSearchModel
             // 
             this.btnClearSearchModel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -614,7 +661,7 @@
             this.btnClearSearchModel.TabIndex = 17;
             this.btnClearSearchModel.Text = "Очистить";
             this.btnClearSearchModel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClearSearchModel.Click += new System.EventHandler(this.btnClearSearchModel_Click);
+            this.btnClearSearchModel.Click += new System.EventHandler(this.btnClearSearchModel_Click_1);
             // 
             // dtpDateBerthday
             // 
@@ -689,7 +736,7 @@
             this.tbFirstName.Location = new System.Drawing.Point(112, 21);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(118, 23);
-            this.tbFirstName.TabIndex = 0;
+            this.tbFirstName.TabIndex = 6;
             // 
             // metroLabel6
             // 
@@ -745,215 +792,30 @@
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "Фамилия:";
             // 
-            // cmbAge
+            // mainPanel
             // 
-            this.cmbAge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAge.FormattingEnabled = true;
-            this.cmbAge.Items.AddRange(new object[] {
-            "Равно",
-            "Больше",
-            "Меньше"});
-            this.cmbAge.Location = new System.Drawing.Point(237, 117);
-            this.cmbAge.Name = "cmbAge";
-            this.cmbAge.Size = new System.Drawing.Size(133, 21);
-            this.cmbAge.TabIndex = 18;
-            // 
-            // chbDateBerthday
-            // 
-            this.chbDateBerthday.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.chbDateBerthday.FormattingEnabled = true;
-            this.chbDateBerthday.Items.AddRange(new object[] {
-            "Равно",
-            "Больше",
-            "Меньше"});
-            this.chbDateBerthday.Location = new System.Drawing.Point(237, 149);
-            this.chbDateBerthday.Name = "chbDateBerthday";
-            this.chbDateBerthday.Size = new System.Drawing.Size(133, 21);
-            this.chbDateBerthday.TabIndex = 19;
-            // 
-            // cmbPosition
-            // 
-            this.cmbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPosition.FormattingEnabled = true;
-            this.cmbPosition.Items.AddRange(new object[] {
-            "",
-            "Госинспектор",
-            "Участковый госинспектор",
-            "Старший госинспектор"});
-            this.cmbPosition.Location = new System.Drawing.Point(112, 175);
-            this.cmbPosition.Name = "cmbPosition";
-            this.cmbPosition.Size = new System.Drawing.Size(118, 21);
-            this.cmbPosition.TabIndex = 20;
-            // 
-            // cmbDocumentType
-            // 
-            this.cmbDocumentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDocumentType.FormattingEnabled = true;
-            this.cmbDocumentType.Items.AddRange(new object[] {
-            "",
-            "Паспорт",
-            "Водителькие права"});
-            this.cmbDocumentType.Location = new System.Drawing.Point(112, 19);
-            this.cmbDocumentType.Name = "cmbDocumentType";
-            this.cmbDocumentType.Size = new System.Drawing.Size(121, 21);
-            this.cmbDocumentType.TabIndex = 42;
-            // 
-            // cmbWhenIssuedBy
-            // 
-            this.cmbWhenIssuedBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWhenIssuedBy.FormattingEnabled = true;
-            this.cmbWhenIssuedBy.Items.AddRange(new object[] {
-            "Равно",
-            "Больше",
-            "Меньше"});
-            this.cmbWhenIssuedBy.Location = new System.Drawing.Point(239, 138);
-            this.cmbWhenIssuedBy.Name = "cmbWhenIssuedBy";
-            this.cmbWhenIssuedBy.Size = new System.Drawing.Size(133, 21);
-            this.cmbWhenIssuedBy.TabIndex = 43;
-            // 
-            // metroPanel1
-            // 
-            this.metroPanel1.Controls.Add(this.cmbOrderType);
-            this.metroPanel1.Controls.Add(this.cmbOrderBy);
-            this.metroPanel1.Controls.Add(this.btnOrder);
-            this.metroPanel1.Controls.Add(this.metroLabel20);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(3, 307);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(499, 35);
-            this.metroPanel1.TabIndex = 12;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
-            // 
-            // cmbOrderType
-            // 
-            this.cmbOrderType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbOrderType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbOrderType.Items.AddRange(new object[] {
-            "Возростание",
-            "Убывание"});
-            this.cmbOrderType.Location = new System.Drawing.Point(243, 7);
-            this.cmbOrderType.Name = "cmbOrderType";
-            this.cmbOrderType.Size = new System.Drawing.Size(121, 21);
-            this.cmbOrderType.TabIndex = 15;
-            // 
-            // cmbOrderBy
-            // 
-            this.cmbOrderBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbOrderBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbOrderBy.FormattingEnabled = true;
-            this.cmbOrderBy.Items.AddRange(new object[] {
-            "Фамилия",
-            "Имя",
-            "Отчество",
-            "Дата рождения",
-            "Возвраст"});
-            this.cmbOrderBy.Location = new System.Drawing.Point(116, 7);
-            this.cmbOrderBy.Name = "cmbOrderBy";
-            this.cmbOrderBy.Size = new System.Drawing.Size(121, 21);
-            this.cmbOrderBy.TabIndex = 14;
-            // 
-            // btnOrder
-            // 
-            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOrder.Location = new System.Drawing.Point(370, 5);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(123, 23);
-            this.btnOrder.Style = MetroFramework.MetroColorStyle.Green;
-            this.btnOrder.TabIndex = 13;
-            this.btnOrder.Text = "Применить";
-            this.btnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnOrder.Click += new System.EventHandler(this.metroTile1_Click_1);
-            // 
-            // metroLabel20
-            // 
-            this.metroLabel20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel20.AutoSize = true;
-            this.metroLabel20.Location = new System.Drawing.Point(8, 7);
-            this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(111, 19);
-            this.metroLabel20.TabIndex = 12;
-            this.metroLabel20.Text = "Сортировать по:";
-            // 
-            // metroPanel2
-            // 
-            this.metroPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel2.Controls.Add(this.cmbCurrentPage);
-            this.metroPanel2.Controls.Add(this.metroLabel22);
-            this.metroPanel2.Controls.Add(this.cmbItemsOnPage);
-            this.metroPanel2.Controls.Add(this.metroLabel21);
-            this.metroPanel2.HorizontalScrollbarBarColor = true;
-            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(764, 308);
-            this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(393, 32);
-            this.metroPanel2.TabIndex = 13;
-            this.metroPanel2.VerticalScrollbarBarColor = true;
-            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel2.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel21
-            // 
-            this.metroLabel21.AutoSize = true;
-            this.metroLabel21.Location = new System.Drawing.Point(6, 6);
-            this.metroLabel21.Name = "metroLabel21";
-            this.metroLabel21.Size = new System.Drawing.Size(144, 19);
-            this.metroLabel21.TabIndex = 2;
-            this.metroLabel21.Text = "Записей на странице:";
-            // 
-            // cmbItemsOnPage
-            // 
-            this.cmbItemsOnPage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbItemsOnPage.FormattingEnabled = true;
-            this.cmbItemsOnPage.Items.AddRange(new object[] {
-            "10",
-            "1",
-            "20",
-            "50",
-            "100"});
-            this.cmbItemsOnPage.Location = new System.Drawing.Point(155, 6);
-            this.cmbItemsOnPage.Name = "cmbItemsOnPage";
-            this.cmbItemsOnPage.Size = new System.Drawing.Size(48, 21);
-            this.cmbItemsOnPage.TabIndex = 44;
-            this.cmbItemsOnPage.SelectedIndexChanged += new System.EventHandler(this.cmbItemsOnPage_SelectedIndexChanged);
-            // 
-            // cmbCurrentPage
-            // 
-            this.cmbCurrentPage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCurrentPage.FormattingEnabled = true;
-            this.cmbCurrentPage.Location = new System.Drawing.Point(336, 6);
-            this.cmbCurrentPage.Name = "cmbCurrentPage";
-            this.cmbCurrentPage.Size = new System.Drawing.Size(48, 21);
-            this.cmbCurrentPage.TabIndex = 46;
-            // 
-            // metroLabel22
-            // 
-            this.metroLabel22.AutoSize = true;
-            this.metroLabel22.Location = new System.Drawing.Point(206, 6);
-            this.metroLabel22.Name = "metroLabel22";
-            this.metroLabel22.Size = new System.Drawing.Size(124, 19);
-            this.metroLabel22.TabIndex = 45;
-            this.metroLabel22.Text = "Текущая страница:";
+            this.mainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mainPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.mainPanel.Location = new System.Drawing.Point(0, 312);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(1160, 432);
+            this.mainPanel.TabIndex = 1;
             // 
             // EmployerTableControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
+            this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Controls.Add(this.metroPanel2);
-            this.Controls.Add(this.metroPanel1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tblPersones);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.mainPanel);
+            this.Controls.Add(this.panel1);
             this.Name = "EmployerTableControl";
-            this.Size = new System.Drawing.Size(1166, 600);
+            this.Size = new System.Drawing.Size(1166, 748);
             this.Load += new System.EventHandler(this.EmployerTableControl_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tblPersones)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -962,36 +824,35 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
-            this.metroPanel2.ResumeLayout(false);
-            this.metroPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView tblPersones;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private MetroFramework.Controls.MetroTile btnClearAll;
+        private MetroFramework.Controls.MetroTile btnSearch;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox cmbWhenIssuedBy;
+        private System.Windows.Forms.ComboBox cmbDocumentType;
+        private MetroFramework.Controls.MetroTile btnClearDocument;
+        private MetroFramework.Controls.MetroTextBox tbCodeDevision;
+        private MetroFramework.Controls.MetroLabel metroLabel19;
+        private System.Windows.Forms.DateTimePicker dtpWhenIssued;
+        private MetroFramework.Controls.MetroLabel metroLabel18;
+        private MetroFramework.Controls.MetroCheckBox chbIssuedBy;
+        private MetroFramework.Controls.MetroTextBox tbIssuedBy;
+        private MetroFramework.Controls.MetroLabel metroLabel17;
+        private MetroFramework.Controls.MetroTextBox tbDocumentNumber;
+        private MetroFramework.Controls.MetroLabel metroLabel16;
+        private MetroFramework.Controls.MetroTextBox tbDocumentSerial;
+        private MetroFramework.Controls.MetroLabel metroLabel15;
+        private MetroFramework.Controls.MetroLabel metroLabel14;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroCheckBox chbFirstName;
-        private MetroFramework.Controls.MetroTextBox tbFirstName;
-        private System.Windows.Forms.DateTimePicker dtpDateBerthday;
-        private MetroFramework.Controls.MetroTextBox tbAge;
-        private MetroFramework.Controls.MetroCheckBox chbMiddleName;
-        private MetroFramework.Controls.MetroTextBox tbMiddleName;
-        private MetroFramework.Controls.MetroCheckBox chbSecondName;
-        private MetroFramework.Controls.MetroTextBox tbSecondName;
+        private MetroFramework.Controls.MetroTile btnClearAddressSearchModel;
         private MetroFramework.Controls.MetroCheckBox chbFlat;
         private MetroFramework.Controls.MetroTextBox tbFlat;
         private MetroFramework.Controls.MetroLabel metroLabel13;
@@ -1013,37 +874,25 @@
         private MetroFramework.Controls.MetroCheckBox chbCounty;
         private MetroFramework.Controls.MetroTextBox tbCountry;
         private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroTextBox tbCodeDevision;
-        private MetroFramework.Controls.MetroLabel metroLabel19;
-        private System.Windows.Forms.DateTimePicker dtpWhenIssued;
-        private MetroFramework.Controls.MetroLabel metroLabel18;
-        private MetroFramework.Controls.MetroCheckBox chbIssuedBy;
-        private MetroFramework.Controls.MetroTextBox tbIssuedBy;
-        private MetroFramework.Controls.MetroLabel metroLabel17;
-        private MetroFramework.Controls.MetroTextBox tbDocumentNumber;
-        private MetroFramework.Controls.MetroLabel metroLabel16;
-        private MetroFramework.Controls.MetroTextBox tbDocumentSerial;
-        private MetroFramework.Controls.MetroLabel metroLabel15;
-        private MetroFramework.Controls.MetroLabel metroLabel14;
-        private MetroFramework.Controls.MetroTile btnClearAll;
-        private MetroFramework.Controls.MetroTile btnSearch;
-        private MetroFramework.Controls.MetroTile btnClearDocument;
-        private MetroFramework.Controls.MetroTile btnClearAddressSearchModel;
-        private MetroFramework.Controls.MetroTile btnClearSearchModel;
-        private System.Windows.Forms.ComboBox cmbWhenIssuedBy;
-        private System.Windows.Forms.ComboBox cmbDocumentType;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cmbPosition;
         private System.Windows.Forms.ComboBox chbDateBerthday;
         private System.Windows.Forms.ComboBox cmbAge;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
-        private System.Windows.Forms.ComboBox cmbOrderType;
-        private System.Windows.Forms.ComboBox cmbOrderBy;
-        private MetroFramework.Controls.MetroTile btnOrder;
-        private MetroFramework.Controls.MetroLabel metroLabel20;
-        private MetroFramework.Controls.MetroPanel metroPanel2;
-        private System.Windows.Forms.ComboBox cmbItemsOnPage;
-        private MetroFramework.Controls.MetroLabel metroLabel21;
-        private System.Windows.Forms.ComboBox cmbCurrentPage;
-        private MetroFramework.Controls.MetroLabel metroLabel22;
+        private MetroFramework.Controls.MetroTile btnClearSearchModel;
+        private System.Windows.Forms.DateTimePicker dtpDateBerthday;
+        private MetroFramework.Controls.MetroTextBox tbAge;
+        private MetroFramework.Controls.MetroCheckBox chbMiddleName;
+        private MetroFramework.Controls.MetroTextBox tbMiddleName;
+        private MetroFramework.Controls.MetroCheckBox chbSecondName;
+        private MetroFramework.Controls.MetroTextBox tbSecondName;
+        private MetroFramework.Controls.MetroCheckBox chbFirstName;
+        private MetroFramework.Controls.MetroTextBox tbFirstName;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.Panel mainPanel;
     }
 }

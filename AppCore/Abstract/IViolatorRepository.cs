@@ -10,5 +10,6 @@ namespace AppData.Abstract
     public interface IViolatorRepository
     {
         IQueryable<Violator> Violators { get; }
+        int SaveViolator(Violator violator);
     }
 }

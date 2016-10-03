@@ -34,6 +34,18 @@
       <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Mono.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Moq, Version=4.5.21.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.5.21\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
@@ -42,7 +54,16 @@
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Npgsql, Version=2.2.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Npgsql.EntityFramework, Version=2.2.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.EntityFramework.2.2.7\lib\net45\Npgsql.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,19 +82,50 @@
     <Compile Include="Abstract\IPersonePositionRepository.cs" />
     <Compile Include="Abstract\IPersoneAddressRepository.cs" />
     <Compile Include="Abstract\IPersoneRepository.cs" />
+    <Compile Include="Abstract\IViolationImagesRepository.cs" />
     <Compile Include="Abstract\IViolationRepository.cs" />
     <Compile Include="Abstract\IViolationTypeRepository.cs" />
     <Compile Include="Abstract\IViolatorRepository.cs" />
-    <Compile Include="Entities\AddressType.cs" />
+    <Compile Include="Abstract\Protocols\IDefinitionsAboutViolationRepository.cs" />
+    <Compile Include="Abstract\Protocols\IInjunctionRepository.cs" />
+    <Compile Include="Abstract\Protocols\IInjunctionItemRepository.cs" />
+    <Compile Include="Abstract\IOrganisationRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolAboutArrestRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolAboutBringingRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolAboutInspectionRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolAboutInspectionAutoRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolAboutInspectionOrganisationRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolAboutViolationOrganisationRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolAboutViolationPersoneRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolAboutWithdrawRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolRepository.cs" />
+    <Compile Include="Abstract\Protocols\IProtocolTypeRepository.cs" />
+    <Compile Include="Abstract\Protocols\IRulingForViolationRepository.cs" />
+    <Compile Include="Contexts\LeoBaseContext.cs" />
+    <Compile Include="Entities\DefinitionAboutViolation.cs" />
     <Compile Include="Entities\Document.cs" />
     <Compile Include="Entities\DocumentType.cs" />
     <Compile Include="Entities\Employer.cs" />
+    <Compile Include="Entities\Injunction.cs" />
     <Compile Include="Entities\Manager.cs" />
+    <Compile Include="Entities\Organisation.cs" />
     <Compile Include="Entities\Phone.cs" />
     <Compile Include="Entities\EmploeyrPosition.cs" />
     <Compile Include="Entities\PersoneAddress.cs" />
     <Compile Include="Entities\Persone.cs" />
+    <Compile Include="Entities\Protocol.cs" />
+    <Compile Include="Entities\ProtocolAboutArrest.cs" />
+    <Compile Include="Entities\ProtocolAboutBringing.cs" />
+    <Compile Include="Entities\ProtocolAboutInspection.cs" />
+    <Compile Include="Entities\ProtocolAboutInspectionAuto.cs" />
+    <Compile Include="Entities\ProtocolAboutInspectionOrganisation.cs" />
+    <Compile Include="Entities\ProtocolAboutViolationOrganisation.cs" />
+    <Compile Include="Entities\ProtocolAboutViolationPersone.cs" />
+    <Compile Include="Entities\ProtocolAboutWithdraw.cs" />
+    <Compile Include="Entities\ProtocolType.cs" />
+    <Compile Include="Entities\RulingForViolation.cs" />
     <Compile Include="Entities\Violation.cs" />
+    <Compile Include="Entities\ViolationImage.cs" />
     <Compile Include="Entities\ViolationType.cs" />
     <Compile Include="Entities\Violator.cs" />
     <Compile Include="FakesRepositoryes\FakeDocumentRespository.cs" />
@@ -83,10 +135,271 @@
     <Compile Include="FakesRepositoryes\FakePersonsPositionRepository.cs" />
     <Compile Include="FakesRepositoryes\FakePhonesRepository.cs" />
     <Compile Include="Infrastructure\RepositoryesFactory.cs" />
+    <Compile Include="Migrations\201609280717291_1.cs" />
+    <Compile Include="Migrations\201609280717291_1.Designer.cs">
+      <DependentUpon>201609280717291_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609280723213_2.cs" />
+    <Compile Include="Migrations\201609280723213_2.Designer.cs">
+      <DependentUpon>201609280723213_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609280724433_3.cs" />
+    <Compile Include="Migrations\201609280724433_3.Designer.cs">
+      <DependentUpon>201609280724433_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609280802583_5.cs" />
+    <Compile Include="Migrations\201609280802583_5.Designer.cs">
+      <DependentUpon>201609280802583_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609280821293_6.cs" />
+    <Compile Include="Migrations\201609280821293_6.Designer.cs">
+      <DependentUpon>201609280821293_6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609280828084_7.cs" />
+    <Compile Include="Migrations\201609280828084_7.Designer.cs">
+      <DependentUpon>201609280828084_7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609280849582_8.cs" />
+    <Compile Include="Migrations\201609280849582_8.Designer.cs">
+      <DependentUpon>201609280849582_8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609280914262_9.cs" />
+    <Compile Include="Migrations\201609280914262_9.Designer.cs">
+      <DependentUpon>201609280914262_9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609281227022_10.cs" />
+    <Compile Include="Migrations\201609281227022_10.Designer.cs">
+      <DependentUpon>201609281227022_10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609281228093_11.cs" />
+    <Compile Include="Migrations\201609281228093_11.Designer.cs">
+      <DependentUpon>201609281228093_11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609281426428_12.cs" />
+    <Compile Include="Migrations\201609281426428_12.Designer.cs">
+      <DependentUpon>201609281426428_12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609282056475_13.cs" />
+    <Compile Include="Migrations\201609282056475_13.Designer.cs">
+      <DependentUpon>201609282056475_13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609282302095_14.cs" />
+    <Compile Include="Migrations\201609282302095_14.Designer.cs">
+      <DependentUpon>201609282302095_14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609282303057_16.cs" />
+    <Compile Include="Migrations\201609282303057_16.Designer.cs">
+      <DependentUpon>201609282303057_16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609282304381_17.cs" />
+    <Compile Include="Migrations\201609282304381_17.Designer.cs">
+      <DependentUpon>201609282304381_17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609300556275_18.cs" />
+    <Compile Include="Migrations\201609300556275_18.Designer.cs">
+      <DependentUpon>201609300556275_18.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030004217_20.cs" />
+    <Compile Include="Migrations\201610030004217_20.Designer.cs">
+      <DependentUpon>201610030004217_20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030021467_21.cs" />
+    <Compile Include="Migrations\201610030021467_21.Designer.cs">
+      <DependentUpon>201610030021467_21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030027057_22.cs" />
+    <Compile Include="Migrations\201610030027057_22.Designer.cs">
+      <DependentUpon>201610030027057_22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030052423_23.cs" />
+    <Compile Include="Migrations\201610030052423_23.Designer.cs">
+      <DependentUpon>201610030052423_23.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030102319_24.cs" />
+    <Compile Include="Migrations\201610030102319_24.Designer.cs">
+      <DependentUpon>201610030102319_24.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030135160_26.cs" />
+    <Compile Include="Migrations\201610030135160_26.Designer.cs">
+      <DependentUpon>201610030135160_26.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030138493_27.cs" />
+    <Compile Include="Migrations\201610030138493_27.Designer.cs">
+      <DependentUpon>201610030138493_27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030157169_28.cs" />
+    <Compile Include="Migrations\201610030157169_28.Designer.cs">
+      <DependentUpon>201610030157169_28.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030204021_30.cs" />
+    <Compile Include="Migrations\201610030204021_30.Designer.cs">
+      <DependentUpon>201610030204021_30.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030210206_31.cs" />
+    <Compile Include="Migrations\201610030210206_31.Designer.cs">
+      <DependentUpon>201610030210206_31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030219348_32.cs" />
+    <Compile Include="Migrations\201610030219348_32.Designer.cs">
+      <DependentUpon>201610030219348_32.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030243442_33.cs" />
+    <Compile Include="Migrations\201610030243442_33.Designer.cs">
+      <DependentUpon>201610030243442_33.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030254152_34.cs" />
+    <Compile Include="Migrations\201610030254152_34.Designer.cs">
+      <DependentUpon>201610030254152_34.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030258092_35.cs" />
+    <Compile Include="Migrations\201610030258092_35.Designer.cs">
+      <DependentUpon>201610030258092_35.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030635444_36.cs" />
+    <Compile Include="Migrations\201610030635444_36.Designer.cs">
+      <DependentUpon>201610030635444_36.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030716588_37.cs" />
+    <Compile Include="Migrations\201610030716588_37.Designer.cs">
+      <DependentUpon>201610030716588_37.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610030759236_38.cs" />
+    <Compile Include="Migrations\201610030759236_38.Designer.cs">
+      <DependentUpon>201610030759236_38.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositrys\AddressRepository.cs" />
+    <Compile Include="Repositrys\DocumentsRepository.cs" />
+    <Compile Include="Repositrys\DocumentTypesRepository.cs" />
+    <Compile Include="Repositrys\ManagersRepository.cs" />
+    <Compile Include="Repositrys\PersonesRepository.cs" />
+    <Compile Include="Repositrys\PhonesRepository.cs" />
+    <Compile Include="Repositrys\PositionsRepository.cs" />
+    <Compile Include="Repositrys\Violations\EmployersRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\DefinitionsAboutViolationRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\InjunctionItemRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\InjunctionRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolAboutArrestRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolAboutBringingRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolAboutInspectionAutoRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolAboutInspectionOrganisationRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolAboutInspectionRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolAboutViolationOrganisationRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolAboutViolationPersoneRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolAboutWithdrawRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\ProtocolTypeRepository.cs" />
+    <Compile Include="Repositrys\Violations\Protocols\RulingForViolationRepository.cs" />
+    <Compile Include="Repositrys\Violations\ViolationImageRepository.cs" />
+    <Compile Include="Repositrys\Violations\ViolationRepository.cs" />
+    <Compile Include="Repositrys\Violations\ViolationTypesRepository.cs" />
+    <Compile Include="Repositrys\Violations\ViolatorsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609280717291_1.resx">
+      <DependentUpon>201609280717291_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609280723213_2.resx">
+      <DependentUpon>201609280723213_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609280724433_3.resx">
+      <DependentUpon>201609280724433_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609280802583_5.resx">
+      <DependentUpon>201609280802583_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609280821293_6.resx">
+      <DependentUpon>201609280821293_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609280828084_7.resx">
+      <DependentUpon>201609280828084_7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609280849582_8.resx">
+      <DependentUpon>201609280849582_8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609280914262_9.resx">
+      <DependentUpon>201609280914262_9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609281227022_10.resx">
+      <DependentUpon>201609281227022_10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609281228093_11.resx">
+      <DependentUpon>201609281228093_11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609281426428_12.resx">
+      <DependentUpon>201609281426428_12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609282056475_13.resx">
+      <DependentUpon>201609282056475_13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609282302095_14.resx">
+      <DependentUpon>201609282302095_14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609282303057_16.resx">
+      <DependentUpon>201609282303057_16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609282304381_17.resx">
+      <DependentUpon>201609282304381_17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609300556275_18.resx">
+      <DependentUpon>201609300556275_18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030004217_20.resx">
+      <DependentUpon>201610030004217_20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030021467_21.resx">
+      <DependentUpon>201610030021467_21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030027057_22.resx">
+      <DependentUpon>201610030027057_22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030052423_23.resx">
+      <DependentUpon>201610030052423_23.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030102319_24.resx">
+      <DependentUpon>201610030102319_24.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030135160_26.resx">
+      <DependentUpon>201610030135160_26.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030138493_27.resx">
+      <DependentUpon>201610030138493_27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030157169_28.resx">
+      <DependentUpon>201610030157169_28.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030204021_30.resx">
+      <DependentUpon>201610030204021_30.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030210206_31.resx">
+      <DependentUpon>201610030210206_31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030219348_32.resx">
+      <DependentUpon>201610030219348_32.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030243442_33.resx">
+      <DependentUpon>201610030243442_33.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030254152_34.resx">
+      <DependentUpon>201610030254152_34.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030258092_35.resx">
+      <DependentUpon>201610030258092_35.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030635444_36.resx">
+      <DependentUpon>201610030635444_36.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030716588_37.resx">
+      <DependentUpon>201610030716588_37.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610030759236_38.resx">
+      <DependentUpon>201610030759236_38.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -14,6 +14,7 @@ namespace AppPresentators.Views
     {
         #region Models
         VManager Manager { get; set; }
+        bool Enabled { get; set; }
         #endregion
 
         #region Methods
@@ -22,6 +23,8 @@ namespace AppPresentators.Views
         void SetComponent(Control control);
         void SetMenu(IMainMenu control);
         void ClearCenter();
+        void StartTask();
+        void EndTask();
         #endregion
 
         #region Actions

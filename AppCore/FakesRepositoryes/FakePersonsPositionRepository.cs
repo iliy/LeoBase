@@ -14,17 +14,17 @@ namespace AppData.FakesRepositoryes
             {
                 new EmploeyrPosition
                 {
-                    PositionID = 1,
+                    PositionID = 4,
                     Name = "Госинспектор"
                 },
                 new EmploeyrPosition
                 {
-                    PositionID = 2,
+                    PositionID = 5,
                     Name = "Участковый госинспектор"
                 },
                 new EmploeyrPosition
                 {
-                    PositionID = 3,
+                    PositionID = 6,
                     Name = "Старший госинпектор"
                 }
             };

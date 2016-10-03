@@ -17,7 +17,7 @@ namespace LeoBase.Components
         public TestComponent()
         {
             InitializeComponent();
-            this.Controls.Add(new CustomGridView());
+            //this.Controls.Add(new CustomGridView());
         }
 
         public string Title

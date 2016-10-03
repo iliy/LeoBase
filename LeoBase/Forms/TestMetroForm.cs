@@ -23,7 +23,7 @@ namespace LeoBase.Forms
 
     public partial class TestMetroForm : MetroForm
     {
-        CustomGridView customGridView;
+        //CustomGridView customGridView;
         public TestMetroForm()
         {
             InitializeComponent();
@@ -38,9 +38,9 @@ namespace LeoBase.Forms
                 });
             }
 
-            customGridView = new CustomGridView();
+            //customGridView = new CustomGridView();
 
-            customGridView.DataSource = new BindingList<Person>(persons);
+            //customGridView.DataSource = new BindingList<Person>(persons);
 
             //row.Cells.Add(;
 
@@ -53,12 +53,12 @@ namespace LeoBase.Forms
             //    }
             //}
 
-            customGridView.Width = metroPanel1.Width - metroPanel1.Margin.Left - metroPanel1.Margin.Right;
-            customGridView.Height = metroPanel1.Height - metroPanel1.Margin.Bottom - metroPanel1.Margin.Top;
+            //customGridView.Width = metroPanel1.Width - metroPanel1.Margin.Left - metroPanel1.Margin.Right;
+            //customGridView.Height = metroPanel1.Height - metroPanel1.Margin.Bottom - metroPanel1.Margin.Top;
 
-            customGridView.ReadOnly = true;
-            customGridView.Sorted += CustomGridView_Sorted;
-            this.metroPanel1.Controls.Add(customGridView);
+            //customGridView.ReadOnly = true;
+            //customGridView.Sorted += CustomGridView_Sorted;
+            //this.metroPanel1.Controls.Add(customGridView);
 
             /**
              *1) Возможность добавления пользовательской сортировки (при клике на столбец).

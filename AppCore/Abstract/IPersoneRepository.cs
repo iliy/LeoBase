@@ -13,5 +13,6 @@ namespace AppData.Abstract
         int Count { get; }
         int AddPersone(Persone persone);
         bool Remove(int id);
+        bool Update(Persone persone);
     }
 }

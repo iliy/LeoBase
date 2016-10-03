@@ -36,6 +36,7 @@
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.menuPanel = new MetroFramework.Controls.MetroPanel();
             this.centerPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             this.accauntInfoPanel.SuspendLayout();
             this.SuspendLayout();
@@ -45,6 +46,7 @@
             this.topPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.topPanel.BackColor = System.Drawing.Color.White;
+            this.topPanel.Controls.Add(this.label1);
             this.topPanel.Controls.Add(this.accauntInfoPanel);
             this.topPanel.Controls.Add(this.metroButton2);
             this.topPanel.Controls.Add(this.metroButton1);
@@ -142,6 +144,16 @@
             this.centerPanel.Size = new System.Drawing.Size(689, 519);
             this.centerPanel.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(377, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Загрузка";
+            this.label1.Visible = false;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +172,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainView_Load);
             this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.accauntInfoPanel.ResumeLayout(false);
             this.accauntInfoPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -176,5 +189,6 @@
         private MetroFramework.Controls.MetroButton btnLogout;
         private MetroFramework.Controls.MetroLabel lbAccauntInfo;
         private System.Windows.Forms.Panel centerPanel;
+        private System.Windows.Forms.Label label1;
     }
 }

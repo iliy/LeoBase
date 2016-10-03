@@ -67,7 +67,7 @@ namespace AppPresentators.Presentators
             _mainView.ClearCenter();
             if(command == MenuCommand.Employees)
             {
-                var presentator = _appFactory.GetPresentator<IEmployersPresentator>();
+                var presentator = _appFactory.GetPresentator<IEmployersPresentator>(_mainView);
                 _mainView.SetComponent(presentator.RenderControl());
             }
             else { 

@@ -15,8 +15,8 @@ namespace AppData.FakesRepositoryes
                 new Document
                 {
                     DocumentID = 1,
-                    DocumentTypeID = 1,
-                    UserID = 1,
+                    //DocumentTypeID = 1,
+                    //UserID = 1,
                     Serial = "111",
                     Number = "123",
                     IssuedBy = "Выдан 1",
@@ -26,8 +26,8 @@ namespace AppData.FakesRepositoryes
                 new Document
                 {
                     DocumentID = 2,
-                    DocumentTypeID = 1,
-                    UserID = 2,
+                    //DocumentTypeID = 1,
+                    //UserID = 2,
                     Serial = "212",
                     Number = "126",
                     IssuedBy = "Выдан 2",
@@ -36,8 +36,8 @@ namespace AppData.FakesRepositoryes
                 new Document
                 {
                     DocumentID = 3,
-                    DocumentTypeID = 2,
-                    UserID = 2,
+                    //DocumentTypeID = 2,
+                    //UserID = 2,
                     Serial = "322",
                     Number = "125",
                     IssuedBy = "Выдан 3",
@@ -46,8 +46,8 @@ namespace AppData.FakesRepositoryes
                 new Document
                 {
                     DocumentID = 4,
-                    DocumentTypeID = 1,
-                    UserID = 3,
+                    //DocumentTypeID = 1,
+                    //UserID = 3,
                     Serial = "413",
                     Number = "127",
                     IssuedBy = "Выдан 2",
@@ -57,8 +57,8 @@ namespace AppData.FakesRepositoryes
                 new Document
                 {
                     DocumentID = 5,
-                    DocumentTypeID = 2,
-                    UserID = 4,
+                    //DocumentTypeID = 2,
+                    //UserID = 4,
                     Serial = "524",
                     Number = "223",
                     IssuedBy = "Выдан 3",
@@ -67,8 +67,8 @@ namespace AppData.FakesRepositoryes
                 new Document
                 {
                     DocumentID = 6,
-                    DocumentTypeID = 1,
-                    UserID = 5,
+                    //DocumentTypeID = 1,
+                    //UserID = 5,
                     Serial = "524",
                     Number = "12312",
                     IssuedBy = "Выдан 8",

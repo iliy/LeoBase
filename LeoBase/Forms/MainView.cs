@@ -12,6 +12,7 @@ using AppPresentators.VModels;
 using AppPresentators.Components;
 using AppPresentators.Components.MainMenu;
 using MetroFramework.Forms;
+using System.Threading;
 
 namespace LeoBase.Forms
 {
@@ -27,6 +28,7 @@ namespace LeoBase.Forms
             InitializeComponent();
             this.Resize += (s, e) => MainResize();
         }
+
         
         private void MainResize()
         {
@@ -61,6 +63,17 @@ namespace LeoBase.Forms
             MessageBox.Show(errorMessage);
         }
 
+        private static bool _taskWorking = false;
+        public void StartTask()
+        {
+            label1.Visible = true;
+        }
+
+        public void EndTask()
+        {
+            label1.Visible = false;
+        }
+
         public void Show()
         {
             Application.Run(this);
@@ -80,8 +93,11 @@ namespace LeoBase.Forms
         private Control childrenControl;
         public void SetComponent(Control component)
         {
-            component.Width = centerPanel.Width;
-            component.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+            //component.Width = centerPanel.Width;
+            //component.Height = centerPanel.Height;
+            //component.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+            component.Anchor = AnchorStyles.None;
+            component.Dock = DockStyle.Fill;
             centerPanel.Controls.Add(component);
 
             childrenControl = component;

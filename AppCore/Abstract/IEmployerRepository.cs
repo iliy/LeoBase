@@ -10,5 +10,6 @@ namespace AppData.Abstract
     public interface IEmployerRepository
     {
         IQueryable<Employer> Employers { get; }
+        int SaveEmployer(Employer employer);
     }
 }

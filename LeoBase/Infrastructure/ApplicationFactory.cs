@@ -69,6 +69,17 @@ namespace LeoBase.Infrastructure
             return _ninjectKernel.Get<T>(args);
         }
 
+        public T GetPresentator<T>(IMainView main)
+        {
+            ConstructorArgument[] args = new ConstructorArgument[]
+               {
+                         new ConstructorArgument("main", main),
+                         new ConstructorArgument("appFactory", this)
+               };
+
+            return _ninjectKernel.Get<T>(args);
+        }
+
         public IMainPresentator GetMainPresentator(IMainView main, IApplicationFactory appFactory)
         {
             ConstructorArgument[] args = new ConstructorArgument[]
@@ -117,5 +128,6 @@ namespace LeoBase.Infrastructure
                 Title = command.ToString()
             };
         }
+
     }
 }

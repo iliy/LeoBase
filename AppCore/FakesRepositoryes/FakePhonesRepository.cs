@@ -12,48 +12,48 @@ namespace AppData.FakesRepositoryes
     {
         private List<Phone> _phones = new List<Phone>
             {
-                new Phone
-                {
-                    PhoneID = 1,
-                    UserID = 1,
-                    PhoneNumber = "1100000"
-                },
-                new Phone
-                {
-                    PhoneID = 2,
-                    UserID = 2,
-                    PhoneNumber = "2200000"
-                },
-                new Phone
-                {
-                    PhoneID = 3,
-                    UserID = 2,
-                    PhoneNumber = "3200000"
-                },
-                new Phone
-                {
-                    PhoneID = 4,
-                    UserID = 3,
-                    PhoneNumber = "4300000"
-                },
-                new Phone
-                {
-                    PhoneID = 5,
-                    UserID = 4,
-                    PhoneNumber = "5400000"
-                },
-                new Phone
-                {
-                    PhoneID = 6,
-                    UserID = 5,
-                    PhoneNumber = "6500000"
-                },
-                new Phone
-                {
-                    PhoneID = 7,
-                    UserID = 5,
-                    PhoneNumber = "7500000"
-                }
+                //new Phone
+                //{
+                //    PhoneID = 1,
+                //    UserID = 1,
+                //    PhoneNumber = "1100000"
+                //},
+                //new Phone
+                //{
+                //    PhoneID = 2,
+                //    UserID = 2,
+                //    PhoneNumber = "2200000"
+                //},
+                //new Phone
+                //{
+                //    PhoneID = 3,
+                //    UserID = 2,
+                //    PhoneNumber = "3200000"
+                //},
+                //new Phone
+                //{
+                //    PhoneID = 4,
+                //    UserID = 3,
+                //    PhoneNumber = "4300000"
+                //},
+                //new Phone
+                //{
+                //    PhoneID = 5,
+                //    UserID = 4,
+                //    PhoneNumber = "5400000"
+                //},
+                //new Phone
+                //{
+                //    PhoneID = 6,
+                //    UserID = 5,
+                //    PhoneNumber = "6500000"
+                //},
+                //new Phone
+                //{
+                //    PhoneID = 7,
+                //    UserID = 5,
+                //    PhoneNumber = "7500000"
+                //}
             };
 
         public IQueryable<Phone> Phones
@@ -87,7 +87,8 @@ namespace AppData.FakesRepositoryes
 
         public int RemoveAllUserPhones(int userid)
         {
-            return _phones.RemoveAll(p => p.UserID == userid);
+            return 0;
+            //return _phones.RemoveAll(p => p.UserID == userid);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace AppPresentators.VModels.Persons
 {
     public class PersonsSearchModel
     {
+        public int PersoneID { get; set; } = 0;
         public string FirstName { get; set; }
         public CompareString CompareFirstName { get; set; } = CompareString.EQUAL;
 
@@ -29,17 +30,33 @@ namespace AppPresentators.VModels.Persons
 
         public bool? IsEmployer { get; set; } = null;
 
+        public string PlaceOfBirth { get; set; }
+        public CompareString ComparePlaceOfBirth { get; set; } = CompareString.EQUAL;
+
+        public DateTime WasBeCreated { get; set; }
+        public CompareValue CompareWasBeCreated { get; set; } = CompareValue.EQUAL;
+
+        public DateTime WasBeUpdated { get; set; }
+        public CompareValue CompareWasBeUpdated { get; set; } = CompareValue.EQUAL;
+
+        public string PlaceWork { get; set; }
+        public CompareString ComparePlaceWork { get; set; } = CompareString.EQUAL;
+
         public bool IsEmptySearch { get
             {
                 return 
                     string.IsNullOrEmpty(FirstName) 
                     && string.IsNullOrEmpty(SecondName) 
                     && string.IsNullOrEmpty(MiddleName)
+                    && (WasBeCreated.Year == 1)
+                    && (WasBeUpdated.Year == 1)
                     && (DateBirthday.Year == 1)
                     && string.IsNullOrEmpty(Position)
                     && Age == 0 
                     && (Address == null || Address.IsEmptyAddress) 
-                    && (IsEmployer == null);
+                    && string.IsNullOrEmpty(PlaceOfBirth)
+                    && (IsEmployer == null)
+                    && string.IsNullOrEmpty(PlaceWork);
             }
         }
     }

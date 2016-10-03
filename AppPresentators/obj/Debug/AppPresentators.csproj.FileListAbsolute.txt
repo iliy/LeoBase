@@ -2,12 +2,9 @@ D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\AppPresentators.dll
 D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\AppPresentators.pdb
 D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\AppData.dll
 D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\Ninject.dll
-D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\Moq.dll
-D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\Castle.Core.dll
 D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\AppData.pdb
 D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\Ninject.xml
-D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\Moq.xml
-D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\Castle.Core.xml
 D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\obj\Debug\AppPresentators.csprojResolveAssemblyReference.cache
 D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\obj\Debug\AppPresentators.dll
 D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\obj\Debug\AppPresentators.pdb
+D:\Work\Dev\LeopardLand\LeoBase\AppPresentators\bin\Debug\EntityFramework.xml

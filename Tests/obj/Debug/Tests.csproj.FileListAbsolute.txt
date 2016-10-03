@@ -16,3 +16,5 @@ D:\Work\Dev\LeopardLand\LeoBase\Tests\bin\Debug\Castle.Core.xml
 D:\Work\Dev\LeopardLand\LeoBase\Tests\bin\Debug\Moq.xml
 D:\Work\Dev\LeopardLand\LeoBase\Tests\bin\Debug\Ninject.xml
 D:\Work\Dev\LeopardLand\LeoBase\Tests\bin\Debug\MetroFramework.dll
+D:\Work\Dev\LeopardLand\LeoBase\Tests\bin\Debug\EntityFramework.dll
+D:\Work\Dev\LeopardLand\LeoBase\Tests\bin\Debug\EntityFramework.xml
