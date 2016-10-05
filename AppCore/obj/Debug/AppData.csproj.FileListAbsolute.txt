@@ -59,3 +59,5 @@ D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._35.resourc
 D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._36.resources
 D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._37.resources
 D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._38.resources
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._39.resources
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._40.resources

@@ -267,6 +267,14 @@
     <Compile Include="Migrations\201610030759236_38.Designer.cs">
       <DependentUpon>201610030759236_38.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610031331219_39.cs" />
+    <Compile Include="Migrations\201610031331219_39.Designer.cs">
+      <DependentUpon>201610031331219_39.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610031332004_40.cs" />
+    <Compile Include="Migrations\201610031332004_40.Designer.cs">
+      <DependentUpon>201610031332004_40.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositrys\AddressRepository.cs" />
@@ -399,6 +407,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610030759236_38.resx">
       <DependentUpon>201610030759236_38.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610031331219_39.resx">
+      <DependentUpon>201610031331219_39.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610031332004_40.resx">
+      <DependentUpon>201610031332004_40.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

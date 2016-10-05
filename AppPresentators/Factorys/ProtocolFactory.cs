@@ -317,6 +317,7 @@ namespace AppPresentators.Factorys
                         var protocolAboutArrest = (ProtocolAboutArrest)protocol;
 
                         var violatorDocument = db.Documents
+                                                 .Include("Persone")
                                                  .FirstOrDefault(d => d.DocumentID == protocolAboutArrest.ViolatorDocumentID);
 
                         if (violatorDocument == null) return false;
@@ -1128,15 +1129,24 @@ namespace AppPresentators.Factorys
 
 
             definitionUpdate.FindedAmmunitions = definition.FindedAmmunitions;
+
             definitionUpdate.FindedDocuments = definition.FindedDocuments;
+
             definitionUpdate.FindedGunsHuntingAndFishing = definition.FindedGunsHuntingAndFishing;
+
             definitionUpdate.FindedNatureManagementProducts = definition.FindedNatureManagementProducts;
+
             definitionUpdate.FindedWeapons = definition.FindedWeapons;
+
             definitionUpdate.FixingMethods = definition.FixingMethods;
+
             definitionUpdate.KOAP = definition.FixingMethods;
+
             definitionUpdate.OrganisationID = definition.OrganisationID;
+
             definitionUpdate.ViolatorDocumentID = definition.ViolatorDocumentID;
             
+
             return true;
         }
 
@@ -1153,9 +1163,437 @@ namespace AppPresentators.Factorys
             if (injunctionUpdate == null)
                 return false;
 
+            if(injunction.InjuctionsItem != null)
+            {
+                var injunctionItemsForRemove = injunctionUpdate.InjuctionsItem;
+
+                if(injunctionItemsForRemove != null)
+                    db.InjunctionItems.RemoveRange(injunctionItemsForRemove);
+
+                injunctionUpdate.InjuctionsItem = injunction.InjuctionsItem;
+            }
+
+            var document = db.Documents.Include("Persone").FirstOrDefault(d => d.DocumentID == injunction.ViolatorDocumentID);
+
             var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
 
-            return false;
+            if(document != null && violator != null)
+            {
+                violator.PersoneID = document.Persone.UserID;
+
+                violator.ViolationID = injunction.Protocol.ViolationID;
+            }
+
+            injunctionUpdate.ActInspectionDate = injunction.ActInspectionDate;
+
+            injunctionUpdate.ActInspectionNumber = injunction.ActInspectionNumber;
+
+            injunctionUpdate.InjunctionInfo = injunction.InjunctionInfo;
+
+            injunctionUpdate.ViolatorDocumentID = injunction.ViolatorDocumentID;
+
+
+            return true;
+        }
+
+        public static bool UpdateProtocolAboutArrest(IProtocol protocol, LeoBaseContext db)
+        {
+            if (!(protocol is ProtocolAboutArrest))
+                throw new ArgumentException("Протокол не является протоколом об аресте");
+
+            var protocolAboutArrest = (ProtocolAboutArrest)protocol;
+
+            var protocolAboutArrestUpdate = db.ProtocolsAboutArrest.FirstOrDefault(p => p.ProtocolAboutArrestID == protocolAboutArrest.ProtocolAboutArrestID);
+
+            if (protocolAboutArrestUpdate == null) return false;
+
+            var document = db.Documents.Include("Persone").FirstOrDefault(d => d.DocumentID == protocolAboutArrest.ViolatorDocumentID);
+
+            if (document == null) return false;
+
+            var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            if (violator == null) return false;
+
+            violator.PersoneID = document.Persone.UserID;
+
+            violator.ViolationID = protocol.Protocol.ViolationID;
+
+
+            protocolAboutArrestUpdate.AboutCar = protocolAboutArrest.AboutCar;
+
+            protocolAboutArrestUpdate.AboutOtherThings = protocolAboutArrest.AboutOtherThings;
+
+            protocolAboutArrestUpdate.AboutViolator = protocolAboutArrest.AboutViolator;
+
+            protocolAboutArrestUpdate.FixingMethods = protocolAboutArrest.FixingMethods;
+
+            protocolAboutArrestUpdate.ThingsWasTransfer = protocolAboutArrest.ThingsWasTransfer;
+
+            protocolAboutArrestUpdate.ViolatorDocumentID = protocolAboutArrest.ViolatorDocumentID;
+
+
+            return true;
+        }
+
+        public static bool UpdateProtocolAboutBringing(IProtocol protocol, LeoBaseContext db)
+        {
+            if (!(protocol is ProtocolAboutBringing))
+                throw new ArgumentException("Протокол не является протоколом о доставление.");
+
+            var protocolAboutBringing = (ProtocolAboutBringing)protocol;
+
+            var protocolAboutBringingUpdate = db.ProtocolsAboutBringing.FirstOrDefault(p => p.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            if (protocolAboutBringingUpdate == null) return false;
+
+
+            var document = db.Documents.Include("Persone").FirstOrDefault(d => d.DocumentID == protocolAboutBringing.ViolatorDocumentID);
+
+            if (document == null) return false;
+
+            var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            if (violator == null) return false;
+
+            violator.ViolationID = protocol.Protocol.ViolationID;
+
+            violator.PersoneID = document.Persone.UserID;
+
+
+            protocolAboutBringingUpdate.FindedAmmunitions = protocolAboutBringing.FindedAmmunitions;
+
+            protocolAboutBringingUpdate.FindedDocuments = protocolAboutBringing.FindedDocuments;
+
+            protocolAboutBringingUpdate.FindedGunsHuntingAndFishing = protocolAboutBringing.FindedGunsHuntingAndFishing;
+
+            protocolAboutBringingUpdate.FindedNatureManagementProducts = protocolAboutBringing.FindedNatureManagementProducts;
+
+            protocolAboutBringingUpdate.FindedWeapons = protocolAboutBringing.FindedWeapons;
+
+            protocolAboutBringingUpdate.FixingMethods = protocolAboutBringing.FixingMethods;
+
+            protocolAboutBringingUpdate.ViolatorDocumentID = protocolAboutBringing.ViolatorDocumentID;
+
+            protocolAboutBringingUpdate.WithdrawAmmunitions = protocolAboutBringing.WithdrawAmmunitions;
+
+            protocolAboutBringingUpdate.WithdrawDocuments = protocolAboutBringing.WithdrawDocuments;
+
+            protocolAboutBringingUpdate.WithdrawGunsHuntingAndFishing = protocolAboutBringing.WithdrawGunsHuntingAndFishing;
+
+            protocolAboutBringingUpdate.WithdrawNatureManagementProducts = protocolAboutBringing.WithdrawNatureManagementProducts;
+
+            protocolAboutBringingUpdate.WithdrawWeapons = protocolAboutBringing.WithdrawWeapons;
+            
+            return true;
+        }
+
+        public static bool UpdateProtocolAboutInspection(IProtocol protocol, LeoBaseContext db)
+        {
+            if (!(protocol is ProtocolAboutInspection))
+                throw new ArgumentException("Протокол не является протоколом о личном досмотре");
+
+            var protocolAboutInspection = (ProtocolAboutInspection)protocol;
+
+            var protocolAboutInspectionUpdate = db.ProtocolsAboutInspection.FirstOrDefault(p => p.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            var document = db.Documents
+                             .Include("Persone")
+                             .FirstOrDefault(d => d.DocumentID == protocolAboutInspection.ViolatorDocumentID);
+
+            if (document == null) return false;
+
+            var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            if (violator == null) return false;
+
+            violator.ViolationID = protocol.Protocol.ViolationID;
+
+            violator.PersoneID = document.Persone.UserID;
+
+
+            protocolAboutInspectionUpdate.FindedAmmunitions = protocolAboutInspection.FindedAmmunitions;
+
+            protocolAboutInspectionUpdate.FindedDocuments = protocolAboutInspection.FindedDocuments;
+
+            protocolAboutInspectionUpdate.FindedGunsHuntingAndFishing = protocolAboutInspection.FindedGunsHuntingAndFishing;
+
+            protocolAboutInspectionUpdate.FindedNatureManagementProducts = protocolAboutInspection.FindedNatureManagementProducts;
+
+            protocolAboutInspectionUpdate.FindedWeapons = protocolAboutInspection.FindedWeapons;
+
+            protocolAboutInspectionUpdate.FixingMethods = protocolAboutInspection.FixingMethods;
+
+            protocolAboutInspectionUpdate.ViolatorDocumentID = protocolAboutInspection.ViolatorDocumentID;
+
+
+            return true;
+        }
+
+        public static bool UpdateProtocolAboutInspectionAuto(IProtocol protocol, LeoBaseContext db)
+        {
+            if (!(protocol is ProtocolAboutInspectionAuto))
+                throw new ArgumentException("Протокол не ялвяется протоколом о досмотре транспортного средства");
+
+            var protocolAboutInspectionAuto = (ProtocolAboutInspectionAuto)protocol;
+
+            var protocolAboutInspectionAutoUpdate = db.ProtocolsAboutInspectionAuto
+                                                      .FirstOrDefault(p => p.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            var document = db.Documents.Include("Persone")
+                                       .FirstOrDefault(d => d.DocumentID == protocolAboutInspectionAuto.ViolatorDocumentID);
+
+            if (document == null) return false;
+
+            var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            if (violator == null) return false;
+
+            violator.ViolationID = protocol.Protocol.ViolationID;
+
+            violator.PersoneID = document.Persone.UserID;
+
+
+            protocolAboutInspectionAutoUpdate.FindedAmmunitions = protocolAboutInspectionAuto.FindedAmmunitions;
+
+            protocolAboutInspectionAutoUpdate.FindedDocuments = protocolAboutInspectionAuto.FindedDocuments;
+
+            protocolAboutInspectionAutoUpdate.FindedGunsHuntingAndFishing = protocolAboutInspectionAuto.FindedGunsHuntingAndFishing;
+
+            protocolAboutInspectionAutoUpdate.FindedNatureManagementProducts = protocolAboutInspectionAuto.FindedNatureManagementProducts;
+
+            protocolAboutInspectionAutoUpdate.FindedWeapons = protocolAboutInspectionAuto.FindedWeapons;
+
+            protocolAboutInspectionAutoUpdate.FixingMethods = protocolAboutInspectionAuto.FixingMethods;
+
+            protocolAboutInspectionAutoUpdate.InformationAbouCar = protocolAboutInspectionAuto.InformationAbouCar;
+
+            protocolAboutInspectionAutoUpdate.ViolatorDocumentID = protocolAboutInspectionAuto.ViolatorDocumentID;
+
+
+            return true;
+        }
+
+        public static bool UpdateProtocolAboutInspectionOrganisation(IProtocol protocol, LeoBaseContext db)
+        {
+            if (!(protocol is ProtocolAboutInspectionOrganisation))
+                throw new ArgumentException("Протокол не является протоколом осмтра оргнизации");
+
+            var protocolAboutInspectionOrganisation = (ProtocolAboutInspectionOrganisation)protocol;
+
+            var protocolAboutInspectionOrganisationUpdate = db.ProtocolsAboutInspectionOrganisation
+                                                              .FirstOrDefault(p => p.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+            
+            if (violator == null) return false;
+
+            violator.PersoneID = protocolAboutInspectionOrganisation.OrganisationID;
+
+            violator.ViolationID = protocolAboutInspectionOrganisation.Protocol.ViolationID;
+
+
+            protocolAboutInspectionOrganisationUpdate.FindedAmmunitions = protocolAboutInspectionOrganisation.FindedAmmunitions;
+
+            protocolAboutInspectionOrganisationUpdate.FindedDocuments = protocolAboutInspectionOrganisation.FindedDocuments;
+
+            protocolAboutInspectionOrganisationUpdate.FindedGunsHuntingAndFishing = protocolAboutInspectionOrganisation.FindedGunsHuntingAndFishing;
+
+            protocolAboutInspectionOrganisationUpdate.FindedNatureManagementProducts = protocolAboutInspectionOrganisation.FindedNatureManagementProducts;
+
+            protocolAboutInspectionOrganisationUpdate.FindedWeapons = protocolAboutInspectionOrganisation.FindedWeapons;
+
+            protocolAboutInspectionOrganisationUpdate.FixingMethods = protocolAboutInspectionOrganisation.FixingMethods;
+
+            protocolAboutInspectionOrganisationUpdate.InspectionTerritoryes = protocolAboutInspectionOrganisation.InspectionTerritoryes;
+
+            protocolAboutInspectionOrganisationUpdate.OrganisationID = protocolAboutInspectionOrganisation.OrganisationID;
+            
+            return true;
+        }
+
+        public static bool UpdateProtocolAboutViolationOrganisation(IProtocol protocol, LeoBaseContext db)
+        {
+            if (!(protocol is ProtocolAboutViolationOrganisation))
+                throw new ArgumentException("Протокол не является протоколом за административное правонарушение организацией");
+
+            var protocolAboutViolationOrganisation = (ProtocolAboutViolationOrganisation)protocol;
+
+            var protocolAboutViolationOrganisationUpdate = db.ProtocolsAboutViolationOrganisation
+                                                             .FirstOrDefault(p => p.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            if (violator == null) return false;
+
+            violator.ViolationID = protocol.Protocol.ViolationID;
+
+            violator.PersoneID = protocolAboutViolationOrganisation.OrganisationID;
+
+
+            protocolAboutViolationOrganisationUpdate.Description = protocolAboutViolationOrganisation.Description;
+
+            protocolAboutViolationOrganisationUpdate.KOAP = protocolAboutViolationOrganisation.KOAP;
+
+            protocolAboutViolationOrganisationUpdate.OrganisationID = protocolAboutViolationOrganisation.OrganisationID;
+
+            protocolAboutViolationOrganisationUpdate.ViolationTime = protocolAboutViolationOrganisation.ViolationTime;
+
+
+            return true;
+        }
+
+        public static bool UpdateProtocolAboutViolationPersone(IProtocol protocol, LeoBaseContext db)
+        {
+            if (!(protocol is ProtocolAboutViolationPersone))
+                throw new ArgumentException("Документ не является протоколом о административном правонарушение");
+
+            var protocolAboutViolation = (ProtocolAboutViolationPersone)protocol;
+
+            var protocolAboutViolationUpdate = db.ProtocolsAboutViolationPersone
+                                                       .FirstOrDefault(p => p.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            var document = db.Documents.Include("Persone")
+                                       .FirstOrDefault(d => d.DocumentID == protocolAboutViolation.ViolatorDocumentID);
+
+            if (document == null) return false;
+
+            var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            if (violator == null) return false;
+
+
+            violator.PersoneID = document.Persone.UserID;
+
+            violator.ViolationID = protocol.Protocol.ViolationID;
+
+
+            protocolAboutViolationUpdate.FindedGunsHuntingAndFishing = protocolAboutViolation.FindedGunsHuntingAndFishing;
+
+            protocolAboutViolationUpdate.FindedNatureManagementProducts = protocolAboutViolation.FindedNatureManagementProducts;
+
+            protocolAboutViolationUpdate.FindedWeapons = protocolAboutViolation.FindedWeapons;
+
+            protocolAboutViolationUpdate.KOAP = protocolAboutViolation.KOAP;
+
+            protocolAboutViolationUpdate.ViolationDate = protocolAboutViolation.ViolationDate;
+
+            protocolAboutViolationUpdate.ViolationDescription = protocolAboutViolation.ViolationDescription;
+
+            protocolAboutViolationUpdate.ViolatorDocumentID = protocolAboutViolation.ViolatorDocumentID;
+
+
+            return true;
+        }
+
+        public static bool UpdateProtocolAboutWithdraw(IProtocol protocol, LeoBaseContext db)
+        {
+            if (!(protocol is ProtocolAboutWithdraw))
+                throw new ArgumentException("Документ не является протоколом об изъятии");
+
+            var protocolAboutWithdraw = (ProtocolAboutWithdraw)protocol;
+
+            var protocolAboutWithdrawUpdate = db.ProtocolsAboutWithdraw
+                                                .FirstOrDefault(p => p.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            var document = db.Documents.Include("Persone")
+                                       .FirstOrDefault(d => d.DocumentID == protocolAboutWithdraw.ViolatorDocumentID);
+
+            if (document == null) return false;
+
+            var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            if (violator == null) return false;
+
+            violator.PersoneID = document.Persone.UserID;
+
+            violator.ViolationID = protocol.Protocol.ViolationID;
+
+
+            protocolAboutWithdrawUpdate.FixingMethods = protocolAboutWithdraw.FixingMethods;
+
+            protocolAboutWithdrawUpdate.ViolatorDocumentID = protocolAboutWithdraw.ViolatorDocumentID;
+
+            protocolAboutWithdrawUpdate.WithdrawAmmunitions = protocolAboutWithdraw.WithdrawAmmunitions;
+
+            protocolAboutWithdrawUpdate.WithdrawDocuments = protocolAboutWithdraw.WithdrawDocuments;
+
+            protocolAboutWithdrawUpdate.WithdrawGunsHuntingAndFishing = protocolAboutWithdraw.WithdrawGunsHuntingAndFishing;
+
+            protocolAboutWithdrawUpdate.WithdrawNatureManagementProducts = protocolAboutWithdraw.WithdrawNatureManagementProducts;
+
+            protocolAboutWithdrawUpdate.WithdrawWeapons = protocolAboutWithdraw.WithdrawWeapons;
+        
+
+            return true;
+        }
+
+        public static bool UpdateRuling(IProtocol protocol, LeoBaseContext db)
+        {
+            if (!(protocol is RulingForViolation))
+                throw new ArgumentException("Документ не является постановлением по делу об административном правонарушение");
+
+            var ruling = (RulingForViolation)protocol;
+
+            var rulingUpdate = db.RulingsForViolation.FirstOrDefault(r => r.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            var violator = db.Violators.FirstOrDefault(v => v.Protocol.ProtocolID == protocol.Protocol.ProtocolID);
+
+            if (violator == null) return false;
+
+            if (ruling.OrganisationID != 0)
+            {
+                violator.PersoneID = ruling.OrganisationID;
+
+                violator.ViolatorType = "Организация";
+
+                violator.ViolationID = protocol.Protocol.ViolationID;
+            }
+            else if (ruling.ViolatorDocumentID != 0)
+            {
+                var document = db.Documents.Include("Persone")
+                                           .FirstOrDefault(p => p.DocumentID == ruling.ViolatorDocumentID);
+
+                if (document == null) return false;
+
+                violator.PersoneID = document.Persone.UserID;
+
+                violator.ViolatorType = "Гражданин";
+
+                violator.ViolationID = protocol.Protocol.ViolationID;
+            }
+            else
+            {
+                return false;
+            }
+
+
+            rulingUpdate.AboutArrest = ruling.AboutArrest;
+
+            rulingUpdate.BankDetails = ruling.BankDetails;
+
+            rulingUpdate.Damage = ruling.Damage;
+
+            rulingUpdate.Fine = ruling.Fine;
+
+            rulingUpdate.FixingDate = ruling.FixingDate;
+
+            rulingUpdate.FixingInfo = ruling.FixingInfo;
+
+            rulingUpdate.KOAP = ruling.KOAP;
+
+            rulingUpdate.Number = ruling.Number;
+
+            rulingUpdate.OrganisationID = ruling.OrganisationID;
+
+            rulingUpdate.Products = ruling.Products;
+
+            rulingUpdate.ProductsPrice = ruling.ProductsPrice;
+
+            rulingUpdate.ViolatorDocumentID = ruling.ViolatorDocumentID;
+
+
+            return true;
         }
 
         public static bool UpdateProtocol(IProtocol protocol)
@@ -1193,36 +1631,37 @@ namespace AppPresentators.Factorys
                                 result = UpdateDefinition(protocol, db);
                                 break;
                             case (int)ProtocolsType.INJUCTION:
-
+                                result = UpdateInjunction(protocol, db);
                                 break;
                             case (int)ProtocolsType.PROTOCOL_ABOUT_ARREST:
-
+                                result = UpdateProtocolAboutArrest(protocol, db);
                                 break;
                             case (int)ProtocolsType.PROTOCOL_ABOUT_BRINGING:
+                                result = UpdateProtocolAboutBringing(protocol, db);
                                 break;
                             case (int)ProtocolsType.PROTOCOL_ABOUT_INSPECTION:
-
+                                result = UpdateProtocolAboutInspection(protocol, db);
                                 break;
                             case (int)ProtocolsType.PROTOCOL_ABOUT_INSPECTION_AUTO:
-
+                                result = UpdateProtocolAboutInspectionAuto(protocol, db);
                                 break;
                             case (int)ProtocolsType.PROTOCOL_ABOUT_INSPECTION_ORGANISATION:
-
+                                result = UpdateProtocolAboutInspectionOrganisation(protocol, db);
                                 break;
                             case (int)ProtocolsType.PROTOCOL_ABOUT_VIOLATION_ORGANISATION:
-
+                                result = UpdateProtocolAboutViolationOrganisation(protocol, db);
                                 break;
                             case (int)ProtocolsType.PROTOCOL_ABOUT_VIOLATION_PERSONE:
-
+                                result = UpdateProtocolAboutViolationPersone(protocol, db);
                                 break;
                             case (int)ProtocolsType.PROTOCOL_ABOUT_WITHDRAW:
-
+                                result = UpdateProtocolAboutWithdraw(protocol, db);
                                 break;
                             case (int)ProtocolsType.RULING_FOR_VIOLATION:
-
+                                result = UpdateRuling(protocol, db);
                                 break;
-                            //default:
-                            //    return false;
+                            default:
+                                return false;
                         }
 
                         if (!result) return false;

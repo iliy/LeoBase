@@ -85,25 +85,123 @@ namespace TestConsoleApp
         Program()
         {
 
+            var prAr = (ProtocolAboutWithdraw)ProtocolFactory.GetProtocolDetails(92);
+
+            prAr.FixingMethods = "Спутник";
+            prAr.WithdrawAmmunitions = "Никакая амуниция не была изъята";
+            prAr.WithdrawDocuments = "Никаие документы не были изъяты";
+            prAr.WithdrawGunsHuntingAndFishing = "Ничего не было изъято";
+            prAr.WithdrawNatureManagementProducts = "Ничего не было изъято";
+            prAr.WithdrawWeapons = "Никакие оружия не были изъяты";
+            prAr.ViolatorDocumentID = 16;
+
+            prAr.Protocol.DateCreatedProtocol = new DateTime(2011, 11, 12);
+            prAr.Protocol.EmployerID = 6;
+            prAr.Protocol.PlaceCreatedProtocol = "р.Пойма Новое место";
+            prAr.Protocol.PlaceCreatedProtocolE = 1112;
+            prAr.Protocol.PlaceCreatedProtocolN = 3332;
+            prAr.Protocol.ViolationID = 101;
+
+            var a = ProtocolFactory.UpdateProtocol(prAr);
+
+            Console.WriteLine(a);
+
+            Console.ReadKey();
+
+            return;
+
+            Protocol protocol = new Protocol
+            {
+                DateCreatedProtocol = new DateTime(2016, 4, 2),
+                EmployerID = 5,
+                PlaceCreatedProtocol = "р.Рязановка",
+                PlaceCreatedProtocolE = 123,
+                ViolationID = 100,
+                DateSave = DateTime.Now,
+                DateUpdate = DateTime.Now,
+                PlaceCreatedProtocolN = 231,
+                WitnessFIO_1 = "Иванов У 1",
+                WitnessFIO_2 = "Иванов У 2",
+                WitnessLive_1 = "Живет У 1",
+                WitnessLive_2 = "Живет У 2",
+                ProtocolTypeID = (int)ProtocolsType.PROTOCOL_ABOUT_WITHDRAW
+            };
+
+            var protocolAboutArest = new ProtocolAboutWithdraw
+            {
+                Protocol = protocol,
+                FixingMethods = "Фото/Видео съемка",
+                ViolatorDocumentID = 17,
+                WithdrawAmmunitions = "Какая-то амуниция изъята",
+                WithdrawDocuments = "Какие-то документы изъяты",
+                WithdrawGunsHuntingAndFishing = "Что-то еще изъято",
+                WithdrawNatureManagementProducts = "И еще что-то изъято",
+                WithdrawWeapons = "Какое-то оружие изъято"
+            };
+
+
+            ProtocolFactory.SaveProtocol(protocolAboutArest);
+
+
+            //var protocol = (Injunction)ProtocolFactory.GetProtocolDetails(75);
+
+
+            //List<InjunctionItem> items = new List<InjunctionItem>
+            //{
+            //    new InjunctionItem
+            //    {
+            //        BaseOrders = "Какие-то основания 1",
+            //        Deedline = "Конец 2016 года 1",
+            //        Description = "Что-то нарушено в природоохранном законодательстве 1"
+            //    },
+            //    new InjunctionItem
+            //    {
+            //        BaseOrders = "Еще какие-то основания 2",
+            //        Deedline = "Конец 2016 года 2",
+            //        Description = "Что-то нарушено опять 2"
+            //    }
+            //};
+
+            //protocol.ViolatorDocumentID = 14;
+            //protocol.InjunctionInfo = "Новая информация";
+            //protocol.Protocol.ViolationID = 101;
+            //protocol.Protocol.WitnessFIO_1 = "Новый кто-то 1";
+            //protocol.Protocol.WitnessFIO_2 = "Новый кто-то 2";
+            //protocol.Protocol.WitnessLive_1 = "Здесь живет новый 1";
+            //protocol.Protocol.WitnessLive_2 = "Здесь живет новый 2";
+
+            //protocol.Protocol.PlaceCreatedProtocol = "Новое место создания протокола";
+            //protocol.Protocol.PlaceCreatedProtocolE = 1;
+            //protocol.Protocol.PlaceCreatedProtocolN = 2;
+
+            //protocol.Protocol.DateCreatedProtocol = new DateTime(2015, 1, 1);
+
+            //protocol.InjuctionsItem = items;
+
+            //protocol.ActInspectionDate = new DateTime(2015, 1, 1);
+
+            //ProtocolFactory.UpdateProtocol(protocol);
 
             //var protocol = ProtocolFactory.GetProtocol(62);
-            var definition = (DefinitionAboutViolation)ProtocolFactory.GetProtocolDetails(74);
+            //var definition = (DefinitionAboutViolation)ProtocolFactory.GetProtocolDetails(74);
 
-            definition.FindedAmmunitions = "Что-то новое нашли!!!!!!";
+            //definition.FindedAmmunitions = "Что-то новое нашли!!!!!!";
 
-            definition.Protocol.PlaceCreatedProtocolN = 112;
-            definition.Protocol.PlaceCreatedProtocolE = 222;
+            //definition.Protocol.PlaceCreatedProtocolN = 112;
+            //definition.Protocol.PlaceCreatedProtocolE = 222;
 
-            definition.Protocol.EmployerID = 6;
+            //definition.Protocol.EmployerID = 6;
 
-            definition.Protocol.PlaceCreatedProtocol = "И вспомнили, что протокол составлялся немного в другом месте 12";
+            //definition.Protocol.PlaceCreatedProtocol = "И вспомнили, что протокол составлялся немного в другом месте 12";
 
-            definition.OrganisationID = 0;
-            definition.ViolatorDocumentID = 13;
+            //definition.OrganisationID = 0;
+            //definition.ViolatorDocumentID = 13;
 
-            bool result = ProtocolFactory.UpdateProtocol(definition);
+            //bool result = ProtocolFactory.UpdateProtocol(definition);
 
-            Console.WriteLine(result);
+
+
+            //Console.WriteLine(result);
 
             //Protocol protocol = ProtocolFactory.GetProtocol(71);
 
