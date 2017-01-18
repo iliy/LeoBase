@@ -14,5 +14,6 @@ namespace AppData.Abstract
         int AddPersone(Persone persone);
         bool Remove(int id);
         bool Update(Persone persone);
+        bool SimpleRemove(int id);
     }
 }

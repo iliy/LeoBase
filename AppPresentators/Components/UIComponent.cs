@@ -11,5 +11,7 @@ namespace AppPresentators.Components
     {
         Control GetControl();
         void Resize(int width, int height);
+        bool ShowForResult { get; set; }
+        List<Control> TopControls { get; set; }
     }
 }

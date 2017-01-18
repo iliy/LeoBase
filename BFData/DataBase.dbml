@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AppData.Contexts.LeoBaseContext" Class="DataBaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-18Q7336\SQLEXPRESS;Initial Catalog=AppData.Contexts.LeoBaseContext;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="BFData.Properties.Settings" SettingsPropertyName="AppData_Contexts_LeoBaseContextConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DefinitionAboutViolations" Member="DefinitionAboutViolations">
+    <Type Name="DefinitionAboutViolation">
+      <Column Name="DefinitionAboutViolationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FindedWeapons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedAmmunitions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedGunsHuntingAndFishing" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedNatureManagementProducts" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedDocuments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="KOAP" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FixingMethods" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolatorDocumentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrganisationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_DefinitionAboutViolation" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Documents" Member="Documents">
+    <Type Name="Document">
+      <Column Name="DocumentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Serial" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IssuedBy" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="WhenIssued" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CodeDevision" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Persone_UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Document_DocumentTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Document_Organisation" Member="Organisations" ThisKey="DocumentID" OtherKey="RepresentativeDocument_DocumentID" Type="Organisation" />
+      <Association Name="Persone_Document" Member="Persone" ThisKey="Persone_UserID" OtherKey="UserID" Type="Persone" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DocumentTypes" Member="DocumentTypes">
+    <Type Name="DocumentType">
+      <Column Name="DocumentTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmploeyrPositions" Member="EmploeyrPositions">
+    <Type Name="EmploeyrPosition">
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employers" Member="Employers">
+    <Type Name="Employer">
+      <Column Name="EmployerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ViolationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PersoneID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InjunctionItems" Member="InjunctionItems">
+    <Type Name="InjunctionItem">
+      <Column Name="InjunctionItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Deedline" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BaseOrders" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Injunction_InjunctionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Injunction_InjunctionItem" Member="Injunction" ThisKey="Injunction_InjunctionID" OtherKey="InjunctionID" Type="Injunction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Injunctions" Member="Injunctions">
+    <Type Name="Injunction">
+      <Column Name="InjunctionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ActInspectionDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActInspectionNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="InjunctionInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ViolatorDocumentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Injunction_InjunctionItem" Member="InjunctionItems" ThisKey="InjunctionID" OtherKey="Injunction_InjunctionID" Type="InjunctionItem" />
+      <Association Name="Protocol_Injunction" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Managers" Member="Managers">
+    <Type Name="Manager">
+      <Column Name="ManagerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Login" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Organisations" Member="Organisations">
+    <Type Name="Organisation">
+      <Column Name="OrganisationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Format" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Info" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="RepresentativeDocument_DocumentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Document_Organisation" Member="Document" ThisKey="RepresentativeDocument_DocumentID" OtherKey="DocumentID" Type="Document" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PersoneAddresses" Member="PersoneAddresses">
+    <Type Name="PersoneAddress">
+      <Column Name="AddressID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Area" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="HomeNumber" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Flat" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Persone_UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Persone_PersoneAddress" Member="Persone" ThisKey="Persone_UserID" OtherKey="UserID" Type="Persone" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Persones" Member="Persones">
+    <Type Name="Persone">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsEmploeyr" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="SecondName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DateBirthday" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Position_PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PlaceOfBirth" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WasBeCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="WasBeUpdated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PlaceWork" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Persone_Document" Member="Documents" ThisKey="UserID" OtherKey="Persone_UserID" Type="Document" />
+      <Association Name="Persone_PersoneAddress" Member="PersoneAddresses" ThisKey="UserID" OtherKey="Persone_UserID" Type="PersoneAddress" />
+      <Association Name="Persone_Phone" Member="Phones" ThisKey="UserID" OtherKey="Persone_UserID" Type="Phone" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phones" Member="Phones">
+    <Type Name="Phone">
+      <Column Name="PhoneID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Persone_UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Persone_Phone" Member="Persone" ThisKey="Persone_UserID" OtherKey="UserID" Type="Persone" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolAboutArrests" Member="ProtocolAboutArrests">
+    <Type Name="ProtocolAboutArrest">
+      <Column Name="ProtocolAboutArrestID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AboutViolator" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AboutCar" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AboutOtherThings" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ThingsWasTransfer" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FixingMethods" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolatorDocumentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_ProtocolAboutArrest" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolAboutBringings" Member="ProtocolAboutBringings">
+    <Type Name="ProtocolAboutBringing">
+      <Column Name="ProtocolAboutBringingID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FindedWeapons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedAmmunitions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedGunsHuntingAndFishing" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedNatureManagementProducts" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedDocuments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WithdrawWeapons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WithdrawAmmunitions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WithdrawGunsHuntingAndFishing" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WithdrawNatureManagementProducts" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WithdrawDocuments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FixingMethods" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolatorDocumentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_ProtocolAboutBringing" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolAboutInspectionAutoes" Member="ProtocolAboutInspectionAutoes">
+    <Type Name="ProtocolAboutInspectionAutoe">
+      <Column Name="ProtocolAboutInspectionAutoID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InformationAbouCar" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedWeapons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedAmmunitions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedGunsHuntingAndFishing" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedNatureManagementProducts" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedDocuments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FixingMethods" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolatorDocumentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_ProtocolAboutInspectionAutoe" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolAboutInspectionOrganisations" Member="ProtocolAboutInspectionOrganisations">
+    <Type Name="ProtocolAboutInspectionOrganisation">
+      <Column Name="ProtocolAboutInspectionOrganisationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InspectionTerritoryes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedWeapons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedAmmunitions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedGunsHuntingAndFishing" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedNatureManagementProducts" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedDocuments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FixingMethods" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrganisationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_ProtocolAboutInspectionOrganisation" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolAboutInspections" Member="ProtocolAboutInspections">
+    <Type Name="ProtocolAboutInspection">
+      <Column Name="ProtocolAboutInspectionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FindedWeapons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedAmmunitions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedGunsHuntingAndFishing" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedNatureManagementProducts" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedDocuments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FixingMethods" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolatorDocumentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_ProtocolAboutInspection" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolAboutViolationOrganisations" Member="ProtocolAboutViolationOrganisations">
+    <Type Name="ProtocolAboutViolationOrganisation">
+      <Column Name="ProtocolAboutViolationOrganisationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ViolationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="KOAP" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrganisationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Protocol_ProtocolAboutViolationOrganisation" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolAboutViolationPersones" Member="ProtocolAboutViolationPersones">
+    <Type Name="ProtocolAboutViolationPersone">
+      <Column Name="ProtocolAboutViolationPersoneID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ViolationDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ViolationDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="KOAP" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedNatureManagementProducts" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedWeapons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FindedGunsHuntingAndFishing" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolatorDocumentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_ProtocolAboutViolationPersone" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolAboutWithdraws" Member="ProtocolAboutWithdraws">
+    <Type Name="ProtocolAboutWithdraw">
+      <Column Name="ProtocolAboutWithdrawID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WithdrawWeapons" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WithdrawAmmunitions" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WithdrawGunsHuntingAndFishing" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WithdrawNatureManagementProducts" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WithdrawDocuments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="FixingMethods" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolatorDocumentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_ProtocolAboutWithdraw" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Protocols" Member="Protocols">
+    <Type Name="Protocol">
+      <Column Name="ProtocolID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProtocolTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateCreatedProtocol" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PlaceCreatedProtocol" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PlaceCreatedProtocolN" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PlaceCreatedProtocolE" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="ViolationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WitnessFIO_1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WitnessLive_1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WitnessFIO_2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="WitnessLive_2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateSave" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateUpdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EmployerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_DefinitionAboutViolation" Member="DefinitionAboutViolations" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="DefinitionAboutViolation" />
+      <Association Name="Protocol_Injunction" Member="Injunctions" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="Injunction" />
+      <Association Name="Protocol_ProtocolAboutArrest" Member="ProtocolAboutArrests" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="ProtocolAboutArrest" />
+      <Association Name="Protocol_ProtocolAboutBringing" Member="ProtocolAboutBringings" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="ProtocolAboutBringing" />
+      <Association Name="Protocol_ProtocolAboutInspectionAutoe" Member="ProtocolAboutInspectionAutoes" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="ProtocolAboutInspectionAutoe" />
+      <Association Name="Protocol_ProtocolAboutInspectionOrganisation" Member="ProtocolAboutInspectionOrganisations" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="ProtocolAboutInspectionOrganisation" />
+      <Association Name="Protocol_ProtocolAboutInspection" Member="ProtocolAboutInspections" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="ProtocolAboutInspection" />
+      <Association Name="Protocol_ProtocolAboutViolationOrganisation" Member="ProtocolAboutViolationOrganisations" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="ProtocolAboutViolationOrganisation" />
+      <Association Name="Protocol_ProtocolAboutViolationPersone" Member="ProtocolAboutViolationPersones" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="ProtocolAboutViolationPersone" />
+      <Association Name="Protocol_ProtocolAboutWithdraw" Member="ProtocolAboutWithdraws" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="ProtocolAboutWithdraw" />
+      <Association Name="Protocol_RulingForViolation" Member="RulingForViolations" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="RulingForViolation" />
+      <Association Name="Protocol_Violator" Member="Violators" ThisKey="ProtocolID" OtherKey="Protocol_ProtocolID" Type="Violator" />
+      <Association Name="Violation_Protocol" Member="Violation" ThisKey="ViolationID" OtherKey="ViolationID" Type="Violation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolTypes" Member="ProtocolTypes">
+    <Type Name="ProtocolType">
+      <Column Name="ProtocolTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RulingForViolations" Member="RulingForViolations">
+    <Type Name="RulingForViolation">
+      <Column Name="RulingForViolationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FixingDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FixingInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="KOAP" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Fine" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Damage" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Products" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProductsPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="AboutArrest" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BankDetails" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolatorDocumentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrganisationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Protocol_RulingForViolation" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ViolationImages" Member="ViolationImages">
+    <Type Name="ViolationImage">
+      <Column Name="ViolationImageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Violation_ViolationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Violation_ViolationImage" Member="Violation" ThisKey="Violation_ViolationID" OtherKey="ViolationID" Type="Violation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Violations" Member="Violations">
+    <Type Name="Violation">
+      <Column Name="ViolationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="N" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="E" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ViolationType_ViolationTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateSave" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DateUpdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Violation_Protocol" Member="Protocols" ThisKey="ViolationID" OtherKey="ViolationID" Type="Protocol" />
+      <Association Name="Violation_ViolationImage" Member="ViolationImages" ThisKey="ViolationID" OtherKey="Violation_ViolationID" Type="ViolationImage" />
+      <Association Name="ViolationType_Violation" Member="ViolationType" ThisKey="ViolationType_ViolationTypeID" OtherKey="ViolationTypeID" Type="ViolationType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ViolationTypes" Member="ViolationTypes">
+    <Type Name="ViolationType">
+      <Column Name="ViolationTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="ViolationType_Violation" Member="Violations" ThisKey="ViolationTypeID" OtherKey="ViolationType_ViolationTypeID" Type="Violation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Violators" Member="Violators">
+    <Type Name="Violator">
+      <Column Name="ViolatorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PersoneID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ViolatorType" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Protocol_ProtocolID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Protocol_Violator" Member="Protocol" ThisKey="Protocol_ProtocolID" OtherKey="ProtocolID" Type="Protocol" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

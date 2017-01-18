@@ -14,7 +14,10 @@ namespace AppData.Entities
         public int ViolationImageID { get; set; }
 
         public virtual Violation Violation { get; set; }
+        public string Name { get; set; }
         [Column(TypeName = "image")]
+        [MaxLength]
         public byte[] Image { get; set; }
+        public virtual AdminViolation AdminViolation { get; set; }
     }
 }

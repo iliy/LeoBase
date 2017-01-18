@@ -1,0 +1,60 @@
+C:\Dev\LeoBase\AppCore\bin\Release\AppData.dll.config
+C:\Dev\LeoBase\AppCore\bin\Release\AppData.dll
+C:\Dev\LeoBase\AppCore\bin\Release\AppData.pdb
+C:\Dev\LeoBase\AppCore\bin\Release\Castle.Core.dll
+C:\Dev\LeoBase\AppCore\bin\Release\EntityFramework.dll
+C:\Dev\LeoBase\AppCore\bin\Release\EntityFramework.SqlServer.dll
+C:\Dev\LeoBase\AppCore\bin\Release\EntityFramework.SqlServerCompact.dll
+C:\Dev\LeoBase\AppCore\bin\Release\Mono.Security.dll
+C:\Dev\LeoBase\AppCore\bin\Release\Moq.dll
+C:\Dev\LeoBase\AppCore\bin\Release\Ninject.dll
+C:\Dev\LeoBase\AppCore\bin\Release\Npgsql.dll
+C:\Dev\LeoBase\AppCore\bin\Release\Npgsql.EntityFramework.dll
+C:\Dev\LeoBase\AppCore\bin\Release\System.Data.SqlServerCe.dll
+C:\Dev\LeoBase\AppCore\bin\Release\Castle.Core.xml
+C:\Dev\LeoBase\AppCore\bin\Release\EntityFramework.xml
+C:\Dev\LeoBase\AppCore\bin\Release\EntityFramework.SqlServer.xml
+C:\Dev\LeoBase\AppCore\bin\Release\EntityFramework.SqlServerCompact.xml
+C:\Dev\LeoBase\AppCore\bin\Release\Moq.xml
+C:\Dev\LeoBase\AppCore\bin\Release\Ninject.xml
+C:\Dev\LeoBase\AppCore\bin\Release\Npgsql.xml
+C:\Dev\LeoBase\AppCore\bin\Release\Npgsql.EntityFramework.xml
+C:\Dev\LeoBase\AppCore\bin\Release\de\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Release\es\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Release\fi\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Release\fr\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Release\ja\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Release\zh-CN\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\obj\Release\AppData.csprojResolveAssemblyReference.cache
+C:\Dev\LeoBase\AppCore\obj\Release\AppData.dll
+C:\Dev\LeoBase\AppCore\obj\Release\AppData.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\AppData.dll.config
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\AppData.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\AppData.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Castle.Core.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\EntityFramework.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\EntityFramework.SqlServer.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\EntityFramework.SqlServerCompact.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Mono.Security.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Moq.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Ninject.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Npgsql.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Npgsql.EntityFramework.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\System.Data.SqlServerCe.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Castle.Core.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\EntityFramework.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\EntityFramework.SqlServer.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\EntityFramework.SqlServerCompact.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Moq.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Ninject.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Npgsql.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\Npgsql.EntityFramework.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\de\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\es\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\fi\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\fr\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\ja\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\zh-CN\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\obj\Release\AppData.csprojResolveAssemblyReference.cache
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\obj\Release\AppData.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\obj\Release\AppData.pdb

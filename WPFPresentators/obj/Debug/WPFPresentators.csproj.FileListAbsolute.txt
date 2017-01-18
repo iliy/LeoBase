@@ -1,0 +1,9 @@
+D:\Work\Dev\LeopardLand\LeoBase\WPFPresentators\bin\Debug\WPFPresentators.dll
+D:\Work\Dev\LeopardLand\LeoBase\WPFPresentators\bin\Debug\WPFPresentators.pdb
+D:\Work\Dev\LeopardLand\LeoBase\WPFPresentators\obj\Debug\WPFPresentators.csprojResolveAssemblyReference.cache
+D:\Work\Dev\LeopardLand\LeoBase\WPFPresentators\obj\Debug\WPFPresentators.dll
+D:\Work\Dev\LeopardLand\LeoBase\WPFPresentators\obj\Debug\WPFPresentators.pdb
+D:\Work\Dev\LeopardLand\LeoBase\WPFPresentators\bin\Debug\BFData.dll
+D:\Work\Dev\LeopardLand\LeoBase\WPFPresentators\bin\Debug\BFData.pdb
+D:\Work\Dev\LeopardLand\LeoBase\WPFPresentators\bin\Debug\LeoDataBase.mdf
+D:\Work\Dev\LeopardLand\LeoBase\WPFPresentators\bin\Debug\LeoDataBase_log.ldf

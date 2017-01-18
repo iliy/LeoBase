@@ -9,11 +9,7 @@ namespace AppData.Entities
     public class Violation
     {
         public int ViolationID { get; set; }
-
-        //public virtual List<Violator> Violators { get; set; }
-
-        //public virtual List<Employer> Employers { get; set; }E
-
+        
         public virtual List<ViolationImage> Images { get; set; }
 
         public virtual ViolationType ViolationType { get; set; }

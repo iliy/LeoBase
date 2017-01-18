@@ -1,0 +1,57 @@
+C:\Dev\LeoBase\Tests\bin\Release\Tests.dll
+C:\Dev\LeoBase\Tests\bin\Release\Tests.pdb
+C:\Dev\LeoBase\Tests\bin\Release\AppData.dll
+C:\Dev\LeoBase\Tests\bin\Release\AppPresentators.dll
+C:\Dev\LeoBase\Tests\bin\Release\Castle.Core.dll
+C:\Dev\LeoBase\Tests\bin\Release\EntityFramework.dll
+C:\Dev\LeoBase\Tests\bin\Release\LeoBase.exe
+C:\Dev\LeoBase\Tests\bin\Release\Moq.dll
+C:\Dev\LeoBase\Tests\bin\Release\Ninject.dll
+C:\Dev\LeoBase\Tests\bin\Release\MetroFramework.dll
+C:\Dev\LeoBase\Tests\bin\Release\AppData.pdb
+C:\Dev\LeoBase\Tests\bin\Release\AppPresentators.pdb
+C:\Dev\LeoBase\Tests\bin\Release\LeoBase.pdb
+C:\Dev\LeoBase\Tests\bin\Release\Castle.Core.xml
+C:\Dev\LeoBase\Tests\bin\Release\Moq.xml
+C:\Dev\LeoBase\Tests\bin\Release\Ninject.xml
+C:\Dev\LeoBase\Tests\obj\Release\Tests.csprojResolveAssemblyReference.cache
+C:\Dev\LeoBase\Tests\obj\Release\Tests.dll
+C:\Dev\LeoBase\Tests\obj\Release\Tests.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\Tests.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\Tests.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\AppData.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\AppPresentators.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\Castle.Core.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\EntityFramework.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\LeoBase.exe
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\Moq.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\Ninject.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\MetroFramework.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\AppData.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\AppPresentators.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\LeoBase.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\Castle.Core.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\Moq.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\bin\Release\Ninject.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\obj\Release\Tests.csprojResolveAssemblyReference.cache
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\obj\Release\Tests.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\Tests\obj\Release\Tests.pdb
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\Tests.dll
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\Tests.pdb
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\AppData.dll
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\AppPresentators.dll
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\Castle.Core.dll
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\EntityFramework.dll
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\LeoBase.exe
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\Moq.dll
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\Ninject.dll
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\MetroFramework.dll
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\AppData.pdb
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\AppPresentators.pdb
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\LeoBase.pdb
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\Castle.Core.xml
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\Moq.xml
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\Ninject.xml
+D:\Dev\LeoBaseVersion2\Tests\obj\Release\Tests.csprojResolveAssemblyReference.cache
+D:\Dev\LeoBaseVersion2\Tests\obj\Release\Tests.dll
+D:\Dev\LeoBaseVersion2\Tests\obj\Release\Tests.pdb

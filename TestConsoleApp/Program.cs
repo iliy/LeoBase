@@ -2,13 +2,17 @@
 using AppData.Contexts;
 using AppData.Entities;
 using AppData.Infrastructure;
+using AppData.Repositrys;
 using AppPresentators.Factorys;
+using AppPresentators.Presentators;
 using AppPresentators.Services;
+using AppPresentators.VModels;
 using AppPresentators.VModels.Persons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Data.SqlServerCe;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -21,7 +25,7 @@ namespace TestConsoleApp
     class Program
     {
         #region Vars
-        Image image = Image.FromFile("d:\\Images\\avatar.jpg");
+        Image image;//= Image.FromFile("C:\\Dev\\Images\\LeoBase\\ImagesNew\\avatar.jpg");
 
         string[] first_names = new string[] {
                      "Иванов", "Петров", "Сидоров", "Григорьев", "Кузнецов", "Лаврентов"
@@ -84,253 +88,24 @@ namespace TestConsoleApp
 
         Program()
         {
+            using(var db = new PassedContext())
+            {
+                db.Passes.Add(new Pass
+                {
+                    DocumentType = "Паспорт",
+                    FirstName = "Иванов",
+                    SecondName = "Иван",
+                    MiddleName = "Иванович",
+                    Number = "2123",
+                    Serial = "3214",
+                    WhenIssued = new DateTime(1999, 12, 1),
+                    PassGiven = DateTime.Now,
+                    PassClosed = DateTime.Now.AddYears(1)
+                });
 
-            var prAr = (ProtocolAboutWithdraw)ProtocolFactory.GetProtocolDetails(92);
-
-            prAr.FixingMethods = "Спутник";
-            prAr.WithdrawAmmunitions = "Никакая амуниция не была изъята";
-            prAr.WithdrawDocuments = "Никаие документы не были изъяты";
-            prAr.WithdrawGunsHuntingAndFishing = "Ничего не было изъято";
-            prAr.WithdrawNatureManagementProducts = "Ничего не было изъято";
-            prAr.WithdrawWeapons = "Никакие оружия не были изъяты";
-            prAr.ViolatorDocumentID = 16;
-
-            prAr.Protocol.DateCreatedProtocol = new DateTime(2011, 11, 12);
-            prAr.Protocol.EmployerID = 6;
-            prAr.Protocol.PlaceCreatedProtocol = "р.Пойма Новое место";
-            prAr.Protocol.PlaceCreatedProtocolE = 1112;
-            prAr.Protocol.PlaceCreatedProtocolN = 3332;
-            prAr.Protocol.ViolationID = 101;
-
-            var a = ProtocolFactory.UpdateProtocol(prAr);
-
-            Console.WriteLine(a);
-
+                db.SaveChanges();
+            }
             Console.ReadKey();
-
-            return;
-
-            Protocol protocol = new Protocol
-            {
-                DateCreatedProtocol = new DateTime(2016, 4, 2),
-                EmployerID = 5,
-                PlaceCreatedProtocol = "р.Рязановка",
-                PlaceCreatedProtocolE = 123,
-                ViolationID = 100,
-                DateSave = DateTime.Now,
-                DateUpdate = DateTime.Now,
-                PlaceCreatedProtocolN = 231,
-                WitnessFIO_1 = "Иванов У 1",
-                WitnessFIO_2 = "Иванов У 2",
-                WitnessLive_1 = "Живет У 1",
-                WitnessLive_2 = "Живет У 2",
-                ProtocolTypeID = (int)ProtocolsType.PROTOCOL_ABOUT_WITHDRAW
-            };
-
-            var protocolAboutArest = new ProtocolAboutWithdraw
-            {
-                Protocol = protocol,
-                FixingMethods = "Фото/Видео съемка",
-                ViolatorDocumentID = 17,
-                WithdrawAmmunitions = "Какая-то амуниция изъята",
-                WithdrawDocuments = "Какие-то документы изъяты",
-                WithdrawGunsHuntingAndFishing = "Что-то еще изъято",
-                WithdrawNatureManagementProducts = "И еще что-то изъято",
-                WithdrawWeapons = "Какое-то оружие изъято"
-            };
-
-
-            ProtocolFactory.SaveProtocol(protocolAboutArest);
-
-
-            //var protocol = (Injunction)ProtocolFactory.GetProtocolDetails(75);
-
-
-            //List<InjunctionItem> items = new List<InjunctionItem>
-            //{
-            //    new InjunctionItem
-            //    {
-            //        BaseOrders = "Какие-то основания 1",
-            //        Deedline = "Конец 2016 года 1",
-            //        Description = "Что-то нарушено в природоохранном законодательстве 1"
-            //    },
-            //    new InjunctionItem
-            //    {
-            //        BaseOrders = "Еще какие-то основания 2",
-            //        Deedline = "Конец 2016 года 2",
-            //        Description = "Что-то нарушено опять 2"
-            //    }
-            //};
-
-            //protocol.ViolatorDocumentID = 14;
-            //protocol.InjunctionInfo = "Новая информация";
-            //protocol.Protocol.ViolationID = 101;
-            //protocol.Protocol.WitnessFIO_1 = "Новый кто-то 1";
-            //protocol.Protocol.WitnessFIO_2 = "Новый кто-то 2";
-            //protocol.Protocol.WitnessLive_1 = "Здесь живет новый 1";
-            //protocol.Protocol.WitnessLive_2 = "Здесь живет новый 2";
-
-            //protocol.Protocol.PlaceCreatedProtocol = "Новое место создания протокола";
-            //protocol.Protocol.PlaceCreatedProtocolE = 1;
-            //protocol.Protocol.PlaceCreatedProtocolN = 2;
-
-            //protocol.Protocol.DateCreatedProtocol = new DateTime(2015, 1, 1);
-
-            //protocol.InjuctionsItem = items;
-
-            //protocol.ActInspectionDate = new DateTime(2015, 1, 1);
-
-            //ProtocolFactory.UpdateProtocol(protocol);
-
-            //var protocol = ProtocolFactory.GetProtocol(62);
-            //var definition = (DefinitionAboutViolation)ProtocolFactory.GetProtocolDetails(74);
-
-            //definition.FindedAmmunitions = "Что-то новое нашли!!!!!!";
-
-            //definition.Protocol.PlaceCreatedProtocolN = 112;
-            //definition.Protocol.PlaceCreatedProtocolE = 222;
-
-            //definition.Protocol.EmployerID = 6;
-
-            //definition.Protocol.PlaceCreatedProtocol = "И вспомнили, что протокол составлялся немного в другом месте 12";
-
-            //definition.OrganisationID = 0;
-            //definition.ViolatorDocumentID = 13;
-
-            //bool result = ProtocolFactory.UpdateProtocol(definition);
-
-
-
-            //Console.WriteLine(result);
-
-            //Protocol protocol = ProtocolFactory.GetProtocol(71);
-
-            //var pr = (Injunction)ProtocolFactory.GetProtocolDetails(protocol);
-
-            //string forPrint = "";
-
-            //forPrint += pr.InjunctionInfo + "\r\n";
-            //forPrint += pr.Protocol.PlaceCreatedProtocol;
-
-            //foreach(var item in pr.InjuctionsItem)
-            //{
-            //    forPrint += "\t" + item.BaseOrders + " " + item.Deedline + " " + item.Description + "\r\n";
-            //}
-
-            //Console.WriteLine(forPrint);
-
-            //Protocol protocol = new Protocol
-            //{
-            //    DateCreatedProtocol = new DateTime(2014, 10, 1, 12, 2, 0),
-            //    DateSave = DateTime.Now,
-            //    DateUpdate = DateTime.Now,
-            //    EmployerID = 6,
-            //    PlaceCreatedProtocol = "Река нарва бла бла бла",
-            //    PlaceCreatedProtocolN = 43.123123,
-            //    PlaceCreatedProtocolE = 131.123123,
-            //    ProtocolTypeID = (int)ProtocolsType.PROTOCOL_ABOUT_BRINGING,
-            //    WitnessFIO_1 = "Иванов В.А.",
-            //    WitnessLive_1 = "пгт.Славянка",
-            //    WitnessFIO_2 = "Сидоров Н.Е.",
-            //    WitnessLive_2 = "г.Владивосток",
-            //    ViolationID = 100
-            //};
-
-
-
-            //ProtocolAboutBringing pr = new ProtocolAboutBringing
-            //{
-            //    Protocol = protocol,
-            //    ViolatorDocumentID = 13,
-            //    FindedAmmunitions = "Ничего",
-            //    FindedDocuments = "Паспорт",
-            //    FindedGunsHuntingAndFishing = "Ничего",
-            //    FixingMethods = "Фото/видео камера"
-            //};
-
-            //ProtocolFactory.SaveProtocol(pr);
-
-
-            Console.ReadLine();
-            //AddPersone(1);
-
-            //var service = new PersonesService();
-
-            ////var persone = makePersone();
-
-            ////service.AddNewPersone(persone);
-
-            //service.PageModel = new AppPresentators.VModels.PageModel
-            //{
-            //    ItemsOnPage = -1
-            //};
-
-            //service.SearchModel = new PersonsSearchModel
-            //{
-            //    PlaceWork = "безработный"
-            //};
-
-            //service.OrderModel = new PersonsOrderModel
-            //{
-            //    OrderProperties = PersonsOrderProperties.WAS_BE_CREATED,
-            //    OrderType = AppPresentators.VModels.OrderType.ASC
-            //};
-
-            //service.AddressSearchModel = new SearchAddressModel
-            //{
-            //    City = "Славянка",
-            //    CompareCity = AppPresentators.VModels.CompareString.CONTAINS
-            //};
-
-            //service.DocumentSearchModel = new DocumentSearchModel
-            //{
-            //    DocumentTypeName = "Водительское удостоверение"
-            //};
-
-
-            //var persone = service.GetPerson(10, true);
-
-            //persone.FirstName = "Григорьев";
-
-            //persone.Addresses.Remove(persone.Addresses.First());
-            //persone.Phones.Remove(persone.Phones.First());
-            //persone.Documents.Remove(persone.Documents.First());
-
-            //persone.Addresses.Add(new PersonAddressModelView
-            //{
-            //    Country = "Российская федерация",
-            //    Subject = "Приморский край",
-            //    Area = "Хасанский район",
-            //    City = "пгт.Славянка",
-            //    Street = "ул.Лазо",
-            //    HomeNumber = "27",
-            //    Flat = "56",
-            //    Note = "Прописан/проживает"
-            //});
-
-            //persone.Documents.Add(new PersoneDocumentModelView
-            //{
-            //    DocumentTypeName = "Паспорт",
-            //    Serial = "440512",
-            //    Number = "112300",
-            //    IssuedBy = "Приморским РОВД Хасанского муниципального района",
-            //    WhenIssued = new DateTime(2009, 1, 2),
-            //    CodeDevision = "14500"
-            //});
-
-            //persone.Phones.Add(new PhoneViewModel { PhoneNumber = "+71231321231" });
-
-            //service.UpdatePersone(persone);
-
-            //service.Remove(7);
-
-            //var users = service.GetPersons();
-
-            //foreach (var user in users)
-            //{
-            //    Console.WriteLine(user.UserID + "   " + user.FirstName + " " + user.SecondName + " " + user.MiddleName + " " + user.WasBeCreated);
-            //}
-
         }
 
         private PersoneViewModel makePersone()
@@ -387,16 +162,17 @@ namespace TestConsoleApp
                 MiddleName = "Петровович",
                 Phones = phones,
                 IsEmploeyr = true,
-                Position = "Госинспектор",
-                PlaceOfBirth = "Приморский край, г.Владивосток"
+                //Position = "Госинспектор",
+                //PlaceOfBirth = "Приморский край, г.Владивосток"
             };
 
             return persone;
         }
 
         
+        
 
-        private void AddPersone(int count)
+        private void AddPersone(int count, bool isEmployer = false)
         {
 
             var personeRepository = RepositoryesFactory.GetInstance().Get<IPersoneRepository>();
@@ -408,7 +184,6 @@ namespace TestConsoleApp
             {
                 Persone persone1;
 
-                bool isEmployer = getIndex(2) >= 1;
                 persone1 = new Persone
                 {
                     WasBeCreated = DateTime.Now,
@@ -449,7 +224,7 @@ namespace TestConsoleApp
                     SecondName = second_names[getIndex(second_names.Length - 1)],
                     MiddleName = middle_names[getIndex(middle_names.Length - 1)],
                     IsEmploeyr = isEmployer,
-                    Position_PositionID = isEmployer ? getIndex(2) + 4 : 0,
+                    Position_PositionID = isEmployer ? getIndex(3) + 1 : 0,
                     Image = imageBytes,
                     PlaceOfBirth = countys[getIndex(countys.Length - 1)]
                                     + "; " + subject[getIndex(subject.Length - 1)]

@@ -25,39 +25,160 @@ D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\fi\Npgsql.resources.dll
 D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\fr\Npgsql.resources.dll
 D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\ja\Npgsql.resources.dll
 D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\System.Data.SqlServerCe.dll
 D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._1.resources
 D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.csproj.GenerateResource.Cache
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._2.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._3.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._5.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._6.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._7.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._8.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._9.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._10.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._11.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._12.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._13.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._14.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._16.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._17.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._18.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._20.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._21.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._22.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._23.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._24.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._26.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._27.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._28.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._30.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._31.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._32.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._33.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._34.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._35.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._36.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._37.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._38.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._39.resources
-D:\Work\Dev\LeopardLand\LeoBase\AppCore\obj\Debug\AppData.Migrations._40.resources
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\Work\Dev\LeopardLand\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\AppData.dll.config
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\AppData.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\AppData.pdb
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Castle.Core.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Mono.Security.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Moq.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Ninject.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Npgsql.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Npgsql.EntityFramework.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\System.Data.SqlServerCe.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Castle.Core.xml
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.xml
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServer.xml
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Moq.xml
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Ninject.xml
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Npgsql.xml
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\Npgsql.EntityFramework.xml
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\de\Npgsql.resources.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\es\Npgsql.resources.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\fi\Npgsql.resources.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\fr\Npgsql.resources.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\ja\Npgsql.resources.dll
+C:\Dev\Project last version\LeoBase\AppCore\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Dev\Project last version\LeoBase\AppCore\obj\Debug\AppData.dll
+C:\Dev\Project last version\LeoBase\AppCore\obj\Debug\AppData.pdb
+D:\Project last version\LeoBase\AppCore\bin\Debug\AppData.dll.config
+D:\Project last version\LeoBase\AppCore\bin\Debug\AppData.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\AppData.pdb
+D:\Project last version\LeoBase\AppCore\bin\Debug\Castle.Core.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\Mono.Security.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\Moq.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\Ninject.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\Npgsql.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\Npgsql.EntityFramework.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\System.Data.SqlServerCe.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\Castle.Core.xml
+D:\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.xml
+D:\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project last version\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.xml
+D:\Project last version\LeoBase\AppCore\bin\Debug\Moq.xml
+D:\Project last version\LeoBase\AppCore\bin\Debug\Ninject.xml
+D:\Project last version\LeoBase\AppCore\bin\Debug\Npgsql.xml
+D:\Project last version\LeoBase\AppCore\bin\Debug\Npgsql.EntityFramework.xml
+D:\Project last version\LeoBase\AppCore\bin\Debug\de\Npgsql.resources.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\es\Npgsql.resources.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\fi\Npgsql.resources.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\fr\Npgsql.resources.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\ja\Npgsql.resources.dll
+D:\Project last version\LeoBase\AppCore\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Project last version\LeoBase\AppCore\obj\Debug\AppData.csprojResolveAssemblyReference.cache
+D:\Project last version\LeoBase\AppCore\obj\Debug\AppData.dll
+D:\Project last version\LeoBase\AppCore\obj\Debug\AppData.pdb
+D:\Project last version\LeoBase\AppCore\obj\Debug\AppData.Migrations._1.resources
+D:\Project last version\LeoBase\AppCore\obj\Debug\AppData.csproj.GenerateResource.Cache
+D:\Project last version\LeoBase\AppCore\obj\Debug\AppData.Migrations._2.resources
+C:\Dev\LeoBase\AppCore\bin\Debug\AppData.dll.config
+C:\Dev\LeoBase\AppCore\bin\Debug\AppData.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\AppData.pdb
+C:\Dev\LeoBase\AppCore\bin\Debug\Castle.Core.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\Mono.Security.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\Moq.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\Ninject.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\Npgsql.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\Npgsql.EntityFramework.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\System.Data.SqlServerCe.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\Castle.Core.xml
+C:\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.xml
+C:\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServer.xml
+C:\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\Dev\LeoBase\AppCore\bin\Debug\Moq.xml
+C:\Dev\LeoBase\AppCore\bin\Debug\Ninject.xml
+C:\Dev\LeoBase\AppCore\bin\Debug\Npgsql.xml
+C:\Dev\LeoBase\AppCore\bin\Debug\Npgsql.EntityFramework.xml
+C:\Dev\LeoBase\AppCore\bin\Debug\de\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\es\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\fi\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\fr\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\ja\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Dev\LeoBase\AppCore\obj\Debug\AppData.dll
+C:\Dev\LeoBase\AppCore\obj\Debug\AppData.pdb
+C:\Dev\LeoBase\AppCore\obj\Debug\AppData.csprojResolveAssemblyReference.cache
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\AppData.dll.config
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\AppData.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\AppData.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Castle.Core.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Mono.Security.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Moq.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Ninject.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Npgsql.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Npgsql.EntityFramework.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\System.Data.SqlServerCe.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Castle.Core.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\EntityFramework.SqlServerCompact.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Moq.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Ninject.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Npgsql.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\Npgsql.EntityFramework.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\de\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\es\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\fi\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\fr\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\ja\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\obj\Debug\AppData.csprojResolveAssemblyReference.cache
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\obj\Debug\AppData.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\obj\Debug\AppData.pdb
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\AppData.dll.config
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\AppData.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\AppData.pdb
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Castle.Core.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\EntityFramework.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Mono.Security.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Moq.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Ninject.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Npgsql.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Npgsql.EntityFramework.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\System.Data.SqlServerCe.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Castle.Core.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\EntityFramework.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\EntityFramework.SqlServerCompact.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Moq.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Ninject.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Npgsql.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\Npgsql.EntityFramework.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\de\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\es\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\fi\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\fr\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\ja\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Debug\zh-CN\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\obj\Debug\AppData.csprojResolveAssemblyReference.cache
+D:\Dev\LeoBaseVersion2\AppCore\obj\Debug\AppData.dll
+D:\Dev\LeoBaseVersion2\AppCore\obj\Debug\AppData.pdb

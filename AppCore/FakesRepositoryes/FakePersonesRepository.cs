@@ -11,49 +11,49 @@ namespace AppData.FakesRepositoryes
     public class FakePersonesRepository : IPersoneRepository
     {
         private List<Persone> _persones = new List<Persone> { new Persone()
-                    //{
-                    //    UserID = 1,
-                    //    FirstName = "Иванов",
-                    //    SecondName = "Иван",
-                    //    MiddleName = "Васильевич",
-                    //    DateBirthday = new DateTime(1990, 5, 10, 0, 0, 0)
-                    //},
-                    //new Persone
-                    //{
-                    //    UserID = 2,
-                    //    FirstName = "Сидоров",
-                    //    SecondName = "Евгений",
-                    //    MiddleName = "Эдуардович",
-                    //    DateBirthday = new DateTime(1992, 10, 5, 0, 0, 0)
-                    //},
-                    //new Persone
-                    //{
-                    //    UserID = 3,
-                    //    FirstName = "Кирилов",
-                    //    SecondName = "Илья",
-                    //    MiddleName = "Петрововия",
-                    //    DateBirthday = new DateTime(1989, 6, 7, 0, 0, 0)
-                    //},
-                    //new Persone
-                    //{
-                    //    UserID = 4,
-                    //    IsEmploeyr = true,
-                    //    FirstName = "Сидоренко",
-                    //    SecondName = "Илья",
-                    //    MiddleName = "Игоревич",
-                    //    PositionID = 1,
-                    //    DateBirthday = new DateTime(1978, 2, 12, 0, 0, 0)
-                    //},
-                    //new Persone
-                    //{
-                    //    UserID = 5,
-                    //    IsEmploeyr = true,
-                    //    FirstName = "Иванов1",
-                    //    SecondName = "Юрий",
-                    //    MiddleName = "Петрововия",
-                    //    PositionID = 2,
-                    //    DateBirthday = new DateTime(1995, 3, 15, 0, 0, 0)
-                    //},
+                    {
+                        UserID = 1,
+                        FirstName = "Иванов",
+                        SecondName = "Иван",
+                        MiddleName = "Васильевич",
+                        DateBirthday = new DateTime(1990, 5, 10, 0, 0, 0)
+                    },
+                    new Persone
+                    {
+                        UserID = 2,
+                        FirstName = "Сидоров",
+                        SecondName = "Евгений",
+                        MiddleName = "Эдуардович",
+                        DateBirthday = new DateTime(1992, 10, 5, 0, 0, 0)
+                    },
+                    new Persone
+                    {
+                        UserID = 3,
+                        FirstName = "Кирилов",
+                        SecondName = "Илья",
+                        MiddleName = "Петрововия",
+                        DateBirthday = new DateTime(1989, 6, 7, 0, 0, 0)
+                    },
+                    new Persone
+                    {
+                        UserID = 4,
+                        IsEmploeyr = true,
+                        FirstName = "Сидоренко",
+                        SecondName = "Илья",
+                        MiddleName = "Игоревич",
+                        Position_PositionID = 1,
+                        DateBirthday = new DateTime(1978, 2, 12, 0, 0, 0)
+                    },
+                    new Persone
+                    {
+                        UserID = 5,
+                        IsEmploeyr = true,
+                        FirstName = "Иванов",
+                        SecondName = "Юрий",
+                        MiddleName = "Петрововия",
+                        Position_PositionID = 2,
+                        DateBirthday = new DateTime(1995, 3, 15, 0, 0, 0)
+                    },
                     //new Persone
                     //{
                     //    UserID = 6,
@@ -122,6 +122,11 @@ namespace AppData.FakesRepositoryes
         }
 
         public bool Update(Persone persone)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SimpleRemove(int id)
         {
             throw new NotImplementedException();
         }

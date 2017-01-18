@@ -34,6 +34,7 @@ namespace AppData.Entities
         public string PlaceOfBirth { get; set; }
 
         [Column(TypeName = "image")]
+        [MaxLength]
         public byte[] Image { get; set; }
 
         public virtual List<Document> Documents { get; set; }
@@ -43,5 +44,6 @@ namespace AppData.Entities
         public virtual List<Phone> Phones { get; set; }
 
         public int Position_PositionID { get; set; }
+        public bool Deleted { get; set; }
     }
 }

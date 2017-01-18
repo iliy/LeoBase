@@ -14,5 +14,6 @@ namespace AppPresentators.Components.MainMenu
         byte[] Icon { get; set; }
         MenuCommand MenuCommand {get;set;}
         event ItemClicked ItemClicked;
+        bool IsActive { get; set; }
     }
 }

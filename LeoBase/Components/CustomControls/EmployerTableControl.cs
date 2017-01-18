@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using AppPresentators.Components;
 using AppPresentators.VModels;
 using AppPresentators.VModels.Persons;
+using LeoBase.Components.CustomControls.SearchPanels;
+using LeoBase.Forms;
+using AppPresentators;
 
 namespace LeoBase.Components.CustomControls
 {
@@ -17,16 +20,117 @@ namespace LeoBase.Components.CustomControls
 
     public partial class EmployerTableControl : UserControl, IEmployersTableControl
     {
+        public bool ShowForResult { get; set; } = false;
         private bool _nowTableUpdate = false;
         private CustomTable _customTable;
+        private AllPersonesSearchPanel _searchPanel;
+        private bool _searchAnimate = false;
+        public event Action AddNewEmployer;
+
+        public event EditPersone EditPersone;
+        public event DeletePersone DeletePersone;
+        public event ShowPersoneDetails ShowPersoneDetails;
+
+        private List<Control> _topControls;
+        private Button _btnEditEmployer;
+        private Button _btnEmployerDelete;
+        private Button _btnShowEmployerDetails;
+
+        private int _selectedIndex;
+        public List<Control> TopControls { get {
+                return _topControls;
+
+            } set { } }
+
+
+        private void MakeTopControls()
+        {
+            if (ConfigApp.CurrentManager.Role.Equals("admin"))
+            {
+                AdminControls();
+            }
+            else
+            {
+                UserControls();
+            }
+        }
+
+        private void AdminControls()
+        {
+            Button btnCreateNewEmplyer = new Button();
+            Button btnReportButton = new Button();
+
+            _btnEditEmployer = new Button();
+            _btnEmployerDelete = new Button();
+            _btnShowEmployerDetails = new Button();
+
+            _btnEditEmployer.Text = "Редактировать";
+            _btnEmployerDelete.Text = "Удалить";
+            _btnShowEmployerDetails.Text = "Подробнее";
+            btnCreateNewEmplyer.Text = "Добавить нового сотрудника";
+            btnReportButton.Text = "Отчет";
+
+            _btnShowEmployerDetails.Click += (s, e) =>
+            {
+                var item = _data[_selectedIndex];
+                if (ShowPersoneDetails != null) ShowPersoneDetails(item);
+            };
+
+            _btnEditEmployer.Click += (s, e) =>
+            {
+                var item = _data[_selectedIndex];
+                if (EditPersone != null) EditPersone(item);
+            };
+
+            _btnEmployerDelete.Click += (s, e) =>
+            {
+                var item = _data[_selectedIndex];
+                if (MessageBox.Show("Вы уверены что хотите удалить сотрудника?", "Предупреждение", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+                {
+                    if (DeletePersone != null) DeletePersone(item);
+                }
+            };
+
+            btnCreateNewEmplyer.Click += (s, e) => {
+                if (AddNewEmployer != null)
+                    AddNewEmployer();
+            };
+
+            _btnEditEmployer.Enabled = false;
+            _btnEmployerDelete.Enabled = false;
+            _btnEditEmployer.Enabled = false;
+
+            btnReportButton.Margin = new Padding(3, 3, 20, 3);
+
+            _topControls = new List<Control> { btnReportButton, _btnShowEmployerDetails, btnCreateNewEmplyer, _btnEditEmployer, _btnEmployerDelete };
+        }
+
+        private void UserControls()
+        {
+            _btnShowEmployerDetails = new Button();
+            Button btnReportButton = new Button();
+
+            _btnShowEmployerDetails.Text = "Подробнее";
+            btnReportButton.Text = "Отчет";
+
+
+            _btnShowEmployerDetails.Click += (s, e) =>
+            {
+                var item = _data[_selectedIndex];
+                if (ShowPersoneDetails != null) ShowPersoneDetails(item);
+            };
+
+            _btnShowEmployerDetails.Enabled = false;
+            btnReportButton.Margin = new Padding(3, 3, 20, 3);
+
+            _topControls = new List<Control> { btnReportButton, _btnShowEmployerDetails };
+        }
+
         public EmployerTableControl()
         {
             InitializeComponent();
-            cmbWhenIssuedBy.SelectedIndex = 0;
-            cmbPosition.SelectedIndex = 0;
-            cmbDocumentType.SelectedIndex = 0;
-            cmbAge.SelectedIndex = 0;
-            chbDateBerthday.SelectedIndex = 0;
+
+            MakeTopControls();
 
             _orderProperties = new Dictionary<string, int>();
             _orderTypes = new Dictionary<string, OrderType>();
@@ -36,25 +140,79 @@ namespace LeoBase.Components.CustomControls
             _orderProperties.Add("Отчество", (int)PersonsOrderProperties.MIDDLE_NAME);
             _orderProperties.Add("Дата рождения", (int)PersonsOrderProperties.DATE_BERTHDAY);
             _orderProperties.Add("Возвраст", (int)PersonsOrderProperties.AGE);
+            _orderProperties.Add("Дата создания", (int)PersonsOrderProperties.WAS_BE_CREATED);
+            _orderProperties.Add("Дата последнего обновления", (int)PersonsOrderProperties.WAS_BE_UPDATED);
+
 
             _orderTypes.Add("Убывание", OrderType.ASC);
             _orderTypes.Add("Возростание", OrderType.DESC);
 
             _customTable = new CustomTable();
             _customTable.Width = mainPanel.Width;
-            _customTable.Height = mainPanel.Height;
+            _customTable.Height = mainPanel.Height - 30;
+            _customTable.Location = new Point(0, 30);
             _customTable.Anchor = AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             _customTable.OrderProperties = (Dictionary<string, int>)_orderProperties;
 
             _customTable.UpdateTable += () => UpdateTable();
+            _customTable.SelectedItemChange += (index) =>
+            {
+                if(index != -1)
+                {
+                    _btnEditEmployer.Enabled = true;
+                    _btnEmployerDelete.Enabled = true;
+                    _btnShowEmployerDetails.Enabled = true;
+                    _selectedIndex = index;
+                }
+            };
 
             mainPanel.Controls.Add(_customTable);
+
+            _searchPanel = new AllPersonesSearchPanel(true);
+
+            _searchPanel.Search += () => UpdateTable();
+
+            _searchPanel.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+
+            searchPanel.Controls.Add(_searchPanel);
+
+            animateSearchPanel.Tick += AnimateSearchPanel_Tick;
+
+            _searchPanel.HideSearchPanel += () =>
+            {
+                if (!_searchAnimate)
+                {
+                    WidthAnimate animator = new WidthAnimate(searchPanel, searchPanel.Width, 0, 10, 20);
+                    animator.OnAnimationComplete += () => button1.Visible = true;
+                    animator.Start();
+                }
+            };
         }
 
+        int animateTo = 300;
 
-        private List<PersoneViewModel> _data;
+        int animateSpeed = 30;
 
-        public List<PersoneViewModel> Data
+        private void AnimateSearchPanel_Tick(object sender, EventArgs e)
+        {
+            if (searchPanel.Width != animateTo)
+            {
+                searchPanel.Width += animateSpeed;
+            }
+            else
+            {
+                if (animateTo == 0)
+                {
+                    button1.Visible = true;
+                }
+                animateSearchPanel.Stop();
+                _searchAnimate = false;
+            }
+        }
+
+        private List<EmploeyrViewModel> _data;
+
+        public List<EmploeyrViewModel> Data
         {
             get
             {
@@ -64,42 +222,32 @@ namespace LeoBase.Components.CustomControls
             set
             {
                 _data = value;
-                _customTable.SetData<PersoneViewModel>(value);
-                //tblPersones.DataSource = new BindingList<PersoneViewModel>(_data);
-                //tblPersones.Update();
-                //_nowTableUpdate = false;
+                _customTable.SetData<EmploeyrViewModel>(value);
             }
         }
 
-        private DocumentSearchModel _documentSearchModel;
         public DocumentSearchModel DocumentSearchModel
         {
             get
             {
-                _documentSearchModel = new DocumentSearchModel
-                {
-                    DocumentTypeName = cmbDocumentType.Items[cmbDocumentType.SelectedIndex].ToString() != null ?
-                                       cmbDocumentType.Items[cmbDocumentType.SelectedIndex].ToString() :
-                                       "",
-                    Serial = tbDocumentSerial.Text.Trim(),
-                    Number = tbDocumentNumber.Text.Trim(),
-                    CompareWhenIssued = cmbWhenIssuedBy.Items[cmbWhenIssuedBy.SelectedIndex] == null ? CompareValue.EQUAL :
-                                        cmbWhenIssuedBy.Items[cmbWhenIssuedBy.SelectedIndex].ToString().Equals("Больше") ? CompareValue.MORE :
-                                        cmbWhenIssuedBy.Items[cmbWhenIssuedBy.SelectedIndex].ToString().Equals("Меньше") ? CompareValue.LESS :
-                                        CompareValue.EQUAL,
-                    WhenIssued = dtpWhenIssued.Value.Year == 1900 ? new DateTime(1, 1, 1, 0, 0, 0) :
-                                 dtpWhenIssued.Value,
-                    IssuedBy = tbIssuedBy.Text.Trim(),
-                    CompareIssuedBy = chbIssuedBy.Checked ? CompareString.EQUAL : CompareString.CONTAINS,
-                    CodeDevision = tbCodeDevision.Text.Trim()
-                };
-
-                return _documentSearchModel;
+                return _searchPanel.DocumentSearchModel;
             }
+        }
 
-            set
+
+        public PersonsSearchModel PersoneSearchModel
+        {
+            get
             {
-                
+                return _searchPanel.PersonSearchModel;
+            }
+        }
+
+        public SearchAddressModel AddressSearchModel
+        {
+            get
+            {
+                return _searchPanel.AddressSearchModel;
             }
         }
 
@@ -133,95 +281,29 @@ namespace LeoBase.Components.CustomControls
             get
             {
                 if (_pageModel == null) _pageModel = new PageModel();
-                //_pageModel.CurentPage = 1;
                 _pageModel.ItemsOnPage = 10;
                 _pageModel = _customTable.PageModel;
-                //_pageModel.ItemsOnPage = Convert.ToInt32(cmbItemsOnPage.Items[cmbItemsOnPage.SelectedIndex].ToString());
-                //_pageModel.CurentPage = bindingSource1.Current == null ? 1 : (int)bindingSource1.Current;
                 return _pageModel;
             }
 
             set
             {
-                //if (bindingSource1.Current == null
-                //    || _pageModel.CurentPage != (int)bindingSource1.Current
-                //    || _pageModel.ItemsOnPage != value.ItemsOnPage)
-                //{
-                //    List<int> list = new List<int>();
-
-                //    for (int i = 1; i <= value.TotalPages; i++)
-                //    {
-                //        list.Add(i);
-                //    }
-
-                //    bindingSource1.DataSource = list;
-                //    bindingNavigator1.BindingSource = bindingSource1;
-                //    bindingNavigator1.Refresh();
-
-                //    
-                //}
+                if(animateTo == 0)
+                {
+                    button1.Visible = true;
+                }
                 _pageModel = value;
                 _customTable.PageModel = value;
             }
         }
 
-        private PersonsSearchModel _searchModel = null;
 
-        public PersonsSearchModel SearchModel
-        {
-            get
-            {
-                _searchModel = new PersonsSearchModel
-                {
-                    FirstName = tbFirstName.Text.Trim(),
-                    CompareFirstName = chbFirstName.Checked ? CompareString.EQUAL : CompareString.CONTAINS,
-                    SecondName = tbSecondName.Text.Trim(),
-                    CompareSecondName = chbSecondName.Checked ? CompareString.EQUAL : CompareString.CONTAINS,
-                    MiddleName = tbMiddleName.Text.Trim(),
-                    CompareMiddleName = chbMiddleName.Checked ? CompareString.EQUAL : CompareString.CONTAINS,
-                    DateBirthday = dtpDateBerthday.Value.Year != 1900 ? 
-                                    dtpDateBerthday.Value : 
-                                    new DateTime(1, 1, 1, 0, 0, 0),
-                    CompareDate = chbDateBerthday.Items[chbDateBerthday.SelectedIndex] == null ? CompareValue.EQUAL :
-                                  chbDateBerthday.Items[chbDateBerthday.SelectedIndex].ToString().Equals("Больше") ? CompareValue.MORE :
-                                  chbDateBerthday.Items[chbDateBerthday.SelectedIndex].ToString().Equals("Меньше") ? CompareValue.LESS :
-                                  CompareValue.EQUAL,
-                    Age = Convert.ToInt32((string.IsNullOrEmpty(tbAge.Text.Trim()) 
-                                            ? "0" : 
-                                            tbAge.Text.Trim())),
-                    CompareAge = cmbAge.Items[cmbAge.SelectedIndex] == null ? CompareValue.EQUAL :
-                                 cmbAge.Items[cmbAge.SelectedIndex].ToString().Equals("Больше") ? CompareValue.MORE :
-                                 cmbAge.Items[cmbAge.SelectedIndex].ToString().Equals("Меньше") ? CompareValue.LESS :
-                                 CompareValue.EQUAL,
-                    Position = cmbPosition.SelectedValue == null ? "" : cmbPosition.SelectedValue.ToString(),
-                    Address = new SearchAddressModel
-                    {
-                        Country = tbCountry.Text.Trim(),
-                        CompareCountry = chbCounty.Checked ? CompareString.EQUAL : CompareString.CONTAINS,
-                        Subject = tbRegion.Text.Trim(),
-                        CompareSubject = chbRegion.Checked ? CompareString.EQUAL : CompareString.CONTAINS,
-                        Area = tbArea.Text.Trim(),
-                        CompareArea = chbArea.Checked ? CompareString.EQUAL : CompareString.CONTAINS,
-                        City = tbCity.Text.Trim(),
-                        CompareCity = chbCity.Checked ? CompareString.EQUAL : CompareString.CONTAINS,
-                        Street = tbStreet.Text.Trim(),
-                        CompareStreet = chbStreet.Checked ? CompareString.EQUAL : CompareString.CONTAINS,
-                        HomeNumber = tbHomeNumber.Text.Trim(),
-                        Flat = tbFlat.Text.Trim(),
-                        Note = ""
-                    }
-                };
-                return _searchModel;
-            }
-
-            set
-            {
-            }
-        }
+       
 
         public event Action UpdateTable;
         public event Action StartTask;
         public event Action EndTask;
+        public event Action<EmploeyrViewModel> SelectedItemForResult;
 
         public Control GetControl()
         {
@@ -244,70 +326,6 @@ namespace LeoBase.Components.CustomControls
             _customTable.SetData(_data);
         }
 
-        private void ClearSearchModel()
-        {
-            tbFirstName.Text = "";
-            tbSecondName.Text = "";
-            tbMiddleName.Text = "";
-            tbAge.Text = "";
-            dtpDateBerthday.Value = new DateTime(1900, 1, 1);
-            cmbPosition.SelectedIndex = 0;
-
-            chbFirstName.Checked = true;
-            chbSecondName.Checked = true;
-            chbMiddleName.Checked = true;
-            cmbAge.SelectedIndex = 0;
-            chbDateBerthday.SelectedIndex = 0;
-        }
-
-        private void ClearAddressModel()
-        {
-            tbCountry.Text = "";
-            tbRegion.Text = "";
-            tbArea.Text = "";
-            tbStreet.Text = "";
-            tbCity.Text = "";
-            tbHomeNumber.Text = "";
-            tbFlat.Text = "";
-
-            chbCounty.Checked = true;
-            chbRegion.Checked = true;
-            chbCity.Checked = true;
-            chbArea.Checked = true;
-            chbStreet.Checked = true;
-        }
-
-        private void ClearDocumentModel()
-        {
-            cmbDocumentType.SelectedIndex = 0;
-            tbDocumentSerial.Text = "";
-            tbDocumentNumber.Text = "";
-            tbIssuedBy.Text = "";
-            dtpWhenIssued.Value = new DateTime(1900, 1, 1);
-            cmbWhenIssuedBy.SelectedIndex = 0;
-            tbCodeDevision.Text = "";
-        }
-
-        private void btnClearSearchModel_Click(object sender, EventArgs e)
-        {
-            ClearSearchModel();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            UpdateTable();
-        }
-
-        private void btnClearAddressSearchModel_Click(object sender, EventArgs e)
-        {
-            ClearAddressModel();
-        }
-
-        private void btnClearDocument_Click(object sender, EventArgs e)
-        {
-            ClearDocumentModel();
-        }
-
         private void metroTile1_Click(object sender, EventArgs e)
         {
             UpdateTable();
@@ -319,19 +337,32 @@ namespace LeoBase.Components.CustomControls
                 UpdateTable();
         }
 
-        private void metroTile1_Click_1(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
             UpdateTable();
         }
 
-        private void btnClearSearchModel_Click_1(object sender, EventArgs e)
+       
+        private void btnClearAll_Click(object sender, EventArgs e)
         {
-            ClearSearchModel();
+            _searchPanel.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.Visible = false;
+            WidthAnimate animator = new WidthAnimate(searchPanel, searchPanel.Width, 450, 10, 20);
+            animator.Start();
+        }
+
+        public void LoadStart()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadEnd()
+        {
+            throw new NotImplementedException();
         }
     }
 }

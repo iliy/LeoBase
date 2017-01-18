@@ -1,0 +1,25 @@
+C:\Dev\Project last version\LeoBase\FormControls\bin\Debug\FormControls.exe.config
+C:\Dev\Project last version\LeoBase\FormControls\bin\Debug\FormControls.exe
+C:\Dev\Project last version\LeoBase\FormControls\bin\Debug\FormControls.pdb
+C:\Dev\Project last version\LeoBase\FormControls\obj\Debug\FormControls.csprojResolveAssemblyReference.cache
+C:\Dev\Project last version\LeoBase\FormControls\obj\Debug\FormControls.Controls.LeoDataGridView.resources
+C:\Dev\Project last version\LeoBase\FormControls\obj\Debug\FormControls.Properties.Resources.resources
+C:\Dev\Project last version\LeoBase\FormControls\obj\Debug\FormControls.csproj.GenerateResource.Cache
+C:\Dev\Project last version\LeoBase\FormControls\obj\Debug\FormControls.exe
+C:\Dev\Project last version\LeoBase\FormControls\obj\Debug\FormControls.pdb
+C:\Dev\Project last version\LeoBase\FormControls\obj\Debug\FormControls.Controls.Models.HeadTitle.resources
+C:\Dev\Project last version\LeoBase\FormControls\obj\Debug\FormControls.Form1.resources
+D:\Project last version\LeoBase\FormControls\bin\Debug\FormControls.exe.config
+D:\Project last version\LeoBase\FormControls\obj\Debug\FormControls.exe
+D:\Project last version\LeoBase\FormControls\obj\Debug\FormControls.pdb
+C:\Dev\LeoBase\FormControls\bin\Debug\FormControls.exe.config
+C:\Dev\LeoBase\FormControls\bin\Debug\FormControls.exe
+C:\Dev\LeoBase\FormControls\bin\Debug\FormControls.pdb
+C:\Dev\LeoBase\FormControls\obj\Debug\FormControls.csprojResolveAssemblyReference.cache
+C:\Dev\LeoBase\FormControls\obj\Debug\FormControls.Controls.LeoDataGridView.resources
+C:\Dev\LeoBase\FormControls\obj\Debug\FormControls.Controls.Models.HeadTitle.resources
+C:\Dev\LeoBase\FormControls\obj\Debug\FormControls.Form1.resources
+C:\Dev\LeoBase\FormControls\obj\Debug\FormControls.Properties.Resources.resources
+C:\Dev\LeoBase\FormControls\obj\Debug\FormControls.csproj.GenerateResource.Cache
+C:\Dev\LeoBase\FormControls\obj\Debug\FormControls.exe
+C:\Dev\LeoBase\FormControls\obj\Debug\FormControls.pdb

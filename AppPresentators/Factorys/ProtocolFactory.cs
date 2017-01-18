@@ -63,6 +63,30 @@ namespace AppPresentators.Factorys
 
     public class ProtocolFactory
     {
+        private static ProtocolFactory _instance;
+
+        public static Dictionary<int, string> ProtocolTypes = new Dictionary<int, string> {
+            {1, "Протокол о доставление" },
+            {2, "Протокол о личном досмотре" },
+            {3, "Протокол о досмотре транспортного средства" },
+            {4, "Протокол об изъятии" },
+            {5, "Протокол об осмотре территорий и зданий принадлежащих организации"},
+            {6, "Протокол об аресте" },
+            {7, "Определение" },
+            {8, "Протокол об административном правонарушение для физического лица" },
+            {9, "Протокол об административном правонарушение для юридического лица" },
+            {10, "Постановление" },
+            {11, "Предписание"}
+        };
+
+        public static ProtocolFactory GetInstance()
+        {
+            if (_instance == null) _instance = new ProtocolFactory();
+
+            return _instance;
+        }
+
+        private ProtocolFactory() { }
 
         #region Сохранение протоколов
         public static bool SaveProtocolAboutBringing(IProtocol protocol)
@@ -75,6 +99,8 @@ namespace AppPresentators.Factorys
                 using (var transaction = db.Database.BeginTransaction()) {
                     try
                     {
+                        db.Database.CommandTimeout = 3000;
+
                         var protocolAboutBringing = (ProtocolAboutBringing)protocol;
 
                         var violatorDocument = db.Documents
@@ -86,7 +112,7 @@ namespace AppPresentators.Factorys
                                                 .FirstOrDefault(p => p.UserID == violatorDocument.Persone.UserID);
 
                         if (violatorEntity == null) return false;
-
+                        
                         Violator violator = new Violator
                         {
                             PersoneID = violatorEntity.UserID,

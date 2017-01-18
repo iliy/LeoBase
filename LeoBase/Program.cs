@@ -1,4 +1,5 @@
-﻿using AppPresentators.Presentators.Interfaces;
+﻿using AppData.Contexts;
+using AppPresentators.Presentators.Interfaces;
 using LeoBase.Forms;
 using LeoBase.Infrastructure;
 using System;
@@ -21,7 +22,11 @@ namespace LeoBase
             Application.SetCompatibleTextRenderingDefault(false);
             //Настройка ninject для создания абстрактных репозиториев
             ApplicationFactory appFactory = new ApplicationFactory();
-            IMainPresentator mainPresentator = appFactory.GetMainPresentator(new MainView(), appFactory);
+            var mainView = new MainView();
+            IMainPresentator mainPresentator = appFactory.GetMainPresentator(appFactory);
+
+            LeoBaseContext.InitDefaultValue();
+
             mainPresentator.Run();
             //Application.Run(new TestMetroForm());
         }

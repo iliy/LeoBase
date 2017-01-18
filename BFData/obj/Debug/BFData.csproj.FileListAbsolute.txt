@@ -1,0 +1,8 @@
+D:\Work\Dev\LeopardLand\LeoBase\BFData\bin\Debug\BFData.dll.config
+D:\Work\Dev\LeopardLand\LeoBase\BFData\bin\Debug\BFData.dll
+D:\Work\Dev\LeopardLand\LeoBase\BFData\bin\Debug\BFData.pdb
+D:\Work\Dev\LeopardLand\LeoBase\BFData\obj\Debug\BFData.csprojResolveAssemblyReference.cache
+D:\Work\Dev\LeopardLand\LeoBase\BFData\obj\Debug\BFData.dll
+D:\Work\Dev\LeopardLand\LeoBase\BFData\obj\Debug\BFData.pdb
+D:\Work\Dev\LeopardLand\LeoBase\BFData\bin\Debug\LeoDataBase.mdf
+D:\Work\Dev\LeopardLand\LeoBase\BFData\bin\Debug\LeoDataBase_log.ldf

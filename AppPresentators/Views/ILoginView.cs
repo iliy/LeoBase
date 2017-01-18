@@ -14,6 +14,7 @@ namespace AppPresentators.Views
         event Action Login;
         event Action Cancel;
         void ShowError(string errorMessage);
+        event Action CloseAndLogin;
 
     }
 }

@@ -38,6 +38,18 @@ namespace AppData.Repositrys
             return persone.UserID;
         }
 
+        public bool SimpleRemove(int id)
+        {
+            using(var db = new LeoBaseContext())
+            {
+                var persone = db.Persones.FirstOrDefault(p => p.UserID == id);
+                if (persone == null) return false;
+                persone.Deleted = true;
+                db.SaveChanges();
+                return true;
+            }
+        }
+
         public bool Remove(int id)
         {
             using(var db = new LeoBaseContext())
@@ -171,6 +183,7 @@ namespace AppData.Repositrys
                 uPersone.MiddleName = persone.MiddleName;
                 uPersone.PlaceOfBirth = persone.PlaceOfBirth;
                 uPersone.DateBirthday = persone.DateBirthday;
+                uPersone.PlaceWork = persone.PlaceWork;
                 uPersone.Image = persone.Image;
                 uPersone.IsEmploeyr = persone.IsEmploeyr;
                 uPersone.Position_PositionID = persone.Position_PositionID;

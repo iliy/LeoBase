@@ -43,5 +43,6 @@ namespace AppData.Entities
         /// Найденые орудия для охоты и рыболовства 
         /// </summary>
         public string FindedGunsHuntingAndFishing { get; set; }
+
     }
 }

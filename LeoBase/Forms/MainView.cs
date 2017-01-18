@@ -13,23 +13,116 @@ using AppPresentators.Components;
 using AppPresentators.Components.MainMenu;
 using MetroFramework.Forms;
 using System.Threading;
+using LeoBase.Properties;
+using LeoBase.Components.CustomControls;
+using LeoBase.Components.CustomControls.SearchPanels;
+using AppPresentators.Services;
+using AppPresentators;
 
 namespace LeoBase.Forms
 {
-    public partial class MainView : MetroForm, IMainView
+    public partial class MainView : Form, IMainView
     {
         public event Action Login;
+        public event Action FastSearchGO;
 
         private VManager _currentManager;
 
         private IMainMenu _mainMenu;
+
+        Size _oldSize = new Size(640, 480);
+
+        private static MainView _instance = null;
+
+        public bool ShowFastSearch { get
+            {
+                return panelFastSearch.Visible;
+            }
+            set
+            {
+                panelFastSearch.Visible = value;
+            }
+        }
+
+        public string SearchQuery
+        {
+            get
+            {
+                return tbFastSearch.Text.Trim();
+            }
+            set
+            {
+                string oldValue = tbFastSearch.Text.Trim();
+                tbFastSearch.Text = value;
+            }
+        }
+        public static MainView GetInstance()
+        {
+            if (_instance == null) _instance = new MainView();
+
+            return _instance;
+        }
+
         public MainView()
         {
             InitializeComponent();
             this.Resize += (s, e) => MainResize();
+            this.Text = string.Empty;
+
+           
+            tbFastSearch.TextChanged += (s, e) => FastSearch();
+
+            _oldSize = this.Size;
+
+            _instance = this;
+
+
+            //var panel = new Components.CustomControls.NewControls.SaveViolationControl();
+
+
+            //panel.Dock = DockStyle.Top;
+
+            //centerPanel.Controls.Add(panel);
         }
 
-        
+        AdminViolationSearchModel aa = new AdminViolationSearchModel();
+        public void SetTopControls(List<Control> controls)
+        {
+            contentButtons.Controls.Clear();
+
+            if (controls == null || controls.Count == 0) return;
+
+            contentButtons.ColumnCount = controls.Count;
+
+            contentButtons.Refresh();
+
+            foreach (var c in controls)
+            {
+                contentButtons.Controls.Add(c);
+            }
+        }
+        private void BtnFastSearch_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void FastSearch()
+        {
+            string query = tbFastSearch.Text.Trim();
+            if(query.Length > 3 || query.Length == 0)
+            {
+                if(FastSearchGO != null)
+                {
+                    FastSearchGO();
+                }
+            }
+        }
+
+       
+
+        private void MainView_ResizeEnd(object sender, EventArgs e)
+        {
+            _oldSize = this.Size;
+        }
         private void MainResize()
         {
         }
@@ -46,13 +139,13 @@ namespace LeoBase.Forms
                 _currentManager = value;
                 if (_currentManager != null)
                 {
-                    lbAccauntInfo.Text = string.Format("Логин: {0}", _currentManager.Login);
+                    lbAccauntInfo.Text = _currentManager.Login.Equals("admin") ? "Администратор" : "Пользователь";
                     btnLogout.Enabled = true;
-                    accauntInfoPanel.Visible = true;
+                    managerPanel.Visible = true;
                 }
                 else
                 {
-                    accauntInfoPanel.Visible = false;
+                    managerPanel.Visible = false;
                 }
             }
         }
@@ -64,19 +157,23 @@ namespace LeoBase.Forms
         }
 
         private static bool _taskWorking = false;
+
         public void StartTask()
         {
-            label1.Visible = true;
         }
 
         public void EndTask()
         {
-            label1.Visible = false;
         }
 
         public void Show()
         {
-            Application.Run(this);
+            try {
+                Application.Run(this);
+            }catch(Exception e)
+            {
+                return;
+            }
         }
 
         public bool RemoveComponent(Control component)
@@ -93,14 +190,20 @@ namespace LeoBase.Forms
         private Control childrenControl;
         public void SetComponent(Control component)
         {
-            //component.Width = centerPanel.Width;
-            //component.Height = centerPanel.Height;
-            //component.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+            if(component == null)
+            {
+                centerPanel.Controls.Clear();
+                this.Refresh();
+                return;
+            }
+
             component.Anchor = AnchorStyles.None;
             component.Dock = DockStyle.Fill;
+            centerPanel.Controls.Clear();
             centerPanel.Controls.Add(component);
 
             childrenControl = component;
+            this.Refresh();
         }
 
         public void MainView_Load(object sender, EventArgs ev)
@@ -109,7 +212,21 @@ namespace LeoBase.Forms
 
             if (_currentManager == null) Login();
 
-            //btnLogOut.Click += (s, e) => Login();
+            btnLogout.Click += (s, e) =>
+            {
+                SetComponent(null);
+                SetTopControls(null);
+                LogoutClick();
+            };
+        }
+
+        private void LogoutClick()
+        {
+            managerPanel.Visible = false;
+            if (Login != null) { 
+                Login();
+                tbFastSearch.Visible = false;
+            }
         }
 
         public void SetMenu(IMainMenu control)
@@ -127,13 +244,22 @@ namespace LeoBase.Forms
             centerPanel.Refresh();
         }
 
-        private void metroButton2_Click(object sender, EventArgs e)
-        {
-            string values = string.Format("children.Height:{0}; children.Width:{1}\r\n center.Height:{2};center.Width: {3}",
-                                            childrenControl.Height, childrenControl.Width,
-                                            centerPanel.Height, centerPanel.Width);
+        public event Action GoNextPage;
+        public event Action GoBackPage;
 
-            MessageBox.Show(values);
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (GoNextPage != null) GoNextPage();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if (GoBackPage != null) GoBackPage();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

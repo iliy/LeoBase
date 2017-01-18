@@ -9,9 +9,28 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LeoBase</RootNamespace>
     <AssemblyName>LeoBase</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>D:\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +51,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8741D94D0E03BF95689BCD6D79A7E214F9AFDBBE</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>LeoBase_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -39,6 +77,10 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
@@ -60,6 +102,23 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.104.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.104.0\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.104.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.104.0\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.104.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.104.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,11 +130,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\CustomControls\AdminintrationViolationTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\CustomDataTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\CustomDataTable.Designer.cs">
+      <DependentUpon>CustomDataTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\CustomControls\CustomTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Components\CustomControls\CustomTable.Designer.cs">
       <DependentUpon>CustomTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\CustomTablePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\CustomTablePage.Designer.cs">
+      <DependentUpon>CustomTablePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\DetailsComponent\PersoneDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\DetailsComponent\PersoneDetailsControl.Designer.cs">
+      <DependentUpon>PersoneDetailsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\CustomControls\EmployerTableControl.cs">
       <SubType>UserControl</SubType>
@@ -83,17 +163,244 @@
     <Compile Include="Components\CustomControls\EmployerTableControl.Designer.cs">
       <DependentUpon>EmployerTableControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\CustomControls\HideSearchPanelBtn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\Interfaces\IClearable.cs" />
+    <Compile Include="Components\CustomControls\Interfaces\ISearchPanel.cs" />
+    <Compile Include="Components\CustomControls\LeoComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\LoadedControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\LoadedControl.Designer.cs">
+      <DependentUpon>LoadedControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\ClearableFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\EmployerDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\EmployerDetailsControl.Designer.cs">
+      <DependentUpon>EmployerDetailsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\EmployerTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\MapControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\MapControl.Designer.cs">
+      <DependentUpon>MapControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\ConfirmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\ConfirmPassword.Designer.cs">
+      <DependentUpon>ConfirmPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\InputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\InputDialog.Designer.cs">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\OptionsPanel\OptionsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\OptionsPanel\OptionsControl.Designer.cs">
+      <DependentUpon>OptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\PassesTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\PassesTableControl.Designer.cs">
+      <DependentUpon>PassesTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\PersoneSavePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\PictureViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\PictureViewer.Designer.cs">
+      <DependentUpon>PictureViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\SavePageTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\SavePageTemplate.Designer.cs">
+      <DependentUpon>SavePageTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\SaveViolationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\SaveViolationControl.Designer.cs">
+      <DependentUpon>SaveViolationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\ViolationDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\ViolationDetailsControl.Designer.cs">
+      <DependentUpon>ViolationDetailsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\ViolatorDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\ViolatorDetailsControl.Designer.cs">
+      <DependentUpon>ViolatorDetailsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\ViolatorTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\ViolatorTableControl.Designer.cs">
+      <DependentUpon>ViolatorTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\WhiteLeoTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\OpenSearchPanelButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Components\CustomControls\PaginationControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Components\CustomControls\PaginationControl.Designer.cs">
       <DependentUpon>PaginationControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\CustomControls\PersonsSearchPanel.cs">
+    <Compile Include="Components\CustomControls\Protocols\ViolationAboutPersoneView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\CustomControls\PersonsSearchPanel.Designer.cs">
-      <DependentUpon>PersonsSearchPanel.cs</DependentUpon>
+    <Compile Include="Components\CustomControls\Protocols\ViolationAboutPersoneView.Designer.cs">
+      <DependentUpon>ViolationAboutPersoneView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveAddress\AddressesList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveAddress\AddressesList.Designer.cs">
+      <DependentUpon>AddressesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveAddress\AddressItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveAddress\AddressItem.Designer.cs">
+      <DependentUpon>AddressItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveDocument\DocumentItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveDocument\DocumentItem.Designer.cs">
+      <DependentUpon>DocumentItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveDocument\DocumentsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveDocument\DocumentsList.Designer.cs">
+      <DependentUpon>DocumentsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SavePersonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SavePersonControl.Designer.cs">
+      <DependentUpon>SavePersonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SavePhone\PhoneItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SavePhone\PhoneItem.Designer.cs">
+      <DependentUpon>PhoneItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SavePhone\PhonesList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SavePhone\PhonesList.Designer.cs">
+      <DependentUpon>PhonesList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveProtocol\SaveProtocolPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveProtocol\SaveProtocolPanel.Designer.cs">
+      <DependentUpon>SaveProtocolPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveViolationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SaveComponent\SaveViolationControl.Designer.cs">
+      <DependentUpon>SaveViolationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AddressSearchPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AddressSearchPanel.Designer.cs">
+      <DependentUpon>AddressSearchPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AdminViolationSearchPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AdminViolationSearchPanel.Designer.cs">
+      <DependentUpon>AdminViolationSearchPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AllPersonesSearchPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AllPersonesSearchPanel.Designer.cs">
+      <DependentUpon>AllPersonesSearchPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\LeoTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AutoBinderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AutoBinderPanelDetailsDesine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AutoBinderPanelEditDesine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\AutoBinderPanelSearchDesine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\GallaryViwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\GallaryViwer.Designer.cs">
+      <DependentUpon>GallaryViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\SearchPanelContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\SearchPanelContainer.Designer.cs">
+      <DependentUpon>SearchPanelContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\DocumentSearchPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\DocumentSearchPanel.Designer.cs">
+      <DependentUpon>DocumentSearchPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\PersoneSearchPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\PersoneSearchPanel.Designer.cs">
+      <DependentUpon>PersoneSearchPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\ViolationSearchPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\SearchPanels\ViolationSearchPanel.Designer.cs">
+      <DependentUpon>ViolationSearchPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\ViolationTableControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\ViolationTableControl.Designer.cs">
+      <DependentUpon>ViolationTableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\WidthAnimate.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\MainMenu\MainMenu.cs">
       <SubType>UserControl</SubType>
@@ -107,12 +414,10 @@
     <Compile Include="Components\MainMenu\MainMenuItem.Designer.cs">
       <DependentUpon>MainMenuItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\TestComponent.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Components\TopMenu\PictureButton.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Components\TestComponent.Designer.cs">
-      <DependentUpon>TestComponent.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Components\TopMenu\TopControls.cs" />
     <Compile Include="Forms\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,24 +430,125 @@
     <Compile Include="Forms\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\TestMetroForm.cs" />
-    <Compile Include="Forms\TestMetroForm.Designer.cs">
-      <DependentUpon>TestMetroForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Infrastructure\ApplicationFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Components\CustomControls\AdminintrationViolationTableControl.resx">
+      <DependentUpon>AdminintrationViolationTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\CustomDataTable.resx">
+      <DependentUpon>CustomDataTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\CustomControls\CustomTable.resx">
       <DependentUpon>CustomTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\CustomTablePage.resx">
+      <DependentUpon>CustomTablePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\CustomControls\EmployerTableControl.resx">
       <DependentUpon>EmployerTableControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\LoadedControl.resx">
+      <DependentUpon>LoadedControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\EmployerDetailsControl.resx">
+      <DependentUpon>EmployerDetailsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\EmployerTableControl.resx">
+      <DependentUpon>EmployerTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\MapControl.resx">
+      <DependentUpon>MapControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\ConfirmPassword.resx">
+      <DependentUpon>ConfirmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\InputDialog.resx">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\OptionsPanel\OptionsControl.resx">
+      <DependentUpon>OptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\PassesTableControl.resx">
+      <DependentUpon>PassesTableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\PictureViewer.resx">
+      <DependentUpon>PictureViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\SavePageTemplate.resx">
+      <DependentUpon>SavePageTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\SaveViolationControl.resx">
+      <DependentUpon>SaveViolationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\ViolationDetailsControl.resx">
+      <DependentUpon>ViolationDetailsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\ViolatorDetailsControl.resx">
+      <DependentUpon>ViolatorDetailsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\ViolatorTableControl.resx">
+      <DependentUpon>ViolatorTableControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\CustomControls\PaginationControl.resx">
       <DependentUpon>PaginationControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\CustomControls\PersonsSearchPanel.resx">
-      <DependentUpon>PersonsSearchPanel.cs</DependentUpon>
+    <EmbeddedResource Include="Components\CustomControls\Protocols\ViolationAboutPersoneView.resx">
+      <DependentUpon>ViolationAboutPersoneView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SaveComponent\SaveAddress\AddressesList.resx">
+      <DependentUpon>AddressesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SaveComponent\SaveAddress\AddressItem.resx">
+      <DependentUpon>AddressItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SaveComponent\SaveDocument\DocumentItem.resx">
+      <DependentUpon>DocumentItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SaveComponent\SaveDocument\DocumentsList.resx">
+      <DependentUpon>DocumentsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SaveComponent\SavePersonControl.resx">
+      <DependentUpon>SavePersonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SaveComponent\SavePhone\PhoneItem.resx">
+      <DependentUpon>PhoneItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SaveComponent\SavePhone\PhonesList.resx">
+      <DependentUpon>PhonesList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SaveComponent\SaveProtocol\SaveProtocolPanel.resx">
+      <DependentUpon>SaveProtocolPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SaveComponent\SaveViolationControl.resx">
+      <DependentUpon>SaveViolationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SearchPanels\AddressSearchPanel.resx">
+      <DependentUpon>AddressSearchPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SearchPanels\AdminViolationSearchPanel.resx">
+      <DependentUpon>AdminViolationSearchPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SearchPanels\AllPersonesSearchPanel.resx">
+      <DependentUpon>AllPersonesSearchPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SearchPanels\GallaryViwer.resx">
+      <DependentUpon>GallaryViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SearchPanels\SearchPanelContainer.resx">
+      <DependentUpon>SearchPanelContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SearchPanels\DocumentSearchPanel.resx">
+      <DependentUpon>DocumentSearchPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SearchPanels\PersoneSearchPanel.resx">
+      <DependentUpon>PersoneSearchPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\SearchPanels\ViolationSearchPanel.resx">
+      <DependentUpon>ViolationSearchPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\ViolationTableControl.resx">
+      <DependentUpon>ViolationTableControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\MainMenu\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -150,33 +556,30 @@
     <EmbeddedResource Include="Components\MainMenu\MainMenuItem.resx">
       <DependentUpon>MainMenuItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\TestComponent.resx">
-      <DependentUpon>TestComponent.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TestMetroForm.resx">
-      <DependentUpon>TestMetroForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <None Include="LeoBase_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\AppData.Repositrys.Violations.Protocols.ProtocolTypeRepository.datasource" />
+    <None Include="Properties\DataSources\AppPresentators.ConfigApp.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -187,9 +590,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AppCore\AppData.csproj">
+      <Project>{9E9DCF79-8B63-431B-941B-B9E68D2EAA4E}</Project>
+      <Name>AppData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AppPresentators\AppPresentators.csproj">
       <Project>{70d186e8-a3f2-411d-9329-efa43a35205c}</Project>
       <Name>AppPresentators</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LeoMapV3\LeoMapV3.csproj">
+      <Project>{71666b0f-4676-4b80-966b-ec280a3e6733}</Project>
+      <Name>LeoMapV3</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -199,9 +610,125 @@
     <None Include="Resources\no_image_small.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icon.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\reportPress.png" />
+    <None Include="Resources\payPress.png" />
+    <None Include="Resources\nextPress.png" />
+    <None Include="Resources\editPress.png" />
+    <None Include="Resources\detailsPress.png" />
+    <None Include="Resources\deletePress.png" />
+    <None Include="Resources\backPress.png" />
+    <None Include="Resources\addPress.png" />
+    <None Include="Resources\reportDisabled.png" />
+    <None Include="Resources\payDisabled.png" />
+    <None Include="Resources\nextDisabled.png" />
+    <None Include="Resources\editDisabled.png" />
+    <None Include="Resources\detailsDisabled.png" />
+    <None Include="Resources\deleteDisabled.png" />
+    <None Include="Resources\backDisabled.png" />
+    <None Include="Resources\addDisabled.png" />
+    <None Include="Resources\payEnabled.png" />
+    <None Include="Resources\reportEnabled.png" />
+    <None Include="Resources\paymantEnabled.png" />
+    <None Include="Resources\nextEnabled.png" />
+    <None Include="Resources\editEnabled.png" />
+    <None Include="Resources\detailsEnabled.png" />
+    <None Include="Resources\deleteEnabled.png" />
+    <None Include="Resources\backEnabled.png" />
+    <None Include="Resources\addEnabled.png" />
+    <None Include="Resources\mapPreview.jpg" />
+    <None Include="Resources\loader1.gif" />
+    <None Include="Resources\ajax-loader.gif" />
+    <None Include="Resources\deleteHover.png" />
+    <None Include="Resources\deleteLeave.png" />
+    <None Include="Resources\zoomHover.png" />
+    <None Include="Resources\zoomLeave.png" />
+    <None Include="Resources\avatar1.jpg" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\deletePng.png" />
+    <None Include="Resources\avatar.jpg" />
+    <None Include="Resources\ArrowLeft.png" />
+    <None Include="Resources\tbRight.png" />
+    <None Include="Resources\tbLeft.png" />
+    <None Include="Resources\tbBackground.png" />
+    <None Include="Resources\OrderDesc.png" />
+    <None Include="Resources\OrderAsc.png" />
+    <None Include="Resources\LogOutBtn.png" />
+    <None Include="Resources\tbAutorizeFocuse.jpg" />
+    <None Include="Resources\tbAutorizeNotFocuse.jpg" />
+    <None Include="Resources\LogBGPNG.png" />
+    <None Include="Resources\options.png" />
+    <None Include="Resources\strRight.jpg" />
+    <None Include="Resources\strLeft.jpg" />
+    <None Include="Resources\adminAvatar.png" />
+    <None Include="Resources\fastSearchButton.png" />
+    <None Include="Resources\fastSearchBg2.png" />
+    <None Include="Resources\fastSearchBg.png" />
+    <None Include="Resources\btnLogout.png" />
+    <None Include="Resources\avatarManager.jpg" />
+    <None Include="Resources\btnNextHover.png" />
+    <None Include="Resources\btnBackHover.png" />
+    <None Include="Resources\btnNext.png" />
+    <None Include="Resources\btnBack.png" />
+    <None Include="Resources\btnMinimumHover.png" />
+    <None Include="Resources\btnMaximumHover.png" />
+    <None Include="Resources\btnCloseHover.png" />
+    <None Include="Resources\btnCloseSmall.png" />
+    <None Include="Resources\btnMaximumSmall.png" />
+    <None Include="Resources\btnMinimumSmall.png" />
+    <None Include="Resources\btnMinimum.png" />
+    <None Include="Resources\btnMaximum.png" />
+    <None Include="Resources\btnClose.png" />
+    <None Include="Resources\bgTop1.jpg" />
+    <None Include="Resources\topBg.jpg" />
+    <None Include="Resources\loader2.gif" />
+    <None Include="Resources\loader.gif" />
+    <None Include="Resources\AutorizeTitle.jpg" />
+    <None Include="Resources\tbFocuse.jpg" />
+    <None Include="Resources\tbLoginNew.jpg" />
+    <None Include="Resources\tbLogin.jpg" />
+    <None Include="Resources\LoginBGSmall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="MetroFramework.Design">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.104.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.104.0\build\net45\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.104.0\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.104.0\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

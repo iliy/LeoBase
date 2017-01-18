@@ -18,12 +18,15 @@ namespace AppPresentators.Services
         SearchAddressModel AddressSearchModel { get; set; }
         DocumentSearchModel DocumentSearchModel { get; set; }
         PersonsOrderModel OrderModel { get; set; }
-        List<PersoneViewModel> GetPersons();
-        int AddNewPersone(PersoneViewModel personeModel);
+        List<IPersoneViewModel> GetPersons(bool loadDeleted = false);
+        int AddNewPersone(IPersoneViewModel personeModel);
         bool Remove(int id);
-        bool Remove(PersoneViewModel model);
-        PersoneViewModel GetPerson(int id, bool loadFullModel = false);
-        bool UpdatePersone(PersoneViewModel persone);
+        bool Remove(IPersoneViewModel model);
+        IPersoneViewModel GetPerson(int id, bool loadFullModel = false);
+        bool UpdatePersone(IPersoneViewModel persone);
+        bool SimpleRemove(int id);
+        bool SimpleRemove(IPersoneViewModel model);
+        Persone ConverToEnity(IPersoneViewModel model);
     }
 
     public class PersonesService : IPersonesService
@@ -36,6 +39,7 @@ namespace AppPresentators.Services
         private IDocumentTypeRepository _documentsTypeRepository;
 
         private Dictionary<int, string> _documentTypes;
+        private Dictionary<int, string> _positionNames;
         public SearchAddressModel AddressSearchModel { get; set; }
         public PersonsSearchModel SearchModel { get; set; }
         public DocumentSearchModel DocumentSearchModel { get; set; }
@@ -74,11 +78,19 @@ namespace AppPresentators.Services
             _documentsTypeRepository = documentTypeRepository;
 
             _documentTypes = new Dictionary<int, string>();
+            _positionNames = new Dictionary<int, string>();
 
-            foreach(var dT in _documentsTypeRepository.DocumentTypes.ToList())
+            foreach (var dT in _documentsTypeRepository.DocumentTypes.ToList())
             {
                 _documentTypes.Add(dT.DocumentTypeID, dT.Name);
             }
+
+
+            foreach(var pN in _personPositionRepository.Positions.ToList())
+            {
+                _positionNames.Add(pN.PositionID, pN.Name);
+            }
+
         }
 
         /// <summary>
@@ -89,16 +101,16 @@ namespace AppPresentators.Services
         /// Сперва ищеться по документу, потом по адресу и в последнюю очередь по общей модели поиска
         /// </summary>
         /// <returns>Список представлений граждан, без подробной информации</returns>
-        public List<PersoneViewModel> GetPersons()
+        public List<IPersoneViewModel> GetPersons(bool loadDeleted = false)
         {
             List<int> usersIds = new List<int>();
 
-            IQueryable<Persone> persones = null;
-
+            IQueryable<Persone> persones = _personRepository.Persons.Where(p => p.Deleted == loadDeleted);
+            var aa = persones.ToList();
             #region Search by ID and Return
             if (SearchModel != null && SearchModel.PersoneID != 0)
             {
-                var persone = _personRepository.Persons.FirstOrDefault(p => p.UserID == SearchModel.PersoneID);
+                var persone = persones.FirstOrDefault(p => p.UserID == SearchModel.PersoneID);
                 if(persone != null)
                 {
                     bool isEmployer = persone.IsEmploeyr;
@@ -112,38 +124,44 @@ namespace AppPresentators.Services
                             position = p;
                         }
                     }
-
-                    return new List<PersoneViewModel>
+                    if (isEmployer)
                     {
-                        new PersoneViewModel
+                        return new List<IPersoneViewModel>
                         {
-                            UserID = persone.UserID,
-                            FirstName = persone.FirstName,
-                            SecondName = persone.SecondName,
-                            MiddleName = persone.MiddleName,
-                            IsEmploeyr = persone.IsEmploeyr,
-                            DateBirthday = persone.DateBirthday,
-                            Position = position != null ? position.Name : null,
-                            PositionID = position != null ? position.PositionID : -1
-                        }
-                    };
+                            new EmploeyrViewModel
+                            {
+                                UserID = persone.UserID,
+                                FirstName = persone.FirstName,
+                                SecondName = persone.SecondName,
+                                MiddleName = persone.MiddleName,
+                                IsEmploeyr = persone.IsEmploeyr,
+                                DateBirthday = persone.DateBirthday,
+                                Position = position != null ? position.Name : null,
+                                PositionID = position != null ? position.PositionID.ToString() : "-1"
+                            }
+                        };
+                    }else
+                    {
+
+                    }
+                    
                 }
             }
             #endregion
 
+            bool wasSearched = false;
             #region SearchByDocument
-            if(DocumentSearchModel != null && !DocumentSearchModel.IsEmptySearchModel)
+            if (DocumentSearchModel != null && !DocumentSearchModel.IsEmptySearchModel)
             {
                 var documents = _documentsRepository.Documents;
                 var documentsType = _documentsTypeRepository.DocumentTypes;
-                
-                if(!string.IsNullOrEmpty(DocumentSearchModel.DocumentTypeName))
+
+
+                if(!string.IsNullOrEmpty(DocumentSearchModel.DocumentTypeID))
                 {
-                    var docType = documentsType.FirstOrDefault(dt => dt.Name.Equals(DocumentSearchModel.DocumentTypeName));
-                    if(docType != null)
-                    {
-                        documents = documents.Where(d => d.Document_DocumentTypeID == docType.DocumentTypeID);
-                    }
+                    int docTypeId = Convert.ToInt32(DocumentSearchModel.DocumentTypeID);
+                    if(docTypeId != 0)
+                        documents = documents.Where(d => d.Document_DocumentTypeID == docTypeId);
                 }
 
                 if (!string.IsNullOrEmpty(DocumentSearchModel.Serial))
@@ -179,21 +197,21 @@ namespace AppPresentators.Services
                     }
                 }
 
-                if(DocumentSearchModel.WhenIssued.Year != 1)
+                if(DocumentSearchModel.WhenIssued.Year != 1 && (DocumentSearchModel.WhenIssued.Year != DateTime.Now.Year || DocumentSearchModel.WhenIssued.Month != DateTime.Now.Month || DocumentSearchModel.WhenIssued.Day != DateTime.Now.Day))
                 {
                     if(DocumentSearchModel.CompareWhenIssued == CompareValue.MORE)
                     {
                         documents = documents.Where(d => d.WhenIssued >= DocumentSearchModel.WhenIssued);
                     }else if(DocumentSearchModel.CompareWhenIssued == CompareValue.LESS) {
                         documents = documents.Where(d => d.WhenIssued <= DocumentSearchModel.WhenIssued);
-                    }else
+                    }else if(DocumentSearchModel.CompareWhenIssued == CompareValue.EQUAL)
                     {
                         documents = documents.Where(d => d.WhenIssued == DocumentSearchModel.WhenIssued);
                     }
                 }
 
-                string q = documents.ToString();
-
+                //string q = documents.ToString();
+                wasSearched = true;
                 usersIds.AddRange(documents.Select(d => d.Persone.UserID).ToList());
             }
             #endregion
@@ -280,6 +298,7 @@ namespace AppPresentators.Services
                     }
                 }
 
+                wasSearched = true;
 
                 if (usersIds.Count == 0)
                 {
@@ -297,10 +316,8 @@ namespace AppPresentators.Services
             #endregion
 
             #region Search by Ids
-            if (usersIds.Count != 0)
+            if (wasSearched)
             {
-                persones = _personRepository.Persons;
-
                 persones = persones.Where(p => usersIds.Contains(p.UserID));
             }
             #endregion
@@ -374,8 +391,9 @@ namespace AppPresentators.Services
                         persones = persones.Where(p => p.PlaceOfBirth.Contains(SearchModel.PlaceOfBirth));
                     }
                 }
-                
-                if(SearchModel.DateBirthday.Year != 1)
+                if (SearchModel.DateBirthday.Year != 1 
+                    //&& (SearchModel.DateBirthday.Year != DateTime.Now.Year || SearchModel.DateBirthday.Month != DateTime.Now.Month || SearchModel.DateBirthday.Day != DateTime.Now.Day)
+                    )
                 {
                     if(SearchModel.CompareDate == CompareValue.MORE)
                     {
@@ -384,13 +402,16 @@ namespace AppPresentators.Services
 
                         persones = persones.Where(p => p.DateBirthday <= SearchModel.DateBirthday);
                     }
-                    else
+                    else if(SearchModel.CompareDate == CompareValue.EQUAL)
                     {
                         persones = persones.Where(p => p.DateBirthday == SearchModel.DateBirthday);
                     }
                 }
 
-                if(SearchModel.Age > 0 && SearchModel.DateBirthday.Year == 1)
+                if(SearchModel.Age > 0 && (
+                    SearchModel.DateBirthday.Year == 1 || 
+                    SearchModel.DateBirthday.Year == DateTime.Now.Year && SearchModel.DateBirthday.Month == DateTime.Now.Month && SearchModel.DateBirthday.Day == DateTime.Now.Day
+                    ))
                 {
                     int year = DateTime.Now.Year - SearchModel.Age;
                     int mounth = DateTime.Now.Month;
@@ -405,7 +426,7 @@ namespace AppPresentators.Services
                     {
                         persones = persones.Where(p => p.DateBirthday >= dateBirth);
                     }
-                    else
+                    else if(SearchModel.CompareAge == CompareValue.EQUAL)
                     {
                         persones = persones.Where(p => p.DateBirthday.Year == dateBirth.Year
                                                             && (p.DateBirthday.Month < dateBirth.Month
@@ -522,6 +543,12 @@ namespace AppPresentators.Services
                     }
                 }
             }
+            else
+            {
+                if (persones == null) persones = _personRepository.Persons;
+
+                persones = persones.OrderBy(p => p.UserID);
+            }
 
             #endregion
 
@@ -532,15 +559,21 @@ namespace AppPresentators.Services
             #endregion
 
             #region Paginations
+
             if (PageModel.ItemsOnPage != -1)
             {
                 persones = persones.Skip(PageModel.ItemsOnPage * (PageModel.CurentPage - 1)).Take(PageModel.ItemsOnPage);
             }
             #endregion
 
-            return persones
+            List<Persone> result = persones.ToList();
+
+            if (SearchModel.IsEmployer!= null && SearchModel.IsEmployer == true)
+            {
+                return result
                     .Select(p =>
-                        new PersoneViewModel
+                        (IPersoneViewModel)
+                        new EmploeyrViewModel
                         {
                             WasBeCreated = p.WasBeCreated,
                             WasBeUpdated = p.WasBeUpdated,
@@ -550,24 +583,114 @@ namespace AppPresentators.Services
                             MiddleName = p.MiddleName,
                             IsEmploeyr = p.IsEmploeyr,
                             DateBirthday = p.DateBirthday,
-                            PositionID = p.Position_PositionID,
-                            Image = p.Image
+                            PlaceOfBirth = p.PlaceOfBirth,
+                            PositionID = p.Position_PositionID.ToString(),
+                            Position = _positionNames.ContainsKey(p.Position_PositionID) ?
+                                          _positionNames[p.Position_PositionID] : ""
                         }
                     ).ToList();
+            }
+            else
+            {
+                return result
+                    .Select(p =>
+                        (IPersoneViewModel)
+                        new ViolatorViewModel
+                        {
+                            WasBeCreated = p.WasBeCreated,
+                            WasBeUpdated = p.WasBeUpdated,
+                            UserID = p.UserID,
+                            FirstName = p.FirstName,
+                            SecondName = p.SecondName,
+                            MiddleName = p.MiddleName,
+                            IsEmploeyr = p.IsEmploeyr,
+                            DateBirthday = p.DateBirthday,
+                            PlaceOfBirth = p.PlaceOfBirth,
+                            PlaceOfWork = p.PlaceWork
+                        }
+                    ).ToList(); ;
+            }
+
+            
         }
 
-        public int AddNewPersone(PersoneViewModel personeModel)
+        public int AddNewPersone(IPersoneViewModel personeModel)
         {
             var dt = _documentsTypeRepository.DocumentTypes;
             Dictionary<string, int> documentTypes = new Dictionary<string, int>();
 
             EmploeyrPosition position = null;
-
-            if (personeModel.IsEmploeyr)
+            
+            if(!personeModel.IsEmploeyr)
             {
-                position = _personPositionRepository.Positions.FirstOrDefault(p => p.Name.Equals(personeModel.Position));
+                if(personeModel.Addresses.Count == 0 || personeModel.Addresses.First().IsEmptyModel)
+                {
+                    throw new ArgumentException("Невозможно создать нарушителя.\r\nХотя бы один адрес должен быть заполнен.");
+                }
 
-                if (position == null) throw new ArgumentException("Неизвестная должность!");
+                var document = personeModel.Documents.First();
+
+                if (string.IsNullOrEmpty(document.DocumentTypeName))
+                {
+                    string docTN = ""; 
+                    
+                    if(ConfigApp.DocumentTypesList.Count == 0)
+                    {
+                        throw new ArgumentException("Невозможно создать нарушителя, отсутствуют типы документов. \r\nЧтобы воспользоваться этой функцией, создайте тип документа");
+                    }
+                    else
+                    {
+                        docTN = ConfigApp.DocumentTypesList.First().Name;
+                    }
+
+                    document.DocumentTypeName = docTN;
+                }
+
+                if(string.IsNullOrEmpty(document.IssuedBy) || string.IsNullOrEmpty(document.Number)
+                    || string.IsNullOrEmpty(document.Serial) || document.WhenIssued.Year == 1)
+                        throw new ArgumentException("У нарушителя должен быть хотя бы один документ!");
+            }
+
+            if(personeModel.DateBirthday.Year < 1700)
+            {
+                throw new ArgumentException("Укажите дату рождения!");
+            }
+
+            if (string.IsNullOrEmpty(personeModel.FirstName))
+            {
+                throw new ArgumentException("Укажите фамилию!");
+            }
+
+            if (string.IsNullOrEmpty(personeModel.SecondName))
+            {
+                throw new ArgumentException("Укажите имя!");
+            }
+
+            if (string.IsNullOrEmpty(personeModel.MiddleName))
+            {
+                throw new ArgumentException("Укажите отчество!");
+            }
+
+            if (personeModel.IsEmploeyr && personeModel is EmploeyrViewModel)
+            {
+                var employer = (EmploeyrViewModel)personeModel;
+                
+                try
+                {
+
+                    int positionID = Convert.ToInt32(employer.PositionID);
+
+                    position = _personPositionRepository.Positions.FirstOrDefault(p => p.PositionID == positionID);
+                }
+                catch
+                {
+                    position = _personPositionRepository.Positions.FirstOrDefault(p => p.Name.Equals(employer.Position));
+                }
+                finally
+                {
+                    if (position == null) throw new ArgumentException("Неизвестная должность!");
+                }
+
             }
 
             foreach (var d in dt)
@@ -588,45 +711,83 @@ namespace AppPresentators.Services
                 WasBeCreated = DateTime.Now,
                 PlaceOfBirth = personeModel.PlaceOfBirth,
                 Image = personeModel.Image,
-                Address = personeModel.Addresses != null ?
-                                        personeModel.Addresses.Select(a =>
-                                        new PersoneAddress
-                                        {
-                                            Country = a.Country,
-                                            Subject = a.Subject,
-                                            Area = a.Area,
-                                            City = a.City,
-                                            Street = a.Street,
-                                            HomeNumber = a.HomeNumber,
-                                            Flat = a.Flat,
-                                            Note = a.Note
-                                        }
-                                        ).ToList()
-                                        : new List<PersoneAddress>(),
-                Documents = personeModel.Documents != null ?
-                                        personeModel.Documents.Select(d =>
-                                        new Document
-                                        {
-                                            Document_DocumentTypeID = documentTypes.ContainsKey(d.DocumentTypeName) ?
-                                                                        documentTypes[d.DocumentTypeName] :
-                                                                        2,
-                                            Serial = d.Serial,
-                                            Number = d.Number,
-                                            IssuedBy = d.IssuedBy,
-                                            WhenIssued = d.WhenIssued,
-                                            CodeDevision = d.CodeDevision
-                                        }
-                                        ).ToList()
-                                        : new List<Document>(),
-                Phones = personeModel.Phones != null ?
-                                        personeModel.Phones.Select(phone =>
-                                            new Phone
-                                            {
-                                                PhoneNumber = phone.PhoneNumber
-                                            }
-                                        ).ToList() :
-                                        new List<Phone>()
+                PlaceWork = !personeModel.IsEmploeyr ? ((ViolatorViewModel)personeModel).PlaceOfWork : ""
             };
+
+            persone.Documents = new List<Document>();
+
+            if (!personeModel.IsEmploeyr && personeModel.Documents != null)
+            {
+
+                foreach (var doc in personeModel.Documents)
+                {
+                    if (string.IsNullOrEmpty(doc.DocumentTypeName))
+                    {
+                        doc.DocumentTypeName = ConfigApp.DocumentTypesList.First().Name;
+                    }
+
+                    if (string.IsNullOrEmpty(doc.IssuedBy)
+                    || string.IsNullOrEmpty(doc.Number)
+                    || string.IsNullOrEmpty(doc.Serial)
+                    || doc.WhenIssued.Year == 1) continue;
+
+                    persone.Documents.Add(new Document
+                    {
+                        DocumentID = doc.DocumentID,
+                        Document_DocumentTypeID = ConfigApp.DocumentTypesList.FirstOrDefault(d => d.Name.Equals(doc.DocumentTypeName)).DocumentTypeID,
+                        CodeDevision = doc.CodeDevision,
+                        IssuedBy = doc.IssuedBy,
+                        Number = doc.Number,
+                        Serial = doc.Serial,
+                        WhenIssued = doc.WhenIssued
+                    });
+                }
+            }
+
+            persone.Address = new List<PersoneAddress>();
+
+            if (personeModel.Addresses != null)
+            {
+                foreach (var address in personeModel.Addresses)
+                {
+                    if (!address.IsEmptyModel) {
+                        string note = address.Note;
+
+                        if (string.IsNullOrWhiteSpace(note)) note = "Проживает и прописан";
+
+                        persone.Address.Add(new PersoneAddress
+                        {
+                            Country = address.Country,
+                            Subject = address.Subject,
+                            Area = address.Area,
+                            City = address.City,
+                            Street = address.Street,
+                            HomeNumber = address.HomeNumber,
+                            Flat = address.Flat,
+                            Note = address.Note
+                        });
+                    }
+                }
+            }
+
+            persone.Phones = new List<Phone>();
+
+            if(personeModel.Phones != null)
+            {
+                foreach(var phone in personeModel.Phones)
+                {
+                    if (!string.IsNullOrEmpty(phone.PhoneNumber))
+                    {
+                        persone.Phones.Add(new Phone
+                        {
+                            PhoneNumber = phone.PhoneNumber
+                        });
+                    }
+                }
+            }
+
+            _personRepository.AddPersone(persone);
+
             #endregion
 
             return persone.UserID;
@@ -637,12 +798,22 @@ namespace AppPresentators.Services
             return _personRepository.Remove(id);
         }
 
-        public bool Remove(PersoneViewModel model)
+        public bool SimpleRemove(int id)
+        {
+            return _personRepository.SimpleRemove(id);
+        }
+
+        public bool SimpleRemove(IPersoneViewModel model)
+        {
+            return SimpleRemove(model.UserID);
+        }
+
+        public bool Remove(IPersoneViewModel model)
         {
             return Remove(model.UserID);
         }
         
-        public PersoneViewModel GetPerson(int id, bool loadFullModel = false)
+        public IPersoneViewModel GetPerson(int id, bool loadFullModel = false)
         {
             var person = _personRepository.Persons.FirstOrDefault(p => p.UserID == id);
             List<PersonAddressModelView> addresses = null;
@@ -721,38 +892,138 @@ namespace AppPresentators.Services
             if (documents == null) documents = new List<PersoneDocumentModelView>();
             if (phones == null) phones = new List<PhoneViewModel>();
 
-            PersoneViewModel personeViewModel = new PersoneViewModel
+            if(person.IsEmploeyr != null && person.IsEmploeyr == true)
             {
-                UserID = person.UserID,
-                FirstName = person.FirstName,
-                SecondName = person.SecondName,
-                MiddleName = person.MiddleName,
-                IsEmploeyr = person.IsEmploeyr,
-                PositionID = person.Position_PositionID,
-                PlaceOfBirth = person.PlaceOfBirth,
-                DateBirthday = person.DateBirthday,
-                Image = person.Image,
-                Position = person.IsEmploeyr ? positionName : "",
-                Documents = documents,
-                Addresses = addresses,
-                Phones = phones
-            };
-
-            return personeViewModel;
+                return new EmploeyrViewModel
+                {
+                    UserID = person.UserID,
+                    FirstName = person.FirstName,
+                    SecondName = person.SecondName,
+                    MiddleName = person.MiddleName,
+                    IsEmploeyr = person.IsEmploeyr,
+                    PositionID = person.Position_PositionID.ToString(),
+                    PlaceOfBirth = person.PlaceOfBirth,
+                    DateBirthday = person.DateBirthday,
+                    Image = person.Image,
+                    Position = person.IsEmploeyr ? positionName : "",
+                    Documents = documents,
+                    Addresses = addresses,
+                    Phones = phones,
+                    WasBeCreated = person.WasBeCreated,
+                    WasBeUpdated = person.WasBeUpdated
+                };
+            }else
+            {
+                return new ViolatorViewModel
+                {
+                    UserID = person.UserID,
+                    FirstName = person.FirstName,
+                    SecondName = person.SecondName,
+                    MiddleName = person.MiddleName,
+                    IsEmploeyr = person.IsEmploeyr,
+                    PlaceOfBirth = person.PlaceOfBirth,
+                    DateBirthday = person.DateBirthday,
+                    Image = person.Image,
+                    Documents = documents,
+                    Addresses = addresses,
+                    Phones = phones,
+                    PlaceOfWork = person.PlaceWork,
+                    WasBeCreated = person.WasBeCreated,
+                    WasBeUpdated = person.WasBeUpdated
+                };
+            }
         }
 
-        public bool UpdatePersone(PersoneViewModel personeModel)
+
+        public Persone ConverToEnity(IPersoneViewModel model)
+        {
+            Persone persone = new Persone
+            {
+                FirstName = model.FirstName,
+                SecondName = model.SecondName,
+                MiddleName = model.MiddleName,
+                IsEmploeyr = model.IsEmploeyr,
+                PlaceOfBirth = model.PlaceOfBirth,
+                PlaceWork = (!model.IsEmploeyr) ? ((ViolatorViewModel)model).PlaceOfWork : "",
+                Image = model.Image,
+                Phones = model.Phones.Select(p => new Phone {PhoneNumber = p.PhoneNumber }).ToList(),
+                UserID = model.UserID,
+                Position_PositionID = model.IsEmploeyr ? Convert.ToInt32(((EmploeyrViewModel)model).PositionID) : 0,
+                WasBeCreated = model.WasBeCreated,
+                WasBeUpdated = model.WasBeUpdated,
+                Address = model.Addresses.Select(a => new PersoneAddress
+                {
+                    AddressID = a.AddressID,
+                    Area = a.Area,
+                    City = a.City,
+                    Country = a.Country,
+                    Flat = a.Flat,
+                    HomeNumber = a.HomeNumber,
+                    Note = a.Note,
+                    Street = a.Street,
+                    Subject = a.Subject
+                }).ToList(),
+                Documents = model.Documents.Select(d => new Document
+                {
+                    CodeDevision = d.CodeDevision,
+                    DocumentID = d.DocumentID,
+                    Document_DocumentTypeID = d.DocumentTypeID,
+                    IssuedBy = d.IssuedBy,
+                    Number = d.Number,
+                    Serial = d.Serial,
+                    WhenIssued = d.WhenIssued
+                }).ToList(),
+                DateBirthday = model.DateBirthday,
+            };
+
+            return persone;
+        }
+
+        public bool UpdatePersone(IPersoneViewModel personeModel)
         {
             var dt = _documentsTypeRepository.DocumentTypes;
             Dictionary<string, int> documentTypes = new Dictionary<string, int>();
 
             EmploeyrPosition position = null;
 
-            if (personeModel.IsEmploeyr)
+            if (personeModel.DateBirthday.Year < 1700)
             {
-                position = _personPositionRepository.Positions.FirstOrDefault(p => p.Name.Equals(personeModel.Position));
+                throw new ArgumentException("Укажите дату рождения!");
+            }
 
-                if (position == null) throw new ArgumentException("Неизвестная должность!");
+            if (string.IsNullOrEmpty(personeModel.FirstName))
+            {
+                throw new ArgumentException("Укажите фамилию!");
+            }
+
+            if (string.IsNullOrEmpty(personeModel.SecondName))
+            {
+                throw new ArgumentException("Укажите имя!");
+            }
+
+            if (string.IsNullOrEmpty(personeModel.MiddleName))
+            {
+                throw new ArgumentException("Укажите отчество!");
+            }
+
+            if (personeModel.IsEmploeyr && personeModel is EmploeyrViewModel)
+            {
+                var employer = (EmploeyrViewModel)personeModel;
+
+                try
+                {
+
+                    int positionID = Convert.ToInt32(employer.PositionID);
+
+                    position = _personPositionRepository.Positions.FirstOrDefault(p => p.PositionID == positionID);
+                }
+                catch
+                {
+                    position = _personPositionRepository.Positions.FirstOrDefault(p => p.Name.Equals(employer.Position));
+                }
+                finally { 
+                    if (position == null) throw new ArgumentException("Неизвестная должность!");
+                }
             }
 
             foreach (var d in dt)
@@ -760,7 +1031,10 @@ namespace AppPresentators.Services
                 documentTypes.Add(d.Name, d.DocumentTypeID);
             }
 
+
+
             #region make persone model
+
             Persone persone = new Persone
             {
                 UserID = personeModel.UserID,
@@ -771,51 +1045,73 @@ namespace AppPresentators.Services
                 MiddleName = personeModel.MiddleName,
                 DateBirthday = personeModel.DateBirthday,
                 WasBeUpdated = DateTime.Now,
-                WasBeCreated = DateTime.Now,
                 PlaceOfBirth = personeModel.PlaceOfBirth,
                 Image = personeModel.Image,
-                Address = personeModel.Addresses != null ?
-                                        personeModel.Addresses.Select(a =>
-                                        new PersoneAddress
-                                        {
-                                            AddressID = a.AddressID,
-                                            Country = a.Country,
-                                            Subject = a.Subject,
-                                            Area = a.Area,
-                                            City = a.City,
-                                            Street = a.Street,
-                                            HomeNumber = a.HomeNumber,
-                                            Flat = a.Flat,
-                                            Note = a.Note
-                                        }
-                                        ).ToList()
-                                        : new List<PersoneAddress>(),
-                Documents = personeModel.Documents != null ?
-                                        personeModel.Documents.Select(d =>
-                                        new Document
-                                        {
-                                            DocumentID = d.DocumentID,
-                                            Document_DocumentTypeID = documentTypes.ContainsKey(d.DocumentTypeName) ?
-                                                                        documentTypes[d.DocumentTypeName] :
-                                                                        2,
-                                            Serial = d.Serial,
-                                            Number = d.Number,
-                                            IssuedBy = d.IssuedBy,
-                                            WhenIssued = d.WhenIssued,
-                                            CodeDevision = d.CodeDevision
-                                        }
-                                        ).ToList()
-                                        : new List<Document>(),
-                Phones = personeModel.Phones != null ?
-                                        personeModel.Phones.Select(phone =>
-                                            new Phone
-                                            {
-                                                PhoneID = phone.PhoneID,
-                                                PhoneNumber = phone.PhoneNumber
-                                            }
-                                        ).ToList() :
-                                        new List<Phone>()
+                PlaceWork = !personeModel.IsEmploeyr ? ((ViolatorViewModel)personeModel).PlaceOfWork : "",
+
             };
+
+            persone.Documents = new List<Document>();
+
+            if (!personeModel.IsEmploeyr && personeModel.Documents != null)
+            {
+
+                foreach (var doc in personeModel.Documents)
+                {
+                    if (doc.WhenIssued.Year == 1) doc.WhenIssued = DateTime.Now;
+
+                    persone.Documents.Add(new Document
+                    {
+                        DocumentID = doc.DocumentID,
+                        Document_DocumentTypeID = ConfigApp.DocumentTypesList.FirstOrDefault(d => d.Name.Equals(doc.DocumentTypeName)).DocumentTypeID,
+                        CodeDevision = doc.CodeDevision,
+                        IssuedBy = doc.IssuedBy,
+                        Number = doc.Number,
+                        Serial = doc.Serial,
+                        WhenIssued = doc.WhenIssued
+                    });
+                }
+            }
+
+            persone.Address = new List<PersoneAddress>();
+
+            if (personeModel.Addresses != null)
+            {
+                foreach (var address in personeModel.Addresses)
+                {
+                    if (!address.IsEmptyModel)
+                        persone.Address.Add(new PersoneAddress
+                        {
+                            AddressID = address.AddressID,
+                            Country = address.Country,
+                            Subject = address.Subject,
+                            Area = address.Area,
+                            City = address.City,
+                            Street = address.Street,
+                            HomeNumber = address.HomeNumber,
+                            Flat = address.Flat,
+                            Note = address.Note
+                        });
+                }
+            }
+
+            persone.Phones = new List<Phone>();
+
+            if (personeModel.Phones != null)
+            {
+                foreach (var phone in personeModel.Phones)
+                {
+                    if (!string.IsNullOrEmpty(phone.PhoneNumber))
+                    {
+                        persone.Phones.Add(new Phone
+                        {
+                            PhoneID = phone.PhoneID,
+                            PhoneNumber = phone.PhoneNumber
+                        });
+                    }
+                }
+            }
+
             #endregion
 
             return _personRepository.Update(persone);

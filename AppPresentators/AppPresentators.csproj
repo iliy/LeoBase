@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AppPresentators</RootNamespace>
     <AssemblyName>AppPresentators</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,16 +43,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\IAdminViolationControl.cs" />
+    <Compile Include="Components\IEmployerDetailsControl.cs" />
     <Compile Include="Components\IEmployersTableControl.cs" />
+    <Compile Include="Components\ILoadedControl.cs" />
+    <Compile Include="Components\IMapControl.cs" />
+    <Compile Include="Components\IOptionsControl.cs" />
+    <Compile Include="Components\IPassesTableControl.cs" />
+    <Compile Include="Components\IPersoneDetailsControl.cs" />
+    <Compile Include="Components\ISaveAdminViolationControl.cs" />
+    <Compile Include="Components\ISaveOrUpdateViolationControl.cs" />
+    <Compile Include="Components\ISavePersonControl.cs" />
+    <Compile Include="Components\IViolationDetailsControl.cs" />
+    <Compile Include="Components\IViolationTableControl.cs" />
+    <Compile Include="Components\IViolatorDetailsControl.cs" />
+    <Compile Include="Components\IViolatorTableControl.cs" />
     <Compile Include="Components\MainMenu\IMainMenu.cs" />
     <Compile Include="Components\MainMenu\IMainMenuItem.cs" />
     <Compile Include="Components\ITestComponent.cs" />
+    <Compile Include="Components\Protocols\IProtocolAboutViolationView.cs" />
+    <Compile Include="Components\Protocols\IProtocolView.cs" />
     <Compile Include="Components\UIComponent.cs" />
+    <Compile Include="ConfigApp.cs" />
     <Compile Include="Factorys\ProtocolFactory.cs" />
     <Compile Include="Infrastructure\IApplicationFactory.cs" />
+    <Compile Include="Infrastructure\ResultTypes.cs" />
+    <Compile Include="Presentators\AdminViolationTablePresentator.cs" />
+    <Compile Include="Presentators\EmploerDetailsPresentator.cs" />
     <Compile Include="Presentators\EmployersPresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ComponentPresentators\IAddOrUpdateViolation.cs" />
+    <Compile Include="Presentators\Interfaces\ComponentPresentators\IAdminViolationTablePresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ComponentPresentators\IPersoneDetailsPresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ComponentPresentators\ISaveEmployerPresentator.cs" />
     <Compile Include="Presentators\Interfaces\ComponentPresentators\IComponentPresentator.cs" />
     <Compile Include="Presentators\Interfaces\ComponentPresentators\IEmployersPresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ComponentPresentators\IViolationTablePresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ComponentPresentators\IViolatorTablePresentator.cs" />
+    <Compile Include="Presentators\Interfaces\IMapPresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ProtocolsPresentators\IProtocolAboutViolationPresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ProtocolsPresentators\IProtocolPresentator.cs" />
+    <Compile Include="Presentators\Interfaces\ProtocolsPresentators\IRulingForViolationPresentator.cs" />
+    <Compile Include="Presentators\MapPresentator.cs" />
+    <Compile Include="Presentators\OptionsPresentator.cs" />
+    <Compile Include="Presentators\PassesPresentator.cs" />
+    <Compile Include="Presentators\PersoneDetailsPresentator.cs" />
+    <Compile Include="Presentators\Protocols\ProtocolAboutViolationPresentator.cs" />
+    <Compile Include="Presentators\SaveAdminViolationPresentator.cs" />
+    <Compile Include="Presentators\SavePersonPresentator.cs" />
+    <Compile Include="Presentators\ViolationDetailsPresentator.cs" />
+    <Compile Include="Presentators\ViolationTablePresentator.cs" />
+    <Compile Include="Presentators\ViolatorDetailsPresentator.cs" />
+    <Compile Include="Presentators\ViolatorTablePresentator.cs" />
+    <Compile Include="Services\AdminViolationService.cs" />
     <Compile Include="Services\PersonesService.cs" />
     <Compile Include="Services\PermissonsService.cs" />
     <Compile Include="Presentators\Interfaces\ILoginPresentator.cs" />
@@ -65,20 +108,32 @@
     <Compile Include="Views\ILoginView.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IView.cs" />
+    <Compile Include="VModels\AdminViolationRowModel.cs" />
+    <Compile Include="VModels\CellComboBoxValues.cs" />
+    <Compile Include="VModels\ComboSelectedValueAttribute.cs" />
     <Compile Include="VModels\CompareString.cs" />
     <Compile Include="VModels\CompareValue.cs" />
+    <Compile Include="VModels\EmployerDetailsModel.cs" />
     <Compile Include="VModels\MainMenu\MenuCommand.cs" />
     <Compile Include="VModels\MainMenu\MenuItemModel.cs" />
+    <Compile Include="VModels\Map\MapPoint.cs" />
+    <Compile Include="VModels\Map\MapSearchModel.cs" />
+    <Compile Include="VModels\MPoint.cs" />
+    <Compile Include="VModels\MSquare.cs" />
     <Compile Include="VModels\OrderType.cs" />
     <Compile Include="VModels\OrganisationViewModel.cs" />
     <Compile Include="VModels\PageModel.cs" />
+    <Compile Include="VModels\PassesOrderModel.cs" />
+    <Compile Include="VModels\PassesSearchModel.cs" />
     <Compile Include="VModels\Persons\DocumentSearchModel.cs" />
+    <Compile Include="VModels\Persons\EmploeyrViewModel.cs" />
     <Compile Include="VModels\Persons\PersoneViewModel.cs" />
     <Compile Include="VModels\Persons\PersonsOrderModel.cs" />
     <Compile Include="VModels\Persons\PersonsOrderProperties.cs" />
     <Compile Include="VModels\Persons\PersonsSearchModel.cs" />
     <Compile Include="VModels\Persons\PhoneViewModel.cs" />
     <Compile Include="VModels\Persons\SearchAddressModel.cs" />
+    <Compile Include="VModels\Persons\ViolatorViewModel.cs" />
     <Compile Include="VModels\Protocols\DefinitionAboutViolationViewModel.cs" />
     <Compile Include="VModels\Protocols\InjunctionViewModel.cs" />
     <Compile Include="VModels\Protocols\ProtocolAboutBringingViewModel.cs" />
@@ -92,6 +147,7 @@
     <Compile Include="VModels\Protocols\ProtocolViewModel.cs" />
     <Compile Include="VModels\Protocols\RulingForViolationViewModel.cs" />
     <Compile Include="VModels\ViolationViewModel.cs" />
+    <Compile Include="VModels\ViolatorDetailsModel.cs" />
     <Compile Include="VModels\VManager.cs" />
   </ItemGroup>
   <ItemGroup>

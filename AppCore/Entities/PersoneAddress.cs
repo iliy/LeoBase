@@ -33,5 +33,12 @@ namespace AppData.Entities
 
         [DefaultValue("Проживает и прописка")]
         public string Note { get; set; } = "Проживает и прописка";
+
+
+
+        public override string ToString()
+        {
+            return Country + " " + Subject + " " + Area + " " + City + " " + Street + " " + HomeNumber + " "  +Flat;
+        }
     }
 }

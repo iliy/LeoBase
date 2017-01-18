@@ -12,24 +12,79 @@ using AppPresentators.Components.MainMenu;
 using AppPresentators.VModels.MainMenu;
 using AppPresentators.Components;
 using AppPresentators.Presentators.Interfaces.ComponentPresentators;
+using System.Threading;
+using System.ComponentModel;
+using AppData.Contexts;
 
 namespace AppPresentators.Presentators
 {
     public class MainPresentator:IMainPresentator
     {
+        public object DialogResult { get; set; }
         private IMainView _mainView;
         private IApplicationFactory _appFactory;
-       
-        public MainPresentator(IMainView mainView, IApplicationFactory appFactory)
+        private static MainPresentator _instance;
+        private BackgroundWorker _pageLoader;
+
+        public static MainPresentator GetInstance(IApplicationFactory appFactory)
         {
-            _mainView = mainView;
+            if (_instance == null) _instance = new MainPresentator(appFactory);
+
+            return _instance;
+        }
+        
+        public MainPresentator(IApplicationFactory appFactory)
+        {
+            _mainView = appFactory.GetMainView();
             _appFactory = appFactory;
 
             _mainView.Login += () => Login();
+
+            _mainView.FastSearchGO += () => FastSearch(_mainView.SearchQuery);
+
+            _instance = this;
+
+            _pageLoader = new BackgroundWorker();
+
+            _pageLoader.RunWorkerCompleted += LoadPageComplete;
+            _pageLoader.DoWork += LoadPage;
+
+            _mainView.GoBackPage += () => GetBackPage();
+            _mainView.GoNextPage += () => GetNextPage();
+        }
+
+        private void LoadPageComplete(object sender, RunWorkerCompletedEventArgs e)
+        {
+            _mainView.SetTopControls(_currentPresentator.TopControls);
+            _mainView.SetComponent(_currentPresentator.RenderControl());
+        }
+
+        private void LoadPage(object sender, DoWorkEventArgs e)
+        {
+
         }
 
         public IVManager CurrentManager { get; set; }
 
+
+        public void ShowComponentForResult(IComponentPresentator sender, IComponentPresentator executor, ResultTypes resultType)
+        {
+            executor.ResultType = resultType;
+
+            executor.ShowForResult = true;
+
+            executor.SendResult += (t, d) =>
+                {
+                    sender.SetResult(t, d);
+                    GetBackPage();
+                };
+
+            SetNextPage(executor);
+        }
+        public void SendResult(IComponentPresentator recipient, ResultTypes resultType, object data)
+        {
+
+        }
         public IMainView MainView
         {
             get
@@ -50,7 +105,7 @@ namespace AppPresentators.Presentators
 
             var perService = _appFactory.GetService<IPermissonsService>();
 
-            var menuItems = perService.GetMenuItems(user.Role);
+            var menuItems = perService.GetMenuItems("admin");
 
             var mainMenu = _appFactory.GetComponent<IMainMenu>();
 
@@ -59,19 +114,150 @@ namespace AppPresentators.Presentators
             mainMenu.AddMenuItems(menuItems);
 
             _mainView.SetMenu(mainMenu);
+
+            mainMenu.SelecteItem(MenuCommand.Infringement);
+        }
+
+        private void FastSearch(string message)
+        {
+            if(_currentPresentator != null)
+            {
+                _currentPresentator.FastSearch(message);
+            }
+        }
+
+        private IComponentPresentator _currentPresentator;
+        private List<IComponentPresentator> _pages;
+        private int _currentPage;
+
+        public void SetNextPage(IComponentPresentator presentator)
+        {
+            while (_currentPage + 1 < _pages.Count)
+            {
+                _pages.RemoveAt(_currentPage + 1);
+            }
+
+            if(_currentPage + 1 == _pages.Count)
+            {
+                _pages.Add(presentator);
+                _mainView.ShowFastSearch = presentator.ShowFastSearch;
+                _currentPage++;
+                _currentPresentator = presentator;
+                _mainView.SetTopControls(_currentPresentator.TopControls);
+                _mainView.SetComponent(presentator.RenderControl());
+            }
+        }
+
+        public void GetBackPage()
+        {
+            if(_currentPage >= 1)
+            {
+                _currentPage--;
+                _currentPresentator = _pages[_currentPage];
+                _mainView.ShowFastSearch = _currentPresentator.ShowFastSearch;
+                _mainView.SetTopControls(_currentPresentator.TopControls);
+                _mainView.SetComponent(_currentPresentator.RenderControl());
+            }
+        }
+
+        public void GetNextPage()
+        {
+            if(_currentPage + 1 < _pages.Count)
+            {
+                _currentPage++;
+                _currentPresentator = _pages[_currentPage];
+                _mainView.ShowFastSearch = _currentPresentator.ShowFastSearch;
+                _mainView.SetTopControls(_currentPresentator.TopControls);
+                _mainView.SetComponent(_currentPresentator.RenderControl());
+            }
         }
 
         private void MainMenu_MenuItemSelected(MenuCommand command)
         {
-            // Add to center, clear old center and stack
-            _mainView.ClearCenter();
-            if(command == MenuCommand.Employees)
+
+            //_mainView.SetComponent(_appFactory.GetComponent<ILoadedControl>().GetControl());
+
+            if (command == MenuCommand.Employees)
             {
+                _mainView.ClearCenter();
+
+                _currentPage = 0;
+
+                _pages = new List<IComponentPresentator>();
                 var presentator = _appFactory.GetPresentator<IEmployersPresentator>(_mainView);
-                _mainView.SetComponent(presentator.RenderControl());
+                _mainView.ShowFastSearch = presentator.ShowFastSearch;
+                _currentPresentator = presentator;
+
+                _mainView.SetTopControls(_currentPresentator.TopControls);
+                _mainView.SetComponent(_currentPresentator.RenderControl());
+
             }
-            else { 
-                _mainView.SetComponent(_appFactory.GetComponent(command).GetControl());
+            else if (command == MenuCommand.Violators)
+            {
+                _mainView.ClearCenter();
+
+                _currentPage = 0;
+
+                _pages = new List<IComponentPresentator>();
+                var presentator = _appFactory.GetPresentator<IViolatorTablePresentator>(_mainView);
+                _mainView.ShowFastSearch = presentator.ShowFastSearch;
+                _currentPresentator = presentator;
+
+                _mainView.SetTopControls(_currentPresentator.TopControls);
+                _mainView.SetComponent(_currentPresentator.RenderControl());
+
+            }
+            else if (command == MenuCommand.Infringement)
+            {
+                _mainView.ClearCenter();
+
+                _currentPage = 0;
+
+                _pages = new List<IComponentPresentator>();
+                var presentator = _appFactory.GetPresentator<IAdminViolationTablePresentator>(_mainView);
+                _mainView.ShowFastSearch = presentator.ShowFastSearch;
+                _currentPresentator = presentator;
+
+                _mainView.SetTopControls(_currentPresentator.TopControls);
+                _mainView.SetComponent(_currentPresentator.RenderControl());
+
+            }
+            else if (command == MenuCommand.Options)
+            {
+                _mainView.ClearCenter();
+
+                _currentPage = 0;
+
+                _pages = new List<IComponentPresentator>();
+                var presentator = _appFactory.GetPresentator<IOptionsPresentator>(_mainView);
+                _mainView.ShowFastSearch = presentator.ShowFastSearch;
+                _currentPresentator = presentator;
+
+                _mainView.SetTopControls(_currentPresentator.TopControls);
+                _mainView.SetComponent(_currentPresentator.RenderControl());
+            }
+            else if (command == MenuCommand.Map) {
+                _mainView.ClearCenter();
+
+                _currentPage = 0;
+
+                _pages = new List<IComponentPresentator>();
+                var presentator = _appFactory.GetPresentator<IMapPresentator>(_mainView);
+                _mainView.ShowFastSearch = presentator.ShowFastSearch;
+                _currentPresentator = presentator;
+
+                _mainView.SetTopControls(_currentPresentator.TopControls);
+                _mainView.SetComponent(_currentPresentator.RenderControl());
+            }
+            else{
+                _mainView.ShowError("Эта функция будет реализована в следующей версии программы");
+                return;
+                //_mainView.SetComponent(_appFactory.GetComponent(command).GetControl());
+            }
+
+            if(_currentPresentator != null) {
+                _currentPage = 0;
+                _pages.Add(_currentPresentator);
             }
         }
 

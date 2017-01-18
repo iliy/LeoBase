@@ -1,0 +1,199 @@
+C:\Dev\LeoBase\LeoBase\bin\Release\LeoBase.exe.config
+C:\Dev\LeoBase\LeoBase\bin\Release\LeoBase.exe
+C:\Dev\LeoBase\LeoBase\bin\Release\LeoBase.pdb
+C:\Dev\LeoBase\LeoBase\bin\Release\AppData.dll
+C:\Dev\LeoBase\LeoBase\bin\Release\AppPresentators.dll
+C:\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.dll
+C:\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.SqlServer.dll
+C:\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.SqlServerCompact.dll
+C:\Dev\LeoBase\LeoBase\bin\Release\MetroFramework.dll
+C:\Dev\LeoBase\LeoBase\bin\Release\MetroFramework.Fonts.dll
+C:\Dev\LeoBase\LeoBase\bin\Release\Ninject.dll
+C:\Dev\LeoBase\LeoBase\bin\Release\System.Data.SqlServerCe.dll
+C:\Dev\LeoBase\LeoBase\bin\Release\AppData.pdb
+C:\Dev\LeoBase\LeoBase\bin\Release\AppPresentators.pdb
+C:\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.xml
+C:\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.SqlServer.xml
+C:\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.SqlServerCompact.xml
+C:\Dev\LeoBase\LeoBase\bin\Release\Ninject.xml
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.csprojResolveAssemblyReference.cache
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.AdminintrationViolationTableControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.CustomDataTable.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.CustomTable.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.CustomTablePage.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.EmployerTableControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.LoadedControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.EmployerDetailsControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.EmployerTableControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.PictureViewer.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.SavePageTemplate.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.SaveViolationControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.ViolationDetailsControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.ViolatorDetailsControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.ViolatorTableControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.PaginationControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.Protocols.ViolationAboutPersoneView.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveAddress.AddressesList.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveAddress.AddressItem.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveDocument.DocumentItem.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveDocument.DocumentsList.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SavePersonControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SavePhone.PhoneItem.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SavePhone.PhonesList.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveProtocol.SaveProtocolPanel.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveViolationControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.AddressSearchPanel.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.AdminViolationSearchPanel.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.AllPersonesSearchPanel.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.GallaryViwer.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.SearchPanelContainer.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.DocumentSearchPanel.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.PersoneSearchPanel.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.ViolationSearchPanel.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.ViolationTableControl.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.MainMenu.MainMenu.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.MainMenu.MainMenuItem.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Forms.LoginView.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Forms.MainView.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Properties.Resources.resources
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.csproj.GenerateResource.Cache
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.exe
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.pdb
+C:\Dev\LeoBase\LeoBase\bin\Release\LeoBase.exe.manifest
+C:\Dev\LeoBase\LeoBase\bin\Release\LeoBase.application
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.exe.manifest
+C:\Dev\LeoBase\LeoBase\obj\Release\LeoBase.application
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\LeoBase.exe.config
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.exe
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\LeoBase.exe.manifest
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\LeoBase.application
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\LeoBase.exe
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\LeoBase.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\AppData.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\AppPresentators.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.SqlServer.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.SqlServerCompact.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\MetroFramework.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\MetroFramework.Fonts.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\Ninject.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\System.Data.SqlServerCe.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\AppData.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\AppPresentators.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.SqlServer.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\EntityFramework.SqlServerCompact.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\bin\Release\Ninject.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.csprojResolveAssemblyReference.cache
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.AdminintrationViolationTableControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.CustomDataTable.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.CustomTable.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.CustomTablePage.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.EmployerTableControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.LoadedControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.EmployerDetailsControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.EmployerTableControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.PictureViewer.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.SavePageTemplate.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.SaveViolationControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.ViolationDetailsControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.ViolatorDetailsControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.ViolatorTableControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.PaginationControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.Protocols.ViolationAboutPersoneView.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveAddress.AddressesList.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveAddress.AddressItem.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveDocument.DocumentItem.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveDocument.DocumentsList.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SavePersonControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SavePhone.PhoneItem.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SavePhone.PhonesList.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveProtocol.SaveProtocolPanel.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveViolationControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.AddressSearchPanel.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.AdminViolationSearchPanel.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.AllPersonesSearchPanel.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.GallaryViwer.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.SearchPanelContainer.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.DocumentSearchPanel.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.PersoneSearchPanel.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.ViolationSearchPanel.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.CustomControls.ViolationTableControl.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.MainMenu.MainMenu.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Components.MainMenu.MainMenuItem.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Forms.LoginView.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Forms.MainView.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.Properties.Resources.resources
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.csproj.GenerateResource.Cache
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.exe.manifest
+D:\Dev\Земля леопарда\Dev\LeoBase\LeoBase\obj\Release\LeoBase.application
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\LeoBase.exe.config
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.exe
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.pdb
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\LeoBase.exe.manifest
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\LeoBase.application
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\LeoBase.exe
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\LeoBase.pdb
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\AppData.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\AppPresentators.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\EntityFramework.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\EntityFramework.SqlServer.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\EntityFramework.SqlServerCompact.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\MetroFramework.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\MetroFramework.Fonts.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\Ninject.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\System.Data.SqlServerCe.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\AppData.pdb
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\AppPresentators.pdb
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\EntityFramework.xml
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\EntityFramework.SqlServer.xml
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\EntityFramework.SqlServerCompact.xml
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\Ninject.xml
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.csprojResolveAssemblyReference.cache
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.AdminintrationViolationTableControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.CustomDataTable.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.CustomTable.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.CustomTablePage.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.EmployerTableControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.LoadedControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.EmployerDetailsControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.EmployerTableControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.PictureViewer.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.SavePageTemplate.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.SaveViolationControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.ViolationDetailsControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.ViolatorDetailsControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.ViolatorTableControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.PaginationControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.Protocols.ViolationAboutPersoneView.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveAddress.AddressesList.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveAddress.AddressItem.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveDocument.DocumentItem.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveDocument.DocumentsList.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SavePersonControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SavePhone.PhoneItem.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SavePhone.PhonesList.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveProtocol.SaveProtocolPanel.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SaveComponent.SaveViolationControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.AddressSearchPanel.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.AdminViolationSearchPanel.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.AllPersonesSearchPanel.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.GallaryViwer.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.SearchPanelContainer.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.DocumentSearchPanel.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.PersoneSearchPanel.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.SearchPanels.ViolationSearchPanel.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.ViolationTableControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.MainMenu.MainMenu.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.MainMenu.MainMenuItem.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Forms.LoginView.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Forms.MainView.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Properties.Resources.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.csproj.GenerateResource.Cache
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.exe.manifest
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.application
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.OptionsPanel.Dialogs.ConfirmPassword.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.OptionsPanel.OptionsControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.OptionsPanel.Dialogs.InputDialog.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.MapControl.resources

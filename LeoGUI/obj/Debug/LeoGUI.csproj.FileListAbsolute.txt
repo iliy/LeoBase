@@ -1,0 +1,14 @@
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\bin\Debug\LeoGUI.exe.config
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\bin\Debug\LeoGUI.exe
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\bin\Debug\LeoGUI.pdb
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\LeoGUI.csprojResolveAssemblyReference.cache
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\MainWindow.g.cs
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\App.g.cs
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\LeoGUI_MarkupCompile.cache
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\LeoGUI_MarkupCompile.lref
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\MainWindow.baml
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\LeoGUI.g.resources
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\LeoGUI.Properties.Resources.resources
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\LeoGUI.csproj.GenerateResource.Cache
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\LeoGUI.exe
+D:\Work\Dev\LeopardLand\LeoBase\LeoGUI\obj\Debug\LeoGUI.pdb

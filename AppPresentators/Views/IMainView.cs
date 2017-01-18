@@ -15,12 +15,15 @@ namespace AppPresentators.Views
         #region Models
         VManager Manager { get; set; }
         bool Enabled { get; set; }
+        bool ShowFastSearch { get; set; }
+        string SearchQuery { get; set; }
         #endregion
 
         #region Methods
         void ShowError(string errorMessage);
         bool RemoveComponent(Control control);
         void SetComponent(Control control);
+        void SetTopControls(List<Control> controls);
         void SetMenu(IMainMenu control);
         void ClearCenter();
         void StartTask();
@@ -29,7 +32,10 @@ namespace AppPresentators.Views
 
         #region Actions
         event Action Login;
+        event Action FastSearchGO;
+        event Action GoNextPage;
+        event Action GoBackPage;
         #endregion
-        
+
     }
 }

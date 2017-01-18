@@ -30,6 +30,7 @@ namespace AppPresentators.Services
 
         public VManager Login(string login, string password)
         {
+            var mmm = _managersRepository.Managers.ToList();
             var manager = _managersRepository.Managers.FirstOrDefault(u => u.Login.Equals(login) && u.Password.Equals(password));
             if (manager == null)
                 return null;

@@ -16,5 +16,6 @@ namespace AppPresentators.Components.MainMenu
         void RemoveMenuItem(int index);
 
         event MenuItemSelected MenuItemSelected;
+        void SelecteItem(MenuCommand command);
     }
 }

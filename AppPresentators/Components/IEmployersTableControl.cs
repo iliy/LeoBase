@@ -8,21 +8,31 @@ using System.Threading.Tasks;
 
 namespace AppPresentators.Components
 {
+    public delegate void EditPersone(IPersoneViewModel persone);
+    public delegate void DeletePersone(IPersoneViewModel persone);
+    public delegate void ShowPersoneDetails(IPersoneViewModel persone);
+
     public interface IEmployersTableControl:UIComponent
     {
         event Action UpdateTable;
-        event Action StartTask;
-        event Action EndTask;
-
+        event Action AddNewEmployer;
+        event Action<EmploeyrViewModel> SelectedItemForResult;
+        event ShowPersoneDetails ShowPersoneDetails;
+        event EditPersone EditPersone;
+        event DeletePersone DeletePersone;
         PageModel PageModel { get; set; }
 
-        PersonsSearchModel SearchModel { get; set; }
+        PersonsSearchModel PersoneSearchModel { get; }
+        DocumentSearchModel DocumentSearchModel { get; }
+        SearchAddressModel AddressSearchModel { get; }
 
         PersonsOrderModel OrderModel { get; set; }
-        DocumentSearchModel DocumentSearchModel { get; set; }
 
-        List<PersoneViewModel> Data { get; set; }
+        List<EmploeyrViewModel> Data { get; set; }
 
         void Update();
+
+        void LoadStart();
+        void LoadEnd();
     }
 }

@@ -1,0 +1,30 @@
+C:\Dev\LeoBase\AppPresentators\bin\Release\AppPresentators.dll
+C:\Dev\LeoBase\AppPresentators\bin\Release\AppPresentators.pdb
+C:\Dev\LeoBase\AppPresentators\bin\Release\AppData.dll
+C:\Dev\LeoBase\AppPresentators\bin\Release\Ninject.dll
+C:\Dev\LeoBase\AppPresentators\bin\Release\AppData.pdb
+C:\Dev\LeoBase\AppPresentators\bin\Release\EntityFramework.xml
+C:\Dev\LeoBase\AppPresentators\bin\Release\Ninject.xml
+C:\Dev\LeoBase\AppPresentators\obj\Release\AppPresentators.csprojResolveAssemblyReference.cache
+C:\Dev\LeoBase\AppPresentators\obj\Release\AppPresentators.dll
+C:\Dev\LeoBase\AppPresentators\obj\Release\AppPresentators.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\bin\Release\AppPresentators.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\bin\Release\AppPresentators.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\bin\Release\AppData.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\bin\Release\Ninject.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\bin\Release\AppData.pdb
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\bin\Release\EntityFramework.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\bin\Release\Ninject.xml
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\obj\Release\AppPresentators.csprojResolveAssemblyReference.cache
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\obj\Release\AppPresentators.dll
+D:\Dev\Земля леопарда\Dev\LeoBase\AppPresentators\obj\Release\AppPresentators.pdb
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\AppPresentators.dll
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\AppPresentators.pdb
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\AppData.dll
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\Ninject.dll
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\AppData.pdb
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\EntityFramework.xml
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\Ninject.xml
+D:\Dev\LeoBaseVersion2\AppPresentators\obj\Release\AppPresentators.csprojResolveAssemblyReference.cache
+D:\Dev\LeoBaseVersion2\AppPresentators\obj\Release\AppPresentators.dll
+D:\Dev\LeoBaseVersion2\AppPresentators\obj\Release\AppPresentators.pdb

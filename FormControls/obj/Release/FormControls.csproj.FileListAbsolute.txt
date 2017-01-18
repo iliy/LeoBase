@@ -1,0 +1,11 @@
+C:\Dev\LeoBase\FormControls\bin\Release\FormControls.exe.config
+C:\Dev\LeoBase\FormControls\bin\Release\FormControls.exe
+C:\Dev\LeoBase\FormControls\bin\Release\FormControls.pdb
+C:\Dev\LeoBase\FormControls\obj\Release\FormControls.csprojResolveAssemblyReference.cache
+C:\Dev\LeoBase\FormControls\obj\Release\FormControls.Controls.LeoDataGridView.resources
+C:\Dev\LeoBase\FormControls\obj\Release\FormControls.Controls.Models.HeadTitle.resources
+C:\Dev\LeoBase\FormControls\obj\Release\FormControls.Form1.resources
+C:\Dev\LeoBase\FormControls\obj\Release\FormControls.Properties.Resources.resources
+C:\Dev\LeoBase\FormControls\obj\Release\FormControls.csproj.GenerateResource.Cache
+C:\Dev\LeoBase\FormControls\obj\Release\FormControls.exe
+C:\Dev\LeoBase\FormControls\obj\Release\FormControls.pdb

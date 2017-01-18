@@ -1,4 +1,5 @@
-﻿using AppPresentators.VModels.Persons;
+﻿using AppData.Entities;
+using AppPresentators.VModels.Persons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppPresentators.VModels.Protocols
 {
-    public class ProtocolViewModel
+    public class ProtocolViewModel: Protocol
     {
         public int ProtocolID { get; set; }
 
@@ -24,7 +25,7 @@ namespace AppPresentators.VModels.Protocols
         /// <summary>
         /// Сотрудник, составивший протокол
         /// </summary>
-        public PersoneViewModel Employer { get; set; }
+        public EmploeyrViewModel Employer { get; set; }
 
         public DateTime DateCreatedProtocol { get; set; }
         public string PlaceCreatedProtocol { get; set; }
@@ -35,7 +36,6 @@ namespace AppPresentators.VModels.Protocols
         public string WitnessLive_1 { get; set; }
         public string WitnessFIO_2 { get; set; }
         public string WitnessLive_2 { get; set; }
-
-
+        
     }
 }

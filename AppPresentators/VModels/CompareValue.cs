@@ -8,6 +8,7 @@ namespace AppPresentators.VModels
 {
     public enum CompareValue
     {
+        NONE,
         LESS,
         MORE,
         EQUAL

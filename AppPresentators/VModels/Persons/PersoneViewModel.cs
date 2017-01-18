@@ -1,4 +1,5 @@
 ﻿using AppData.Abstract;
+using AppData.CustomAttributes;
 using AppData.Entities;
 using AppData.Infrastructure;
 using System;
@@ -13,27 +14,109 @@ namespace AppPresentators.VModels.Persons
 {
     public class PersonAddressModelView
     {
+        [BrowsableForEditAndDetails(false, false)]
+        [Browsable(false)]
         public int AddressID { get; set; }
-        public string Country { get; set; }
-        public string Subject { get; set; }
-        public string Area { get; set; }
-        public string City { get; set; }
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Страна")]
+        public string Country { get; set; } = "Российская Федерация";
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Область")]
+        public string Subject { get; set; } = "Приморский край";
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Район")]
+        public string Area { get; set; } = "Хасанский район";
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Город")]
+        public string City { get; set; } 
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Улица")]
         public string Street { get; set; }
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Номер дома")]
         public string HomeNumber { get; set; }
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Номер квартиры")]
         public string Flat { get; set; }
+
+        [BrowsableForEditAndDetails(true, true)]
+        [ControlType(ControlType.ComboBox, "Value", "Display")]
+        [DataPropertiesName("NoteTypes")]
+        [DisplayName("Проживает/прописан")]
+        [PropertyNameSelectedText("Note")]
         public string Note { get; set; }
+
+        [Browsable(false)]
+        [BrowsableForEditAndDetails(false, false)]
+        public List<ComboBoxDefaultItem> NoteTypes
+        {
+            get
+            {
+                return new List<ComboBoxDefaultItem>
+                {
+                    new ComboBoxDefaultItem { Display ="Проживает и прописан", Value = "Проживает и прописан" },
+                    new ComboBoxDefaultItem { Display ="Проживает", Value = "Проживает" },
+                    new ComboBoxDefaultItem { Display ="Прописан", Value = "Прописан" }
+                };
+            }
+        }
+
+        [BrowsableForEditAndDetails(false, false)]
+        [Browsable(false)]
+        public bool IsEmptyModel
+        {
+            get
+            {
+                bool defaultValue = Country == "Российская Федерация" && Subject == "Приморский край" && Area == "Хасанский район" &&
+                       string.IsNullOrEmpty(City) && string.IsNullOrEmpty(Street)  && string.IsNullOrEmpty(Flat) && string.IsNullOrEmpty(HomeNumber);
+
+                bool emptyValue = string.IsNullOrEmpty(Country) && string.IsNullOrEmpty(Subject) && string.IsNullOrEmpty(Area) &&
+                       string.IsNullOrEmpty(City) && string.IsNullOrEmpty(Street) && string.IsNullOrEmpty(Flat) && string.IsNullOrEmpty(HomeNumber);
+
+                return defaultValue || emptyValue;
+            }
+        }
     }
 
     public class PersoneDocumentModelView
     {
+        [Browsable(false)]
         public int DocumentID { get; set; }
+        [Browsable(false)]
         public int DocumentTypeID { get; set; }
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Тип документа")]
+        [ControlType(ControlType.ComboBox, "Value", "Display")]
+        [DataPropertiesName("DocumentTypes")]
         public string DocumentTypeName { get; set; }
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Серия")]
         public string Serial { get; set; }
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Номер")]
         public string Number { get; set; }
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Кем выдан")]
         public string IssuedBy { get; set; }
+        [BrowsableForEditAndDetails(true, true)]
+        [ControlType(ControlType.DateTime)]
+        [DisplayName("Когда выдан")]
         public DateTime WhenIssued { get; set; }
+        [BrowsableForEditAndDetails(true, true)]
+        [DisplayName("Код подразделения")]
         public string CodeDevision { get; set; }
+
+        [Browsable(false)]
+        [BrowsableForEditAndDetails(false, false)]
+        public List<ComboBoxDefaultItem> DocumentTypes
+        {
+            get
+            {
+                return ConfigApp.DocumentsType.Select(x => new ComboBoxDefaultItem { Display = x.Value, Value = x.Value }).ToList();
+            }
+        }
+
+        [Browsable(false)]
         public PersoneViewModel Persone { get; set; }
         public PersoneDocumentModelView() { }
         public PersoneDocumentModelView(Document document, string documentType, Persone persone)
@@ -58,6 +141,41 @@ namespace AppPresentators.VModels.Persons
         }
     }
 
+    public interface IPersoneViewModel
+    {
+        [Browsable(false)]
+        int UserID { get; set; }
+        
+
+        [Browsable(false)]
+        bool IsEmploeyr { get; set; }
+
+        [DisplayName("Фамилия")]
+        string FirstName { get; set; }
+
+        [DisplayName("Имя")]
+        string SecondName { get; set; }
+
+        [DisplayName("Отчество")]
+        string MiddleName { get; set; }
+
+        [DisplayName("Дата рождения")]
+        DateTime DateBirthday { get; set; }
+
+        [DisplayName("Дата создания")]
+        DateTime WasBeCreated { get; set; }
+
+        [DisplayName("Дата обновления")]
+        DateTime WasBeUpdated { get; set; }
+        [DisplayName("Место рождения")]
+        string PlaceOfBirth { get; set; }
+        byte[] Image { get; set; }
+        List<PersonAddressModelView> Addresses { get; set; }
+        List<PersoneDocumentModelView> Documents { get; set; }
+
+        List<PhoneViewModel> Phones { get; set; }
+    }
+
     public class PersoneViewModel
     {
         [Browsable(false)]
@@ -66,11 +184,9 @@ namespace AppPresentators.VModels.Persons
         [Browsable(false)]
         public int PositionID { get; set; }
 
-        [ReadOnly(true)]
-        [DisplayName("Должность")]
-        public string Position { get; set; }
-
+        [Browsable(false)]
         public bool IsEmploeyr { get; set; }
+
 
         [DisplayName("Фамилия")]
         public string FirstName { get; set; }
@@ -83,19 +199,16 @@ namespace AppPresentators.VModels.Persons
 
         [DisplayName("Дата рождения")]
         public DateTime DateBirthday { get; set; }
+        [DisplayName("Место рождения")]
+        public string PlaceOfBirth { get; set; }
 
         [DisplayName("Дата создания")]
         public DateTime WasBeCreated { get; set; }
 
         [DisplayName("Дата обновления")]
         public DateTime WasBeUpdated { get; set; }
-
-        [DisplayName("Место рождения")]
-        public string PlaceOfBirth { get; set; }
-
         [DisplayName("Место работы")]
-        public string PlaceOfWork { get; set; }
-
+        public string PlaceWork { get; set; }
         public List<PersoneDocumentModelView> Documents { get; set; }
 
         public List<PhoneViewModel> Phones { get; set; }
@@ -124,8 +237,9 @@ namespace AppPresentators.VModels.Persons
             PlaceOfBirth = persone.PlaceOfBirth;
             WasBeCreated = persone.WasBeCreated;
             WasBeUpdated = persone.WasBeUpdated;
-            PlaceOfWork = persone.PlaceWork;
+            PlaceWork = persone.PlaceWork;
             Image = persone.Image;
+
 
             Phones = new List<PhoneViewModel>();
             Documents = new List<PersoneDocumentModelView>();

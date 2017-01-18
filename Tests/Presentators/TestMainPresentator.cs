@@ -39,7 +39,7 @@ namespace Tests.Presentators
            
             _appFactory = new ApplicationFactory(_ninjectKernel);
 
-            _mainPresentator = new MainPresentator(_mockMainView.Object, _appFactory);
+            _mainPresentator = new MainPresentator(_appFactory);
         }
 
         private void InitNinjectKernel()

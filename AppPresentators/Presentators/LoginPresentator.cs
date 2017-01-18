@@ -26,6 +26,7 @@ namespace AppPresentators.Presentators
 
             _view.Login += () => Login(_view.UserName, _view.Password);
             _view.Cancel += () => Cancel();
+            _view.CloseAndLogin += () => LoginAndCloseForm();
         }
 
         public void Cancel()
@@ -34,25 +35,34 @@ namespace AppPresentators.Presentators
             _mainView.Close();
         }
 
+        public void LoginAndCloseForm()
+        {
+            if (ConfigApp.CurrentManager == null)
+            {
+                _view.ShowError("Неверные логин или пароль");
+            }
+            else
+            {
+                _mainView.Manager = ConfigApp.CurrentManager;
+                if (LoginComplete != null) LoginComplete(ConfigApp.CurrentManager);
+                _view.Close();
+            }
+        }
+
+
         public void Login(string userName, string password)
         {
             if (string.IsNullOrEmpty(userName))
-                throw new ArgumentNullException("username");
+            {
+                _view.ShowError("Не указано имя пользователя");
+            }
 
             if (string.IsNullOrEmpty(password))
-                throw new ArgumentNullException("password");
-
-            var manager = _service.Login(userName,password);
-
-            if(manager == null)
             {
-                _view.ShowError("Неверные имя пользователя или пароль");
-            }else
-            {
-                _mainView.Manager = manager;
-                if (LoginComplete != null) LoginComplete(manager);
-                _view.Close();
+                _view.ShowError("Пароль не указан");
             }
+
+            ConfigApp.CurrentManager = _service.Login(userName, password);
         }
 
         public void Run()

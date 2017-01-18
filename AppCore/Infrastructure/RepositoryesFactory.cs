@@ -25,6 +25,7 @@ namespace AppData.Infrastructure
         {
             if(_instance == null)
             {
+                //AppDomain.CurrentDomain.SetData("DataDirecotry", System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase));
                 _instance = new RepositoryesFactory();
                 _instance.Init();
             }

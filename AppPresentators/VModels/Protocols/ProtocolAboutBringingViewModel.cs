@@ -1,4 +1,5 @@
-﻿using AppPresentators.VModels.Persons;
+﻿using AppData.Entities;
+using AppPresentators.VModels.Persons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace AppPresentators.VModels.Protocols
     /// <summary>
     /// Протокол о доставление
     /// </summary>
-    public class ProtocolAboutBringingViewModel:ProtocolViewModel
+    public class ProtocolAboutBringingViewModel:ProtocolViewModel, IProtocol
     {
         public int ProtocolAboutBringingID { get; set; }
 
@@ -62,5 +63,6 @@ namespace AppPresentators.VModels.Protocols
         /// </summary>
         public string FixingMethods { get; set; }
 
+        public Protocol Protocol { get; set; }
     }
 }
