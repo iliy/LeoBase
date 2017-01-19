@@ -7,3 +7,5 @@ bin/
 *.cache
 *.pdb
 *.exe.manifest
+*/Debug/
+*/Release/
