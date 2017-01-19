@@ -1,0 +1,13 @@
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\PassesData.dll.config
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\PassesData.dll
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\PassesData.pdb
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\EntityFramework.dll
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\System.Data.SqlServerCe.dll
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\EntityFramework.xml
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dev\LeoBaseVersion2\PassesData\bin\Debug\EntityFramework.SqlServerCompact.xml
+D:\Dev\LeoBaseVersion2\PassesData\obj\Debug\PassesData.csprojResolveAssemblyReference.cache
+D:\Dev\LeoBaseVersion2\PassesData\obj\Debug\PassesData.dll
+D:\Dev\LeoBaseVersion2\PassesData\obj\Debug\PassesData.pdb

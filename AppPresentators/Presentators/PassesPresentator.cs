@@ -316,8 +316,11 @@ namespace AppPresentators.Presentators
                         db.Passes.Remove(pass);
 
                         db.SaveChanges();
+
                     }
                 }
+
+                UpdateTable();
             }
         }
 

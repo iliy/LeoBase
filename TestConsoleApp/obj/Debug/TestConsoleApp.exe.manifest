@@ -44,26 +44,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppData.dll" size="85504">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppData.dll" size="86016">
       <assemblyIdentity name="AppData" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DsYNDAbnwF5R8/cee5JoHwl0Bq3Cmu4fK9/P+YAemII=</dsig:DigestValue>
+        <dsig:DigestValue>PpQYJaUKGMl1lS9xPRKsntYHKhhXAa5I/fssdcY7O0A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="221696">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="238080">
       <assemblyIdentity name="AppPresentators" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xYHUtsBo2CuiGXW3W9iVpW4TBU196Zxw9BBrkkbLdiY=</dsig:DigestValue>
+        <dsig:DigestValue>SgbZJUbQThwMBt7JvLxpniSt2gXbRtd+2KrSqvOpUtw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -135,7 +135,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2QlqkV070DZwoSQpqSizwSg+qOaQgXy+eT1lNcf9I8s=</dsig:DigestValue>
+        <dsig:DigestValue>H2ovx9tJVpm/ei/99UkrQ2VnYrNVO54O3Cuu3dgAd6I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
