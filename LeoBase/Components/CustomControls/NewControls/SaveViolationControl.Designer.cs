@@ -161,7 +161,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(655, 41);
+            this.panel1.Size = new System.Drawing.Size(621, 41);
             this.panel1.TabIndex = 0;
             // 
             // lbTitle
@@ -182,7 +182,7 @@
             this.groupBox5.Location = new System.Drawing.Point(0, 1462);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Size = new System.Drawing.Size(655, 309);
+            this.groupBox5.Size = new System.Drawing.Size(621, 309);
             this.groupBox5.TabIndex = 9;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Фотографии";
@@ -194,7 +194,7 @@
             this.photosList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.photosList.Location = new System.Drawing.Point(5, 49);
             this.photosList.Name = "photosList";
-            this.photosList.Size = new System.Drawing.Size(645, 255);
+            this.photosList.Size = new System.Drawing.Size(611, 255);
             this.photosList.TabIndex = 1;
             // 
             // panel2
@@ -203,7 +203,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(5, 18);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(645, 31);
+            this.panel2.Size = new System.Drawing.Size(611, 31);
             this.panel2.TabIndex = 0;
             // 
             // btnAddPhoto
@@ -264,7 +264,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Location = new System.Drawing.Point(0, 850);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(655, 612);
+            this.groupBox4.Size = new System.Drawing.Size(621, 612);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Информация по постановлению";
@@ -621,7 +621,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(0, 375);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(655, 475);
+            this.groupBox3.Size = new System.Drawing.Size(621, 475);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Информация по протоколу";
@@ -846,7 +846,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 144);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(655, 231);
+            this.groupBox2.Size = new System.Drawing.Size(621, 231);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация о нарушителе";
@@ -1032,7 +1032,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(655, 103);
+            this.groupBox1.Size = new System.Drawing.Size(621, 103);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Сотрудник составивший протокол";
@@ -1294,7 +1294,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Name = "SaveViolationControl";
-            this.Size = new System.Drawing.Size(655, 1535);
+            this.Size = new System.Drawing.Size(621, 1535);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox5.ResumeLayout(false);

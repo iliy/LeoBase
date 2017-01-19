@@ -236,13 +236,28 @@ namespace AppPresentators.Presentators
                 _mainView.SetTopControls(_currentPresentator.TopControls);
                 _mainView.SetComponent(_currentPresentator.RenderControl());
             }
-            else if (command == MenuCommand.Map) {
+            else if (command == MenuCommand.Map)
+            {
                 _mainView.ClearCenter();
 
                 _currentPage = 0;
 
                 _pages = new List<IComponentPresentator>();
                 var presentator = _appFactory.GetPresentator<IMapPresentator>(_mainView);
+                _mainView.ShowFastSearch = presentator.ShowFastSearch;
+                _currentPresentator = presentator;
+
+                _mainView.SetTopControls(_currentPresentator.TopControls);
+                _mainView.SetComponent(_currentPresentator.RenderControl());
+            }
+            else if (command == MenuCommand.Omissions)
+            {
+                _mainView.ClearCenter();
+
+                _currentPage = 0;
+
+                _pages = new List<IComponentPresentator>();
+                var presentator = _appFactory.GetPresentator<IPassesPresentator>(_mainView);
                 _mainView.ShowFastSearch = presentator.ShowFastSearch;
                 _currentPresentator = presentator;
 

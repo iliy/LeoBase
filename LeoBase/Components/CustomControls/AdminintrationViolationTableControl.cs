@@ -29,6 +29,7 @@ namespace LeoBase.Components.CustomControls
             set
             {
                 _dataContext = value;
+
                 _customTable.SetData<AdminViolationRowModel>(value);
 
                 if (_tpControls != null)
@@ -130,6 +131,7 @@ namespace LeoBase.Components.CustomControls
             _customTable.OnRowWasCreted += RowWasCreated;
 
             _customTable.UpdateTable += () => UpdateTable();
+
             _customTable.SelectedItemChange += (index) =>
             {
 
@@ -305,54 +307,6 @@ namespace LeoBase.Components.CustomControls
             _tpControls.EnabledReport = true;
 
             _topControls = _tpControls;
-
-            //if (!ConfigApp.CurrentManager.Role.Equals("admin"))
-            //{
-            //    _btnAddNew.Visible = false;
-            //    _btnRemove.Visible = false;
-            //    _btnUpdate.Visible = false;
-            //}
-
-            //_btnUpdate.Enabled = false;
-            //_btnRemove.Enabled = false;
-            //_btnDetails.Enabled = false;
-
-            //_btnAddNew.Text = "Добавить";
-            //_btnRemove.Text = "Удалить";
-            //_btnUpdate.Text = "Редактировать";
-            //_btnDetails.Text = "Подробнее";
-            //_btnReport.Text = "Отчет";
-
-            //_btnAddNew.Click += (s, e) =>
-            //{
-            //    if (AddViolation != null) AddViolation();
-            //};
-
-            //_btnUpdate.Click += (s, e) =>
-            //{
-            //    if (EditViolation != null) EditViolation(SelectedID);
-            //};
-
-            //_btnRemove.Click += (s, e) =>
-            //{
-            //    if(MessageBox.Show("Вы уверены что хотите удалить эту запись?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-            //    {
-            //        if (RemoveViolation != null) RemoveViolation(SelectedID);
-            //    }
-            //};
-
-            //_btnDetails.Click += (s, e) =>
-            //{
-            //    if (ShowDetailsViolation != null) ShowDetailsViolation(SelectedID);
-            //};
-
-            //_topControls = new List<Control>();
-
-            //_topControls.Add(_btnReport);
-            //_topControls.Add(_btnDetails);
-            //_topControls.Add(_btnAddNew);
-            //_topControls.Add(_btnUpdate);
-            //_topControls.Add(_btnRemove);
         }
 
         private List<Control> _topControls;

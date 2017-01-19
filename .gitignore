@@ -1,3 +1,9 @@
 bin/
 *.sdf
 *.SDF
+*.exe
+*.lmap
+*.dll
+*.cache
+*.pdb
+*.exe.manifest

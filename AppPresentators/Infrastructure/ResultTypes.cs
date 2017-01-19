@@ -27,6 +27,10 @@ namespace AppPresentators.Infrastructure
         ADD_EMPLOYER,
 
         FIND_EMPLOYER,
-        FIND_VIOLATOR
+        FIND_VIOLATOR,
+
+        EDIT_PASS,
+        SAVE_PASS,
+        DETAILS_PASS
     }
 }

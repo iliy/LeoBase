@@ -24,22 +24,22 @@ namespace AppPresentators.VModels
         [ControlType(ControlType.DateTime)]
         [DisplayName("Когда выдан")]
         [ChildrenProperty("CompareWhenIssued")]
-        public DateTime WhenIssued { get; set; }
+        public DateTime WhenIssued { get; set; } = DateTime.Now;
         [Browsable(false)]
         public CompareValue CompareWhenIssued { get; set; } = CompareValue.NONE;
 
 
         [ControlType(ControlType.DateTime)]
-        [DisplayName("Когда выдан")]
+        [DisplayName("Когда выдан пропуск")]
         [ChildrenProperty("CompareWhenGived")]
-        public DateTime WhenGived { get; set; }
+        public DateTime WhenGived { get; set; } = DateTime.Now;
         [Browsable(false)]
         public CompareValue CompareWhenGived { get; set; } = CompareValue.NONE;
 
         [ControlType(ControlType.DateTime)]
-        [DisplayName("Когда выдан")]
+        [DisplayName("Пропуск выдан до")]
         [ChildrenProperty("CompareWhenClosed")]
-        public DateTime WhenClosed { get; set; }
+        public DateTime WhenClosed { get; set; } = DateTime.Now;
         [Browsable(false)]
         public CompareValue CompareWhenClosed { get; set; } = CompareValue.NONE;
 

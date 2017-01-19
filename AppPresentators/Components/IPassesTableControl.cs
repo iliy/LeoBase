@@ -25,5 +25,7 @@ namespace AppPresentators.Components
         void ShowMessage(string text, string title);
         void ShowError(string text);
         bool ShowDialog(string text);
+        void LoadStart();
+        void LoadEnd();
     }
 }

@@ -130,6 +130,10 @@ namespace LeoBase.Infrastructure
             _ninjectKernel.Bind<IEmployerDetailsPresentator>().To<EmploerDetailsPresentator>();
             _ninjectKernel.Bind<IOptionsPresentator>().To<OptionsPresentator>();
             _ninjectKernel.Bind<IMapPresentator>().To<MapPresentator>();
+            _ninjectKernel.Bind<IPassesPresentator>().To<PassesPresentator>();
+            _ninjectKernel.Bind<IEditPassPresentator>().To<EditPassPresentator>();
+
+            _ninjectKernel.Bind<IPassDeatailsPresentator>().To<PassDetailsPresentator>();
 
             #endregion
 
@@ -173,6 +177,10 @@ namespace LeoBase.Infrastructure
 
             _ninjectKernel.Bind<IViolationDetailsControl>().To<LeoBase.Components.CustomControls.NewControls.ViolationDetailsControl>();
             _ninjectKernel.Bind<IMapControl>().To<LeoBase.Components.CustomControls.NewControls.MapControl>();
+            _ninjectKernel.Bind<IPassesTableControl>().To<Components.CustomControls.NewControls.PassesTableControl>();
+            _ninjectKernel.Bind<IEditPassControl>().To<Components.CustomControls.NewControls.SavePassControl>();
+
+            _ninjectKernel.Bind<IPassDetailsControl>().To<Components.CustomControls.NewControls.PassDetailsControl>();
             #endregion
 
             #region ProtocolsView

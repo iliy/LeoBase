@@ -189,6 +189,7 @@
     <Compile Include="Components\CustomControls\NewControls\EmployerTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Components\CustomControls\NewControls\ISavePassControl.cs" />
     <Compile Include="Components\CustomControls\NewControls\MapControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -213,6 +214,12 @@
     <Compile Include="Components\CustomControls\NewControls\OptionsPanel\OptionsControl.Designer.cs">
       <DependentUpon>OptionsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\CustomControls\NewControls\PassDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\PassDetailsControl.Designer.cs">
+      <DependentUpon>PassDetailsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\CustomControls\NewControls\PassesTableControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -233,6 +240,12 @@
     </Compile>
     <Compile Include="Components\CustomControls\NewControls\SavePageTemplate.Designer.cs">
       <DependentUpon>SavePageTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\SavePassControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\SavePassControl.Designer.cs">
+      <DependentUpon>SavePassControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\CustomControls\NewControls\SaveViolationControl.cs">
       <SubType>UserControl</SubType>
@@ -469,6 +482,9 @@
     <EmbeddedResource Include="Components\CustomControls\NewControls\OptionsPanel\OptionsControl.resx">
       <DependentUpon>OptionsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\PassDetailsControl.resx">
+      <DependentUpon>PassDetailsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\CustomControls\NewControls\PassesTableControl.resx">
       <DependentUpon>PassesTableControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -477,6 +493,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\CustomControls\NewControls\SavePageTemplate.resx">
       <DependentUpon>SavePageTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\SavePassControl.resx">
+      <DependentUpon>SavePassControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\CustomControls\NewControls\SaveViolationControl.resx">
       <DependentUpon>SaveViolationControl.cs</DependentUpon>

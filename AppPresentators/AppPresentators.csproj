@@ -44,11 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\IAdminViolationControl.cs" />
+    <Compile Include="Components\IEditPassControl.cs" />
     <Compile Include="Components\IEmployerDetailsControl.cs" />
     <Compile Include="Components\IEmployersTableControl.cs" />
     <Compile Include="Components\ILoadedControl.cs" />
     <Compile Include="Components\IMapControl.cs" />
     <Compile Include="Components\IOptionsControl.cs" />
+    <Compile Include="Components\IPassDetailsControl.cs" />
     <Compile Include="Components\IPassesTableControl.cs" />
     <Compile Include="Components\IPersoneDetailsControl.cs" />
     <Compile Include="Components\ISaveAdminViolationControl.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Infrastructure\IApplicationFactory.cs" />
     <Compile Include="Infrastructure\ResultTypes.cs" />
     <Compile Include="Presentators\AdminViolationTablePresentator.cs" />
+    <Compile Include="Presentators\EditPassPresentator.cs" />
     <Compile Include="Presentators\EmploerDetailsPresentator.cs" />
     <Compile Include="Presentators\EmployersPresentator.cs" />
     <Compile Include="Presentators\Interfaces\ComponentPresentators\IAddOrUpdateViolation.cs" />
@@ -85,6 +88,7 @@
     <Compile Include="Presentators\Interfaces\ProtocolsPresentators\IRulingForViolationPresentator.cs" />
     <Compile Include="Presentators\MapPresentator.cs" />
     <Compile Include="Presentators\OptionsPresentator.cs" />
+    <Compile Include="Presentators\PassDetailsPresentator.cs" />
     <Compile Include="Presentators\PassesPresentator.cs" />
     <Compile Include="Presentators\PersoneDetailsPresentator.cs" />
     <Compile Include="Presentators\Protocols\ProtocolAboutViolationPresentator.cs" />
