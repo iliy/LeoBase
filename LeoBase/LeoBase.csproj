@@ -151,6 +151,7 @@
     <Compile Include="Components\CustomControls\CustomTablePage.Designer.cs">
       <DependentUpon>CustomTablePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\CustomControls\Delegates\Delegates.cs" />
     <Compile Include="Components\CustomControls\DetailsComponent\PersoneDetailsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -288,6 +289,12 @@
     </Compile>
     <Compile Include="Components\CustomControls\PaginationControl.Designer.cs">
       <DependentUpon>PaginationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CustomControls\PreloadPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\PreloadPanel.Designer.cs">
+      <DependentUpon>PreloadPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\CustomControls\Protocols\ViolationAboutPersoneView.cs">
       <SubType>UserControl</SubType>
@@ -521,6 +528,9 @@
     <EmbeddedResource Include="Components\CustomControls\PaginationControl.resx">
       <DependentUpon>PaginationControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\PreloadPanel.resx">
+      <DependentUpon>PreloadPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\CustomControls\Protocols\ViolationAboutPersoneView.resx">
       <DependentUpon>ViolationAboutPersoneView.cs</DependentUpon>
     </EmbeddedResource>
@@ -640,6 +650,9 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\smallLoader.gif" />
+    <None Include="Resources\loader3.gif" />
+    <None Include="Resources\load.gif" />
     <None Include="Resources\reportPress.png" />
     <None Include="Resources\payPress.png" />
     <None Include="Resources\nextPress.png" />

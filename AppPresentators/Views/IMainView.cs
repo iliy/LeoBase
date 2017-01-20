@@ -27,7 +27,7 @@ namespace AppPresentators.Views
         void SetMenu(IMainMenu control);
         void ClearCenter();
         void StartTask();
-        void EndTask();
+        void EndTask(bool setOldState);
         #endregion
 
         #region Actions

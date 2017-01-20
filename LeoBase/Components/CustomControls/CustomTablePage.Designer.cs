@@ -32,8 +32,8 @@
             this.mainTableContainer = new System.Windows.Forms.TableLayoutPanel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.loadPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SearchPanelContainer = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.mainTableContainer.SuspendLayout();
             this.loadPanel.SuspendLayout();
@@ -87,29 +87,15 @@
             // 
             // loadPanel
             // 
-            this.loadPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.loadPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.loadPanel.Controls.Add(this.pictureBox1);
+            this.loadPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.loadPanel.Location = new System.Drawing.Point(0, 50);
             this.loadPanel.Margin = new System.Windows.Forms.Padding(0);
             this.loadPanel.Name = "loadPanel";
-            this.loadPanel.Size = new System.Drawing.Size(427, 456);
+            this.loadPanel.Size = new System.Drawing.Size(427, 459);
             this.loadPanel.TabIndex = 1;
             this.loadPanel.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::LeoBase.Properties.Resources.loader1;
-            this.pictureBox1.Location = new System.Drawing.Point(115, 87);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(223, 221);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // SearchPanelContainer
             // 
@@ -121,6 +107,16 @@
             this.SearchPanelContainer.Size = new System.Drawing.Size(450, 512);
             this.SearchPanelContainer.TabIndex = 1;
             this.SearchPanelContainer.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::LeoBase.Properties.Resources.smallLoader;
+            this.pictureBox1.Location = new System.Drawing.Point(207, 113);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 35);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // CustomTablePage
             // 

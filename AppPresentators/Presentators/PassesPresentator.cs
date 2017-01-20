@@ -188,25 +188,27 @@ namespace AppPresentators.Presentators
                     }
                 }
 
-                if (loadModel.OrderModel.OrderType != VModels.OrderType.NONE)
-                    switch (loadModel.OrderModel.OrderProperties)
-                    {
-                        case VModels.PassesOrderProperties.BY_DATE_CLOSED:
-                            passes = loadModel.OrderModel.OrderType == VModels.OrderType.ASC 
-                                ? passes.OrderBy(p => p.PassClosed) 
-                                : passes.OrderByDescending(p => p.PassClosed);
-                            break;
-                        case VModels.PassesOrderProperties.BY_DATE_GIVED:
-                            passes = loadModel.OrderModel.OrderType == VModels.OrderType.ASC 
-                                ? passes.OrderBy(p => p.PassGiven) 
-                                : passes.OrderByDescending(p => p.PassGiven);
-                            break;
-                        case VModels.PassesOrderProperties.BY_FIO:
-                            passes = loadModel.OrderModel.OrderType == VModels.OrderType.ASC 
-                                ? passes.OrderBy(p => p.FirstName) 
-                                : passes.OrderByDescending(p => p.FirstName);
-                            break;
-                    }
+                switch (loadModel.OrderModel.OrderProperties)
+                {
+                    case VModels.PassesOrderProperties.BY_DATE_CLOSED:
+                        passes = loadModel.OrderModel.OrderType == VModels.OrderType.ASC
+                            ? passes.OrderBy(p => p.PassClosed)
+                            : passes.OrderByDescending(p => p.PassClosed);
+                        break;
+                    case VModels.PassesOrderProperties.BY_DATE_GIVED:
+                        passes = loadModel.OrderModel.OrderType == VModels.OrderType.ASC
+                            ? passes.OrderBy(p => p.PassGiven)
+                            : passes.OrderByDescending(p => p.PassGiven);
+                        break;
+                    case VModels.PassesOrderProperties.BY_FIO:
+                        passes = loadModel.OrderModel.OrderType == VModels.OrderType.ASC
+                            ? passes.OrderBy(p => p.FirstName)
+                            : passes.OrderByDescending(p => p.FirstName);
+                        break;
+                    default:
+                        passes = passes.OrderBy(p => p.PassClosed);
+                        break;
+                }
 
                 List<Pass> result = null;
 
@@ -219,7 +221,6 @@ namespace AppPresentators.Presentators
                     result = passes.ToList();
                 }
 
-                //_control.DataSource = result;
                 LoadDataPassResponseModel response = new LoadDataPassResponseModel();
 
                 response.Data = result;

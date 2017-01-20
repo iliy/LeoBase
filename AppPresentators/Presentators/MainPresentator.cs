@@ -172,11 +172,42 @@ namespace AppPresentators.Presentators
             }
         }
 
-        private void MainMenu_MenuItemSelected(MenuCommand command)
+        private static bool _taskWork = false;
+
+        private async void MainMenu_MenuItemSelected(MenuCommand command)
         {
 
             //_mainView.SetComponent(_appFactory.GetComponent<ILoadedControl>().GetControl());
 
+
+            //_mainView.StartTask();
+
+            //var presentator = await MakePresentator(command);
+
+
+            //if (presentator == null)
+            //{
+            //    _mainView.EndTask(true);
+            //    return;
+            //}
+
+            //_currentPage = 0;
+
+            //_mainView.ClearCenter();
+
+            //_mainView.ShowFastSearch = presentator.ShowFastSearch;
+
+            //_currentPresentator = presentator;
+
+            //_mainView.SetTopControls(_currentPresentator.TopControls);
+
+            //_mainView.SetComponent(_currentPresentator.RenderControl());
+
+            //_mainView.EndTask(false);
+
+            _mainView.StartTask();
+
+            #region Comment
             if (command == MenuCommand.Employees)
             {
                 _mainView.ClearCenter();
@@ -264,16 +295,138 @@ namespace AppPresentators.Presentators
                 _mainView.SetTopControls(_currentPresentator.TopControls);
                 _mainView.SetComponent(_currentPresentator.RenderControl());
             }
-            else{
+            else
+            {
                 _mainView.ShowError("Эта функция будет реализована в следующей версии программы");
                 return;
                 //_mainView.SetComponent(_appFactory.GetComponent(command).GetControl());
             }
 
-            if(_currentPresentator != null) {
+            if (_currentPresentator != null)
+            {
                 _currentPage = 0;
                 _pages.Add(_currentPresentator);
             }
+
+            _mainView.EndTask(false);
+            #endregion
+
+        }
+
+        private Task<IComponentPresentator> MakePresentator(MenuCommand command)
+        {
+            _taskWork = true;
+            return Task.Run(() =>
+            {
+                IComponentPresentator result = null;
+
+                if (command == MenuCommand.Employees)
+                {
+                    //_mainView.ClearCenter();
+
+                    //_currentPage = 0;
+
+                    _pages = new List<IComponentPresentator>();
+                    result = _appFactory.GetPresentator<IEmployersPresentator>(_mainView);
+
+                    //_mainView.ShowFastSearch = presentator.ShowFastSearch;
+                    //_currentPresentator = presentator;
+
+                    //_mainView.SetTopControls(_currentPresentator.TopControls);
+                    //_mainView.SetComponent(_currentPresentator.RenderControl());
+
+                }
+                else if (command == MenuCommand.Violators)
+                {
+                    //_mainView.ClearCenter();
+
+                    //_currentPage = 0;
+
+                    _pages = new List<IComponentPresentator>();
+                    result = _appFactory.GetPresentator<IViolatorTablePresentator>(_mainView);
+                    //_mainView.ShowFastSearch = presentator.ShowFastSearch;
+                    //_currentPresentator = presentator;
+
+                    //_mainView.SetTopControls(_currentPresentator.TopControls);
+                    //_mainView.SetComponent(_currentPresentator.RenderControl());
+
+                }
+                else if (command == MenuCommand.Infringement)
+                {
+                    //_mainView.ClearCenter();
+
+                    //_currentPage = 0;
+
+                    _pages = new List<IComponentPresentator>();
+                    result = _appFactory.GetPresentator<IAdminViolationTablePresentator>(_mainView);
+
+                    //_mainView.ShowFastSearch = presentator.ShowFastSearch;
+                    //_currentPresentator = presentator;
+
+                    //_mainView.SetTopControls(_currentPresentator.TopControls);
+                    //_mainView.SetComponent(_currentPresentator.RenderControl());
+
+                }
+                else if (command == MenuCommand.Options)
+                {
+                    //_mainView.ClearCenter();
+
+                    //_currentPage = 0;
+
+                    _pages = new List<IComponentPresentator>();
+                    result = _appFactory.GetPresentator<IOptionsPresentator>(_mainView);
+
+                    //_mainView.ShowFastSearch = presentator.ShowFastSearch;
+                    //_currentPresentator = presentator;
+
+                    //_mainView.SetTopControls(_currentPresentator.TopControls);
+                    //_mainView.SetComponent(_currentPresentator.RenderControl());
+                }
+                else if (command == MenuCommand.Map)
+                {
+                    //_mainView.ClearCenter();
+
+                    //_currentPage = 0;
+
+                    _pages = new List<IComponentPresentator>();
+                    result = _appFactory.GetPresentator<IMapPresentator>(_mainView);
+
+                    //_mainView.ShowFastSearch = presentator.ShowFastSearch;
+                    //_currentPresentator = presentator;
+
+                    //_mainView.SetTopControls(_currentPresentator.TopControls);
+                    //_mainView.SetComponent(_currentPresentator.RenderControl());
+                }
+                else if (command == MenuCommand.Omissions)
+                {
+                    //_mainView.ClearCenter();
+
+                    //_currentPage = 0;
+
+                    _pages = new List<IComponentPresentator>();
+                    result = _appFactory.GetPresentator<IPassesPresentator>(_mainView);
+
+                    //_mainView.ShowFastSearch = presentator.ShowFastSearch;
+                    //_currentPresentator = presentator;
+
+                    //_mainView.SetTopControls(_currentPresentator.TopControls);
+                    //_mainView.SetComponent(_currentPresentator.RenderControl());
+                }
+                else
+                {
+                    //_mainView.ShowError("Эта функция будет реализована в следующей версии программы");
+                    //_mainView.SetComponent(_appFactory.GetComponent(command).GetControl());
+                }
+
+                //if (_currentPresentator != null)
+                //{
+                //    _currentPage = 0;
+                //    _pages.Add(_currentPresentator);
+                //}
+                _taskWork = false;
+
+                return result;// (IComponentPresentator)(new PassesPresentator(null, null));
+            });
         }
 
         public void Login()

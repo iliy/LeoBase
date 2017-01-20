@@ -360,3 +360,4 @@ D:\Dev\LeoBaseVersion2\LeoBase\obj\Debug\LeoBase.Components.CustomControls.NewCo
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Debug\LeoBase.Components.CustomControls.NewControls.SavePassControl.resources
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Debug\LeoBase.Components.CustomControls.NewControls.PassDetailsControl.resources
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Debug\LeoBase.Components.CustomControls.NewControls.OptionsPanel.Dialogs.SetNewPasswordDialog.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Debug\LeoBase.Components.CustomControls.PreloadPanel.resources

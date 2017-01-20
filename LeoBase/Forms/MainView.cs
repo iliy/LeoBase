@@ -32,7 +32,11 @@ namespace LeoBase.Forms
 
         Size _oldSize = new Size(640, 480);
 
+        private PreloadPanel _preloadPanel;
+
         private static MainView _instance = null;
+
+        private BackgroundWorker _pageLoader;
 
         public bool ShowFastSearch { get
             {
@@ -76,14 +80,20 @@ namespace LeoBase.Forms
 
             _instance = this;
 
+            _pageLoader = new BackgroundWorker();
 
-            //var panel = new Components.CustomControls.NewControls.SaveViolationControl();
+            _pageLoader.DoWork += PageLoading;
 
+            _pageLoader.RunWorkerCompleted += PageLoaded;
 
-            //panel.Dock = DockStyle.Top;
+            _preloadPanel = new PreloadPanel();
 
-            //centerPanel.Controls.Add(panel);
+            _preloadPanel.Visible = false;
+
+            centerPanel.Controls.Add(_preloadPanel);
         }
+
+        
 
         AdminViolationSearchModel aa = new AdminViolationSearchModel();
         public void SetTopControls(List<Control> controls)
@@ -116,9 +126,7 @@ namespace LeoBase.Forms
                 }
             }
         }
-
-       
-
+        
         private void MainView_ResizeEnd(object sender, EventArgs e)
         {
             _oldSize = this.Size;
@@ -156,14 +164,94 @@ namespace LeoBase.Forms
             MessageBox.Show(errorMessage);
         }
 
-        private static bool _taskWorking = false;
+        private static bool _pageLoading = false;
+
+        Control saveControl = null;
+
+        private void PageLoaded(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+        private void OnFrameChanged(object o, EventArgs e)
+        {
+            
+        }
+
+        private void PageLoading(object sender, DoWorkEventArgs e)
+        {
+            
+
+            centerPanel.Invoke(new MethodInvoker(() =>
+            {
+                var preloader = new Label();
+
+                preloader.AutoSize = true;
+
+                preloader.BackColor = Color.Transparent;
+                
+                preloader.Text = "Загрузка...";
+
+                preloader.Top = centerPanel.Height / 2 - preloader.Height / 2;
+
+                preloader.Left = centerPanel.Width / 2 - preloader.Width / 2;
+
+                preloader.Font = new Font("Arial", 18, FontStyle.Italic);
+
+                Bitmap bmp = new Bitmap(preloader.Width, preloader.Height);
+
+                Graphics g = Graphics.FromImage(bmp);
+                
+                preloader.Image = bmp;
+
+                centerPanel.Controls.Add(preloader);
+            }));
+        }
+
+        private Action<Control> setPictureBox = (Control control) =>
+        {
+            
+
+            
+
+
+            //control.Controls.Add(preloader);
+        };
 
         public void StartTask()
         {
+            Bitmap saveState = new Bitmap(centerPanel.Width, centerPanel.Height);
+
+            centerPanel.DrawToBitmap(saveState, new Rectangle(0, 0, centerPanel.Width, centerPanel.Height));
+
+            Graphics g = Graphics.FromImage(saveState);
+
+            var brash = new SolidBrush(Color.FromArgb(140, 255, 255, 255));
+
+            g.FillRectangle(brash, new Rectangle(0, 0, centerPanel.Width, centerPanel.Height));
+
+            if (centerPanel.Controls.Count != 0) saveControl = centerPanel.Controls[0];
+
+            centerPanel.Controls.Clear();
+            
+            centerPanel.BackgroundImage = saveState;
+
+            _pageLoading = true;
+
+            _pageLoader.RunWorkerAsync();
+
+            //Thread.Sleep(3000);
+
         }
 
-        public void EndTask()
+        public void EndTask(bool setOldState)
         {
+            _pageLoading = false;
+
+            centerPanel.BackgroundImage = null;
+
+            if (setOldState && saveControl != null) {
+                centerPanel.Controls.Add(saveControl);
+            }
         }
 
         public void Show()
@@ -198,8 +286,11 @@ namespace LeoBase.Forms
             }
 
             component.Anchor = AnchorStyles.None;
+
             component.Dock = DockStyle.Fill;
+
             centerPanel.Controls.Clear();
+
             centerPanel.Controls.Add(component);
 
             childrenControl = component;

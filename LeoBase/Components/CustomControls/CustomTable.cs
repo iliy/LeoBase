@@ -25,6 +25,8 @@ namespace LeoBase.Components.CustomControls
         public event CellDataChanged OnCellDataChanged;
         public event Action DoubleClick;
 
+        private int _selectedOrderBy;
+
         public int SelectedItemIndex
         {
             get
@@ -48,21 +50,29 @@ namespace LeoBase.Components.CustomControls
         {
             get
             {
-                if(cmbOrderBy.Items != null && cmbOrderBy.Items.Count != 0)
-                {
-                    string value = cmbOrderBy.Items[cmbOrderBy.SelectedIndex].ToString();
-                    if (_orderProperties.ContainsKey(value))
-                    {
-                        return _orderProperties[value];
-                    }
-                }
+                //if(cmbOrderBy.Items != null && cmbOrderBy.Items.Count != 0)
+                //{
+                //    string value = cmbOrderBy.Items[cmbOrderBy.SelectedIndex].ToString();
 
-                return cmbOrderBy.SelectedIndex;
+
+                //    if (_orderProperties.ContainsKey(value))
+                //    {
+                //        return _orderProperties[value];
+                //    }
+                //}
+
+                //return cmbOrderBy.SelectedIndex;
+                return _selectedOrderBy;
             }
             set
             {
                 cmbOrderBy.SelectedIndex = value;
             }
+        }
+
+        private string GetOrderText()
+        {
+            return cmbOrderBy.Items[cmbOrderBy.SelectedIndex].ToString();
         }
 
         public string SelectedOrderByValue
@@ -105,20 +115,22 @@ namespace LeoBase.Components.CustomControls
 
         private Dictionary<string, OrderType> _orderTypes;
 
+        private OrderType _selectedOrderType = OrderType.NONE;
+
         public OrderType OrderType
         {
             get
             {
-                if(cmbOrderType.Items != null && cmbOrderType.Items.Count != 0)
-                {
-                    string value = cmbOrderType.Items[cmbOrderType.SelectedIndex].ToString();
-                    if(!string.IsNullOrEmpty(value) && _orderTypes.ContainsKey(value))
-                    {
-                        return _orderTypes[value];
-                    }
-                }
+                //if(cmbOrderType.Items != null && cmbOrderType.Items.Count != 0)
+                //{
+                //    string value = cmbOrderType.Items[cmbOrderType.SelectedIndex].ToString();
+                //    if(!string.IsNullOrEmpty(value) && _orderTypes.ContainsKey(value))
+                //    {
+                //        return _orderTypes[value];
+                //    }
+                //}
                 
-                return OrderType.NONE;
+                return _selectedOrderType;
             }
             set
             {
@@ -141,6 +153,7 @@ namespace LeoBase.Components.CustomControls
         }
 
         private PageModel _pageModel = new PageModel();
+
         public PageModel PageModel {
             get
             {
@@ -224,7 +237,9 @@ namespace LeoBase.Components.CustomControls
             _orderTypes.Add("Убывание", OrderType.DESC);
             
             cmbOrderType.SelectedIndex = 0;
+
             cmbBoxItemsOnPage.SelectedIndex = 0;
+
             paginatior.BindingSource = paginationSource;
 
             cmbBoxItemsOnPage.SelectedIndexChanged += (s, e) =>
@@ -233,7 +248,39 @@ namespace LeoBase.Components.CustomControls
                 _pageModel.CurentPage = 1;
                 UpdateTable();
             };
-            
+
+            cmbOrderType.SelectedIndexChanged += (s, e) =>
+            {
+                if (cmbOrderType.Items != null && cmbOrderType.Items.Count != 0)
+                {
+                    string value = cmbOrderType.Items[cmbOrderType.SelectedIndex].ToString();
+                    if (!string.IsNullOrEmpty(value) && _orderTypes.ContainsKey(value))
+                    {
+                        _selectedOrderType = _orderTypes[value];
+                        return;
+                    }
+                }
+                _selectedOrderType = OrderType.NONE;
+            };
+
+            cmbOrderBy.SelectedIndexChanged += (s, e) =>
+            {
+                if (cmbOrderBy.Items != null && cmbOrderBy.Items.Count != 0)
+                {
+                    string value = cmbOrderBy.Items[cmbOrderBy.SelectedIndex].ToString();
+
+
+                    if (_orderProperties.ContainsKey(value))
+                    {
+                        _selectedOrderBy = _orderProperties[value];
+                        return;
+                    }
+                }
+
+                _selectedOrderBy = cmbOrderBy.SelectedIndex;
+            };
+
+
             dataTable.MultiSelect = false;
 
             dataTable.EditingControlShowing += DataTable_EditingControlShowing;

@@ -55,8 +55,6 @@ namespace LeoBase.Components.CustomControls
 
             openSearchPanelButton.Click += (s, e) =>
             {
-                //if (_searchPanel != null) _searchPanel.SearchButtonVisible = false;
-
                 SearchPanelContainer.Visible = true;
 
                 openSearchPanelButton.Visible = false;
@@ -72,12 +70,6 @@ namespace LeoBase.Components.CustomControls
 
         public void HideSearchPanel()
         {
-            //if (_searchPanel != null) _searchPanel.SearchButtonVisible = false;
-
-            //WidthAnimate animate = new WidthAnimate(SearchPanelContainer, SearchPanelContainer.Width, 0, 10, 20);
-
-            //animate.OnAnimationComplete += () => openSearchPanelButton.Visible = true;
-
             openSearchPanelButton.Visible = true;
 
             SearchPanelContainer.Visible = false;
