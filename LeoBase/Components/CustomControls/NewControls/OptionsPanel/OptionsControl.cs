@@ -16,6 +16,22 @@ namespace LeoBase.Components.CustomControls.NewControls.OptionsPanel
 {
     public partial class OptionsControl : UserControl, IOptionsControl
     {
+        public event Func<List<Manager>> GetManagers;
+
+        public event Action<Manager> AddManager;
+
+        public event Action<Manager> UpdateManager;
+
+        public event Action<Manager> RemoveManager;
+
+        private List<Manager> _managers;
+
+        private Manager _selectedManager;
+        /*
+         * 
+                    {"user", "Пользователь"},
+                    {"passesManager","Добавляет пропуски" }
+         * */
         public OptionsControl()
         {
             InitializeComponent();
@@ -24,7 +40,46 @@ namespace LeoBase.Components.CustomControls.NewControls.OptionsPanel
             
             groupDocumentTypes.Visible = ConfigApp.CurrentManager.Role.Equals("admin");
 
+            cmbUserRole.Items.Add("Пользователь");
 
+            cmbUserRole.Items.Add("Добавляет пропуски");
+
+            cmbUserRole.SelectedIndex = 0;
+
+            if (ConfigApp.CurrentManager.Role.Equals("admin"))
+            {
+                usersGroupBox.Visible = true;
+
+                if(GetManagers != null)
+                {
+                    _managers = GetManagers();
+
+                    var tableSource = _managers.Select(m => new ManagerTableModel
+                    {
+                        Role = ConfigApp.ManagerRoleTranslate[m.Role],
+                        Login = m.Login
+                    }).ToList();
+
+                    managersTable.DataSource = new BindingList<ManagerTableModel>(tableSource);
+
+                    managersTable.Update();
+
+                    managersTable.Refresh();
+
+                    managersTable.CellClick += CellClicked;
+
+                   
+                }
+
+            }else
+            {
+                usersGroupBox.Visible = false;
+            }
+        }
+
+        private void CellClicked(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
 
         private List<DocumentType> _docTypes;
@@ -244,5 +299,153 @@ namespace LeoBase.Components.CustomControls.NewControls.OptionsPanel
                 tbNewDocumentType.Text = "";
             }
         }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            if (!tbUserPassword.Text.Equals(tbUserPasswordAgain.Text))
+            {
+                ShowError("Пароли не совпадают!");
+                return;
+            }
+
+            string role = cmbUserRole.Items[cmbUserRole.SelectedIndex].ToString();
+
+
+            if (string.IsNullOrEmpty(role))
+            {
+                ShowError("Не указаны права пользователя!");
+                return;
+            }
+            
+            if (!ConfigApp.ManagerRoleTranslate.ContainsValue(role))
+            {
+                ShowError("Права для пользователя не определены!");
+                return;
+            }
+            
+            if (string.IsNullOrWhiteSpace(tbUserPassword.Text))
+            {
+                ShowError("Укажите пароль для нового пользователя!");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(tbUserLogin.Text))
+            {
+                ShowError("Укажите логин для нового пользователя!");
+                return;
+            }
+
+            if (_managers.FirstOrDefault(m => m.Login.Equals(tbUserLogin.Text)) != null)
+            {
+                ShowError("Пользователь с таким логином уже существует!");
+                return;
+            }
+
+            string roleTranslate = ConfigApp.ManagerRoleTranslate.FirstOrDefault(p => p.Value.Equals(role)).Key;
+
+            Manager manager = new Manager
+            {
+                Role = roleTranslate,
+                Login = tbUserLogin.Text,
+                Password = tbUserPassword.Text
+            };
+
+            if (AddManager != null)
+            {
+                AddManager(manager);
+            }
+
+        UpdateManagerTable();
+        }
+
+        public void UpdateManagerTable()
+        {
+
+            _selectedManager = null;
+
+            btnDeleteUser.Enabled = false;
+
+            btnResetPassword.Enabled = false;
+
+            if (GetManagers != null)
+            {
+                _managers = GetManagers();
+
+                var tableSource = _managers.Select(m => new ManagerTableModel
+                {
+                    Role = ConfigApp.ManagerRoleTranslate[m.Role],
+                    Login = m.Login
+                }).ToList();
+
+                managersTable.DataSource = new BindingList<ManagerTableModel>(tableSource);
+
+                managersTable.Update();
+
+                managersTable.Refresh();
+            }
+
+        }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            if (_selectedManager == null) return;
+
+            if(RemoveManager != null)
+            {
+                RemoveManager(_selectedManager);
+
+                UpdateManagerTable();
+            }
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            if (_selectedManager == null) return;
+
+            SetNewPasswordDialog dialog = new SetNewPasswordDialog();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                _selectedManager.Password = dialog.NewPassword;
+
+                if (UpdateManager != null) UpdateManager(_selectedManager);
+
+                UpdateManagerTable();
+            }
+        }
+
+        private void managersTable_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void managersTable_SelectionChanged(object sender, EventArgs e)
+        {
+            btnDeleteUser.Enabled = false;
+
+            btnResetPassword.Enabled = false;
+
+            if (managersTable.SelectedRows.Count == 0) return;
+
+            int row = managersTable.SelectedRows[0].Index;
+
+            if (_managers == null || row < 0 || row >= _managers.Count) return;
+
+            _selectedManager = _managers[row];
+
+            btnDeleteUser.Enabled = true;
+
+            btnResetPassword.Enabled = true;
+        }
+    }
+
+    public class ManagerTableModel
+    {
+        [DisplayName("Логин")]
+        [ReadOnly(true)]
+        public string Login { get; set; }
+        [DisplayName("Права")]
+        [ReadOnly(true)]
+        public string Role { get; set; }
     }
 }

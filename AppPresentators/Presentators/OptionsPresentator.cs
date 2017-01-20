@@ -86,9 +86,74 @@ namespace AppPresentators.Presentators
 
             _control.UpdateCurrentManager += UpdateCurrentManager;
 
+            _control.AddManager += AddNewManager;
+
+            _control.RemoveManager += RemoveManager;
+
+            _control.UpdateManager += UpdateManager;
+
+            _control.GetManagers += GetManagers;
+
             if (ConfigApp.CurrentManager.Role.Equals("admin"))
             {
                 _control.DocumentTypes = ConfigApp.DocumentTypesList;
+
+                _control.UpdateManagerTable();
+            }
+        }
+
+        private List<AppData.Entities.Manager> GetManagers()
+        {
+            using(var db = new LeoBaseContext())
+            {
+                var managers = db.Managers.Where(m => !m.Role.Equals("admin"));
+
+                return managers != null ? managers.ToList() : new List<AppData.Entities.Manager>();
+            }
+        }
+
+        private void UpdateManager(AppData.Entities.Manager obj)
+        {
+            using(var db = new LeoBaseContext())
+            {
+                var manager = db.Managers.FirstOrDefault(m => m.ManagerID == obj.ManagerID);
+
+                if(manager == null)
+                {
+                    _control.ShowError("Пользователь не найден");
+                    return;
+                }
+
+                manager.Password = obj.Password;
+
+                db.SaveChanges();
+            }
+        }
+
+        private void RemoveManager(AppData.Entities.Manager obj)
+        {
+            using(var db = new LeoBaseContext())
+            {
+                var manager = db.Managers.FirstOrDefault(m => m.ManagerID == obj.ManagerID);
+
+                if(manager == null)
+                {
+                    _control.ShowError("Пользователь не найден");
+                    return;
+                }
+
+                db.Managers.Remove(manager);
+
+                db.SaveChanges();
+            }
+        }
+
+        private void AddNewManager(AppData.Entities.Manager obj)
+        {
+            using(var db = new LeoBaseContext())
+            {
+                db.Managers.Add(obj);
+                db.SaveChanges();
             }
         }
 

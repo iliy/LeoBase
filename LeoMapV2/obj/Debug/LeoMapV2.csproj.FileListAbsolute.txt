@@ -15,3 +15,6 @@ D:\Dev\LeoMap\LeoMapV2\bin\Debug\System.Data.SQLite.Linq.dll
 D:\Dev\LeoMap\LeoMapV2\bin\Debug\EntityFramework.xml
 D:\Dev\LeoMap\LeoMapV2\bin\Debug\EntityFramework.SqlServer.xml
 D:\Dev\LeoMap\LeoMapV2\bin\Debug\System.Data.SQLite.xml
+D:\Dev\LeoBaseVersion2\LeoMapV2\bin\Debug\LeoMapV2.exe.config
+D:\Dev\LeoBaseVersion2\LeoMapV2\obj\Debug\LeoMapV2.exe
+D:\Dev\LeoBaseVersion2\LeoMapV2\obj\Debug\LeoMapV2.pdb

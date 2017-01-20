@@ -58,3 +58,33 @@ D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\bin\Release\zh-CN\Npgsql.
 D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\obj\Release\AppData.csprojResolveAssemblyReference.cache
 D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\obj\Release\AppData.dll
 D:\Dev\Земля леопарда\Dev\LeoBase\AppCore\obj\Release\AppData.pdb
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\AppData.dll.config
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\AppData.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\AppData.pdb
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Castle.Core.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\EntityFramework.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\EntityFramework.SqlServer.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\EntityFramework.SqlServerCompact.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Mono.Security.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Moq.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Ninject.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Npgsql.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Npgsql.EntityFramework.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\System.Data.SqlServerCe.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Castle.Core.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\EntityFramework.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\EntityFramework.SqlServer.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\EntityFramework.SqlServerCompact.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Moq.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Ninject.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Npgsql.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\Npgsql.EntityFramework.xml
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\de\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\es\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\fi\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\fr\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\ja\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\bin\Release\zh-CN\Npgsql.resources.dll
+D:\Dev\LeoBaseVersion2\AppCore\obj\Release\AppData.csprojResolveAssemblyReference.cache
+D:\Dev\LeoBaseVersion2\AppCore\obj\Release\AppData.dll
+D:\Dev\LeoBaseVersion2\AppCore\obj\Release\AppData.pdb

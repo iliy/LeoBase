@@ -55,3 +55,7 @@ D:\Dev\LeoBaseVersion2\Tests\bin\Release\Ninject.xml
 D:\Dev\LeoBaseVersion2\Tests\obj\Release\Tests.csprojResolveAssemblyReference.cache
 D:\Dev\LeoBaseVersion2\Tests\obj\Release\Tests.dll
 D:\Dev\LeoBaseVersion2\Tests\obj\Release\Tests.pdb
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\LeoMapV3.exe
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\System.Data.SQLite.dll
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\LeoMapV3.pdb
+D:\Dev\LeoBaseVersion2\Tests\bin\Release\System.Data.SQLite.xml

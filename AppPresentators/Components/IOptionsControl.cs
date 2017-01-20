@@ -32,5 +32,10 @@ namespace AppPresentators.Components
         void ShowError(string message);
 
         void ShowMessage(string message);
+        event Func<List<Manager>> GetManagers;
+        event Action<Manager> AddManager;
+        event Action<Manager> UpdateManager;
+        event Action<Manager> RemoveManager;
+        void UpdateManagerTable();
     }
 }

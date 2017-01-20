@@ -413,11 +413,13 @@ namespace LeoMapV3.Map
             _repo.ClearCache();
         }
 
-        public void ClearPoints()
+        public async void ClearPoints()
         {
             _render.Points = new List<DPoint>();
 
             _repo.ClearCache();
+
+            _pictureBox.Image = _render.GetImage();
         }
 
         private async Task<Image> UpdateMapImage()

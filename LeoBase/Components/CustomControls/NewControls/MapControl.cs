@@ -115,6 +115,7 @@ namespace LeoBase.Components.CustomControls.NewControls
 
         private void MapControl_Load(object sender, EventArgs e)
         {
+            if (_map != null) _map.ClearPoints();
             if (FilterViolations != null) FilterViolations(SearchModel);
         }
 

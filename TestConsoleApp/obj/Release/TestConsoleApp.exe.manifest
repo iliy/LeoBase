@@ -44,26 +44,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppData.dll" size="79360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppData.dll" size="81920">
       <assemblyIdentity name="AppData" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>h3Bh4IzOB/tGPiKd0hKoKMD0oLY6HSDN20d0lFCiyKs=</dsig:DigestValue>
+        <dsig:DigestValue>t+N6eD0RPftIUD/xrJGOGN2Nl/9PgeExIwnhOz/9jQI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="208896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="227840">
       <assemblyIdentity name="AppPresentators" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>F2LEM5VJ0vZwSXoBIAwNkiSSOQuHVlyZOpU8aXN3l7U=</dsig:DigestValue>
+        <dsig:DigestValue>WJXt6T5thazLWyVX6HMT8XsNzJ0lRRGHRdxN76/gzhc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -135,7 +135,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5MOkmd289al3NCv4WVFeTju3V9UYJoZr3sZR2TpgCvc=</dsig:DigestValue>
+        <dsig:DigestValue>450n8YocqYeZPz/2cS0hvSWGK+tWCt2AWIEu4afl44s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

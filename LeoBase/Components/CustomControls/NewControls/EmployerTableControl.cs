@@ -446,7 +446,7 @@ namespace LeoBase.Components.CustomControls.NewControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Name = "EmployerTableControl";
-            this.Size = new System.Drawing.Size(1249, 1024);
+            this.Size = new System.Drawing.Size(1250, 388);
             this.VisibleLoadPanel = true;
             this.ResumeLayout(false);
 

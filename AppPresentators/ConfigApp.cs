@@ -280,5 +280,18 @@ namespace AppPresentators
                 return _protocolTypesList;
             }
         }
+
+        public static Dictionary<string, string> ManagerRoleTranslate
+        {
+            get
+            {
+                return new Dictionary<string, string>
+                {
+                    {"admin", "Администратор" },
+                    {"user", "Пользователь"},
+                    {"passesManager","Добавляет пропуски" }
+                };
+            }
+        }
     }
 }

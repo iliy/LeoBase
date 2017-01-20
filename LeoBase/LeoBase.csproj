@@ -208,6 +208,12 @@
     <Compile Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\InputDialog.Designer.cs">
       <DependentUpon>InputDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\SetNewPasswordDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\SetNewPasswordDialog.Designer.cs">
+      <DependentUpon>SetNewPasswordDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\CustomControls\NewControls\OptionsPanel\OptionsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -478,6 +484,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\InputDialog.resx">
       <DependentUpon>InputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CustomControls\NewControls\OptionsPanel\Dialogs\SetNewPasswordDialog.resx">
+      <DependentUpon>SetNewPasswordDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\CustomControls\NewControls\OptionsPanel\OptionsControl.resx">
       <DependentUpon>OptionsControl.cs</DependentUpon>

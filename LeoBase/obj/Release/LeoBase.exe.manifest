@@ -43,26 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppData.dll" size="79360">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppData.dll" size="81920">
       <assemblyIdentity name="AppData" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>h3Bh4IzOB/tGPiKd0hKoKMD0oLY6HSDN20d0lFCiyKs=</dsig:DigestValue>
+        <dsig:DigestValue>t+N6eD0RPftIUD/xrJGOGN2Nl/9PgeExIwnhOz/9jQI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="208896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="227840">
       <assemblyIdentity name="AppPresentators" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kO3a9IUiqo3qKop4E0NWh/rz/j/RLTEyGR2QZhqWdCE=</dsig:DigestValue>
+        <dsig:DigestValue>WJXt6T5thazLWyVX6HMT8XsNzJ0lRRGHRdxN76/gzhc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -103,14 +103,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoBase.exe" size="1071584">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoBase.exe" size="1103328">
       <assemblyIdentity name="LeoBase" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XSoqKDk3ay8bIXZHlaVA3ng6Ml81gL13xiNMBVRW4WY=</dsig:DigestValue>
+        <dsig:DigestValue>7bekiGkkbMB8i28MJI+R93BM7gl360bK/0AxRCtCgYg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoMapV3.exe" size="42496">
+      <assemblyIdentity name="LeoMapV3" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>c1+o6qO3fiApN8rYLprY1Lvjgf5u4PmaG4zAasjjhPw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -163,6 +175,42 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SQLite.dll" size="318976">
+      <assemblyIdentity name="System.Data.SQLite" version="1.0.104.0" publicKeyToken="DB937BC2D44FF139" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>kUdG5bMbMWnh7gbzA7sXjAdMslI8MDmkkn/pWApURrk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SQLite.EF6.dll" size="186368">
+      <assemblyIdentity name="System.Data.SQLite.EF6" version="1.0.104.0" publicKeyToken="DB937BC2D44FF139" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>35ogwC6zy26vUg9arZ+7MtfjHp3N7cYuIF72x1//O9Q=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SQLite.Linq.dll" size="186368">
+      <assemblyIdentity name="System.Data.SQLite.Linq" version="1.0.104.0" publicKeyToken="DB937BC2D44FF139" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>AdSz0m1oCiG0jcNH3433NgKJ/dsvF1c33YOB/M6IeXU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SqlServerCe.dll" size="470240">
       <assemblyIdentity name="System.Data.SqlServerCe" version="4.0.0.0" publicKeyToken="89845DCD8080CC91" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -183,13 +231,13 @@
       <dsig:DigestValue>iXrbDQSHP3AgEy7sJEUlwMlImyiJqnL9t7Zo7i3DBXI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="LeoBase.exe.config" size="1646">
+  <file name="LeoBase.exe.config" size="2305">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ZxcZBcCsbIR7ftbYPBIIyjaX8hB6dA4nnRziNFrp0JA=</dsig:DigestValue>
+      <dsig:DigestValue>GCdZ8D5qPETqWnyJl4yxsgF3j7J5JgTmZ5v5DfBi33g=</dsig:DigestValue>
     </hash>
   </file>
   <file name="MetroFramework.txt" size="1266">

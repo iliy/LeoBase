@@ -359,3 +359,4 @@ D:\Dev\LeoBaseVersion2\LeoBase\bin\Debug\System.Data.SQLite.xml
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Debug\LeoBase.Components.CustomControls.NewControls.PassesTableControl.resources
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Debug\LeoBase.Components.CustomControls.NewControls.SavePassControl.resources
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Debug\LeoBase.Components.CustomControls.NewControls.PassDetailsControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Debug\LeoBase.Components.CustomControls.NewControls.OptionsPanel.Dialogs.SetNewPasswordDialog.resources

@@ -121,7 +121,7 @@ namespace LeoBase.Components.TopMenu
                 this.Add(_btnEdit);
                 this.Add(_btnDelete);
                 this.Add(_btnDetails);
-            }else if (role.Equals("user"))
+            }else 
             {
                 _btnDetails = new PictureButton(Properties.Resources.detailsEnabled, Properties.Resources.detailsDisabled, Properties.Resources.detailsPress);
                 _btnReport = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);

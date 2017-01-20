@@ -354,9 +354,17 @@ namespace LeoMapV3.Data
 
         public void ClearCache()
         {
-            if (_cacheKeys == null) return;
-
             if (_cache == null) _cache = MemoryCache.Default;
+
+            if (_cacheKeys == null || _cacheKeys.Count == 0)
+            {
+                _cacheKeys = new List<string>();
+
+                foreach (var key in _cache)
+                {
+                    _cacheKeys.Add(key.Key);
+                }
+            }
 
             foreach (var key in _cacheKeys) _cache.Remove(key);
 

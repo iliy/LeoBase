@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="238080">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="240128">
       <assemblyIdentity name="AppPresentators" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9yYAr2COQ+4Nv9kU5LASllpq6f7SbId3gFQeANSM4jM=</dsig:DigestValue>
+        <dsig:DigestValue>MYE+wEw6VVAxS++rM7whawubE89NXxGARpsqXobozZw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -103,26 +103,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoBase.exe" size="1116128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoBase.exe" size="1125856">
       <assemblyIdentity name="LeoBase" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+RsLlorgECLyoEVJGkrAjYixJX4flOtKqv0KkE4hT6s=</dsig:DigestValue>
+        <dsig:DigestValue>DBybkaTtvWExEoUFFMmt8owSoBH2ZsJrySUrNAhB7FY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoMapV3.exe" size="45056">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoMapV3.exe" size="45568">
       <assemblyIdentity name="LeoMapV3" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jWiSrsaZgQKTvPP8KcRzuqRKjaYjemcyAwLO4v39t5A=</dsig:DigestValue>
+        <dsig:DigestValue>JcGBudXxqFvFc8bwNLxPrT1j/2cIbQs4uc0gCOMknP0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
