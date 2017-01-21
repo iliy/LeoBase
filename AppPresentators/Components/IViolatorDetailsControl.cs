@@ -11,6 +11,8 @@ namespace AppPresentators.Components
     {
         event Action MakeReport;
         event Action<int> ShowDetailsViolation;
+        event Action EditViolator;
+
         ViolatorDetailsModel Violator { get; set; }
     }
 }

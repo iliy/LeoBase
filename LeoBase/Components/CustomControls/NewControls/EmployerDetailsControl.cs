@@ -16,10 +16,19 @@ namespace LeoBase.Components.CustomControls.NewControls
     public partial class EmployerDetailsControl : UserControl, IEmployerDetailsControl
     {
         public event Action MakeReport;
+        public event Action EditEmployer;
 
         public EmployerDetailsControl()
         {
             InitializeComponent();
+
+            this.Load += EmployerDetailsControl_Load;
+        }
+
+        private void EmployerDetailsControl_Load(object sender, EventArgs e)
+        {
+            tableAddresses.ClearSelection();
+            tableViolations.ClearSelection();
         }
 
         private EmployerDetailsModel _employer;
@@ -49,16 +58,23 @@ namespace LeoBase.Components.CustomControls.NewControls
         {
             get
             {
-                var pictureButton = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);
+                var reportButton = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);
+                var editButton = new PictureButton(Properties.Resources.editEnabled, Properties.Resources.editDisabled, Properties.Resources.editPress);
 
-                pictureButton.Enabled = true;
+                reportButton.Enabled = true;
+                editButton.Enabled = true;
 
-                pictureButton.Click += (s, e) =>
+                reportButton.Click += (s, e) =>
                 {
                     if (MakeReport != null) MakeReport();
                 };
 
-                return new List<Control> { pictureButton };
+                editButton.Click += (s, e) =>
+                {
+                    if (EditEmployer != null) EditEmployer();
+                };
+
+                return new List<Control> { reportButton, editButton };
             }
 
             set
@@ -92,29 +108,30 @@ namespace LeoBase.Components.CustomControls.NewControls
 
             lbPosition.Text = Employer.Position;
 
-            PictureViewer picture = new PictureViewer();
+            if(Employer.Image != null) { 
+                PictureViewer picture = new PictureViewer();
 
-            picture.Image = Employer.Image;
+                picture.Image = Employer.Image;
 
-            picture.Margin = new Padding(10, 10, 10, 10);
+                picture.Margin = new Padding(10, 10, 10, 10);
 
-            picture.Dock = DockStyle.Left;
+                picture.Dock = DockStyle.Left;
 
-            picture.ShowDeleteButton = false;
-            picture.ShowZoomButton = false;
-            picture.CanSelected = false;
+                picture.ShowDeleteButton = false;
+                picture.ShowZoomButton = false;
+                picture.CanSelected = false;
 
-            avatarPanel.Controls.Add(picture);
+                avatarPanel.Controls.Clear();
+
+                avatarPanel.Controls.Add(picture);
+            }
 
             tableAddresses.DataSource = Employer.Addresses;
 
             tableViolations.DataSource = Employer.Violations;
-
-            if(tableViolations.Rows.Count != 0) tableViolations.Rows[0].Selected = false;
-
+            
             tableAddresses.ClearSelection();
-
-            //tableViolations.ClearSelection();
+            tableViolations.ClearSelection();
         }
 
         private void tableAddresses_CellContentClick(object sender, DataGridViewCellEventArgs e)

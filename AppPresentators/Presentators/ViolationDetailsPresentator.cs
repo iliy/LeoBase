@@ -76,6 +76,28 @@ namespace AppPresentators.Presentators
             _view.ShowViolatorDetails += ShowViolatorDetails;
 
             _view.ShowEmployerDetails += ShowEmployerDetails;
+
+            _view.EditViolation += EditViolation;
+        }
+
+        private void EditViolation()
+        {
+            var mainPresentator = _appFactory.GetMainPresentator();
+            var saveViolatorPresentator = _appFactory.GetPresentator<ISaveAdminViolationPresentatar>();
+            
+            using (var db = new LeoBaseContext())
+            {
+                saveViolatorPresentator.Violation = db.AdminViolations.Include("Employer")
+                                                     .Include("ViolatorOrganisation")
+                                                     .Include("ViolatorPersone")
+                                                     .Include("ViolatorDocument")
+                                                     .Include("Images")
+                                                     .FirstOrDefault(v => v.ViolationID == Violation.ViolationID);
+
+            }
+
+
+            mainPresentator.ShowComponentForResult(this, saveViolatorPresentator, ResultTypes.UPDATE_VIOLATION);
         }
 
         private void ShowEmployerDetails(int id)
@@ -89,6 +111,7 @@ namespace AppPresentators.Presentators
 
             EmployerDetailsModel employer = new EmployerDetailsModel
             {
+                EmployerID = ee.UserID,
                 FIO = ee.FirstName + " " + ee.SecondName + " " + ee.MiddleName,
                 Addresses = ee.Addresses,
                 Phones = ee.Phones,
@@ -147,6 +170,7 @@ namespace AppPresentators.Presentators
                     employer.Violations.Add(row);
                 }
             }
+
             employerDetailsPresentator.Employer = employer;
 
             mainPresentator.ShowComponentForResult(this, employerDetailsPresentator, ResultTypes.DETAILS_EMPLOYER);
@@ -163,6 +187,7 @@ namespace AppPresentators.Presentators
 
             ViolatorDetailsModel violator = new ViolatorDetailsModel
             {
+                ViolatorID = vv.UserID,
                 FIO = vv.FirstName + " " + vv.SecondName + " " + vv.MiddleName,
                 Addresses = vv.Addresses,
                 Documents = vv.Documents,
@@ -243,7 +268,16 @@ namespace AppPresentators.Presentators
 
         public void SetResult(ResultTypes resultType, object data)
         {
+            using (var db = new LeoBaseContext())
+            {
+                Violation = db.AdminViolations.Include("Employer")
+                                                     .Include("ViolatorOrganisation")
+                                                     .Include("ViolatorPersone")
+                                                     .Include("ViolatorDocument")
+                                                     .Include("Images")
+                                                     .FirstOrDefault(v => v.ViolationID == Violation.ViolationID);
 
+            }
         }
     }
 }

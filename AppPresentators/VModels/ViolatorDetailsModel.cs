@@ -10,6 +10,7 @@ namespace AppPresentators.VModels
 {
     public class ViolatorDetailsModel
     {
+        public int ViolatorID { get; set; }
         public string FIO { get; set; }
 
         public string PlaceWork { get; set; }

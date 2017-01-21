@@ -10,6 +10,7 @@ namespace AppPresentators.Components
     public interface IEmployerDetailsControl : UIComponent
     {
         event Action MakeReport;
+        event Action EditEmployer;
         EmployerDetailsModel Employer { get; set; }
 
         event Action<int> ShowViolationDetails;

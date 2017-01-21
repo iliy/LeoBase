@@ -16,24 +16,41 @@ namespace LeoBase.Components.CustomControls.NewControls
     public partial class ViolatorDetailsControl : UserControl, IViolatorDetailsControl
     {
         public event Action MakeReport;
+        public event Action EditViolator;
         public ViolatorDetailsControl()
         {
             InitializeComponent();
             
-            var pictureButton = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);
+            var reportButton = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);
+            var editButton = new PictureButton(Properties.Resources.editEnabled, Properties.Resources.editDisabled, Properties.Resources.editPress); ;
 
-            pictureButton.Enabled = true;
+            reportButton.Enabled = true;
+            editButton.Enabled = true;
 
-            pictureButton.Click += (s, e) =>
+            reportButton.Click += (s, e) =>
             {
                 if (MakeReport != null) MakeReport();
             };
 
+            editButton.Click += (s, e) =>
+            {
+                if (EditViolator != null) EditViolator();
+            };
+
             TopControls = new List<Control>();
 
-            TopControls.Add(pictureButton);
+            TopControls.Add(reportButton);
+            TopControls.Add(editButton);
+
+            this.Load += ViolatorDetailsControl_Load;
         }
-        
+
+        private void ViolatorDetailsControl_Load(object sender, EventArgs e)
+        {
+            tableAddresses.ClearSelection();
+            tableDocuments.ClearSelection();
+            tableViolations.ClearSelection();
+        }
 
         public bool ShowForResult { get; set; }
 
@@ -77,20 +94,27 @@ namespace LeoBase.Components.CustomControls.NewControls
             tableViolations.DataSource = Violator.Violations;
 
             avatarPanel.Controls.Clear();
+            if(Violator.Image != null) { 
+                PictureViewer picture = new PictureViewer();
 
-            PictureViewer picture = new PictureViewer();
+                picture.Image = Violator.Image;
 
-            picture.Image = Violator.Image;
+                picture.Margin = new Padding(10, 10, 10, 10);
 
-            picture.Margin = new Padding(10, 10, 10, 10);
+                picture.Dock = DockStyle.Left;
 
-            picture.Dock = DockStyle.Left;
+                picture.ShowDeleteButton = false;
+                picture.ShowZoomButton = false;
+                picture.CanSelected = false;
 
-            picture.ShowDeleteButton = false;
-            picture.ShowZoomButton = false;
-            picture.CanSelected = false;
+                avatarPanel.Controls.Clear();
 
-            avatarPanel.Controls.Add(picture);
+                avatarPanel.Controls.Add(picture);
+            }
+
+            tableAddresses.ClearSelection();
+            tableDocuments.ClearSelection();
+            tableViolations.ClearSelection();
         }
 
         public event Action<int> ShowDetailsViolation;

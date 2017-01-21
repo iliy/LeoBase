@@ -332,7 +332,7 @@ namespace LeoBase.Components.CustomControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Name = "AdminintrationViolationTableControl";
-            this.Size = new System.Drawing.Size(1249, 1024);
+            this.Size = new System.Drawing.Size(1250, 1024);
             this.VisibleLoadPanel = true;
             this.ResumeLayout(false);
 

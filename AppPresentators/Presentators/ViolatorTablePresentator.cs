@@ -184,6 +184,7 @@ namespace AppPresentators.Presentators
 
             ViolatorDetailsModel violator = new ViolatorDetailsModel
             {
+                ViolatorID = personeModel.UserID,
                 FIO = personeModel.FirstName + " " + personeModel.SecondName + " " + personeModel.MiddleName,
                 Addresses = personeModel.Addresses,
                 Documents = personeModel.Documents,

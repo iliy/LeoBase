@@ -86,6 +86,8 @@ namespace LeoMapV3.Map
             _pictureBox.MouseClick += PictureBoxMouseClick;
             
             DoubleBuffered = true;
+
+            this.BackgroundImage = Properties.Resources.map_bg;
         }
 
         private void PictureBoxMouseClick(object sender, MouseEventArgs e)

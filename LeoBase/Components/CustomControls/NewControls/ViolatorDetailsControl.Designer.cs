@@ -78,9 +78,9 @@
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lbTitle.Location = new System.Drawing.Point(4, 6);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(305, 26);
+            this.lbTitle.Size = new System.Drawing.Size(311, 26);
             this.lbTitle.TabIndex = 1;
-            this.lbTitle.Text = "Подробности понарушителю";
+            this.lbTitle.Text = "Подробности по нарушителю";
             // 
             // groupBox1
             // 

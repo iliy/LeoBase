@@ -21,29 +21,38 @@ namespace LeoBase.Components.CustomControls.NewControls
     {
         private Button _btnReport;
         private List<Control> _topControls;
-
+        
+        public event Action<int> ShowEmployerDetails;
         public event Action<int> ShowViolatorDetails;
+        public event Action EditViolation;
 
         private LeoMap _map;
         private TitleDBRepository _titleRepo;
 
-        public event Action<int> ShowEmployerDetails;
         public ViolationDetailsControl()
         {
             InitializeComponent();
 
-            var pictureButton = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);
+            var reportButton = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);
+            var editButton = new PictureButton(Properties.Resources.editEnabled, Properties.Resources.editDisabled, Properties.Resources.editPress);
 
-            pictureButton.Enabled = true;
+            editButton.Enabled = true;
+            reportButton.Enabled = true;
 
-            pictureButton.Click += (s, e) =>
+            editButton.Click += (s, e) =>
+            {
+                if (EditViolation != null) EditViolation();
+            };
+
+            reportButton.Click += (s, e) =>
             {
                 if (Report != null) Report();
             };
 
             _topControls = new List<Control>();
 
-            _topControls.Add(pictureButton);
+            _topControls.Add(reportButton);
+            _topControls.Add(editButton);
         }
 
         public bool ShowForResult { get; set; }

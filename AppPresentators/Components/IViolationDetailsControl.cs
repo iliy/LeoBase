@@ -16,5 +16,6 @@ namespace AppPresentators.Components
         event Action<int> ShowViolatorDetails;
 
         event Action<int> ShowEmployerDetails;
+        event Action EditViolation;
     }
 }
