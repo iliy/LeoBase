@@ -9,6 +9,7 @@ namespace AppPresentators.Components
 {
     public interface IViolatorDetailsControl: UIComponent
     {
+        event Action MakeReport;
         event Action<int> ShowDetailsViolation;
         ViolatorDetailsModel Violator { get; set; }
     }

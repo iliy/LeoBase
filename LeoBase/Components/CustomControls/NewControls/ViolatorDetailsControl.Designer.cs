@@ -33,6 +33,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.avatarPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbPhones = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.lbPlaceWork = new System.Windows.Forms.TextBox();
             this.lbPlaceBerth = new System.Windows.Forms.TextBox();
             this.lbDateBerth = new System.Windows.Forms.TextBox();
@@ -49,8 +51,6 @@
             this.tableViolations = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnViolationDetails = new System.Windows.Forms.Button();
-            this.lbPhones = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -120,6 +120,29 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(650, 214);
             this.panel2.TabIndex = 0;
+            // 
+            // lbPhones
+            // 
+            this.lbPhones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbPhones.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbPhones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbPhones.Location = new System.Drawing.Point(113, 156);
+            this.lbPhones.Multiline = true;
+            this.lbPhones.Name = "lbPhones";
+            this.lbPhones.ReadOnly = true;
+            this.lbPhones.Size = new System.Drawing.Size(530, 55);
+            this.lbPhones.TabIndex = 66;
+            this.lbPhones.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(51, 156);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.TabIndex = 65;
+            this.label5.Text = "Телефоны: ";
             // 
             // lbPlaceWork
             // 
@@ -224,6 +247,8 @@
             // 
             // tableAddresses
             // 
+            this.tableAddresses.AllowUserToAddRows = false;
+            this.tableAddresses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableAddresses.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tableAddresses.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableAddresses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -232,6 +257,8 @@
             this.tableAddresses.MultiSelect = false;
             this.tableAddresses.Name = "tableAddresses";
             this.tableAddresses.ReadOnly = true;
+            this.tableAddresses.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.tableAddresses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableAddresses.Size = new System.Drawing.Size(1011, 141);
             this.tableAddresses.TabIndex = 0;
             this.tableAddresses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableAddresses_CellContentClick);
@@ -249,6 +276,8 @@
             // 
             // tableDocuments
             // 
+            this.tableDocuments.AllowUserToAddRows = false;
+            this.tableDocuments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableDocuments.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tableDocuments.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableDocuments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -257,6 +286,8 @@
             this.tableDocuments.MultiSelect = false;
             this.tableDocuments.Name = "tableDocuments";
             this.tableDocuments.ReadOnly = true;
+            this.tableDocuments.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.tableDocuments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableDocuments.Size = new System.Drawing.Size(1011, 135);
             this.tableDocuments.TabIndex = 0;
             this.tableDocuments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableDocuments_CellContentClick);
@@ -265,16 +296,18 @@
             // 
             this.groupBox4.Controls.Add(this.tableViolations);
             this.groupBox4.Controls.Add(this.panel4);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 593);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1017, 195);
+            this.groupBox4.Size = new System.Drawing.Size(1017, 303);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Правонарушения";
             // 
             // tableViolations
             // 
+            this.tableViolations.AllowUserToAddRows = false;
+            this.tableViolations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableViolations.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tableViolations.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableViolations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -283,7 +316,9 @@
             this.tableViolations.MultiSelect = false;
             this.tableViolations.Name = "tableViolations";
             this.tableViolations.ReadOnly = true;
-            this.tableViolations.Size = new System.Drawing.Size(1011, 142);
+            this.tableViolations.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.tableViolations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tableViolations.Size = new System.Drawing.Size(1011, 250);
             this.tableViolations.TabIndex = 1;
             this.tableViolations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableViolations_CellContentClick);
             // 
@@ -308,29 +343,6 @@
             this.btnViolationDetails.Text = "Подробнее";
             this.btnViolationDetails.UseVisualStyleBackColor = true;
             this.btnViolationDetails.Click += new System.EventHandler(this.btnViolationDetails_Click);
-            // 
-            // lbPhones
-            // 
-            this.lbPhones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbPhones.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbPhones.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbPhones.Location = new System.Drawing.Point(113, 156);
-            this.lbPhones.Multiline = true;
-            this.lbPhones.Name = "lbPhones";
-            this.lbPhones.ReadOnly = true;
-            this.lbPhones.Size = new System.Drawing.Size(530, 55);
-            this.lbPhones.TabIndex = 66;
-            this.lbPhones.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(51, 156);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
-            this.label5.TabIndex = 65;
-            this.label5.Text = "Телефоны: ";
             // 
             // ViolatorDetailsControl
             // 

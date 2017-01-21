@@ -56,14 +56,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="242176">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="241664">
       <assemblyIdentity name="AppPresentators" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7ianJcHU43+nTDZUVE6Ivu2ZW81YeV9OQkS4aUoZG5E=</dsig:DigestValue>
+        <dsig:DigestValue>6lGNxnY18L6zUUl5UL/2CVeD9LYXW92BVlclzTBM4Sk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -135,7 +135,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zKUJ7oJDmAubz3iY1GLbx34QRFR1jOKXNeXXRQ6AZI4=</dsig:DigestValue>
+        <dsig:DigestValue>6y0JSN2KRrs96GVV/xBpY2AhaSdO2F6Sbm7uulF4G/w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

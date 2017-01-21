@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppPresentators.Components;
 using AppPresentators.VModels;
+using LeoBase.Components.TopMenu;
 
 namespace LeoBase.Components.CustomControls.NewControls
 {
     public partial class EmployerDetailsControl : UserControl, IEmployerDetailsControl
     {
+        public event Action MakeReport;
+
         public EmployerDetailsControl()
         {
             InitializeComponent();
@@ -46,11 +49,16 @@ namespace LeoBase.Components.CustomControls.NewControls
         {
             get
             {
-                Button btnReport = new Button();
+                var pictureButton = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);
 
-                btnReport.Text = "Отчет";
+                pictureButton.Enabled = true;
 
-                return new List<Control> { btnReport };
+                pictureButton.Click += (s, e) =>
+                {
+                    if (MakeReport != null) MakeReport();
+                };
+
+                return new List<Control> { pictureButton };
             }
 
             set
@@ -101,6 +109,12 @@ namespace LeoBase.Components.CustomControls.NewControls
             tableAddresses.DataSource = Employer.Addresses;
 
             tableViolations.DataSource = Employer.Violations;
+
+            if(tableViolations.Rows.Count != 0) tableViolations.Rows[0].Selected = false;
+
+            tableAddresses.ClearSelection();
+
+            //tableViolations.ClearSelection();
         }
 
         private void tableAddresses_CellContentClick(object sender, DataGridViewCellEventArgs e)

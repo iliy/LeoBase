@@ -44,11 +44,11 @@
             this.tableAddresses = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbPosition = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.avatarPanel = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbPosition = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tableViolations)).BeginInit();
             this.panel4.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -81,6 +81,10 @@
             // 
             // tableViolations
             // 
+            this.tableViolations.AllowUserToAddRows = false;
+            this.tableViolations.AllowUserToOrderColumns = true;
+            this.tableViolations.AllowUserToResizeRows = false;
+            this.tableViolations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableViolations.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tableViolations.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableViolations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -89,8 +93,9 @@
             this.tableViolations.MultiSelect = false;
             this.tableViolations.Name = "tableViolations";
             this.tableViolations.ReadOnly = true;
-            this.tableViolations.Size = new System.Drawing.Size(1165, 142);
-            this.tableViolations.TabIndex = 1;
+            this.tableViolations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tableViolations.Size = new System.Drawing.Size(1165, 192);
+            this.tableViolations.TabIndex = 101;
             this.tableViolations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableViolations_CellContentClick);
             // 
             // panel4
@@ -108,10 +113,10 @@
             // 
             this.groupBox4.Controls.Add(this.tableViolations);
             this.groupBox4.Controls.Add(this.panel4);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 439);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1171, 195);
+            this.groupBox4.Size = new System.Drawing.Size(1171, 245);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Правонарушения";
@@ -127,7 +132,7 @@
             this.lbPhones.Name = "lbPhones";
             this.lbPhones.ReadOnly = true;
             this.lbPhones.Size = new System.Drawing.Size(530, 55);
-            this.lbPhones.TabIndex = 66;
+            this.lbPhones.TabIndex = 0;
             this.lbPhones.TabStop = false;
             // 
             // lbPlaceBerth
@@ -210,6 +215,10 @@
             // 
             // tableAddresses
             // 
+            this.tableAddresses.AllowUserToAddRows = false;
+            this.tableAddresses.AllowUserToOrderColumns = true;
+            this.tableAddresses.AllowUserToResizeRows = false;
+            this.tableAddresses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableAddresses.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tableAddresses.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableAddresses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -218,8 +227,9 @@
             this.tableAddresses.MultiSelect = false;
             this.tableAddresses.Name = "tableAddresses";
             this.tableAddresses.ReadOnly = true;
+            this.tableAddresses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableAddresses.Size = new System.Drawing.Size(1165, 141);
-            this.tableAddresses.TabIndex = 0;
+            this.tableAddresses.TabIndex = 100;
             this.tableAddresses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableAddresses_CellContentClick);
             // 
             // label1
@@ -250,6 +260,19 @@
             this.panel2.Size = new System.Drawing.Size(650, 214);
             this.panel2.TabIndex = 0;
             // 
+            // lbPosition
+            // 
+            this.lbPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbPosition.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbPosition.Location = new System.Drawing.Point(114, 103);
+            this.lbPosition.Name = "lbPosition";
+            this.lbPosition.ReadOnly = true;
+            this.lbPosition.Size = new System.Drawing.Size(530, 13);
+            this.lbPosition.TabIndex = 67;
+            this.lbPosition.TabStop = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.avatarPanel);
@@ -267,7 +290,7 @@
             this.avatarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.avatarPanel.Location = new System.Drawing.Point(653, 16);
             this.avatarPanel.Name = "avatarPanel";
-            this.avatarPanel.Size = new System.Drawing.Size(361, 214);
+            this.avatarPanel.Size = new System.Drawing.Size(512, 214);
             this.avatarPanel.TabIndex = 1;
             // 
             // lbTitle
@@ -288,19 +311,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1171, 46);
             this.panel1.TabIndex = 6;
-            // 
-            // lbPosition
-            // 
-            this.lbPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbPosition.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbPosition.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lbPosition.Location = new System.Drawing.Point(114, 103);
-            this.lbPosition.Name = "lbPosition";
-            this.lbPosition.ReadOnly = true;
-            this.lbPosition.Size = new System.Drawing.Size(530, 13);
-            this.lbPosition.TabIndex = 67;
-            this.lbPosition.TabStop = false;
             // 
             // EmployerDetailsControl
             // 

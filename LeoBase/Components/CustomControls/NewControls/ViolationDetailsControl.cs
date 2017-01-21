@@ -13,6 +13,7 @@ using AppPresentators;
 using System.IO;
 using LeoMapV3.Map;
 using LeoMapV3.Data;
+using LeoBase.Components.TopMenu;
 
 namespace LeoBase.Components.CustomControls.NewControls
 {
@@ -31,16 +32,18 @@ namespace LeoBase.Components.CustomControls.NewControls
         {
             InitializeComponent();
 
-            _btnReport = new Button();
-            _btnReport.Text = "Отчет";
+            var pictureButton = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);
 
-            _btnReport.Click += (s, e) =>
+            pictureButton.Enabled = true;
+
+            pictureButton.Click += (s, e) =>
             {
                 if (Report != null) Report();
             };
 
             _topControls = new List<Control>();
-            _topControls.Add(_btnReport);
+
+            _topControls.Add(pictureButton);
         }
 
         public bool ShowForResult { get; set; }

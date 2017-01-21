@@ -159,8 +159,8 @@ namespace LeoBase.Components.CustomControls.NewControls
             _orderProperties.Add("Дата последнего обновления", (int)PersonsOrderProperties.WAS_BE_UPDATED);
 
 
-            _orderTypes.Add("Убывание", OrderType.ASC);
-            _orderTypes.Add("Возростание", OrderType.DESC);
+            _orderTypes.Add("Убывание", OrderType.DESC);
+            _orderTypes.Add("Возростание", OrderType.ASC);
 
             _customTable = new CustomTable();
 

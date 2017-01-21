@@ -484,11 +484,14 @@ namespace AppPresentators.Services
             #endregion
 
             #region Orders
+
+            if (OrderModel.OrderType == OrderType.NONE) OrderModel.OrderType = OrderType.DESC;
+
             if (OrderModel.OrderType != OrderType.NONE)
             {
                 if (persones == null) persones = _personRepository.Persons;
 
-                if (OrderModel.OrderType == OrderType.DESC)
+                if (OrderModel.OrderType == OrderType.ASC)
                 {
                     switch (OrderModel.OrderProperties)
                     {

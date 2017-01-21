@@ -48,8 +48,8 @@ namespace LeoBase.Components.CustomControls.NewControls
 
             Title = "Нарушители";
 
-            _orderTypes.Add("Убывание", OrderType.ASC);
-            _orderTypes.Add("Возростание", OrderType.DESC);
+            _orderTypes.Add("Убывание", OrderType.DESC);
+            _orderTypes.Add("Возростание", OrderType.ASC);
 
             _customTable = new CustomTable();
 

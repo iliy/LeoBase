@@ -9,20 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AppPresentators.Components;
 using AppPresentators.VModels;
+using LeoBase.Components.TopMenu;
 
 namespace LeoBase.Components.CustomControls.NewControls
 {
     public partial class ViolatorDetailsControl : UserControl, IViolatorDetailsControl
     {
-        private Button _btnReport;
+        public event Action MakeReport;
         public ViolatorDetailsControl()
         {
             InitializeComponent();
-            _btnReport = new Button();
-            _btnReport.Text = "Отчет";
+            
+            var pictureButton = new PictureButton(Properties.Resources.reportEnabled, Properties.Resources.reportDisabled, Properties.Resources.reportPress);
+
+            pictureButton.Enabled = true;
+
+            pictureButton.Click += (s, e) =>
+            {
+                if (MakeReport != null) MakeReport();
+            };
+
             TopControls = new List<Control>();
-            TopControls.Add(_btnReport);
+
+            TopControls.Add(pictureButton);
         }
+        
 
         public bool ShowForResult { get; set; }
 

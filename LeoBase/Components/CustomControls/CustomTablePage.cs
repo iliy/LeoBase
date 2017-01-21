@@ -64,7 +64,9 @@ namespace LeoBase.Components.CustomControls
         public void AddSearchPanel(ISearchPanel searchPanel)
         {
             _searchPanel = searchPanel;
+
             SearchPanelContainer.Controls.Add(searchPanel.Control);
+
             searchPanel.OnHideClick += HideSearchPanel;
         }
 

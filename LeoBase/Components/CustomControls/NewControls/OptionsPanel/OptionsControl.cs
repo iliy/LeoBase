@@ -316,13 +316,13 @@ namespace LeoBase.Components.CustomControls.NewControls.OptionsPanel
                 ShowError("Не указаны права пользователя!");
                 return;
             }
-            
+
             if (!ConfigApp.ManagerRoleTranslate.ContainsValue(role))
             {
                 ShowError("Права для пользователя не определены!");
                 return;
             }
-            
+
             if (string.IsNullOrWhiteSpace(tbUserPassword.Text))
             {
                 ShowError("Укажите пароль для нового пользователя!");
@@ -355,7 +355,11 @@ namespace LeoBase.Components.CustomControls.NewControls.OptionsPanel
                 AddManager(manager);
             }
 
-        UpdateManagerTable();
+            UpdateManagerTable();
+
+            tbUserLogin.Text = "";
+            tbUserPassword.Text = "";
+            tbUserPasswordAgain.Text = "";
         }
 
         public void UpdateManagerTable()
