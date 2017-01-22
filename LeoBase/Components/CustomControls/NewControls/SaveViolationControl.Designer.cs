@@ -161,7 +161,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(621, 41);
+            this.panel1.Size = new System.Drawing.Size(468, 41);
             this.panel1.TabIndex = 0;
             // 
             // lbTitle
@@ -182,7 +182,7 @@
             this.groupBox5.Location = new System.Drawing.Point(0, 1462);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox5.Size = new System.Drawing.Size(621, 309);
+            this.groupBox5.Size = new System.Drawing.Size(468, 309);
             this.groupBox5.TabIndex = 9;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Фотографии";
@@ -194,7 +194,7 @@
             this.photosList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.photosList.Location = new System.Drawing.Point(5, 49);
             this.photosList.Name = "photosList";
-            this.photosList.Size = new System.Drawing.Size(611, 255);
+            this.photosList.Size = new System.Drawing.Size(458, 255);
             this.photosList.TabIndex = 1;
             // 
             // panel2
@@ -203,7 +203,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(5, 18);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(611, 31);
+            this.panel2.Size = new System.Drawing.Size(458, 31);
             this.panel2.TabIndex = 0;
             // 
             // btnAddPhoto
@@ -264,7 +264,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Location = new System.Drawing.Point(0, 850);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(621, 612);
+            this.groupBox4.Size = new System.Drawing.Size(468, 612);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Информация по постановлению";
@@ -621,7 +621,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(0, 375);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(621, 475);
+            this.groupBox3.Size = new System.Drawing.Size(468, 475);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Информация по протоколу";
@@ -846,7 +846,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 144);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(621, 231);
+            this.groupBox2.Size = new System.Drawing.Size(468, 231);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация о нарушителе";
@@ -1032,7 +1032,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(621, 103);
+            this.groupBox1.Size = new System.Drawing.Size(468, 103);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Сотрудник составивший протокол";
@@ -1095,191 +1095,233 @@
             // 
             // tbNumberNotice
             // 
+            this.tbNumberNotice.BackColor = System.Drawing.Color.White;
             this.tbNumberNotice.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbNumberNotice.Location = new System.Drawing.Point(248, 522);
             this.tbNumberNotice.Name = "tbNumberNotice";
             this.tbNumberNotice.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbNumberNotice.Size = new System.Drawing.Size(323, 27);
+            this.tbNumberNotice.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbNumberNotice.TabIndex = 61;
             // 
             // tbNumberSentBailigg
             // 
+            this.tbNumberSentBailigg.BackColor = System.Drawing.Color.White;
             this.tbNumberSentBailigg.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbNumberSentBailigg.Location = new System.Drawing.Point(248, 438);
             this.tbNumberSentBailigg.Name = "tbNumberSentBailigg";
             this.tbNumberSentBailigg.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbNumberSentBailigg.Size = new System.Drawing.Size(323, 27);
+            this.tbNumberSentBailigg.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbNumberSentBailigg.TabIndex = 57;
             // 
             // tbNumberSent
             // 
+            this.tbNumberSent.BackColor = System.Drawing.Color.White;
             this.tbNumberSent.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbNumberSent.Location = new System.Drawing.Point(249, 299);
             this.tbNumberSent.Name = "tbNumberSent";
             this.tbNumberSent.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbNumberSent.Size = new System.Drawing.Size(323, 27);
+            this.tbNumberSent.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbNumberSent.TabIndex = 51;
             // 
             // tbSumRecovery
             // 
+            this.tbSumRecovery.BackColor = System.Drawing.Color.White;
             this.tbSumRecovery.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbSumRecovery.Location = new System.Drawing.Point(252, 201);
             this.tbSumRecovery.Name = "tbSumRecovery";
             this.tbSumRecovery.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbSumRecovery.Size = new System.Drawing.Size(323, 27);
+            this.tbSumRecovery.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbSumRecovery.TabIndex = 45;
             // 
             // tbSumViolation
             // 
+            this.tbSumViolation.BackColor = System.Drawing.Color.White;
             this.tbSumViolation.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbSumViolation.Location = new System.Drawing.Point(254, 113);
             this.tbSumViolation.Name = "tbSumViolation";
             this.tbSumViolation.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbSumViolation.Size = new System.Drawing.Size(323, 27);
+            this.tbSumViolation.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbSumViolation.TabIndex = 43;
             // 
             // tbViolation
             // 
+            this.tbViolation.BackColor = System.Drawing.Color.White;
             this.tbViolation.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbViolation.Location = new System.Drawing.Point(253, 81);
             this.tbViolation.Name = "tbViolation";
             this.tbViolation.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbViolation.Size = new System.Drawing.Size(323, 27);
+            this.tbViolation.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbViolation.TabIndex = 39;
             // 
             // tbRulingNumber
             // 
+            this.tbRulingNumber.BackColor = System.Drawing.Color.White;
             this.tbRulingNumber.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbRulingNumber.Location = new System.Drawing.Point(255, 19);
             this.tbRulingNumber.Name = "tbRulingNumber";
             this.tbRulingNumber.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbRulingNumber.Size = new System.Drawing.Size(323, 27);
+            this.tbRulingNumber.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbRulingNumber.TabIndex = 35;
             // 
             // tbWitnessLive_2
             // 
+            this.tbWitnessLive_2.BackColor = System.Drawing.Color.White;
             this.tbWitnessLive_2.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbWitnessLive_2.Location = new System.Drawing.Point(255, 441);
             this.tbWitnessLive_2.Name = "tbWitnessLive_2";
             this.tbWitnessLive_2.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbWitnessLive_2.Size = new System.Drawing.Size(323, 27);
+            this.tbWitnessLive_2.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbWitnessLive_2.TabIndex = 33;
             // 
             // tbWitnessFIO_2
             // 
+            this.tbWitnessFIO_2.BackColor = System.Drawing.Color.White;
             this.tbWitnessFIO_2.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbWitnessFIO_2.Location = new System.Drawing.Point(255, 408);
             this.tbWitnessFIO_2.Name = "tbWitnessFIO_2";
             this.tbWitnessFIO_2.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbWitnessFIO_2.Size = new System.Drawing.Size(323, 27);
+            this.tbWitnessFIO_2.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbWitnessFIO_2.TabIndex = 31;
             // 
             // tbWitnessLive_1
             // 
+            this.tbWitnessLive_1.BackColor = System.Drawing.Color.White;
             this.tbWitnessLive_1.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbWitnessLive_1.Location = new System.Drawing.Point(255, 375);
             this.tbWitnessLive_1.Name = "tbWitnessLive_1";
             this.tbWitnessLive_1.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbWitnessLive_1.Size = new System.Drawing.Size(323, 27);
+            this.tbWitnessLive_1.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbWitnessLive_1.TabIndex = 29;
             // 
             // tbWitnessFIO_1
             // 
+            this.tbWitnessFIO_1.BackColor = System.Drawing.Color.White;
             this.tbWitnessFIO_1.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbWitnessFIO_1.Location = new System.Drawing.Point(255, 342);
             this.tbWitnessFIO_1.Name = "tbWitnessFIO_1";
             this.tbWitnessFIO_1.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbWitnessFIO_1.Size = new System.Drawing.Size(323, 27);
+            this.tbWitnessFIO_1.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbWitnessFIO_1.TabIndex = 27;
             // 
             // tbFindedGunsHuntingAndFishing
             // 
+            this.tbFindedGunsHuntingAndFishing.BackColor = System.Drawing.Color.White;
             this.tbFindedGunsHuntingAndFishing.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbFindedGunsHuntingAndFishing.Location = new System.Drawing.Point(255, 309);
             this.tbFindedGunsHuntingAndFishing.Name = "tbFindedGunsHuntingAndFishing";
             this.tbFindedGunsHuntingAndFishing.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbFindedGunsHuntingAndFishing.Size = new System.Drawing.Size(323, 27);
+            this.tbFindedGunsHuntingAndFishing.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbFindedGunsHuntingAndFishing.TabIndex = 25;
             // 
             // tbFindedWeapons
             // 
+            this.tbFindedWeapons.BackColor = System.Drawing.Color.White;
             this.tbFindedWeapons.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbFindedWeapons.Location = new System.Drawing.Point(255, 276);
             this.tbFindedWeapons.Name = "tbFindedWeapons";
             this.tbFindedWeapons.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbFindedWeapons.Size = new System.Drawing.Size(323, 27);
+            this.tbFindedWeapons.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbFindedWeapons.TabIndex = 23;
             // 
             // tbFindedNatureManagementProducts
             // 
+            this.tbFindedNatureManagementProducts.BackColor = System.Drawing.Color.White;
             this.tbFindedNatureManagementProducts.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbFindedNatureManagementProducts.Location = new System.Drawing.Point(255, 243);
             this.tbFindedNatureManagementProducts.Name = "tbFindedNatureManagementProducts";
             this.tbFindedNatureManagementProducts.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbFindedNatureManagementProducts.Size = new System.Drawing.Size(323, 27);
+            this.tbFindedNatureManagementProducts.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbFindedNatureManagementProducts.TabIndex = 21;
             // 
             // tbKOAP
             // 
+            this.tbKOAP.BackColor = System.Drawing.Color.White;
             this.tbKOAP.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbKOAP.Location = new System.Drawing.Point(255, 210);
             this.tbKOAP.Name = "tbKOAP";
             this.tbKOAP.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbKOAP.Size = new System.Drawing.Size(323, 27);
+            this.tbKOAP.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbKOAP.TabIndex = 19;
             // 
             // tbDescriptionViolation
             // 
+            this.tbDescriptionViolation.BackColor = System.Drawing.Color.White;
             this.tbDescriptionViolation.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbDescriptionViolation.Location = new System.Drawing.Point(255, 177);
             this.tbDescriptionViolation.Name = "tbDescriptionViolation";
             this.tbDescriptionViolation.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbDescriptionViolation.Size = new System.Drawing.Size(323, 27);
+            this.tbDescriptionViolation.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbDescriptionViolation.TabIndex = 17;
             // 
             // tbCoordsViolationE
             // 
+            this.tbCoordsViolationE.BackColor = System.Drawing.Color.White;
             this.tbCoordsViolationE.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbCoordsViolationE.Location = new System.Drawing.Point(446, 116);
             this.tbCoordsViolationE.Name = "tbCoordsViolationE";
             this.tbCoordsViolationE.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbCoordsViolationE.Size = new System.Drawing.Size(132, 27);
+            this.tbCoordsViolationE.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbCoordsViolationE.TabIndex = 13;
             // 
             // tbCoordsViolationN
             // 
+            this.tbCoordsViolationN.BackColor = System.Drawing.Color.White;
             this.tbCoordsViolationN.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbCoordsViolationN.Location = new System.Drawing.Point(277, 116);
             this.tbCoordsViolationN.Name = "tbCoordsViolationN";
             this.tbCoordsViolationN.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbCoordsViolationN.Size = new System.Drawing.Size(140, 27);
+            this.tbCoordsViolationN.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbCoordsViolationN.TabIndex = 12;
             // 
             // tbPlaceCreatedProtocol
             // 
+            this.tbPlaceCreatedProtocol.BackColor = System.Drawing.Color.White;
             this.tbPlaceCreatedProtocol.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbPlaceCreatedProtocol.Location = new System.Drawing.Point(255, 25);
             this.tbPlaceCreatedProtocol.Name = "tbPlaceCreatedProtocol";
             this.tbPlaceCreatedProtocol.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbPlaceCreatedProtocol.Size = new System.Drawing.Size(323, 27);
+            this.tbPlaceCreatedProtocol.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbPlaceCreatedProtocol.TabIndex = 6;
             // 
             // tbCoordsCreatedProtocolE
             // 
+            this.tbCoordsCreatedProtocolE.BackColor = System.Drawing.Color.White;
             this.tbCoordsCreatedProtocolE.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbCoordsCreatedProtocolE.Location = new System.Drawing.Point(446, 55);
             this.tbCoordsCreatedProtocolE.Name = "tbCoordsCreatedProtocolE";
             this.tbCoordsCreatedProtocolE.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbCoordsCreatedProtocolE.Size = new System.Drawing.Size(132, 27);
+            this.tbCoordsCreatedProtocolE.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbCoordsCreatedProtocolE.TabIndex = 5;
             // 
             // tbCoordsCreatedProtocolN
             // 
+            this.tbCoordsCreatedProtocolN.BackColor = System.Drawing.Color.White;
             this.tbCoordsCreatedProtocolN.DataType = LeoBase.Components.CustomControls.LeoTextBoxDataType.TEXT;
             this.tbCoordsCreatedProtocolN.Location = new System.Drawing.Point(277, 55);
             this.tbCoordsCreatedProtocolN.Name = "tbCoordsCreatedProtocolN";
             this.tbCoordsCreatedProtocolN.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.tbCoordsCreatedProtocolN.Size = new System.Drawing.Size(140, 27);
+            this.tbCoordsCreatedProtocolN.Style = LeoBase.Components.CustomControls.LeoTextBoxStyle.White;
             this.tbCoordsCreatedProtocolN.TabIndex = 4;
             // 
             // SaveViolationControl
@@ -1294,7 +1336,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Name = "SaveViolationControl";
-            this.Size = new System.Drawing.Size(621, 1535);
+            this.Size = new System.Drawing.Size(468, 1535);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox5.ResumeLayout(false);

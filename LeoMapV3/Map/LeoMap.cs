@@ -382,7 +382,17 @@ namespace LeoMapV3.Map
 
             _render.Height = this.Height;
 
-            _pictureBox.Image = await UpdateMapImage();
+            if (!_render.WasRender)
+            {
+                var defaultZoomInformation = _repo.GetZoomInformation(MapConfig.DefaultZoom);
+
+                int xC = defaultZoomInformation.MaxX * defaultZoomInformation.TitleWidth / 2;
+                int yC = defaultZoomInformation.MaxY * defaultZoomInformation.TitleHeight / 2;
+
+                _render.LookAt(xC, yC);
+            }
+
+            _pictureBox.Image = _render.GetImage();// await UpdateMapImage();
         }
 
         public Image GetMapImage()

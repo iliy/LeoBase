@@ -97,9 +97,9 @@ namespace LeoBase.Components.CustomControls.NewControls
 
             var searchPanel = new SearchPanelContainer();
 
-            AddSearchPanel(searchPanel);
-
             searchPanel.SetCustomSearchPanel(_searchPanel);
+
+            AddSearchPanel(searchPanel);
 
             _searchPanel.DataSourceChanged += (s, e) =>
             {

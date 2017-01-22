@@ -40,7 +40,7 @@ namespace LeoBase.Components.CustomControls.SearchPanels
 
         private LeoTextBox GetTextBoxForEdit(PropertyControlModel propertyModel)
         {
-            return new LeoTextBox();
+            return new LeoTextBox() { Style = LeoTextBoxStyle.White };
         }
 
         private void EditDesineRenderControls()

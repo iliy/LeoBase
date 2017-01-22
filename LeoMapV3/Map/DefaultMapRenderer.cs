@@ -271,8 +271,8 @@ namespace LeoMapV3.Map
             int titleWidth = zInf.TitleWidth;
             int titleHeight = zInf.TitleHeight;
 
-            int totalWidth = titleWidth * zInf.MaxX;
-            int totalHeight = titleHeight * zInf.MaxY;
+            int totalWidth = titleWidth * (zInf.MaxX + 1);
+            int totalHeight = titleHeight * (zInf.MaxY + 1);
 
             if (x - Width / 2 < 0 && x + Width / 2 > totalWidth) x = totalWidth / 2;
             else if (x - Width / 2 < 0) x = Width / 2;
@@ -297,8 +297,8 @@ namespace LeoMapV3.Map
             int titleWidth = zInf.TitleWidth;
             int titleHeight = zInf.TitleHeight;
 
-            int totalWidth = titleWidth * zInf.MaxX;
-            int totalHeight = titleHeight * zInf.MaxY;
+            int totalWidth = titleWidth * (zInf.MaxX + 1);
+            int totalHeight = titleHeight * (zInf.MaxY + 1);
 
             if (nX - Width / 2 < 0) nX = Width / 2;
             if (nY - Height / 2 < 0) nY = Height / 2;
@@ -338,12 +338,19 @@ namespace LeoMapV3.Map
         {
             if (_repo.GetZooms().Contains(_currentZoom - 1))
             {
-                int nX = (CenterMap.X + dx) / 2;
-                int nY = (CenterMap.Y + dy) / 2;
 
-                CenterMap = new Point(nX, nY);
+
+
+                //int nX = (CenterMap.X + dx) / 2;
+                //int nY = (CenterMap.Y + dy) / 2;
+
+                //CenterMap = new Point(nX, nY);
                 
                 _currentZoom--;
+
+                CenterMap = new Point(CenterMap.X / 2, CenterMap.Y / 2);
+
+                MoveCenter(-dx / 2, -dy / 2);
 
                 return true;
             }
@@ -354,12 +361,16 @@ namespace LeoMapV3.Map
         {
             if (_repo.GetZooms().Contains(_currentZoom + 1)) {
 
-                int nx = (CenterMap.X + dx) * 2;
-                int ny = (CenterMap.Y + dy) * 2;
+                //int nx = (CenterMap.X + dx) * 2;
+                //int ny = (CenterMap.Y + dy) * 2;
 
-                CenterMap = new Point(nx, ny);
+                //CenterMap = new Point(nx, ny);
 
                 _currentZoom++;
+
+                CenterMap = new Point(CenterMap.X * 2, CenterMap.Y * 2);
+
+                MoveCenter(-dx * 2, -dy * 2);
 
                 return true;
             }

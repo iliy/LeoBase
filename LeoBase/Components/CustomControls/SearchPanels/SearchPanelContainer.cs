@@ -32,12 +32,14 @@ namespace LeoBase.Components.CustomControls.SearchPanels
 
             this.Dock = DockStyle.Fill;
 
-            hideBtn.Click += (s, e) =>
+            hideBtn.OnClick += () =>
             {
                 if (OnHideClick != null) OnHideClick();
             };
 
             tableLayoutPanel1.Controls.Add(hideBtn, 0, 0);
+
+            hideBtn.Margin = new Padding(2, 2, 2, 2);
 
             tableLayoutPanel1.HorizontalScroll.Enabled = false;
             tableLayoutPanel1.HorizontalScroll.Visible = false;
@@ -62,6 +64,26 @@ namespace LeoBase.Components.CustomControls.SearchPanels
             _control = control;
 
             tableLayoutPanel1.Controls.Add(control.GetControl(), 0, 1);
+
+            control.GetControl().Margin = new Padding(2, 2, 2, 2);
+
+            var bmp = new Bitmap(tableLayoutPanel1.Width, tableLayoutPanel1.Height);
+
+            Graphics g = Graphics.FromImage(bmp);
+
+            Color borderColor = Color.FromArgb(0xcecbc6);
+            Color shadowBorderColor = Color.FromArgb(0xe6e5e1);
+
+            Pen borderPen = new Pen(borderColor, 2);
+            Pen shadowPen = new Pen(shadowBorderColor, 2);
+
+            g.DrawLine(borderPen, new Point(0, hideBtn.Height + 1), new Point(this.Width, hideBtn.Height + 1));
+
+            g.DrawLine(borderPen, new Point(0, 0), new Point(this.Width, this.Height));
+
+            tableLayoutPanel1.BackgroundImage = bmp;
+
+            control.GetControl().BackgroundImage = bmp;
         }
         private void btnSearchGO_Click(object sender, EventArgs e)
         {
@@ -82,5 +104,24 @@ namespace LeoBase.Components.CustomControls.SearchPanels
         {
             _control.Clear();
         }
+
+        //protected override void OnPaintBackground(PaintEventArgs e)
+        //{
+        //    base.OnPaintBackground(e);
+
+        //    Color borderColor = Color.FromArgb(0xcecbc6);
+        //    Color shadowBorderColor = Color.FromArgb(0xe6e5e1);
+
+        //    Pen borderPen = new Pen(borderColor, 1);
+        //    Pen shadowPen = new Pen(shadowBorderColor, 1);
+
+        //    e.Graphics.DrawLine(borderPen, new Point(0, hideBtn.Height + 1), new Point(this.Width, hideBtn.Height + 1));
+
+        //    e.Graphics.DrawLine(borderPen, new Point(this.Width - 2, 0), new Point(this.Width - 2, this.Height));
+
+        //    e.Graphics.DrawLine(shadowPen, new Point(0, hideBtn.Height + 2), new Point(this.Width, hideBtn.Height + 2));
+
+
+        //}
     }
 }

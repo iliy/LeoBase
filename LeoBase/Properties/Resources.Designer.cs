@@ -113,6 +113,16 @@ namespace LeoBase.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_title_search {
+            get {
+                object obj = ResourceManager.GetObject("arrow_title_search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ArrowLeft {
             get {
                 object obj = ResourceManager.GetObject("ArrowLeft", resourceCulture);
@@ -573,6 +583,16 @@ namespace LeoBase.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lupa_small {
+            get {
+                object obj = ResourceManager.GetObject("lupa_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mapPreview {
             get {
                 object obj = ResourceManager.GetObject("mapPreview", resourceCulture);
@@ -793,6 +813,16 @@ namespace LeoBase.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap tbBackgroundWhite {
+            get {
+                object obj = ResourceManager.GetObject("tbBackgroundWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tbFocuse {
             get {
                 object obj = ResourceManager.GetObject("tbFocuse", resourceCulture);
@@ -806,6 +836,16 @@ namespace LeoBase.Properties {
         internal static System.Drawing.Bitmap tbLeft {
             get {
                 object obj = ResourceManager.GetObject("tbLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tbLeftWhite {
+            get {
+                object obj = ResourceManager.GetObject("tbLeftWhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -836,6 +876,16 @@ namespace LeoBase.Properties {
         internal static System.Drawing.Bitmap tbRight {
             get {
                 object obj = ResourceManager.GetObject("tbRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tbRightWhite {
+            get {
+                object obj = ResourceManager.GetObject("tbRightWhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "PassesTableControl";
-            this.Size = new System.Drawing.Size(1249, 1024);
+            this.Size = new System.Drawing.Size(1250, 734);
             this.VisibleLoadPanel = true;
             this.ResumeLayout(false);
 

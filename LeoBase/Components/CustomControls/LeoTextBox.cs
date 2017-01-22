@@ -18,6 +18,24 @@ namespace LeoBase.Components.CustomControls
         public event EventHandler TextChanged;
         public event KeyPressEventHandler KeyPress;
 
+        private LeoTextBoxStyle _style = LeoTextBoxStyle.Gray;
+
+        public LeoTextBoxStyle Style
+        {
+            get
+            {
+                return _style;
+            }
+            set
+            {
+                _style = value;
+
+                if (_style == LeoTextBoxStyle.White) this.BackColor = Color.White;
+
+                Update();
+            }
+        }
+
         public override string Text {
             get
             {
@@ -75,9 +93,13 @@ namespace LeoBase.Components.CustomControls
         {
             base.OnPaintBackground(e);
 
-            Image imageBg = ResizeImage(Properties.Resources.tbBackground, this.Width - 14 , 26);
-            Image imageLeft = Properties.Resources.tbLeft;
-            Image imageRight = Properties.Resources.tbRight;
+            Image bg = _style == LeoTextBoxStyle.Gray ? Properties.Resources.tbBackground : Properties.Resources.tbBackgroundWhite;
+
+            Image imageBg = ResizeImage(bg, this.Width - 14 , 26);
+
+            Image imageLeft = _style == LeoTextBoxStyle.Gray ? Properties.Resources.tbLeft : Properties.Resources.tbLeftWhite; 
+
+            Image imageRight = _style == LeoTextBoxStyle.Gray ? Properties.Resources.tbRight : Properties.Resources.tbRightWhite;
 
             e.Graphics.DrawImage(imageBg, new Point(7, 0));
 
@@ -116,5 +138,11 @@ namespace LeoBase.Components.CustomControls
         REAL,
         NUMBER,
         TEXT
+    }
+
+    public enum LeoTextBoxStyle
+    {
+        Gray,
+        White
     }
 }

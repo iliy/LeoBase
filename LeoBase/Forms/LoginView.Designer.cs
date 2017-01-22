@@ -238,6 +238,7 @@
             this.Controls.Add(this.pbLogin);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

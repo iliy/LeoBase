@@ -257,7 +257,7 @@ namespace AppPresentators.Services
         public static IQueryable<Violation> SearchByEmployer(this IQueryable<Violation> vt, int employerId)
         {
             if (employerId <= 0) return vt;
-            
+
             var pr = RepositoryesFactory.GetInstance().Get<IProtocolRepository>().Protocols;
 
             var violationIds = pr.Where(p => p.EmployerID == employerId).Select(p => p.ViolationID).ToList();//.Distinct();

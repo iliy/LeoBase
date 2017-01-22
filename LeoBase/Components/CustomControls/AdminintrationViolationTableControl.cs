@@ -167,10 +167,10 @@ namespace LeoBase.Components.CustomControls
             _searhcPanel.DataSource = new AdminViolationSearchModel();
 
             var searchPanel = new SearchPanelContainer();
-            
-            AddSearchPanel(searchPanel);
 
             searchPanel.SetCustomSearchPanel(_searhcPanel);
+
+            AddSearchPanel(searchPanel);
 
             _searhcPanel.DataSourceChanged += (s, e) =>
             {

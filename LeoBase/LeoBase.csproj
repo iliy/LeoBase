@@ -650,6 +650,11 @@
   <ItemGroup>
     <Content Include="Icon.ico" />
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\tbRightWhite.png" />
+    <None Include="Resources\tbLeftWhite.png" />
+    <None Include="Resources\tbBackgroundWhite.png" />
+    <None Include="Resources\lupa_small.png" />
+    <None Include="Resources\arrow_title_search.png" />
     <None Include="Resources\smallLoader.gif" />
     <None Include="Resources\loader3.gif" />
     <None Include="Resources\load.gif" />

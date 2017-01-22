@@ -207,3 +207,4 @@ D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.New
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.PassDetailsControl.resources
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.PassesTableControl.resources
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.SavePassControl.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.PreloadPanel.resources

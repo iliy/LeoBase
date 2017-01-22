@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cAYle0NNRqTzJL6vUnza9IGr+asb6MBk98b8gY9EW20=</dsig:DigestValue>
+        <dsig:DigestValue>JaNDlPTcY33Qfo763SzYc0f/o7UZPZ6+5VwC+57QJkw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -103,14 +103,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoBase.exe" size="1858016">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoBase.exe" size="1874400">
       <assemblyIdentity name="LeoBase" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>lfuWtgwm9hTqJfUiej6MlWtC9BkOb2rs5qHyIsXUU8k=</dsig:DigestValue>
+        <dsig:DigestValue>NzLr/CGpSXbAroWNr4f9Zj4xXGU+pa90R/mx5TMNkdM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -122,7 +122,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>awv34v4LfIH7pPAur9F7HFWACz7Wzg7OedYGD0t9XoY=</dsig:DigestValue>
+        <dsig:DigestValue>n2ffV2f2p98o9uaV+ZGvRp7lJsXURXYB094M/g1zT2I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

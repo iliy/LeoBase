@@ -60,9 +60,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.centerPanel.AutoScroll = true;
-            this.centerPanel.Location = new System.Drawing.Point(185, 46);
+            this.centerPanel.Location = new System.Drawing.Point(185, 43);
+            this.centerPanel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.centerPanel.Name = "centerPanel";
-            this.centerPanel.Size = new System.Drawing.Size(657, 596);
+            this.centerPanel.Size = new System.Drawing.Size(657, 599);
             this.centerPanel.TabIndex = 2;
             // 
             // fastSearchAnimate
@@ -230,6 +231,7 @@
             this.Controls.Add(this.menuPanel);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.centerPanel);
+            this.DoubleBuffered = true;
             this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.MinimumSize = new System.Drawing.Size(720, 520);
             this.Name = "MainView";

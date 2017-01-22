@@ -31,20 +31,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbFIO = new System.Windows.Forms.TextBox();
-            this.tbPassGiven = new System.Windows.Forms.TextBox();
-            this.tbPassClosen = new System.Windows.Forms.TextBox();
-            this.tbDocument = new System.Windows.Forms.TextBox();
-            this.tbSerialNumber = new System.Windows.Forms.TextBox();
-            this.tbWhoIssued = new System.Windows.Forms.TextBox();
             this.tbWhenIssued = new System.Windows.Forms.TextBox();
+            this.tbWhoIssued = new System.Windows.Forms.TextBox();
+            this.tbSerialNumber = new System.Windows.Forms.TextBox();
+            this.tbDocument = new System.Windows.Forms.TextBox();
+            this.tbPassClosen = new System.Windows.Forms.TextBox();
+            this.tbPassGiven = new System.Windows.Forms.TextBox();
+            this.tbFIO = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +62,7 @@
             // 
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.lbTitle.Location = new System.Drawing.Point(3, 13);
+            this.lbTitle.Location = new System.Drawing.Point(3, 12);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(97, 26);
             this.lbTitle.TabIndex = 1;
@@ -90,138 +90,138 @@
             this.panel2.Size = new System.Drawing.Size(1078, 793);
             this.panel2.TabIndex = 1;
             // 
-            // label1
+            // tbWhenIssued
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(129, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ФИО:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(78, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Пропуск выдан:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Пропуск действителен до:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 119);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Предоставленный документ:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(90, 146);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Серия номер:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(100, 173);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Кем выдан:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(91, 199);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Когда выдан:";
-            // 
-            // tbFIO
-            // 
-            this.tbFIO.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbFIO.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbFIO.Location = new System.Drawing.Point(173, 24);
-            this.tbFIO.Name = "tbFIO";
-            this.tbFIO.ReadOnly = true;
-            this.tbFIO.Size = new System.Drawing.Size(756, 13);
-            this.tbFIO.TabIndex = 7;
-            // 
-            // tbPassGiven
-            // 
-            this.tbPassGiven.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbPassGiven.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPassGiven.Location = new System.Drawing.Point(173, 50);
-            this.tbPassGiven.Name = "tbPassGiven";
-            this.tbPassGiven.ReadOnly = true;
-            this.tbPassGiven.Size = new System.Drawing.Size(756, 13);
-            this.tbPassGiven.TabIndex = 8;
-            // 
-            // tbPassClosen
-            // 
-            this.tbPassClosen.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbPassClosen.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPassClosen.Location = new System.Drawing.Point(172, 75);
-            this.tbPassClosen.Name = "tbPassClosen";
-            this.tbPassClosen.ReadOnly = true;
-            this.tbPassClosen.Size = new System.Drawing.Size(756, 13);
-            this.tbPassClosen.TabIndex = 9;
-            // 
-            // tbDocument
-            // 
-            this.tbDocument.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbDocument.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDocument.Location = new System.Drawing.Point(171, 121);
-            this.tbDocument.Name = "tbDocument";
-            this.tbDocument.ReadOnly = true;
-            this.tbDocument.Size = new System.Drawing.Size(756, 13);
-            this.tbDocument.TabIndex = 10;
-            // 
-            // tbSerialNumber
-            // 
-            this.tbSerialNumber.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbSerialNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbSerialNumber.Location = new System.Drawing.Point(171, 145);
-            this.tbSerialNumber.Name = "tbSerialNumber";
-            this.tbSerialNumber.ReadOnly = true;
-            this.tbSerialNumber.Size = new System.Drawing.Size(756, 13);
-            this.tbSerialNumber.TabIndex = 11;
+            this.tbWhenIssued.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tbWhenIssued.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbWhenIssued.Location = new System.Drawing.Point(165, 183);
+            this.tbWhenIssued.Name = "tbWhenIssued";
+            this.tbWhenIssued.ReadOnly = true;
+            this.tbWhenIssued.Size = new System.Drawing.Size(756, 13);
+            this.tbWhenIssued.TabIndex = 13;
             // 
             // tbWhoIssued
             // 
             this.tbWhoIssued.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbWhoIssued.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbWhoIssued.Location = new System.Drawing.Point(171, 173);
+            this.tbWhoIssued.Location = new System.Drawing.Point(165, 157);
             this.tbWhoIssued.Name = "tbWhoIssued";
             this.tbWhoIssued.ReadOnly = true;
             this.tbWhoIssued.Size = new System.Drawing.Size(756, 13);
             this.tbWhoIssued.TabIndex = 12;
             // 
-            // tbWhenIssued
+            // tbSerialNumber
             // 
-            this.tbWhenIssued.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbWhenIssued.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbWhenIssued.Location = new System.Drawing.Point(171, 199);
-            this.tbWhenIssued.Name = "tbWhenIssued";
-            this.tbWhenIssued.ReadOnly = true;
-            this.tbWhenIssued.Size = new System.Drawing.Size(756, 13);
-            this.tbWhenIssued.TabIndex = 13;
+            this.tbSerialNumber.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tbSerialNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbSerialNumber.Location = new System.Drawing.Point(165, 129);
+            this.tbSerialNumber.Name = "tbSerialNumber";
+            this.tbSerialNumber.ReadOnly = true;
+            this.tbSerialNumber.Size = new System.Drawing.Size(756, 13);
+            this.tbSerialNumber.TabIndex = 11;
+            // 
+            // tbDocument
+            // 
+            this.tbDocument.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tbDocument.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDocument.Location = new System.Drawing.Point(165, 105);
+            this.tbDocument.Name = "tbDocument";
+            this.tbDocument.ReadOnly = true;
+            this.tbDocument.Size = new System.Drawing.Size(756, 13);
+            this.tbDocument.TabIndex = 10;
+            // 
+            // tbPassClosen
+            // 
+            this.tbPassClosen.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tbPassClosen.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPassClosen.Location = new System.Drawing.Point(166, 59);
+            this.tbPassClosen.Name = "tbPassClosen";
+            this.tbPassClosen.ReadOnly = true;
+            this.tbPassClosen.Size = new System.Drawing.Size(756, 13);
+            this.tbPassClosen.TabIndex = 9;
+            // 
+            // tbPassGiven
+            // 
+            this.tbPassGiven.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tbPassGiven.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPassGiven.Location = new System.Drawing.Point(167, 34);
+            this.tbPassGiven.Name = "tbPassGiven";
+            this.tbPassGiven.ReadOnly = true;
+            this.tbPassGiven.Size = new System.Drawing.Size(756, 13);
+            this.tbPassGiven.TabIndex = 8;
+            // 
+            // tbFIO
+            // 
+            this.tbFIO.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tbFIO.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbFIO.Location = new System.Drawing.Point(167, 8);
+            this.tbFIO.Name = "tbFIO";
+            this.tbFIO.ReadOnly = true;
+            this.tbFIO.Size = new System.Drawing.Size(756, 13);
+            this.tbFIO.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(85, 183);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Когда выдан:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(94, 157);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Кем выдан:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(84, 130);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Серия номер:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 103);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(154, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Предоставленный документ:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 59);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(141, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Пропуск действителен до:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(72, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Пропуск выдан:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(123, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ФИО:";
             // 
             // PassDetailsControl
             // 
