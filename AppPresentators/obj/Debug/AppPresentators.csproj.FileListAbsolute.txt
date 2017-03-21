@@ -53,3 +53,5 @@ D:\Dev\LeoBaseVersion2\AppPresentators\bin\Debug\Ninject.xml
 D:\Dev\LeoBaseVersion2\AppPresentators\obj\Debug\AppPresentators.csprojResolveAssemblyReference.cache
 D:\Dev\LeoBaseVersion2\AppPresentators\obj\Debug\AppPresentators.dll
 D:\Dev\LeoBaseVersion2\AppPresentators\obj\Debug\AppPresentators.pdb
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Debug\itextsharp.dll
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Debug\itextsharp.xml

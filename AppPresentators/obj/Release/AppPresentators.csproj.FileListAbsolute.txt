@@ -28,3 +28,5 @@ D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\Ninject.xml
 D:\Dev\LeoBaseVersion2\AppPresentators\obj\Release\AppPresentators.csprojResolveAssemblyReference.cache
 D:\Dev\LeoBaseVersion2\AppPresentators\obj\Release\AppPresentators.dll
 D:\Dev\LeoBaseVersion2\AppPresentators\obj\Release\AppPresentators.pdb
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\itextsharp.dll
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Release\itextsharp.xml

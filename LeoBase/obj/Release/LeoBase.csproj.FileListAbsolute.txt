@@ -208,3 +208,6 @@ D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.New
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.PassesTableControl.resources
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.NewControls.SavePassControl.resources
 D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Components.CustomControls.PreloadPanel.resources
+D:\Dev\LeoBaseVersion2\LeoBase\obj\Release\LeoBase.Forms.OrderDialog.resources
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\itextsharp.dll
+D:\Dev\LeoBaseVersion2\LeoBase\bin\Release\itextsharp.xml
