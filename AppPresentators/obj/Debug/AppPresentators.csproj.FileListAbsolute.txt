@@ -55,3 +55,5 @@ D:\Dev\LeoBaseVersion2\AppPresentators\obj\Debug\AppPresentators.dll
 D:\Dev\LeoBaseVersion2\AppPresentators\obj\Debug\AppPresentators.pdb
 D:\Dev\LeoBaseVersion2\AppPresentators\bin\Debug\itextsharp.dll
 D:\Dev\LeoBaseVersion2\AppPresentators\bin\Debug\itextsharp.xml
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Debug\EPPlus.dll
+D:\Dev\LeoBaseVersion2\AppPresentators\bin\Debug\EPPlus.xml

@@ -33,6 +33,8 @@
             this.cmbOrderType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.formatPanel = new System.Windows.Forms.Panel();
+            this.tbOrderName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbPath = new System.Windows.Forms.Label();
             this.btnSelectPathForOrder = new System.Windows.Forms.Button();
@@ -60,8 +62,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.orderSaveFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.printDialog = new System.Windows.Forms.PrintDialog();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbOrderName = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.penelOrderType.SuspendLayout();
             this.formatPanel.SuspendLayout();
@@ -140,6 +140,23 @@
             this.formatPanel.Size = new System.Drawing.Size(512, 87);
             this.formatPanel.TabIndex = 1;
             // 
+            // tbOrderName
+            // 
+            this.tbOrderName.Location = new System.Drawing.Point(225, 60);
+            this.tbOrderName.Name = "tbOrderName";
+            this.tbOrderName.Size = new System.Drawing.Size(216, 20);
+            this.tbOrderName.TabIndex = 6;
+            this.tbOrderName.Text = "TestOrder";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(127, 63);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(96, 13);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "Название отчета:";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -158,6 +175,7 @@
             this.lbPath.Padding = new System.Windows.Forms.Padding(3);
             this.lbPath.Size = new System.Drawing.Size(133, 21);
             this.lbPath.TabIndex = 3;
+            this.lbPath.Text = "D:\\TestOrders";
             // 
             // btnSelectPathForOrder
             // 
@@ -397,22 +415,6 @@
             // printDialog
             // 
             this.printDialog.UseEXDialog = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(127, 63);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(96, 13);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Название отчета:";
-            // 
-            // tbOrderName
-            // 
-            this.tbOrderName.Location = new System.Drawing.Point(225, 60);
-            this.tbOrderName.Name = "tbOrderName";
-            this.tbOrderName.Size = new System.Drawing.Size(216, 20);
-            this.tbOrderName.TabIndex = 6;
             // 
             // OrderDialog
             // 

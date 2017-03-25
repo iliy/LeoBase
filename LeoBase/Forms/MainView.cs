@@ -18,6 +18,7 @@ using LeoBase.Components.CustomControls;
 using LeoBase.Components.CustomControls.SearchPanels;
 using AppPresentators.Services;
 using AppPresentators;
+using AppPresentators.Infrastructure;
 
 namespace LeoBase.Forms
 {
@@ -93,7 +94,16 @@ namespace LeoBase.Forms
             centerPanel.Controls.Add(_preloadPanel);
         }
 
-        
+        public void MakeOrder(IOrderPage orderPage)
+        {
+            OrderDialog dialog = new OrderDialog();
+
+            dialog.OrderPage = orderPage;
+
+            dialog.StartPosition = FormStartPosition.CenterParent;
+
+            dialog.ShowDialog();
+        }
 
         AdminViolationSearchModel aa = new AdminViolationSearchModel();
         public void SetTopControls(List<Control> controls)

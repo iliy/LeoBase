@@ -95,6 +95,7 @@ namespace LeoBase.Components.CustomControls
         public event ViolationEvent RemoveViolation;
         public event ViolationEvent ShowDetailsViolation;
         public event Action UpdateTable;
+        public event Action BuildReport;
 
         private AutoBinderPanel _searhcPanel;
         private Dictionary<string, int> _orderProperties;
@@ -252,6 +253,7 @@ namespace LeoBase.Components.CustomControls
         private void MakeTopControls()
         {
             _tpControls = new TopControls(ConfigApp.CurrentManager.Role);
+            
 
             _tpControls.DetailsItem += () =>
             {
@@ -296,6 +298,14 @@ namespace LeoBase.Components.CustomControls
                     AddViolation();
             };
 
+            _tpControls.ReportItem += () =>
+            {
+                if(BuildReport != null)
+                {
+                    BuildReport();
+                }
+            };
+
             _tpControls.EnabledDelete = false;
 
             _tpControls.EnabledDetails = false;
@@ -332,7 +342,7 @@ namespace LeoBase.Components.CustomControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Name = "AdminintrationViolationTableControl";
-            this.Size = new System.Drawing.Size(1250, 881);
+            this.Size = new System.Drawing.Size(1250, 701);
             this.VisibleLoadPanel = true;
             this.ResumeLayout(false);
 

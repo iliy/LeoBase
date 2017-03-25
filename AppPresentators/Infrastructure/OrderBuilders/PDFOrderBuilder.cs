@@ -29,13 +29,13 @@ namespace AppPresentators.Infrastructure.OrderBuilders
         private Paragraph _p;
 
         private string _fontPath;
-
+        public bool WasError { get; set; } = false;
         public PDFOrderBuilder()
         {
             _doc = new Document();
         }
 
-        public void SetOrderPath(string path)
+        public void SetOrderPath(DirectoryInfo dirInfo, string orderName)
         {
             _fontPath = Directory.GetCurrentDirectory() + "\\Fonts\\8277.ttf";
 
@@ -51,12 +51,22 @@ namespace AppPresentators.Infrastructure.OrderBuilders
             _baseFont = BaseFont.CreateFont(_fontPath, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
             _fgFont = new iTextSharp.text.Font(_baseFont, 12, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+            
+            if (!Directory.Exists(dirInfo.FullName))
+            {
+                if (ErrorBuild != null) ErrorBuild("Папка " + dirInfo.FullName + " не найдена.");
+                return;
+            }
 
-            try { 
+            string path = dirInfo.FullName + @"/" + orderName + ".pdf";
+
+            try
+            { 
                 PdfWriter.GetInstance(_doc, new FileStream(path, FileMode.Create));
             }catch(Exception e)
             {
                 if (ErrorBuild != null) ErrorBuild("Невозможно записать отчет в файл: " + path +" \r\n" + "Файл занят другим процессом");
+                WasError = true;
                 return;
             }
 
@@ -114,6 +124,7 @@ namespace AppPresentators.Infrastructure.OrderBuilders
             if (!_wasBeCreated)
             {
                 if (ErrorBuild != null) ErrorBuild("Не указан путь для отчета.");
+                WasError = true;
                 return;
             }
 
@@ -122,11 +133,12 @@ namespace AppPresentators.Infrastructure.OrderBuilders
             SetClearLine();
         }
 
-        public string Save(string path, string orderName)
+        public string Save()
         {
             if (!_wasBeCreated)
             {
                 if (ErrorBuild != null) ErrorBuild("Не указан путь для отчета.");
+                WasError = true;
                 return null;
             }
 
@@ -140,11 +152,20 @@ namespace AppPresentators.Infrastructure.OrderBuilders
             if (!_wasBeCreated)
             {
                 if (ErrorBuild != null) ErrorBuild("Не указан путь для отчета.");
+                WasError = true;
                 return;
             }
             if(headers == null)
             {
                 if (ErrorBuild != null) ErrorBuild("Не указаны заголовки.");
+                WasError = true;
+                return;
+            }
+
+            if(headers.Length == 0)
+            {
+                if (ErrorBuild != null) ErrorBuild("Ошибка при формирование отчета.");
+                WasError = true;
                 return;
             }
 
@@ -165,6 +186,7 @@ namespace AppPresentators.Infrastructure.OrderBuilders
             if (!_wasBeCreated)
             {
                 if (ErrorBuild != null) ErrorBuild("Не указан путь для отчета.");
+                WasError = true;
                 return;
             }
 
@@ -185,6 +207,7 @@ namespace AppPresentators.Infrastructure.OrderBuilders
             if(_p == null)
             {
                 if (ErrorBuild != null) ErrorBuild("Ошибка записи текста.");
+                WasError = true;
                 return;
             }
 
@@ -205,6 +228,7 @@ namespace AppPresentators.Infrastructure.OrderBuilders
             if (!_wasBeCreated)
             {
                 if (ErrorBuild != null) ErrorBuild("Не указан путь для отчета.");
+                WasError = true;
                 return;
             }
 

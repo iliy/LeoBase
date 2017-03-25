@@ -17,6 +17,7 @@ namespace AppPresentators.Components
         event ViolationEvent ShowDetailsViolation;
         event ViolationEvent EditViolation;
         event Action UpdateTable;
+        event Action BuildReport;
 
         AdminViolationSearchModel SearchModel { get; }
         AdminViolationOrderModel OrederModel { get; }

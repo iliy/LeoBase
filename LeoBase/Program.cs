@@ -25,14 +25,17 @@ namespace LeoBase
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Настройка ninject для создания абстрактных репозиториев
-            //ApplicationFactory appFactory = new ApplicationFactory();
-            //var mainView = new MainView();
-            //IMainPresentator mainPresentator = appFactory.GetMainPresentator(appFactory);
+            ApplicationFactory appFactory = new ApplicationFactory();
 
-            //LeoBaseContext.InitDefaultValue();
+            var mainView = new MainView();
 
-            //mainPresentator.Run();
-            Application.Run(new OrderDialog() { OrderPage = new TestOrderPage() });
+            IMainPresentator mainPresentator = appFactory.GetMainPresentator(appFactory);
+
+            LeoBaseContext.InitDefaultValue();
+
+            mainPresentator.Run();
+
+            //Application.Run(new OrderDialog() { OrderPage = new TestOrderPage() });
         }
     }
 
@@ -62,8 +65,13 @@ namespace LeoBase
                 Image img = Image.FromFile("D:/Images/testimg.jpg");
                 orderBuilder.DrawImage(img, Align.LEFT);
             }
+            if (configs.SinglePageConfig.DrawImages)
+            {
+                Image img = Image.FromFile("D:/Images/testimg.jpg");
+                orderBuilder.DrawImage(img, Align.LEFT);
+            }
 
-            
+
 
             orderBuilder.StartTable("Test table", new[] { "h1", "h2", "h3" });
 
@@ -86,11 +94,18 @@ namespace LeoBase
 
             orderBuilder.StartPharagraph(Align.CENTER);
 
-            orderBuilder.WriteText("Снова проверочный текст", Color.Black, TextStyle.BOLD, 15);
+            orderBuilder.WriteText("Снова проверочный текст", Color.Black, TextStyle.ITALIC, 15);
 
             orderBuilder.EndPharagraph();
 
-            _orderDirPath = orderBuilder.Save(configs.OrderDirPath, configs.OrderName);
+            if (configs.SinglePageConfig.DrawImages)
+            {
+                Image img = Image.FromFile("D:/Images/testimg.jpg");
+                orderBuilder.DrawImage(img, Align.LEFT);
+            }
+
+
+            _orderDirPath = orderBuilder.Save();
 
             
 

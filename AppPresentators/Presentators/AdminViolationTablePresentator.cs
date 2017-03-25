@@ -13,10 +13,11 @@ using System.ComponentModel;
 using AppPresentators.VModels;
 using System.Threading;
 using AppData.Contexts;
+using AppPresentators.Infrastructure.Orders;
 
 namespace AppPresentators.Presentators
 {
-    public class AdminViolationTablePresentator : IAdminViolationTablePresentator
+    public class AdminViolationTablePresentator : IAdminViolationTablePresentator, IOrderPage
     {
         public ResultTypes ResultType { get; set; }
 
@@ -45,6 +46,24 @@ namespace AppPresentators.Presentators
             }
         }
 
+        public Infrastructure.Orders.OrderType OrderType
+        {
+            get
+            {
+                return Infrastructure.Orders.OrderType.TABLE;
+            }
+        }
+
+        private string _orderDirPath;
+
+        public string OrderDirPath
+        {
+            get
+            {
+                return _orderDirPath;
+            }
+        }
+
         public event SendResult SendResult;
 
         private IApplicationFactory _appFactory;
@@ -68,7 +87,7 @@ namespace AppPresentators.Presentators
             _pageLoader.RunWorkerCompleted += PageLoaded;
 
             _mainView = mainView;
-
+            
             _view.AddViolation += AddViolation;
 
             _view.EditViolation += EditViolation;
@@ -77,7 +96,27 @@ namespace AppPresentators.Presentators
 
             _view.RemoveViolation += RemoveViolation;
 
+            _view.BuildReport += BuildReport;
+
             _view.UpdateTable += () => UpdateData(_view.OrederModel, _view.SearchModel, _view.PageModel);
+        }
+
+
+        private static PageModel _page;
+
+        private static AdminViolationSearchModel _search;
+
+        private static AdminViolationOrderModel _order;
+
+        private void BuildReport()
+        {
+            var mainView = _appFactory.GetMainView();
+
+            _page = _view.PageModel;
+            _search = _view.SearchModel;
+            _order = _view.OrederModel;
+
+            mainView.MakeOrder(this);
         }
 
         private void PageLoaded(object sender, RunWorkerCompletedEventArgs e)
@@ -220,6 +259,80 @@ namespace AppPresentators.Presentators
         public void Update()
         {
             UpdateData();
+        }
+
+        public void BuildOrder(IOrderBuilder orderBuilder, OrderConfigs configs)
+        {
+            //_view.PageModel, _view.OrederModel, _view.SearchModel
+
+            List<AdminViolationRowModel> data = null;// _service.GetTableData(page, order, search);
+            
+            if (!configs.TableConfig.ConsiderFilter) _search = null;
+
+            if (!configs.TableConfig.CurrentPageOnly)
+                _page = new PageModel()
+                {
+                    CurentPage = 1,
+                    ItemsOnPage = 1000000
+                };
+
+            data = _service.GetTableData(_page, _order, _search);
+
+            string[] headers = new[]
+            {
+                "Нарушитель",
+                "ФИО сотрудника",
+                "Координаты",
+                "Рассмотрение",
+                "Нарушение",
+                "Дата оплаты",
+                "Сумма наложения",
+                "Сумма взыскания",
+                "Отправление",
+                "Отправлено судебным приставам",
+                "Извещение",
+                "Повестка по статье 20.25"
+            };
+
+            orderBuilder.StartTable("violations table", headers);
+
+            foreach (var row in data)
+            {
+                string[] cells = new string[headers.Length];
+                cells[0] = row.ViolatorInfo;
+                cells[1] = row.EmployerInfo;
+                cells[2] = row.Coordinates;
+                cells[3] = row.Consideration.ToShortDateString();
+                cells[4] = row.Violation;
+                cells[5] = row.DatePaymant;
+                cells[6] = row.SumViolation.ToString();
+                cells[7] = row.SumRecovery.ToString();
+                cells[8] = row.InformationAboutSending;
+                cells[9] = row.DateSentBailiff;
+                cells[10] = row.InformationAboutNotice;
+                cells[11] = row.InformationAbout2025;
+
+                RowColor color = RowColor.DEFAULT;
+
+                if (row.SumRecovery == row.SumViolation)
+                {
+                    color = RowColor.GREEN;
+                }
+                else if (row.SumRecovery < row.SumViolation && (DateTime.Now - row.Consideration).Days > 70)
+                {
+                    color = RowColor.RED;
+                }
+                else if ((DateTime.Now - row.Consideration).Days < 70)
+                {
+                    color = RowColor.YELLOW;
+                }
+
+                orderBuilder.WriteRow(cells, color);
+            }
+
+            orderBuilder.EndTable("violations table");
+
+            _orderDirPath = orderBuilder.Save();
         }
     }
 

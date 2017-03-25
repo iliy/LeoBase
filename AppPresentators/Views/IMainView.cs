@@ -1,5 +1,6 @@
 ﻿using AppPresentators.Components;
 using AppPresentators.Components.MainMenu;
+using AppPresentators.Infrastructure;
 using AppPresentators.VModels;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace AppPresentators.Views
         void ClearCenter();
         void StartTask();
         void EndTask(bool setOldState);
+        void MakeOrder(IOrderPage orderPage);
         #endregion
 
         #region Actions

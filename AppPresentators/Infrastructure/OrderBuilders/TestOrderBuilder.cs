@@ -12,6 +12,19 @@ namespace AppPresentators.Infrastructure.OrderBuilders
     {
         private string TextMessage = "";
 
+        public bool WasError
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public event Action<string> ErrorBuild;
 
         public void DrawImage(Image img, Align al)
@@ -27,6 +40,11 @@ namespace AppPresentators.Infrastructure.OrderBuilders
         public void EndTable(string name)
         {
             TextMessage += "Таблица [" + name + "] закончена \r\n";
+        }
+
+        public string Save()
+        {
+            throw new NotImplementedException();
         }
 
         public string Save(string path, string orderName)
@@ -50,6 +68,11 @@ namespace AppPresentators.Infrastructure.OrderBuilders
             File.WriteAllText(@path, TextMessage);
 
             return path;
+        }
+
+        public void SetOrderPath(DirectoryInfo dirInfo, string orderName)
+        {
+            throw new NotImplementedException();
         }
 
         public void StartPharagraph(Align al)
