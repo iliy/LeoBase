@@ -11,6 +11,9 @@ using AppPresentators.Components;
 using AppData.Contexts;
 using AppPresentators.Services;
 using AppPresentators.VModels.Persons;
+using AppPresentators.Infrastructure.Orders;
+using System.Drawing;
+using System.IO;
 
 namespace AppPresentators.Presentators
 {
@@ -19,7 +22,7 @@ namespace AppPresentators.Presentators
         ViolatorDetailsModel Violator { get; set; }
     }
 
-    public class ViolatorDetailsPresentator : IViolatorDetailsPresentator
+    public class ViolatorDetailsPresentator : IViolatorDetailsPresentator, IOrderPage
     {
         public ResultTypes ResultType { get; set; }
 
@@ -48,6 +51,7 @@ namespace AppPresentators.Presentators
                 return _control.TopControls;
             }
         }
+        private static ViolatorDetailsModel _violator;
 
         public ViolatorDetailsModel Violator
         {
@@ -58,7 +62,26 @@ namespace AppPresentators.Presentators
 
             set
             {
+                _violator = value;
                 _control.Violator = value;
+            }
+        }
+
+        public Infrastructure.Orders.OrderType OrderType
+        {
+            get
+            {
+                return Infrastructure.Orders.OrderType.SINGLE_PAGE;
+            }
+        }
+
+        private string _orderPath;
+
+        public string OrderDirPath
+        {
+            get
+            {
+                return _orderPath;
             }
         }
 
@@ -77,6 +100,15 @@ namespace AppPresentators.Presentators
             _control.ShowDetailsViolation += ShowDetailsViolation;
 
             _control.EditViolator += EditViolator;
+
+            _control.MakeReport += MakeReport;
+        }
+
+        private void MakeReport()
+        {
+            var mainView = _appFactory.GetMainView();
+
+            mainView.MakeOrder(this);
         }
 
         private void EditViolator()
@@ -260,6 +292,23 @@ namespace AppPresentators.Presentators
             }
 
             Violator = violator;
+        }
+
+        public void BuildOrder(IOrderBuilder orderBuilder, OrderConfigs configs)
+        {
+            if (configs.SinglePageConfig.DrawImages)
+            {
+                using (var ms = new MemoryStream(_violator.Image))
+                {
+                    var image = Image.FromStream(ms);
+
+                    orderBuilder.DrawImage(image, Align.CENTER);
+                }
+            }
+
+            /// TODO: Доделать вывод информации о правонарушителе в отчет
+
+            _orderPath = orderBuilder.Save();
         }
     }
 }

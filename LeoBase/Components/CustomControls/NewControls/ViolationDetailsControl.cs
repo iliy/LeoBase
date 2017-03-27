@@ -104,6 +104,8 @@ namespace LeoBase.Components.CustomControls.NewControls
                 return;
             }
 
+            imagePanel.Controls.Clear();
+
             int x = 5;
             int y = 5;
 
@@ -277,7 +279,7 @@ namespace LeoBase.Components.CustomControls.NewControls
                 _map.SetPoint(point);
 
                 _map.LookAt(point);
-
+                
                 //_map.MouseState = LeoMapV3.Models.MapDragAndDropStates.NONE;
 
                 mapPanel.Controls.Add(_map);
@@ -323,28 +325,23 @@ namespace LeoBase.Components.CustomControls.NewControls
                 if (!path.EndsWith("\\")) path += "\\";
 
 
-                foreach (var control in imagePanel.Controls)
+
+                foreach (var img in Violation.Images)
                 {
-                    var pv = control as PictureViewer;
-
-                    if (pv == null) continue;
-
-                    if (!pv.Checked) continue;
-
                     int index = 1;
 
-                    string fileName = path + (pv.ImageName ?? (index).ToString()) + ".jpg";
+                    string fileName = path + (img.Name ?? (index).ToString()) + ".jpg";
 
                     while (File.Exists(fileName))
                     {
-                        fileName = path + (string.IsNullOrEmpty(pv.ImageName) ? (index++).ToString() : pv.ImageName + (index++)) + ".jpg";
+                        fileName = path + (string.IsNullOrEmpty(img.Name) ? (index++).ToString() : img.Name + (index++)) + ".jpg";
                     }
 
-                    MemoryStream ms = new MemoryStream(pv.Image);
-
-                    Image i = Image.FromStream(ms);
-
-                    i.Save(fileName);
+                    using (var ms = new MemoryStream(img.Image))
+                    {
+                        var image = Image.FromStream(ms);
+                        image.Save(fileName);
+                    }
                 }
             }
         }
@@ -363,6 +360,16 @@ namespace LeoBase.Components.CustomControls.NewControls
             {
                 ShowEmployerDetails(Violation.Employer.UserID);
             }
+        }
+
+        public Image GetMap()
+        {
+            if (_map == null) return null;
+            
+            System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(_map.Width, _map.Height);
+            _map.DrawToBitmap(bitmap, _map.ClientRectangle);
+
+            return bitmap;
         }
     }
 }

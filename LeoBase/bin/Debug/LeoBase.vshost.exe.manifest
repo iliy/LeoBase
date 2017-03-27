@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="282624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AppPresentators.dll" size="289280">
       <assemblyIdentity name="AppPresentators" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>fDakomi4JecAnz6DWuNpZtQ7bAV75o4b8BKzdd5W1+Y=</dsig:DigestValue>
+        <dsig:DigestValue>wyGvQ5k2bnRX9X7+jZ6ewzjbdWYuY+zEq+n9YxgxXLE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoBase.exe" size="1887712">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LeoBase.exe" size="1888224">
       <assemblyIdentity name="LeoBase" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GOldxLyAb/hx7HkcuhIF0IwE/wdPe9BJ4yapbbgIDs0=</dsig:DigestValue>
+        <dsig:DigestValue>WO9pEuHteW3xFkDonKdTIiXNGPFamwNplK4ThDyABik=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

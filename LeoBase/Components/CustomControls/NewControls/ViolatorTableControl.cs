@@ -256,6 +256,7 @@ namespace LeoBase.Components.CustomControls.NewControls
         public event Action StartTask;
         public event Action UpdateTable;
         public event Action<ViolatorViewModel> SelectedItemForResult;
+        public event Action MakeReport;
 
         public Control GetControl()
         {
@@ -313,6 +314,11 @@ namespace LeoBase.Components.CustomControls.NewControls
 
                 var item = _data[_selectedIndex];
                 if (ShowPersoneDetails != null) ShowPersoneDetails(item);
+            };
+
+            _tpControls.ReportItem += () =>
+            {
+                if (MakeReport != null) MakeReport();
             };
 
             _tpControls.EditItem += () =>

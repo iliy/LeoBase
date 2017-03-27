@@ -71,6 +71,7 @@ namespace AppPresentators.Infrastructure.OrderBuilders
             }
 
             _doc.Open();
+            
 
             _wasBeCreated = true;
 

@@ -1,6 +1,7 @@
 ﻿using AppData.Entities;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,5 +18,7 @@ namespace AppPresentators.Components
 
         event Action<int> ShowEmployerDetails;
         event Action EditViolation;
+
+        Image GetMap();
     }
 }

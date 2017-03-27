@@ -15,6 +15,7 @@ namespace AppPresentators.Components
         event Action EndTask;
         event Action AddNewEmployer;
         event Action<ViolatorViewModel> SelectedItemForResult;
+        event Action MakeReport;
 
         event ShowPersoneDetails ShowPersoneDetails;
         event EditPersone EditPersone;

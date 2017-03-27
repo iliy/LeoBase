@@ -97,6 +97,11 @@ namespace LeoBase.Components.CustomControls.NewControls
             }
         }
 
+        public Image GetImage()
+        {
+            return this.BackgroundImage;
+        }
+
         public PictureViewer()
         {
             InitializeComponent();

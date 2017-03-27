@@ -14,10 +14,11 @@ using AppPresentators.Views;
 using System.ComponentModel;
 using System.Threading;
 using AppData.Contexts;
+using AppPresentators.Infrastructure.Orders;
 
 namespace AppPresentators.Presentators
 {
-    public class ViolatorTablePresentator : IViolatorTablePresentator
+    public class ViolatorTablePresentator : IViolatorTablePresentator, IOrderPage
     {
         private IApplicationFactory _appFactory;
         private IViolatorTableControl _control;
@@ -27,6 +28,12 @@ namespace AppPresentators.Presentators
         public event SendResult SendResult;
 
         private BackgroundWorker _pageLoader;
+
+        private static PageModel _pageModel;
+        private static PersonsOrderModel _orderModel;
+        private static PersonsSearchModel _personeSearchModel;
+        private static DocumentSearchModel _documentSearchModel;
+        private static SearchAddressModel _addressSearchModel;
 
         public bool ShowFastSearch { get { return true; } }
         public bool ShowSearch { get { return true; } }
@@ -54,6 +61,25 @@ namespace AppPresentators.Presentators
                 return _control.TopControls;
             }
         }
+
+        public Infrastructure.Orders.OrderType OrderType
+        {
+            get
+            {
+                return Infrastructure.Orders.OrderType.TABLE;
+            }
+        }
+
+        private string _orderPath;
+
+        public string OrderDirPath
+        {
+            get
+            {
+                return _orderPath;
+            }
+        }
+
         public void SetResult(ResultTypes resultType, object data)
         {
             switch (resultType)
@@ -88,6 +114,9 @@ namespace AppPresentators.Presentators
 
             _control.ShowPersoneDetails += ShowEmployerDetails;
 
+            _control.MakeReport += MakeReport;
+
+
             _pageLoader = new BackgroundWorker();
 
             _pageLoader.DoWork += PageLoading;
@@ -95,6 +124,19 @@ namespace AppPresentators.Presentators
             _pageLoader.RunWorkerCompleted += PageLoadingComplete;
 
             _control.SelectedItemForResult += SelectedItemForResult;
+        }
+
+        private void MakeReport()
+        {
+            var mainView = _appFactory.GetMainView();
+
+            _personeSearchModel = _control.PersoneSearchModel;
+            _addressSearchModel = _control.AddressSearchModel;
+            _documentSearchModel = _control.DocumentSearchModel;
+            _orderModel = _control.OrderModel;
+            _pageModel = _control.PageModel;
+            
+            mainView.MakeOrder(this);
         }
 
         private void PageLoadingComplete(object sender, RunWorkerCompletedEventArgs e)
@@ -410,6 +452,69 @@ namespace AppPresentators.Presentators
         {
             GetPersones(_control.PageModel, _control.PersoneSearchModel, _control.AddressSearchModel, _control.OrderModel, _control.DocumentSearchModel);
             return _control.GetControl();
+        }
+
+        public void BuildOrder(IOrderBuilder orderBuilder, OrderConfigs configs)
+        {
+            if (!configs.TableConfig.CurrentPageOnly)
+            {
+                _pageModel = new PageModel
+                {
+                    CurentPage = 1,
+                    ItemsOnPage = 100000
+                };
+            }
+
+            if (!configs.TableConfig.ConsiderFilter)
+            {
+                _personeSearchModel = new PersonsSearchModel
+                {
+                    IsEmployer = false
+                };
+
+                _documentSearchModel = new DocumentSearchModel();
+
+                _addressSearchModel = new SearchAddressModel();
+            }
+
+            _service.PageModel = _pageModel;
+            _service.DocumentSearchModel = _documentSearchModel;
+            _service.SearchModel = _personeSearchModel;
+            _service.AddressSearchModel = _addressSearchModel;
+            _service.OrderModel = _orderModel;
+
+            var result = _service.GetPersons();
+
+            string[] headers = new string[] 
+            {
+                "Фамилия",
+                "Имя",
+                "Отчество",
+                "Дата рождения",
+                "Место рождения",
+                "Место работы"
+            };
+
+            orderBuilder.StartTable("violators_table", headers);
+
+            foreach(var violator in result)
+            {
+
+                orderBuilder.WriteRow(new string[] 
+                {
+                    violator.FirstName,
+                    violator.SecondName,
+                    violator.MiddleName,
+                    string.Format("{0}.{1}.{2}", violator.DateBirthday.Day, violator.DateBirthday.Month, violator.DateBirthday.Year),
+                    violator.PlaceOfBirth,
+                    ((ViolatorViewModel)violator).PlaceOfWork
+                });
+            }
+
+            orderBuilder.EndTable("violators_table");
+
+            _orderPath = orderBuilder.Save();
+
         }
     }
 

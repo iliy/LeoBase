@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "ViolatorTableControl";
-            this.Size = new System.Drawing.Size(1250, 881);
+            this.Size = new System.Drawing.Size(1250, 1000);
             this.VisibleLoadPanel = true;
             this.ResumeLayout(false);
 
